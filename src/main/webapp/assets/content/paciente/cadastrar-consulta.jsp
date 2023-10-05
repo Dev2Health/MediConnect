@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib url="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
 		<title>Cadastro de Consulta</title>
-		<style><%@include file="assets/styles/pagina-inicial.css"%></style>
-		<script><%@include file="assets/script/script.js"%></script>
+		<style><%@include file="./assets/styles/pagina-inicial.css"%></style>
+		<script><%@include file="./assets/script/script.js"%></script>
 	</head>
 	<body>
 		<%@ include file="menu.jsp"%>
