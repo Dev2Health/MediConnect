@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Noto+Sans+Symbols:wght@300;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border-style: none;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores */
+    --background-light: #F8F3FB;
+    --background-institution: #F3FBFB;
+    --purple: #6C64C4;
+    --purple-light: #B5B1E1;
+    --purple-dark: #48428E;
+    --blue: #74A0D4;
+    --blue-light: #B9CFE9;
+    --blue-dark: #3D5E87;
+    --dark: #232323;
+    --viridian: #5AC48C;
+    --crimson: #C45A5A;
+    /* Fontes */
+    --font-general: 'Noto Sans Symbols', sans-serif;
+    --font-special: 'Fredoka', sans-serif;
+}
+
+/* Textos - precisaremos colocar medidas/tamanhos relativos, eliminando o uso de px por rem (eg) */
+
+.text {
+    font-family: var(--font-general);
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+}
+
+.text-small {
+    font-family: var(--font-general);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+.text-no-emphasis {
+    font-family: var(--font-general);
+    font-weight: 300;
+    font-size: 26px;
+    letter-spacing: 1.5px;
+}
+
+.text-emphasis {
+    font-family: var(--font-general);
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+.title {
+    font-family: var(--font-general);
+    font-weight: 700;
+    font-size: 55px;
+    letter-spacing: 2.75px;
+}
+
+.subtitle {
+    font-family: var(--font-general);
+    font-weight: 600;
+    font-size: 45px;
+    letter-spacing: 4.5px; 
+}
+
+.title-special {
+    font-family: var(--font-special);
+    font-weight: 400;
+    font-size: 95px;
+    letter-spacing: 4.75px; 
+}
+
+/* Botões */
+
+[class*="btn-round"] {
+    height: 85px;
+    border-radius: 40px;
+    box-shadow: 0px 5px 5px 0px rgba(35, 35, 35, 0.25);
+}
+
+.btn-round-sm {
+    width: 300px;
+}
+
+.btn-round-me {
+    width: 375px;
+}
+
+.btn-round-la {
+    width: 465px;
+}
+
+
+[class*="btn-square"] {
+    height: 65px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 5px 0px rgba(35, 35, 35, 0.25);
+}
+
+.btn-square-sm {
+    width: 300px;
+}
+
+.btn-square-me {
+    width: 375px;
+}
+
+.btn-square-la {
+    width: 395px;
+}
+
+.btn-square-wide {
+    width: 465px;
+}
