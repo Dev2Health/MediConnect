@@ -1,58 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
-    <title>MediConnect</title>
+    
+    <title>Esqueceu sua senha? | MediConnect</title> <!--Renomear a página, este nome é muito extenso-->
     <meta name="description">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    <!-- Refazer esse ícone -->
-    <link rel="stylesheet" type="text/css" href="./assets/styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/pagina-inicial.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../styles/padroes.css">
+
 </head>
+
 <body>
     <header>
         <nav>
-            <p><img src="" alt="icone-voltar"> Voltar</p>
-            <h1>Esqueceu sua senha?</h1>
-            <div>
-                <img src="" alt="logo-mediconnect">
-                <p>MEDICONNECT</p>
-            </div>
+            <img src="../images/icone-voltar.svg" alt="icone-voltar">
+            <a href="#" class="text">Voltar</a>
+            <h1 class="title">Esqueceu sua senha?</h1>
+            <img src="../images/logo-legendado.svg" alt="logo-mediconnect">
         </nav>
     </header>
     <main>
-        <section>
-            <div>
-                <div>
-                    <img src="" alt="icone-email">
-                    <h4>E-mail Atual: endereço.email@gmail.com</h4>
-                </div>
-                <h4>Endereço de E-mail</h4>
-                <div><img src="" alt="icone-email">
-                    <p>novo.email@gmail.com</p>
-                </div>
-                <div><img src="" alt="icone-alerta">
-                    <p>Enviar o tokien de validação para alteração de senha neste e-mail</p>
-                    <h4>Enviar confirmação</h4> <img src="" alt="icone-enviar-confirmacao">
-                </div>
+
+        <div> <!--Caixa inteira do alterar email-->
+            <div> <!--Título da caixa-->
+                <img src="../images/icone-email.svg" alt="icone-email"> <!--Cor Branca-->
+                <h1 class="text">E-mail Atual:</h1>
+                <h1 class="text">endereço.email@gmail.com</h1>
+            </div> <!--Termina o título da caixa-->
+
+            <div> <!--Conteúdo da caixa-->
+                <form>
+                    <label for="email" class="text">Endereço de E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="novo.email@gmail.com">
+                </form>
             </div>
-            <div>
-                <div>
-                    <h4>Nova Senha</h4>
-                    <div>
-                        <p>senha</p><img src="" alt="icone-ollho-aberto">
-                    </div>
-                    <h4>Confirmar Senha</h4>
-                    <div>
-                        <p>*****</p><img src="" alt="icone-ollho-fechado">
-                    </div>
-                    <img src="" alt="icone-alerta">
-                    <p>Para terminar, realize a confirmação enviada ao e-mail cadastrado</p>
-                    <h4>Enviar confirmação</h4> <img src="" alt="icone-enviar-confirmacao">
-                </div>
-                <div>
-                    <button>Salvar Alterações</button>
-                    <button>Descartar Alterações</button>
-                </div>
-        </section>
+
+            <img src="../images/icone-atencao.svg" alt="icone-atencao"> <!--Alterar para Icone-->
+            <p class="text-no-emphasis">Enviar o tokien de validação para alteração de senha neste e-mail</p>
+
+            <p class="text-emphasis">Enviar confirmação</p>
+            <img src="../images/icone-redirecionar.svg" alt="icone-redirecionar"> <!--Alterar para Icone-->
+
+        </div> <!--Termina a caixa de email-->
+
+        <div> <!--Começo da caixa da senha-->
+            <form>
+                <label for="nova senha" class="text">Nova Senha</label>
+                <input type="nova-senha" id="nova-senha" name="nova-senha" placeholder="Senha">
+                <img src="../images/icone-olho-aberto.svg" alt="icone-olho-fechado">
+            </form>
+            
+            <form>
+                <label for="confirmar senha" class="text">Confirmar Senha</label>
+                <input type="confirmar-senha" id="confirmar-senha" name="confirmar-senha" placeholder="*****">
+                <img src="../images/icone-olho-fechado.svg" alt="icone-olho-fechado">
+            </form>
+
+            <img src="../images/icone-atencao.svg" alt="icone-atencao"> <!--Alterar para Icone-->
+            <p class="text-no-emphasis">Para terminar, realize a confirmação enviada ao e-mail cadastrado.</p>
+            
+            <p class="text-emphasis">Enviar confirmação</p>
+            <img src="../images/icone-redirecionar.svg" alt="icone-redirecionar"> <!--Alterar para Icone-->
+        </div><!--Termina caixa da senha-->
+            
+    
+
+
+
     </main>
 </body>
+
+</html>
