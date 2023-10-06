@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib url="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
 		<title>Cadastro de Consulta</title>
-		<style><%@include file="./assets/styles/pagina-inicial.css"%></style>
-		<script><%@include file="./assets/script/script.js"%></script>
+		<style><%@include file="../../styles/pagina-inicial.css"%></style>
+		<script><%@include file="../../scripts/script.js"%></script>
 	</head>
 	<body>
-		<%@ include file="menu.jsp"%>
+		<%@ include file="../../../menu.jsp"%>
 		<div>
 			<div>
 				<h1>
@@ -16,10 +16,10 @@
 				</h1>
 				<div>
 					<c:if test="${consulta != null}">
-						<form action="atualizar" method="post">
+						<form action="atualizar-consulta" method="post">
 					</c:if>
 					<c:if test="${consulta == null}">
-						<form action="inserir" method="post">
+						<form action="inserir-consulta" method="post">
 					</c:if>
 					<c:if test="${consulta != null}">
 						<input type="hidden" name="id" value="<c:out value='${consulta.id}' />" />
