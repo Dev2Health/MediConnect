@@ -1,68 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
+    <title>Cadastro Etapa 1 | MediConnect</title> <!--Renomear a página, este nome é muito extenso-->
+    <meta name="description">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediConnect</title>
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/pagina-inicial.css">
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
 
 </head>
 
 <body>
     <header>
+        <a href="index.html"><img src="../../images/logo.svg" alt="logo-mediconnect"></a>
         <nav>
-            <a href="index.html"><img src="" alt="logo-mediconnect"></a>
             <div>
-                <a href="telaLogin.html">Entrar</a>
-                <button>Nos contacte</button>
+                <a href="../cadastro-inicial.html" class="text">Tela de Cadastro</a>
+                <button class="btn-round-me">Nos contacte</button>
             </div>
         </nav>
     </header>
     <section>
         <h1>Informe os dados da instituição</h1>
 
-        <div>
-            <img src="" alt="icone-cep">
-            <h4>CEP</h4>
-            <p>83645-234</p>
-            <img src="" alt="icone-verificado">
-        </div>
+        <div class="content-left">
+            <form>
+                <img src="../../images/icone-cep.svg" alt="icone-cep"> <!--Cor roxa-->
+                <label for="cep" class="text">CEP</label>
+                <input type="number" id="cep" name="cep" placeholder="83645-234">
+                <img src="../../images/icone-verificado.svg" alt="icone-verificado">
+            </form>
 
-        <div>
-            <img src="" alt="icone-mapa">
-            <h4>Cidade</h4>
-            <p>Nome</p>
-        </div>
+            <form>
+                <img src="../../images/icone-mapa.svg" alt="icone-cep"> <!--Cor roxa-->
+                <label for="cidade" class="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" placeholder="Nome">
+            </form>
 
-        <div>
-            <img src="" alt="icone-localidade">
-            <h4>Logradouro</h4>
-            <p>Rua Jardim das Flores</p>
-        </div>
+            <form>
+                <img src="../../images/icone-logradouro.svg" alt="icone-logradouro"> <!--Cor roxa-->
+                <label for="logradouro" class="logradouro">Logradouro</label>
+                <input type="text" id="logradouro" name="logradouro" placeholder="Rua Jardim das Flores">
+            </form>
+    </div>
 
-        <div>
-            <img src="" alt="icone-mapa">
-            <h4>Estado</h4>
-            <p>(Selecione o Estado)</p>
-            <img src="" alt="icone-seta-dropdown">
-        </div>
+    <form>
+        <img src="../../images/icone-mapa.svg" alt="icone-estado"> <!--Cor roxa-->
+        <label for="estado" class="estado">Estado</label>
+        <input type="text" id="estado" name="estado" placeholder="Selecione o Estado"> <!--Alterar o input type, par algo que encaixe o dropdown com todas as opções de estados-->
+    </form>
 
-        <div>
-            <img src="" alt="icone-localidade">
-            <h4>Bairro</h4>
-            <p>Nome</p>
-        </div>
+    <form>
+        <img src="../../images/icone-logradouro.svg" alt="icone-bairro"> <!--Cor roxa-->
+        <label for="bairro" class="bairro">Bairro</label>
+        <input type="text" id="bairro" name="bairro" placeholder="Nome">
+    </form>
 
-        <div><img src="" alt="icone-lista-numeros">
-            <h4>Número</h4>
-            <p>XXXX</p>
-        </div>
+    <form>
+        <img src="../../images/icone-numeros.svg" alt="icone-numeros"> <!--Cor roxa-->
+        <label for="numero" class="numero">Número</label>
+        <input type="number" id="numero" name="numero" placeholder="XXXX">
+    </form>
 
-        <button>Limpar</button>
-        <button>Continuar</button>
+    <button class="btn-round-sm" >Limpar</button>
+    <a href="#" ><button class="btn-round-sm">Continuar</button></a>
 
     </section>
 
