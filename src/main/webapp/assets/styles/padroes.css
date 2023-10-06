@@ -98,7 +98,6 @@
     width: 465px;
 }
 
-
 [class*="btn-square"] {
     height: 65px;
     border-radius: 15px;
@@ -121,4 +120,25 @@
     width: 465px;
 }
 
-/* Grid */
+/* Grid - Posicionamento */
+
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100vw;
+}
+
+.content-left { 
+    grid-column: 2 / 7;
+}
+
+.content-right { 
+    grid-column: 7 / 12;
+}
+
+/* Cabeçalho */
+
+.content-header {
+    width: 100vw;
+    height: 140px;
+}
