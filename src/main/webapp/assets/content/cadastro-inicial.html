@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
+    <title>Sign Up | Mediconnect</title>
+    <meta name="description" content="..."> <!-- Alterar a descrição da página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediConnect</title>
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/pagina-inicial.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../styles/padroes.css">
 </head>
-
-<!--Precisa da imagem que está no protótipo de tela -->
-
 <body>
-    <header> <!--Necessário o icone de voltar-->
+    <header>
         <nav>
-            <p><img src="" alt="icone-voltar"> Voltar</p>
             <div>
-                <img src="" alt="logo-mediconnect">
-                <p>MEDICONNECT</p>
+                <img src="../images/icone-voltar.svg" alt="icone-voltar">
+                <a href="#" class="text">Voltar</a>
             </div>
         </nav>
+        <img src="../images/logo-legendado.svg" alt="logo-mediconnect">
     </header>
     <main>
-        <section>
+        <div class="content-left">
+            <img src="../images/cadastro-ilustracao.svg" alt="ilustracao-cadastro">
+        </div>
+        <div class="content-right">
+            <h1 class="title-special">Deseja criar o seu cadastro?</h1>
             <div>
-                <h1>Deseja criar o seu cadastro?</h1>
-                <div>
-                    <button><a href="telaCadastroInstituicao_Etapa1.html">Cadastrar Instituição</a></button>
-                </div>
-                <div>
-                    <button><a href="telaCadastroPaciente.html">Cadastrar Paciente</a></button>
-                </div>
-                <p>Caso possua uma conta, <a href="telaLogin.html">clique aqui</a> para fazer o login</p>
+                <button class="btn-round-la">
+                    <img src="../images/icone-instituicao.svg" alt="icone-cadastro">
+                    <a href="#" class="text">Cadastrar Instituição</a>
+                </button>
+                <button class="btn-round-la">
+                    <img src="../images/icone-paciente.svg" alt="icone-paciente">
+                    <a href="#" class="text">Cadastrar Paciente</a>
+                </button>
             </div>
-        </section>
+            <p class="text">Caso possua uma conta, <a href="#">clique aqui</a> para fazer o login</p>
+        </div>
     </main>
 </body>
-
 </html>
