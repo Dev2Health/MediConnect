@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Noto+Sans+Symbols:wght@300;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Noto+Sans+Symbols:wght@300;600;700&display=swap');
 
 * {
     margin: 0;
@@ -6,6 +6,10 @@
     text-decoration: none;
     border-style: none;
     box-sizing: border-box;
+}
+
+body {
+    font-size: 100%;
 }
 
 :root {
@@ -27,55 +31,65 @@
     --font-special: 'Fredoka', sans-serif;
 }
 
-/* Textos - precisaremos colocar medidas/tamanhos relativos, eliminando o uso de px por rem (eg) */
+/* Textos - alterar o letter-spacing de forma com que fique "responsivo" */
 
 .text {
     font-family: var(--font-general);
     font-weight: 600;
-    font-size: 30px;
+    font-size: 2em;
     letter-spacing: 1.5px;
 }
 
 .text-small {
     font-family: var(--font-general);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 1em;
     letter-spacing: 1.5px;
 }
 
 .text-no-emphasis {
     font-family: var(--font-general);
     font-weight: 300;
-    font-size: 26px;
+    font-size: 1.6em;
     letter-spacing: 1.5px;
 }
 
 .text-emphasis {
     font-family: var(--font-general);
     font-weight: 700;
-    font-size: 26px;
+    font-size: 1.6em;
     letter-spacing: 1px;
 }
 
 .title {
     font-family: var(--font-general);
     font-weight: 700;
-    font-size: 55px;
+    font-size: 3.45em;
     letter-spacing: 2.75px;
 }
 
 .subtitle {
     font-family: var(--font-general);
     font-weight: 600;
-    font-size: 45px;
+    font-size: 2.85em;
     letter-spacing: 4.5px; 
 }
 
 .title-special {
     font-family: var(--font-special);
-    font-weight: 400;
-    font-size: 95px;
-    letter-spacing: 4.75px; 
+    font-weight: bold;
+    font-size: 5.5em;
+    letter-spacing: 4.75px;
+}
+
+/* Links */
+
+.link-light {
+    color: var(--background-light);
+}
+
+.link-dark {
+    color: var(--dark);
 }
 
 /* Botões */
@@ -136,9 +150,17 @@
     grid-column: 7 / 12;
 }
 
-/* Cabeçalho */
+/* Sessões */
 
-.content-header {
+[id*="section-"] {
     width: 100vw;
-    height: 140px;
+    height: 100vh;
+    align-items: center;
+}
+
+/* Ilustrações - precisaremos colocar medidas/tamanhos relativos, eliminando o uso de px por % (exemplo) */
+
+.illustration {
+    width: 530px;
+    height: 100%;
 }

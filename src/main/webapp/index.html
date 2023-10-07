@@ -10,45 +10,79 @@
     <link rel="stylesheet" type="text/css" href="./assets/styles/pagina-inicial.css">
 </head>
 <body>
-    <header class="content-header">
+    <header class="template-grid" id="content-header">
         <img src="./assets/images/logo.svg" alt="logo-mediconnect" id="logo">
-        <nav>
-            <a href="https://youtu.be/V-n3Jdi9bIk?si=mdx8Kv5ZRUabPDWh" class="text">Sobre o MediConnect</a>
-            <a href="#" class="text">Entrar</a>
-            <button class="btn-round-sm"><a href="./assets/content/cadastro-inicial.html" class="text">Cadastrar</a></button>
+        <nav class="nav-bar">
+            <a href="https://youtu.be/V-n3Jdi9bIk?si=mdx8Kv5ZRUabPDWh" class="text link-dark">Sobre o MediConnect</a>
+            <a href="#" class="text link-dark">Entrar</a>
+            <button class="btn-round-me"><a href="./assets/content/cadastro-inicial.html" class="text link-light">Cadastrar</a></button>
         </nav>
     </header>
     <main>
-        <section id="home" class="template-grid">
-            <div class="content-left">
-                <h1 class="title-special">MediConnect</h1> <!-- Lembrando que formatação será apenas no CSS (para deixar uppercase) -->
-                <p class="text">Utilizar nosso sistema traz vários benefícios. Além da praticidade, auxiliamos você com a pontualidade nas suas consultas. Venha conferir!</p>
-                <button class="btn-round-sm"><a href="#" class="text">Entrar</a></button>
+        <section id="section-home" class="template-grid">
+            <div class="content-left text-box">
+                <h1 class="title-special"><span class="span-blue">Medi</span>Connect</h1> <!-- Lembrando que formatação será apenas no CSS (para deixar uppercase) -->
+                <p class="text">Utilizar nosso sistema traz vários <span class="span-purple">benefícios</span>. Além da <span class="span-purple">praticidade</span>, auxiliamos você com a <span class="span-purple">pontualidade</span> nas suas consultas. <span class="span-purple">Venha conferir!</span></p>
             </div>
             <div class="content-right">
-                <img src="./assets/images/inicial-medica.svg" alt="ilustracao-medica" class="ilustration">
+                <img src="./assets/images/inicial-medica.svg" alt="ilustracao-medica" class="illustration">
             </div>
         </section>
-        <section id="gamification" class="template-grid">
+        <section id="section-gamification" class="template-grid">
             <div class="content-left">
-                <img src="./assets/images/inicial-gamificacao.svg" alt="ilustracao-gamificacao" class="ilustration">
+                <img src="./assets/images/inicial-gamificacao.svg" alt="ilustracao-gamificacao" class="illustration">
             </div>
-            <div class="content-right">
+            <div class="content-right text-box">
                 <h1 class="title-special">Gamificação</h1>
                 <p class="text">Nosso sistema apresenta uma solução divertida para aumentar seu engajamento com as suas consultas, criando conquistas e selos para aumentar sua objetividade!</p>
             </div>
         </section>
-        <section id="notification" class="template-grid">
-            <div class="content-left">
-                <h1 class="title-special">Notificações Personalizadas</h1>
+        <section id="section-notification" class="template-grid">
+            <div class="content-left text-box">
+                <h1 class="title-special">Notificações <span class="span-blue">Personalizadas</span></h1>
                 <p class="text">Trabalhamos para que sua consulta não seja esquecida. Com base no seu histórico de comparecimento, montamos um plano de notificações exclusivos para você!</p>
             </div>
             <div class="content-right">
-                <img src="./assets/images/inicial-notificacao.svg" alt="ilustracao-notificacao" class="ilustration">
+                <img src="./assets/images/inicial-notificacao.svg" alt="ilustracao-notificacao" class="illustration">
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="template-grid" id="footer-links">
+            <div class="footer-mediconnect">
+                <p class="text">MediConnect</p>
+                <a href="#" class="text-no-emphasis link-light">Sobre nós</a>
+                <a href="#section-home" class="text-no-emphasis link-light">Página inicial</a>
+            </div>
+            <div class="footer-contact">
+                <p class="text">Atendimento</p>
+                <a href="#" class="text-no-emphasis link-light">Contato</a>
+                <a href="#" class="text-no-emphasis link-light">Termos de Uso</a>
+            </div>
+            <div class="footer-social">
+                <p class="text">Redes Sociais</p>
+                <div class="social-whatsapp">
+                    <img src="./assets/images/logo-whatsapp.svg">
+                    <a href="#" class="text-no-emphasis link-light">WhatsApp</a>
+                </div>
+                <div class="social-github">
+                    <img src="./assets/images/logo-github.svg">
+                    <a href="#" class="text-no-emphasis link-light">GitHub</a>
+                </div>
+                <div class="social-instagram">
+                    <img src="./assets/images/logo-instagram.svg">
+                    <a href="#" class="text-no-emphasis link-light">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="template-grid" id="footer-commercial">
+            <hr><br>
+            <div class="commercial-content">
+                <img src="./assets/images/logo-rodape.svg" alt="logo-mediconnect">
+                <p class="text-small">2023 &copy Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
     <script src="./assets/scripts/script.js"></script>
 </body>
 </html>
