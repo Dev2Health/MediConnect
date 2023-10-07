@@ -1,0 +1,92 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    background-color: var(--background-light);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+/* Menu */
+
+#content-header {
+    align-items: center;
+    height: 140px;
+}
+
+.nav-bar {
+    grid-column: 2 / 4;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-bar img {
+    width: 55px;
+    height: 100%;
+}
+
+.header-logo  {
+    grid-column: 11 / 12;
+    width: 140px;
+    height: 100%;
+}
+
+/* Definições Gerais */
+
+.span-purple {
+    color: var(--purple-dark);
+}
+
+/* Conteúdo - Direita */
+
+.content-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 60px;
+}
+
+.content-right .title-special {
+    color: var(--purple);
+}
+
+.content-right p {
+    width: 485px;
+}
+
+.content-right .text-emphasis {
+    font-size: 1em;
+}
+
+/* Botões */
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.btn-round-la {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.btn-round-la:first-child {
+    background-color: var(--blue);
+}
+
+.btn-round-la:nth-child(2) {
+    background-color: var(--purple);
+}
+
+.btn-round-la img {
+    height: 35px;
+}
