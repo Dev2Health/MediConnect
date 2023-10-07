@@ -1,1 +1,138 @@
-/* Re-fazer */
+body {
+    background-color: var(--background-light);
+}
+
+/* Menu */
+
+#content-header {
+    align-items: center;
+    height: 140px;
+}
+
+.nav-bar {
+    grid-column: 4 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 80px;
+}
+
+#content-header img {
+    grid-column: 2 / 3;
+}
+
+#content-header .btn-round-me {
+    background-color: var(--purple);
+}
+
+/* Definições Gerais */
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.span-blue {
+    color: var(--blue);
+}
+
+.span-purple {
+    color: var(--purple-dark);
+}
+
+/* Sessão - Principal */
+
+#section-home .title-special {
+    text-transform: uppercase;
+    color: var(--purple);
+}
+
+#section-home .content-right {
+    grid-column: 8 / 12;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Sessão - Gamificação */
+
+#section-gamification {
+    color: var(--background-light);
+    background-color: var(--purple);
+}
+
+#section-gamification .content-right {
+    grid-column: 8 / 12;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Sessão - Notificações */
+
+#section-notification .title-special {
+    color: var(--purple);
+}
+
+#section-notification .content-right {
+    grid-column: 8 / 12;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Footer */
+
+footer {
+    width: 100vw;
+    height: 455px;
+    padding-top: 55px;
+    color: var(--background-light);
+    background-color: var(--dark);
+}
+
+[class*="footer-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.footer-mediconnect {
+    grid-column: 3 / 5;
+}
+
+.footer-contact {
+    grid-column: 6 / 8;
+}
+
+.footer-social {
+    grid-column: 9 / 11;
+}
+
+.footer-social [class*="social-"] {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+}
+
+#footer-commercial {
+    grid-column: 2 / 12;
+    padding-top: 60px;
+}
+
+#footer-commercial hr {
+    grid-column: 2 / 12;
+    border-bottom: 1px solid var(--background-light);
+}
+
+.commercial-content {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 25px;
+}
