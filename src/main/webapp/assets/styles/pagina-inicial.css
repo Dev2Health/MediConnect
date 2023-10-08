@@ -121,7 +121,7 @@ footer {
 
 #footer-commercial {
     grid-column: 2 / 12;
-    padding-top: 60px;
+    margin-top: 60px;
 }
 
 #footer-commercial hr {
@@ -134,5 +134,5 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 25px;
+    margin-top: 25px;
 }
