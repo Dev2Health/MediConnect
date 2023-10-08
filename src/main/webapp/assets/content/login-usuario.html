@@ -1,57 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <title>Login | Mediconnect</title>
+    <title>Entrar | Mediconnect</title>
+    <meta name="description" content="..."> <!-- Alterar a descrição da página -->
     <meta charset="UTF-8">
-    <meta name="description" content="...">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediConnect</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../styles/padroes.css">
+    <link rel="stylesheet" type="text/css" href="../styles/login-usuario.css">
 </head>
-
 <body>
-    <header>
-        <nav>
-            <div>
-                <img src="../images/icone-voltar.svg" alt="icone-voltar">
-                <a href="#" class="text">Voltar</a>
-            </div>
+    <header class="template-grid" id="content-header">
+        <nav class="nav-bar">
+            <img src="../images/icone-voltar.svg" alt="icone-voltar">
+            <a href="../../index.html" class="text link-dark">Voltar</a>
         </nav>
-        <img src="../images/logo-legendado.svg" alt="logo-mediconnect">
+        <img src="../images/logo-legendado.svg" alt="logo-mediconnect" class="header-logo">
     </header>
-
-    <main>
+    <main class="template-grid">
         <div class="content-left">
-            <img src="../images/login-ilustracao.svg" alt="ilustracao-login">
+            <img src="../images/login-ilustracao.svg" alt="ilustracao-login" class="illustration">
         </div>
         <div class="content-right">
             <h1 class="title-special">Olá! É bom ter você de volta!</h1>
-
-            <div>
-                <form>
-                    <img src="../images/icone-email.svg" alt="icone-email"> <!--Cor Roxa-->
-                    <label for="email" class="text">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="seu.email@gmail.com">
-                    <img src="../images/icone-verificado.svg" alt="icone-verificado">
-                    </input>
-                </form>
-                <form>
-                    <img src="../images/icone-senha.svg" alt="icone-senha"> <!--Cor Roxa-->
-                    <label for="senha" class="text">Senha</label>
-                    <input type="password" id="senha" name="senha" placeholder="*********">
-                    <img src="../images/icone-olho-fechado.svg" alt="icone-ollho-fechado">
-                </form>
-            </div>
-            <div>
-                <button class="btn-round-sm">Entrar</button>
-                <p class="text-emphasis"><a href="./esqueceu-sua-senha.html">Esqueceu sua senha?</a></p>
-            </div>
+            <form action="" autocomplete="on" id="content-form">
+                <div class="form-input">
+                    <img src="../images/icone-email.svg" alt="icone-email">
+                    <div class="input-itens">
+                        <label for="email" class="text">E-mail</label>
+                        <input class="text-emphasis" type="email" id="email" name="email" placeholder="endereço.email@gmail.com" required>
+                    </div>
+                    <img src="../images/icone-nao-verificado.svg">
+                </div>
+                <div class="form-input">
+                    <img src="../images/icone-senha.svg" alt="icone-senha">
+                    <div class="input-itens">
+                        <label for="password" class="text">Senha</label>
+                        <input class="text-emphasis" type="password" id="password" name="password" placeholder="*********" maxlength="100" required>
+                    </div>
+                    <img src="../images/icone-olho-fechado.svg"> <!-- Deverá ser clicável, modificando o input para type="text" -->
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn-round-sm text-emphasis link-light">Entrar</button>
+                    <a href="./esqueceu-sua-senha.html" class="text-emphasis">Esqueceu sua senha?</a>
+                </div>
+            </form>
         </div>
-
-
     </main>
+    <script src="./assets/scripts/login-usuario.js"></script>
 </body>
-
 </html>
