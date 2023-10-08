@@ -84,6 +84,7 @@ main {
 }
 
 .form-input img:last-child {
+    cursor: pointer;
     width: 45px;
 }
 

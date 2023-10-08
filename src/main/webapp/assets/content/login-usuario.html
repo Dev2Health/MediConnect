@@ -38,7 +38,7 @@
                         <label for="password" class="text">Senha</label>
                         <input class="text-emphasis" type="password" id="password" name="password" placeholder="*********" maxlength="100" required>
                     </div>
-                    <img src="../images/icone-olho-fechado.svg"> <!-- Deverá ser clicável, modificando o input para type="text" -->
+                    <img src="../images/icone-olho-fechado.svg" id="btn-password" onclick="showPassword()">
                 </div>
                 <div class="form-footer">
                     <button type="submit" class="btn-round-sm text-emphasis link-light">Entrar</button>
@@ -47,6 +47,6 @@
             </form>
         </div>
     </main>
-    <script src="./assets/scripts/login-usuario.js"></script>
+    <script src="../scripts/login-usuario.js"></script>
 </body>
 </html>
