@@ -17,6 +17,7 @@
         </nav>
         <img src="../images/logo-legendado.svg" alt="logo-mediconnect" class="header-logo">
     </header>
+
     <main class="template-grid">
         <div class="content-left">
             <img src="../images/login-ilustracao.svg" alt="ilustracao-login" class="illustration">
@@ -25,20 +26,28 @@
             <h1 class="title-special">Olá! É bom ter você de volta!</h1>
             <form action="" autocomplete="on" id="content-form">
                 <div class="form-input">
-                    <img src="../images/icone-email.svg" alt="icone-email">
+                    <div class="input-icon">
+                        <img src="../images/icone-email.svg" alt="icone-email">
+                    </div>
                     <div class="input-itens">
                         <label for="email" class="text">E-mail</label>
-                        <input class="text-emphasis" type="email" id="email" name="email" placeholder="endereço.email@gmail.com" required>
+                        <input class="text-emphasis" type="email" id="email" name="email" placeholder="seu.email@gmail.com" required>
                     </div>
-                    <img src="../images/icone-nao-verificado.svg">
+                    <div class="input-element">
+                        <img src="../images/icone-nao-verificado.svg">
+                    </div>
                 </div>
                 <div class="form-input">
-                    <img src="../images/icone-senha.svg" alt="icone-senha">
+                    <div class="input-icon">
+                        <img src="../images/icone-senha.svg" alt="icone-senha">
+                    </div>
                     <div class="input-itens">
                         <label for="password" class="text">Senha</label>
                         <input class="text-emphasis" type="password" id="password" name="password" placeholder="*********" maxlength="100" required>
                     </div>
-                    <img src="../images/icone-olho-fechado.svg" id="btn-password" onclick="showPassword()">
+                    <div class="input-element">
+                        <img src="../images/icone-olho-fechado.svg" id="btn-password" onclick="showPassword()">
+                    </div>
                 </div>
                 <div class="form-footer">
                     <button type="submit" class="btn-round-sm text-emphasis link-light">Entrar</button>

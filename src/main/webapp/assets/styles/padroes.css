@@ -98,6 +98,7 @@ body {
     height: 85px;
     border-radius: 40px;
     box-shadow: 0px 5px 5px 0px var(--dark-shadow);
+    cursor: pointer;
 }
 
 .btn-round-sm {
@@ -115,7 +116,8 @@ body {
 [class*="btn-square"] {
     height: 65px;
     border-radius: 15px;
-    box-shadow: 0px 5px 5px 0px rgba(35, 35, 35, 0.25);
+    box-shadow: 0px 5px 5px 0px var(--dark-shadow);
+    cursor: pointer;
 }
 
 .btn-square-sm {
@@ -132,6 +134,12 @@ body {
 
 .btn-square-wide {
     width: 465px;
+}
+
+/* Ilustrações - precisaremos colocar medidas/tamanhos relativos, eliminando o uso de px por % (exemplo) */
+
+.illustration {
+    width: 530px;
 }
 
 /* Grid - Posicionamento */
@@ -158,8 +166,68 @@ body {
     align-items: center;
 }
 
-/* Ilustrações - precisaremos colocar medidas/tamanhos relativos, eliminando o uso de px por % (exemplo) */
+/* Formulários */
 
-.illustration {
-    width: 530px;
+.form-left, .form-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 45px;
+}
+
+.form-left {
+    grid-column: 2 / 7;
+    align-items: flex-start;
+}
+
+.form-right {
+    grid-column: 7 / 12;
+    align-items: flex-end;
+}
+
+.form-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 38vw;
+    border: 3px solid;
+    border-radius: 15px;
+}
+
+.input-icon, .input-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+}
+
+.input-icon img {
+    height: 50px;
+}
+
+.input-element img {
+    width: 45px;
+    cursor: pointer;
+}
+
+.input-itens {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+.input-itens input {
+    background: none;
+}
+
+.input-itens input:focus {
+    outline: none;
+}
+
+.btn-form {
+    width: 200px;
+    height: 65px;
+    border-radius: 40px;
+    box-shadow: 0px 5px 5px 0px var(--dark-shadow);
+    cursor: pointer;
 }

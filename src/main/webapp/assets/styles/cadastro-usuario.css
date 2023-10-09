@@ -6,9 +6,8 @@ body {
 }
 
 main {
-    display: flex;
     align-items: center;
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 /* Menu */
@@ -89,4 +88,5 @@ main {
 
 .btn-round-la img {
     height: 35px;
+    filter: brightness(100);
 }

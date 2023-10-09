@@ -6,9 +6,8 @@ body {
 }
 
 main {
-    display: flex;
     align-items: center;
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 /* Menu */
@@ -38,6 +37,13 @@ main {
 
 /* Conteúdo - Direita */
 
+.content-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
 .title-special {
     text-align: center;
     color: var(--purple);
@@ -48,51 +54,25 @@ main {
 #content-form {
     display: flex;
     flex-direction: column;
+    gap: 30px;
 }
 
 .form-input {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    border: 3px solid var(--purple);
-    border-radius: 15px;
-    margin-top: 45px;
+    border-color: var(--purple);
+}
+
+.input-itens input {
+    color: var(--purple);
 }
 
 ::placeholder {
     color: var(--purple-light);
 }
 
-.form-input .input-itens {
-    display: flex;
-    flex-direction: column;
-    width: 25vw;
-}
-
-.form-input input {
-    color: var(--purple);
-    background: none;
-}
-
-.form-input input:focus {
-    outline: none;
-}
-
-.form-input img:first-child {
-    width: 50px;
-}
-
-.form-input img:last-child {
-    cursor: pointer;
-    width: 45px;
-}
-
 .form-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
 }
 
 .form-footer .btn-round-sm {
