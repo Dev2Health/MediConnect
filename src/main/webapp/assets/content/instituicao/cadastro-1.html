@@ -1,78 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-
-    <title>Cadastro Etapa 1 | MediConnect</title> <!--Renomear a página, este nome é muito extenso-->
-    <meta name="description">
+    <title>Cadastrar Instituição | MediConnect</title>
+    <meta name="description" content="...">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-
+    <link rel="stylesheet" type="text/css" href="../../styles/cadastro-instituicao-1.css">
 </head>
-
 <body>
-    <header>
-        <a href="index.html"><img src="../../images/logo.svg" alt="logo-mediconnect"></a>
-        <nav>
-            <div>
-                <a href="../cadastro-inicial.html" class="text">Tela de Cadastro</a>
-                <button class="btn-round-me">Nos contacte</button>
-            </div>
+    <header class="template-grid" id="content-header">
+        <img src="../../images/logo-legendado.svg" alt="logo-mediconnect">
+        <nav class="nav-bar">
+            <a href="../cadastro-usuario.html" class="text link-dark">Voltar ao cadastro</a>
+            <button class="btn-round-sm"><a href="#" class="text link-light">Nos contacte</a></button>
         </nav>
     </header>
+
     <main>
-        <h1>Informe os dados da instituição</h1>
-
-        <div class="content-left">
-            <form>
-                <img src="../../images/icone-instituicao.svg" alt="icone-instituicao"> <!--Cor roxa-->
-                <label for="razao-social" class="text">Nome Fantasia</label>
-                <input type="text" id="razao-social" name="razao-social" placeholder="Empresa Privada LTDA">
-            </form>
-
-            <form>
-                <img src="../../images/icone-cnpj.svg" alt="icone-cnpj"> <!--Cor roxa-->
-                <label for="cnpj" class="text">CNPJ</label>
-                <input type="number" id="cnpj" name="cnpj" placeholder="XX.XXX.XXX/0001-XX">
-            </form>
-
-            <form>
-                <img src="../../images/icone-senha.svg" alt="icone-senha"> <!--Cor roxa-->
-                <label for="senha" class="text">Senha</label>
-                <input type="password" id="senha" name="senha" placeholder="a202b303">
-                <img src="../../images/icone-olho-aberto.svg" alt="icone-olho-aberto">
-
-            </form>
-
+        <div class="template-grid">
+            <h1 class="title">Informe os dados da instituição</h1>
+            <!-- Faltou fazer os ícones de navegação entre páginas -->
         </div>
-
-        <div class="content-right">
-            <form>
-                <img src="../../images/icone-instituicao.svg" alt="icone-instituicao"> <!--Cor roxa-->
-                <label for="nome-fantasia" class="text">Nome Fantasia</label>
-                <input type="text" id="nome-fantasia" name="nome-fantasia" placeholder="Nome Empresa">
-            </form>
-
-            <img src="../../images/icone-email.svg" alt="icone-email"> <!--Cor Roxa-->
-            <label for="email" class="text">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="seu.email@gmail.com">
-            <img src="../../images/icone-verificado.svg" alt="icone-verificado"> <!--Cor Cinza-->
-            </input>
-
-            <form>
-                <label for="confirmar senha" class="text">Confirmar Senha</label>
-                <input type="confirmar-senha" id="confirmar-senha" name="confirmar-senha" placeholder="*****">
-                <img src="../../images/icone-olho-fechado.svg" alt="icone-olho-fechado">
-            </form>
-        </div>
-
-        <button class="btn-round-sm" >Limpar</button>
-        <a href="./cadastro-2.html" ><button class="btn-round-sm">Continuar</button></a>
-
-
+        <form action="" autocomplete="on" id="content-form" class="template-grid">
+            <div class="form-left">
+                <div class="form-input">
+                    <div class="input-icon">
+                        <img src="../../images/icone-instituicao.svg" alt="icone-instituicao">
+                    </div>
+                    <div class="input-itens">
+                        <label for="razao-social" class="text">Nome Fantasia</label>
+                        <input class="text-emphasis" type="text" id="razao-social" name="razao-social" placeholder="Empresa Privada LTDA" required>
+                    </div>
+                </div>
+                <div class="form-input">
+                    <div class="input-icon">
+                        <img src="../../images/icone-cnpj.svg" alt="icone-cnpj">
+                    </div>
+                    <div class="input-itens">
+                        <label for="cnpj" class="text">CNPJ</label>
+                        <input class="text-emphasis" type="text" id="cnpj" name="cnpj" placeholder="XX.XXX.XXX/XXXX-XX" maxlength="18" required>
+                    </div>
+                    <div class="input-element">
+                        <img src="../../images/icone-nao-verificado.svg">
+                    </div>
+                </div>
+                <div class="form-input">
+                    <div class="input-icon">
+                        <img src="../../images/icone-senha.svg" alt="icone-senha">
+                    </div>
+                    <div class="input-itens">
+                        <label for="senha" class="text">Senha</label>
+                        <input class="text-emphasis" type="password" id="senha" name="senha" placeholder="********" required>
+                    </div>
+                    <div class="input-element">
+                        <img src="../../images/icone-olho-fechado.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="form-right">
+                <div class="form-input">
+                    <div class="input-icon">
+                        <img src="../../images/icone-instituicao.svg" alt="icone-instituicao">
+                    </div>
+                    <div class="input-itens">
+                        <label for="nome-fantasia" class="text">Nome Fantasia</label>
+                        <input class="text-emphasis" type="text" id="nome-fantasia" name="nome-fantasia" placeholder="Nome Empresa" required>
+                    </div>
+                </div>
+                <div class="form-input">
+                    <div class="input-icon">
+                        <img src="../../images/icone-email.svg" alt="icone-email">
+                    </div>
+                    <div class="input-itens">
+                        <label for="email" class="text">E-mail</label>
+                        <input class="text-emphasis" type="email" id="email" name="email" placeholder="seu.email@gmail.com" required>
+                    </div>
+                    <div class="input-element">
+                        <img src="../../images/icone-nao-verificado.svg">
+                    </div>
+                </div>
+                <div class="form-input">
+                    <div class="input-icon">
+                        <img src="../../images/icone-senha.svg" alt="icone-senha">
+                    </div>
+                    <div class="input-itens">
+                        <label for="confirmar senha" class="text">Confirmar Senha</label>
+                        <input class="text-emphasis" type="confirmar-senha" id="confirmar-senha" name="confirmar-senha" placeholder="********">
+                    </div>
+                    <div class="input-element">
+                        <img src="../../images/icone-olho-fechado.svg">
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn-round-sm"><a href="./cadastro-2.html" class="text link-light">Continuar</a></button>
+                    <button type="reset" class="btn-round-sm text-emphasis">Limpar</button>
+                </div>
+            </div>
+        </form>
     </main>
 </body>
-
 </html>
