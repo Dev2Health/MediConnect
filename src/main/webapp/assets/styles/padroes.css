@@ -8,10 +8,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-size: 100%;
-}
-
 :root {
     /* Cores */
     --background-light: #F8F3FB;
@@ -96,7 +92,7 @@ body {
 
 [class*="btn-round"] {
     height: 85px;
-    border-radius: 40px;
+    border-radius: 45px;
     box-shadow: 0px 5px 5px 0px var(--dark-shadow);
     cursor: pointer;
 }
@@ -139,7 +135,7 @@ body {
 /* Ilustrações - precisaremos colocar medidas/tamanhos relativos, eliminando o uso de px por % (exemplo) */
 
 .illustration {
-    width: 530px;
+    width: 33.33vw;
 }
 
 /* Grid - Posicionamento */
@@ -189,7 +185,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 38vw;
+    width: 37.485vw;
     border: 3px solid;
     border-radius: 15px;
 }
@@ -202,18 +198,18 @@ body {
 }
 
 .input-icon img {
-    height: 50px;
+    width: 2.77vw;
 }
 
 .input-element img {
-    width: 45px;
+    width: 2.55vw;
     cursor: pointer;
 }
 
 .input-itens {
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    width: 21vw;
 }
 
 .input-itens input {
@@ -222,12 +218,4 @@ body {
 
 .input-itens input:focus {
     outline: none;
-}
-
-.btn-form {
-    width: 200px;
-    height: 65px;
-    border-radius: 40px;
-    box-shadow: 0px 5px 5px 0px var(--dark-shadow);
-    cursor: pointer;
 }

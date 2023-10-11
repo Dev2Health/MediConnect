@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <title>Cadastrar Paciente | MediConnect</title>
+    <meta name="description" content="..."> <!-- Alterar a descrição da página -->
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediConnect</title>
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
     <link rel="stylesheet" type="text/css" href="../../styles/cadastro-paciente.css">
@@ -37,7 +38,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="cpf" class="text">CPF</label>
-                        <input class="text-emphasis" type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required>
+                        <input class="text-emphasis" type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" maxlength="14" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-nao-verificado.svg">
@@ -112,8 +113,8 @@
                     </div>
                 </div>
                 <div class="form-footer">
-                    <button type="submit" class="btn-form text-emphasis link-light">Confirmar</button>
-                    <button type="reset" class="btn-form text-emphasis">Limpar</button>
+                    <button type="submit" class="btn-round-sm text-emphasis link-light">Confirmar</button>
+                    <button type="reset" class="btn-round-sm text-emphasis">Limpar</button>
                 </div>
             </div>
         </form>

@@ -36,7 +36,7 @@ main {
 /* Conteúdo Principal */
 
 .title {
-    grid-column: 2 / 12;
+    grid-column: 2 / 10;
     color: var(--purple);
     margin-bottom: 40px;
 }
@@ -49,10 +49,6 @@ main {
 
 .input-itens input {
     color: var(--purple);
-}
-
-.input-itens input[type="date"] {
-    text-transform: uppercase;
 }
 
 ::placeholder {
