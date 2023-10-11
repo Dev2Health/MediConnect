@@ -88,6 +88,14 @@
     color: var(--dark);
 }
 
+.link-purple {
+    color: var(--purple);
+}
+
+.link-blue {
+    color: var(--blue);
+}
+
 /* Botões */
 
 [class*="btn-round"] {
