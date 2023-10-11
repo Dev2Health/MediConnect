@@ -29,7 +29,7 @@
 					<input type="password" value="<c:out value='${instituicao.senha}' />" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" placeholder="Confirme a senha..."> 
 
 					<label>CEP</label>
-					<input type="number" value="<c:out value='${instituicao.cep}' />" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="Informe o cep..."> 
+					<input type="text" value="<c:out value='${instituicao.cep}' />" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="Informe o cep..."> 
 					<label>Estado:</label>
 					<input type="text" value="<c:out value='${instituicao.estado}' />" id="i.estado" name="estado" placeholder="Informe o estado..."> 
 					<label>Cidade:</label>
