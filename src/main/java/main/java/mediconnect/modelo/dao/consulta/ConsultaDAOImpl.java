@@ -33,6 +33,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 	}
 	@Override
 	public void inserirConsulta(Consulta consulta) {
+		
 		Session sessao = null;
 		
 		try {
@@ -43,14 +44,16 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			sessao.save(consulta);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -59,6 +62,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	@Override
 	public void deletarConsulta(Consulta consulta) {
+		
 		Session sessao = null;
 		
 		try {
@@ -69,14 +73,16 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			sessao.delete(consulta);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -86,6 +92,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	@Override
 	public void atualizarConsulta(Consulta consulta) {
+		
 		Session sessao = null;
 		
 		try {
@@ -96,14 +103,15 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			sessao.update(consulta);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -113,6 +121,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	@Override
 	public List<Consulta> recuperarListaDeConsultas() {
+		
 		Session sessao = null;
 		List<Consulta> consultas = null;
 		
@@ -130,22 +139,26 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
+		
 		return consultas;
 	}
 	
 	public List<Consulta> filtrarConsultaViaInstituicaoPorPaciente(Paciente paciente, Instituicao instituicao) {
+		
         Session sessao = null;
         List<Consulta> consultas = null;
         
@@ -177,9 +190,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
           
             sessao.getTransaction().commit();  
 
-        }catch (Exception e) {       
+        }catch (Exception sqlException) {       
      
-            e.printStackTrace(); 
+        	sqlException.printStackTrace(); 
 
             if (sessao.getTransaction() != null) {
                 sessao.getTransaction().rollback();
@@ -200,6 +213,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
     }
     
     public List<Consulta> filtrarConsultaViaInstituicaoPorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude, Instituicao instituicao) {
+    	
         Session sessao = null;
         List<Consulta> consultas = null;
         
@@ -225,9 +239,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
           
             sessao.getTransaction().commit();  
 
-        }catch (Exception e) {       
+        }catch (Exception sqlException) {       
      
-            e.printStackTrace(); 
+        	sqlException.printStackTrace(); 
 
             if (sessao.getTransaction() != null) {
                 sessao.getTransaction().rollback();
@@ -248,6 +262,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
     }
     
     public List<Consulta> filtrarConsultaViaInstituicaoPorEspecialidadeProfissional(EspecialidadeProfissional especialidade, Instituicao instituicao) {
+    	
         Session sessao = null;
         List<Consulta> consultas = null;
         
@@ -273,9 +288,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
           
             sessao.getTransaction().commit();  
 
-        }catch (Exception e) {       
+        }catch (Exception sqlException) {       
      
-            e.printStackTrace(); 
+        	sqlException.printStackTrace(); 
 
             if (sessao.getTransaction() != null) {
                 sessao.getTransaction().rollback();
@@ -296,6 +311,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
     }
     
     public List<Consulta> filtrarConsultaViaInstituicaoPorStatus(StatusConsulta status, Instituicao instituicao) {
+    	
         Session sessao = null;
         List<Consulta> consultas = null;
         
@@ -318,9 +334,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
           
             sessao.getTransaction().commit();  
 
-        }catch (Exception e) {       
+        }catch (Exception sqlException) {       
      
-            e.printStackTrace(); 
+        	sqlException.printStackTrace(); 
 
             if (sessao.getTransaction() != null) {
                 sessao.getTransaction().rollback();
@@ -341,6 +357,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
     }
 	@Override
 	public List<Consulta> filtrarConsultaViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal, Instituicao instituicao) {
+		
         Session sessao = null;
         List<Consulta> consultas = null;
         
@@ -363,9 +380,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
           
             sessao.getTransaction().commit();  
 
-        }catch (Exception e) {       
+        }catch (Exception sqlException) {       
      
-            e.printStackTrace(); 
+        	sqlException.printStackTrace(); 
 
             if (sessao.getTransaction() != null) {
                 sessao.getTransaction().rollback();
@@ -412,12 +429,17 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 					.setParameter(idPaciente, paciente.getId()).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -426,8 +448,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(EspecialidadeProfissional especialidadeProfissional,
-			Paciente paciente) {
+	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(EspecialidadeProfissional especialidadeProfissional, Paciente paciente) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -453,12 +474,17 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -489,12 +515,17 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -524,12 +555,17 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -559,12 +595,17 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}

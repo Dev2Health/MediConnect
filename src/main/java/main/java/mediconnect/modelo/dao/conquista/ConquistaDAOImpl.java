@@ -25,6 +25,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 	@Override
 	public void inserirConquista(Conquista conquista) {
+		
 		Session sessao = null;
 		
 		try {
@@ -35,14 +36,16 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 			sessao.save(conquista);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -51,6 +54,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 	@Override
 	public void deletarConquista(Conquista conquista) {
+		
 		Session sessao = null;
 		
 		try {
@@ -61,14 +65,16 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 			sessao.delete(conquista);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -78,6 +84,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 	@Override
 	public void atualizarConquista(Conquista conquista) {
+		
 		Session sessao = null;
 		
 		try {
@@ -88,14 +95,16 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 			sessao.update(conquista);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -122,18 +131,21 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
+		
 		return conquistas;
 	}
 	
@@ -159,12 +171,17 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}

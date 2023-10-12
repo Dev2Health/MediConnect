@@ -12,40 +12,46 @@ import main.java.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 
-public class EnderecoDAOImpl implements EnderecoDAO{
-	public BuildFactory fac;
+public class EnderecoDAOImpl implements EnderecoDAO {
+	
+	private BuildFactory fac;
+	
 	public EnderecoDAOImpl() {
 		fac = new BuildFactory();
 	}
-	@Override
+
 	public void inserirEndereco(Endereco endereco) {
+		
 		Session sessao = null;
 		
 		try {
 			
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
-
+			
 			sessao.save(endereco);
+			
 			sessao.getTransaction().commit();
+		
+		} catch (Exception sqlException) {
 			
-		} catch (Exception e) {
+			sqlException.printStackTrace();
 			
-			e.printStackTrace();
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
-		}
-		
+		}	
 	}
 
 	@Override
 	public void deletarEndereco(Endereco endereco) {
+		
 		Session sessao = null;
 		
 		try {
@@ -56,14 +62,16 @@ public class EnderecoDAOImpl implements EnderecoDAO{
 			sessao.delete(endereco);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -73,6 +81,7 @@ public class EnderecoDAOImpl implements EnderecoDAO{
 
 	@Override
 	public void atualizarEndereco(Endereco endereco) {
+		
 		Session sessao = null;
 		
 		try {
@@ -83,14 +92,16 @@ public class EnderecoDAOImpl implements EnderecoDAO{
 			sessao.update(endereco);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -100,6 +111,7 @@ public class EnderecoDAOImpl implements EnderecoDAO{
 
 	@Override
 	public List<Endereco> recuperarListaDeEnderecos() {
+		
 		Session sessao = null;
 		List<Endereco> enderecos = null;
 		
@@ -117,18 +129,21 @@ public class EnderecoDAOImpl implements EnderecoDAO{
 
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
 		return enderecos;
 	}
+
 }

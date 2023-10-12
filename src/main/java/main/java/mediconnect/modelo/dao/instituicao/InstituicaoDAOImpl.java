@@ -20,6 +20,7 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 
 	@Override
 	public void inserirInstituicao(Instituicao instituicao) {
+		
 		Session sessao = null;
 
 		try {
@@ -31,14 +32,16 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -52,20 +55,23 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 		Session sessao = null;
 
 		try {
+			
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
 			sessao.delete(instituicao);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -75,6 +81,7 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 
 	@Override
 	public void atualizarInstituicao(Instituicao instituicao) {
+		
 		Session sessao = null;
 
 		try {
@@ -85,14 +92,16 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 			sessao.update(instituicao);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -102,6 +111,7 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 
 	@Override
 	public List<Instituicao> recuperarInstituicao() {
+		
 		Session sessao = null;
 		List<Instituicao> instituicoes = null;
 
@@ -119,18 +129,21 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
+		
 		return instituicoes;
 	}
 }

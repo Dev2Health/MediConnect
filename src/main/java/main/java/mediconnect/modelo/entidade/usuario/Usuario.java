@@ -40,6 +40,12 @@ public abstract class Usuario implements Serializable {
 	
 	public Usuario() {}
 	
+	public Usuario (String email, String senha) {
+		super();
+		setEmail(email);
+		setSenha(senha);
+	}
+	
 	public Usuario (Integer id, String email, String senha, boolean ehAtivo) {
 		super();
 		setId(id);

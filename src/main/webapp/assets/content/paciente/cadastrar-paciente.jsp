@@ -4,7 +4,6 @@
 	<head>
 		<title>Cadastro de Paciente</title>
 		<style><%@include file="../../styles/pagina-inicial.css"%></style>
-		<script><%@include file="../../scripts/script.js"%></script>
 	</head>
 	<body>
 		<div>

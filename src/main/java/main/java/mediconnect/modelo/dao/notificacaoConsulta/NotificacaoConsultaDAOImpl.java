@@ -20,6 +20,7 @@ public BuildFactory fac;
 
 	@Override
 	public void inserirNotificacaoConsulta(NotificacaoConsulta notificacao_consulta) {
+		
 		Session sessao = null;
 		
 		try {
@@ -30,14 +31,16 @@ public BuildFactory fac;
 			sessao.save(notificacao_consulta);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -46,6 +49,7 @@ public BuildFactory fac;
 
 	@Override
 	public void deletarNotificacaoConsulta(NotificacaoConsulta notificacao_consulta) {
+		
 		Session sessao = null;
 		
 		try {
@@ -56,14 +60,16 @@ public BuildFactory fac;
 			sessao.delete(notificacao_consulta);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -73,6 +79,7 @@ public BuildFactory fac;
 
 	@Override
 	public void atualizarNotificacaoConsulta(NotificacaoConsulta notificacao_consulta) {
+		
 		Session sessao = null;
 		
 		try {
@@ -83,14 +90,16 @@ public BuildFactory fac;
 			sessao.update(notificacao_consulta);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -100,6 +109,7 @@ public BuildFactory fac;
 
 	@Override
 	public List<NotificacaoConsulta> recuperarNotificacaoConsulta() {
+		
 		Session sessao = null;
 		List<NotificacaoConsulta> conquistas = null;
 		
@@ -117,18 +127,21 @@ public BuildFactory fac;
 
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
+		
 		return conquistas;
 	}
 }

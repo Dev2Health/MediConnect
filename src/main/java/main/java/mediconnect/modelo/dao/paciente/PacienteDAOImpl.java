@@ -36,6 +36,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void inserirPaciente(Paciente Paciente) {
+		
 		Session sessao = null;
 
 		try {
@@ -65,6 +66,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void deletarPaciente(Paciente Paciente) {
+		
 		Session sessao = null;
 
 		try {
@@ -93,6 +95,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void atualizarPaciente(Paciente Paciente) {
+		
 		Session sessao = null;
 
 		try {
@@ -121,6 +124,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public List<Paciente> recuperarPaciente() {
+		
 		Session sessao = null;
 		List<Paciente> pacientes = null;
 
