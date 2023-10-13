@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--background-light);
 }
@@ -22,6 +26,10 @@ body {
 }
 
 #content-header .btn-round-me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
     background-color: var(--purple);
 }
 
@@ -39,6 +47,14 @@ body {
 
 .span-purple {
     color: var(--purple-dark);
+}
+
+/* Sessões */
+
+[id*="section-"] {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
 }
 
 /* Sessão - Principal */
