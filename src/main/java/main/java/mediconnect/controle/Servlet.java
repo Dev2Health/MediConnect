@@ -2,11 +2,11 @@ package main.java.mediconnect.controle;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,15 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAO;
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAOImpl;
+import main.java.mediconnect.modelo.dao.conquista.ConquistaDAO;
+import main.java.mediconnect.modelo.dao.conquista.ConquistaDAOImpl;
 import main.java.mediconnect.modelo.dao.consulta.ConsultaDAO;
 import main.java.mediconnect.modelo.dao.consulta.ConsultaDAOImpl;
 import main.java.mediconnect.modelo.dao.endereco.EnderecoDAO;
 import main.java.mediconnect.modelo.dao.endereco.EnderecoDAOImpl;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAOImpl;
+import main.java.mediconnect.modelo.dao.paciente.PacienteDAO;
+import main.java.mediconnect.modelo.dao.paciente.PacienteDAOImpl;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente;
 
 
 @WebServlet("/")
@@ -33,11 +38,15 @@ public class Servlet extends HttpServlet {
 	private EnderecoDAO enderecoDAO;
 	private AtendenteDAO atendenteDAO;
 	private ConsultaDAO consultaDAO;
+	private PacienteDAO pacienteDAO;
+	private ConquistaDAO conquistaDAO;
 	
 	
 
 	public void init() {
 		
+		conquistaDAO = new ConquistaDAOImpl();
+		pacienteDAO = new PacienteDAOImpl();
 		instituicaoDAO = new InstituicaoDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
 		atendenteDAO = new AtendenteDAOImpl();
@@ -82,7 +91,7 @@ public class Servlet extends HttpServlet {
 				mostrarTelaCadastroInstituicao(request, response);
 				break;
 
-			case "/cadastro-paciente":
+			case "/cadastrar-paciente":
 				mostrarTelaCadastroPaciente(request, response);
 				break;	
 			
@@ -93,6 +102,12 @@ public class Servlet extends HttpServlet {
 				inserirInstituicao(request, response);
 				break;
 				
+			//TELA CADASTRO PACIENTE 
+			
+			case "/inserir-paciente":
+				inserirPaciente(request, response);
+				break;
+						
 			// TELA LOGIN
 				
 			case "/esqueci-senha":
@@ -107,12 +122,16 @@ public class Servlet extends HttpServlet {
 			
 			// TELA PERFIL PACIENTE	
 				
+			case "/perfil-paciente":
+				mostrarTelaPerfilPaciente(request, response);
+				break;	
+				
 						
 			case "/editar-perfil":
 				mostrarTelaEditarPerfilPaciente(request, response);
 				break;	
 				
-			case "/conquistas":
+			case "/conquistas-paciente":
 				mostrarTelaConquistasPaciente(request, response);
 				break;	
 				
@@ -123,6 +142,10 @@ public class Servlet extends HttpServlet {
 				
 				
 			// TELA PERFIL ATENDENTE 
+				
+			case "/perfil-atendente":
+				mostrarTelaPerfilAtendente(request, response);
+				break;		
 				
 			case "/editar-perfil-atendente":
 				mostrarTelaEditarPerfilAtendente(request, response);
@@ -243,6 +266,28 @@ public class Servlet extends HttpServlet {
 		response.sendRedirect("perfil-instituicao");
 	}
 	
+	//TELA CADASTRO PACIENTE
+	
+	private void inserirPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		Paciente paciente = null;
+			
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		String cpf = request.getParameter("cpf");
+		LocalDate dataNascimento = LocalDate.parse("data");
+		String email = request.getParameter("email");
+		String telefone = request.getParameter("telefone");
+		String senha = request.getParameter("senha");
+		
+		paciente = new Paciente(email, senha, nome, sobrenome, cpf, dataNascimento, telefone);
+		
+		pacienteDAO.inserirPaciente(paciente);
+		response.sendRedirect("perfil-paciente");
+		
+	}
+	
 	// TELA LOGIN 
 	
 	private void mostrarTelaEsqueciSenha(HttpServletRequest request, HttpServletResponse response)
@@ -255,10 +300,21 @@ public class Servlet extends HttpServlet {
 
 	// TELA PERFIL PACIENTE 
 	
+	private void mostrarTelaPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-paciente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	
 	private void mostrarTelaEditarPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil.jsp");
+		//Paciente paciente = pacienteDAO.recuperarPaciente();
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-paciente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -266,7 +322,10 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaConquistasPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("conquistas.jsp");
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		//List<Conquista> conquistas = conquistaDAO.filtrarConquistaViaPacienteDoPacientePorStatus();
+		//request.setAttribute("conquistas", conquistas);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("conquistas-paciente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -281,7 +340,15 @@ public class Servlet extends HttpServlet {
 		
 	}
 	
-	// TELA PERFIL ATENDENTE 
+	// TELA PERFIL ATENDENTE
+	
+	private void mostrarTelaPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-atendente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
 	
 	private void mostrarTelaEditarPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -307,7 +374,7 @@ public class Servlet extends HttpServlet {
 		
 	}
 	
-	// TELA PERFIL INSTITUICAO mostrarTelaPerfilInstituicao
+	// TELA PERFIL INSTITUICAO
 	
 	private void mostrarTelaPerfilInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
