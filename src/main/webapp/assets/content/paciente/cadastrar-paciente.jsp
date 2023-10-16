@@ -8,11 +8,11 @@
 	<body>
 		<div>
 			<div>
-				<h1>
+		    	<h1>
 					Cadastrar Paciente
 				</h1>
 				<div>
-					<form action="ins erir-paciente" method="post">
+					<form action="inserir-paciente" method="post">
 					<input type="hidden" name="id" value="<c:out value='${paciente.id}' />" />
 					<label>Nome:</label>
 					<input type="text" value="<c:out value='${paciente.nome}' />" id="p.nome" name="nome" oninput="mascaraNome()" placeholder="Informe o nome..."> 
