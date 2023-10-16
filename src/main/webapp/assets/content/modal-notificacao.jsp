@@ -10,11 +10,11 @@
 <div>
         <input type="hidden" name="id" value="<c:out value='${notificacao.id}' />" />
         <div>
-            <img src="././images/icone-calendario.svg" alt="icone-calendario">
+            <img src="../images/icone-calendario.svg" alt="icone-calendario">
             <p>Contratação: <c:out value="${notificacao.data}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
         </div>
         <div>
-            <img src="././images/icone-relogio.svg" alt="icone-relogio">
+            <img src="../images/icone-relogio.svg" alt="icone-relogio">
             <p>Contratação: <c:out value="${notificacao.horario}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
         </div>
         <div>
