@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Lista de Notificacao</title>
-		<style><%@include file="../../styles/pagina-inicial.css"%></style>
+		<style><%@include file="../styles/pagina-inicial.css"%></style>
 	</head>
 	<body>
 		<%@ include file="../../../menu.jsp"%>
