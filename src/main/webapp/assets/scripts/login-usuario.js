@@ -1,6 +1,6 @@
 function showPassword() {
-   var inputPassword = document.getElementById("password");
-   var buttonPassword = document.getElementById("btn-password");
+   const inputPassword = document.getElementById("password");
+   const buttonPassword = document.getElementById("btn-password");
 
    if (inputPassword.type === "password") {
     inputPassword.setAttribute("type", "text");

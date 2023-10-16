@@ -1,102 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <title>Notficações | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/notificacoes-instituicao.css">
 </head>
-
 <body>
-    <header>
-        <img src="../../images/icone-menu.svg" alt="icone-menu">
-        <img src="../../images/favicon.ico" alt="icnoe-mediconnect">
-        <nav>
-            <div>
+    <header id="content-header" class="template-grid">
+        <nav class="nav-bar">
+            <img src="../../images/icone-menu.svg" alt="icone-menu">
+            <img src="../../images/logo.svg" alt="icone-mediconnect">
+        </nav>
+        <nav class="nav-filter">
+            <div> <!-- Border azul -->
                 <h3 class="text">Pesquisar</h3>
-                <div>
+                <div> <!-- Fundo do ícone -->
                     <img src="../../images/icone-lupa.svg" alt="icone-lupa">
                 </div>
-                <div>
-                    <h3 class="text">Filtrar</h3>
-                    <img src="../../images/icone-filtro.svg" alt="icone-filtro">
-                </div>
             </div>
+            <button class="btn-square-la text">Filtrar <img src="../../images/icone-filtro.svg"> </button>
         </nav>
     </header>
     <main>
-
-        <h2 class="text">Notificações recebidas pela instituição</h2>
-
-        <div><!--inicio do card-->
-
-            <h1 class="subbtitle">Notificação</h1>
-
-            <div>
-                <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                <h2 class="text">20/08/2000</h2>
-                <img src="../../images/icone-horario.svg" alt="icone-horario">
-                <h2 class="text">13h59</h2>
-            </div>
-
-            <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem
-                couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data
-                <span class="text-emphasis">/08/2000.</span></p>
-
-
-        </div><!--fim do card-->
-        <div><!--inicio do card-->
-
-            <h1 class="subbtitle">Notificação</h1>
-
-            <div>
-                <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                <h2 class="text">20/08/2000</h2>
-                <img src="../../images/icone-horario.svg" alt="icone-horario">
-                <h2 class="text">13h59</h2>
-            </div>
-
-            <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem
-                couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data
-                <span class="text-emphasis">/08/2000.</span></p>
-
-
-        </div><!--fim do card-->
-        <div><!--inicio do card-->
-
-            <h1 class="subbtitle">Notificação</h1>
-
-            <div>
-                <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                <h2 class="text">20/08/2000</h2>
-                <img src="../../images/icone-horario.svg" alt="icone-horario">
-                <h2 class="text">13h59</h2>
-            </div>
-
-            <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem
-                couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data
-                <span class="text-emphasis">/08/2000.</span></p>
-
-
-        </div><!--fim do card-->
-        <div><!--inicio do card-->
-
-            <h1 class="subbtitle">Notificação</h1>
-
-            <div>
-                <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                <h2 class="text">20/08/2000</h2>
-                <img src="../../images/icone-horario.svg" alt="icone-horario">
-                <h2 class="text">13h59</h2>
-            </div>
-
-            <p class="text-no-emphasis">Outro modelo de mensagem poderia ser com open overlay (modal), onde clica-se no mostrar mais e a mensagem individual abre na tela<span class="text-emphasis">...mostrar mais</span></p>
-
-
-        </div><!--fim do card-->
-
+        <p class="text">Notificações recebidas pela instituição</p>
+        <div> <!-- Cards -->
+            <div> <!--Início do card-->
+                <div> <!--Superior-->
+                    <h2 class="subtitle">Notificação</h2>
+                    <div> <!-- Flex-end -->
+                        <div>
+                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                            <p class="text">20/08/2000</p>
+                        </div>
+                        <div>
+                            <img src="../../images/icone-horario.svg" alt="icone-horario">
+                            <p class="text">13h59</p>
+                        </div>
+                    </div>
+                </div>
+                <div> <!--Inferior-->
+                    <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p>
+                </div>
+            </div><!--fim do card-->
+            <div> <!--Início do card-->
+                <div> <!--Superior-->
+                    <h2 class="subtitle">Notificação</h2>
+                    <div> <!-- Flex-end -->
+                        <div>
+                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                            <p class="text">20/08/2000</p>
+                        </div>
+                        <div>
+                            <img src="../../images/icone-horario.svg" alt="icone-horario">
+                            <p class="text">13h59</p>
+                        </div>
+                    </div>
+                </div>
+                <div> <!--Inferior-->
+                    <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p>
+                </div>
+            </div><!--fim do card-->
+            <div> <!--Início do card-->
+                <div> <!--Superior-->
+                    <h2 class="subtitle">Notificação</h2>
+                    <div> <!-- Flex-end -->
+                        <div>
+                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                            <p class="text">20/08/2000</p>
+                        </div>
+                        <div>
+                            <img src="../../images/icone-horario.svg" alt="icone-horario">
+                            <p class="text">13h59</p>
+                        </div>
+                    </div>
+                </div>
+                <div> <!--Inferior-->
+                    <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p>
+                </div>
+            </div><!--fim do card-->
+            <div> <!--Início do card-->
+                <div> <!--Superior-->
+                    <h2 class="subtitle">Notificação</h2>
+                    <div> <!-- Flex-end -->
+                        <div>
+                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                            <p class="text">20/08/2000</p>
+                        </div>
+                        <div>
+                            <img src="../../images/icone-horario.svg" alt="icone-horario">
+                            <p class="text">13h59</p>
+                        </div>
+                    </div>
+                </div>
+                <div> <!--Inferior-->
+                    <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p>
+                </div>
+            </div><!--fim do card-->
+        </div>
         <footer>
             <div class="template-grid" id="footer-links">
                 <div class="footer-mediconnect">
@@ -134,3 +137,5 @@
             </div>
         </footer>
     </main>
+</body>
+</html>

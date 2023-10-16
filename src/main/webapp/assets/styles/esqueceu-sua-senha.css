@@ -44,7 +44,7 @@ main {
 
 /* Definições Gerais */
 
-#content-box {
+form {
     display: flex;
     flex-direction: column;
     gap: 55px;
@@ -64,11 +64,11 @@ main {
     margin: 25px 0;
 }
 
-form input:focus {
+[class*="input-"] input:focus {
     outline: none;
 }
 
-form input::placeholder {
+[class*="input-"] input::placeholder {
     color: var(--purple-light);
 }
 
@@ -100,7 +100,7 @@ form input::placeholder {
     border-radius: 0 0 40px 40px;
 }
 
-.email-content form {
+.email-content .input-email {
     display: flex;
     gap: 40px;
     margin-top: 50px;
@@ -146,19 +146,19 @@ form input::placeholder {
     border-radius: 40px;
 }
 
-.password-content form {
+.password-content .input-password {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
 }
 
-form [id$="-password"] {
+.input-password [id$="-password"] {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
-form [id$="-password"] .password-input {
+.input-password [id$="-password"] .password-input {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -169,13 +169,13 @@ form [id$="-password"] .password-input {
     border-radius: 15px;
 }
 
-form [id$="-password"] input {
+.input-password [id$="-password"] input {
     width: 8.5vw;
     color: var(--purple);
     background: none;
 }
 
-form [id$="-password"] img {
+.input-password [id$="-password"] img {
     width: 35px;
 }
 
