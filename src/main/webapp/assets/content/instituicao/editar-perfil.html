@@ -2,18 +2,14 @@
 
 <html lang="pt-br">
 
-
+<!--Só lembrando para revisar a coloração desta página-->
 
 <head>
 
     <title>Editar perfil | Mediconnect</title>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
 
 </head>
@@ -27,7 +23,6 @@
         <nav class="nav-bar">
 
             <img src="../../images/icone-voltar.svg" alt="icone-voltar">
-
             <a href="../../index.html" class="text link-dark">Voltar</a>
 
         </nav>
@@ -49,13 +44,13 @@
                     <p class="text">Alterar dados da instituição</p>
                     <div>
                         <button class="btn-square-la" disabled>Habilitar edição</button>
-                        <img src="../../images/icone-editar.svg" alt="icone-editar">
+                        <img src="../../images/icone-editar.svg">
                     </div>
                 </div>
                 <div class="form-left">
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-instituicao.svg" alt="icone-instituicao">
+                            <img src="../../images/icone-instituicao.svg">
                         </div>
                         <div class="input-itens">
                             <label for="razao-social" class="text">Razão Social</label>
@@ -65,7 +60,7 @@
                     </div>
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-cep.svg" alt="icone-cep">
+                            <img src="../../images/icone-cep.svg">
                         </div>
                         <div class="input-itens">
                             <label for="cep" class="text">CEP</label>
@@ -78,7 +73,7 @@
                     </div>
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-mapa.svg" alt="icone-mapa">
+                            <img src="../../images/icone-mapa.svg">
                         </div>
                         <div class="input-itens">
                             <label for="city" class="text">Cidade</label>
@@ -88,7 +83,7 @@
                     </div>
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-logradouro.svg" alt="icone-logradouro">
+                            <img src="../../images/icone-logradouro.svg">
                         </div>
                         <div class="input-itens">
                             <label for="route" class="text">Logradouro</label>
@@ -100,7 +95,7 @@
                 <div class="form-right">
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-instituicao.svg" alt="icone-instituicao">
+                            <img src="../../images/icone-instituicao.svg">
                         </div>
                         <div class="input-itens">
                             <label for="nome-fantasia" class="text">Nome Fantasia</label>
@@ -110,7 +105,7 @@
                     </div>
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-mapa.svg" alt="icone-mapa">
+                            <img src="../../images/icone-mapa.svg">
                         </div>
                         <div class="input-itens">
                             <label for="state" class="text">Estado</label>
@@ -123,7 +118,7 @@
                     </div>
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-logradouro.svg" alt="icone-bairro">
+                            <img src="../../images/icone-logradouro.svg">
                         </div>
                         <div class="input-itens">
                             <label class="text" for="district" class="district">Bairro</label>
@@ -133,18 +128,88 @@
                     </div>
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-numeros.svg" alt="icone-numero">
+                            <img src="../../images/icone-numeros.svg">
                         </div>
                         <div class="input-itens">
                             <label class="text" for="number" class="number">Número</label>
                             <input class="text-emphasis" type="number" id="number" name="number" placeholder="XXXX">
                         </div>
                     </div>
-                    
+
                 </div>
             </form>
 
 
+        </section>
+
+        <section>
+            <div id="content-box">
+                <div id="confirm-email" class="template-grid">
+                    <div class="email-header">
+                        <img src="../../images/icone-email.svg" alt="icone-email">
+                        <p class="text">Antes de prosseguir, informe seu endereço de e-mail abaixo</p>
+                    </div>
+                    <div class="email-content">
+                        <form>
+                            <label for="email" class="text">E-mail atual</label>
+                            <div id="form-email">
+                                <div id="form-icon">
+                                    <img src="../../images/icone-email.svg">
+                                </div>
+                                <input class="text-emphasis" type="email" id="email" name="email"
+                                    placeholder="seu.email@gmail.com">
+                            </div>
+                        </form>
+                        <div id="email-validation">
+                            <div class="validation-content">
+                                <img src="../../images/icone-atencao.svg" alt="icone-atencao"> <!--Alterar para Icone-->
+                                <p class="text-no-emphasis">Enviar o token de verificação para este e-mail</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="redefine-password" class="template-grid">
+                    <div class="password-content">
+                        <form>
+                            <div id="current-password">
+                                <label for="password" class="text">Nova Senha</label>
+                                <div class="password-input">
+                                    <!-- Border, flex row -->
+                                    <input class="text-emphasis" type="password" id="password" name="password"
+                                        placeholder="********">
+                                    <img src="../../images/icone-olho-aberto.svg">
+                                </div>
+                            </div>
+                            <div id="new-password">
+                                <label for="newpassword" class="text">Confirmar Senha</label>
+                                <div class="password-input">
+                                    <input class="text-emphasis" type="password" id="newpassword" name="newpassword"
+                                        placeholder="********">
+                                    <img src="../../images/icone-olho-fechado.svg" alt="icone-olho-fechado">
+                                </div>
+                            </div>
+                        </form>
+                        <div id="password-validation">
+                            <div class="validation-content">
+                                <img src="../../images/icone-atencao.svg" alt="icone-atencao">
+                                <p class="text-no-emphasis">Enviar confirmação para o e-mail cadastrado</p>
+                            </div>
+                            <div class="validation-content">
+                                <a href="#" class="text-emphasis link-dark">Enviar confirmação</a>
+                                <img src="../../images/icone-redirecionar.svg" alt="icone-redirecionar">
+                                <!--Alterar para Icone-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-grid">
+                    <div id="buttons">
+                        <button class="btn-round-me text-emphasis link-light" type="submit">Salvar alterações</button>
+                        <button class="btn-round-me text-emphasis link-purple" type="reset">Descartar
+                            alterações</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
