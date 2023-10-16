@@ -2,24 +2,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
-		<title>Cadastro de Consulta</title>
+		<title>Modal de Especialidade</title>
 		<style><%@include file="../../styles/pagina-inicial.css"%></style>
 	</head>
 	<body>
 		<%@ include file="../../../menu.jsp"%>
 <div>
-        <p>Consulta - <c:out value="${consulta.id}" /></p>
+        <p>Especialidade - <c:out value="${especialidade.id}" /></p>
         <div>
             <img src="././images/icone-calendario.svg" alt="icone-calendario">
-            <p><c:out value="${consulta.data}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
+            <p><c:out value="${especialidade.nome}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
         </div>
         <div>
-            <img src="././images/icone-relogio.svg" alt="icone-horario">
-            <p><c:out value="${consulta.horario}" /></p>
-        </div>
-        <div>
-            <button>Ver detalhes</button>
-            // Vai abrir um modal a partir do onClick
+            <img src="././images/icone-profissional.svg" alt="icone-profissional">
+			<p><c:out value="${especialidade.profissionais}" /></p>
         </div>
     </div>
 			</div>
