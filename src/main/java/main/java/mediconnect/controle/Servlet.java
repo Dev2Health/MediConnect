@@ -1,4 +1,4 @@
-package controle.Servlet;
+package main.java.mediconnect.controle;
 
 import java.io.IOException;
 import java.sql.SQLException;

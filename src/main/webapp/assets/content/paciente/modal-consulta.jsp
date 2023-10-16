@@ -10,7 +10,7 @@
 <div>
         <p>Consulta - <c:out value="${consulta.id}" /></p>
         <div>
-            <img src="././images/icone-calendario.svg" alt="icone-instituicao">
+            <img src="././images/icone-calendario.svg" alt="icone-calendario">
             <p><c:out value="${consulta.data}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
         </div>
         <div>
@@ -26,10 +26,6 @@
         <div>
             <img src="././images/icone-profissional.svg" alt="icone-instituicao">
 			<p><c:out value="${consulta.profissional}" /></p>
-        </div>
-        <div>
-            <button>Ver detalhes</button>
-            // Vai abrir um modal a partir do onClick
         </div>
     </div>
 			</div>
