@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+
+
+<head>
+
+    <title>Editar perfil | Mediconnect</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
+
+</head>
+
+
+
+<body>
+
+    <header class="template-grid" id="content-header">
+
+        <nav class="nav-bar">
+
+            <img src="../../images/icone-voltar.svg" alt="icone-voltar">
+
+            <a href="../../index.html" class="text link-dark">Voltar</a>
+
+        </nav>
+
+        <div>
+
+            <img src="../../images/perfil-instituicao.png" alt="logo-mediconnect" class="foto-de-perfil">
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <section>
+
+            <form action="" autocomplete="on" id="content-form" class="template-grid">
+                <div>
+                    <p class="text">Alterar dados da instituição</p>
+                    <div>
+                        <button class="btn-square-la" disabled>Habilitar edição</button>
+                        <img src="../../images/icone-editar.svg" alt="icone-editar">
+                    </div>
+                </div>
+                <div class="form-left">
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-instituicao.svg" alt="icone-instituicao">
+                        </div>
+                        <div class="input-itens">
+                            <label for="razao-social" class="text">Razão Social</label>
+                            <input class="text-emphasis" type="text" id="razao-social" name="razao-social"
+                                placeholder="Empresa Privada LTDA" required>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-cep.svg" alt="icone-cep">
+                        </div>
+                        <div class="input-itens">
+                            <label for="cep" class="text">CEP</label>
+                            <input class="text-emphasis" type="text" id="cep" name="cep" placeholder="XXXXX-XXX"
+                                maxlength="9" required>
+                        </div>
+                        <div class="input-element">
+                            <img src="../../images/icone-nao-verificado.svg">
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-mapa.svg" alt="icone-mapa">
+                        </div>
+                        <div class="input-itens">
+                            <label for="city" class="text">Cidade</label>
+                            <input class="text-emphasis" type="text" id="city" name="city" placeholder="Cidade"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-logradouro.svg" alt="icone-logradouro">
+                        </div>
+                        <div class="input-itens">
+                            <label for="route" class="text">Logradouro</label>
+                            <input class="text-emphasis" type="text" id="route" name="route"
+                                placeholder="Rua Jardim das Flores" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-right">
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-instituicao.svg" alt="icone-instituicao">
+                        </div>
+                        <div class="input-itens">
+                            <label for="nome-fantasia" class="text">Nome Fantasia</label>
+                            <input class="text-emphasis" type="text" id="nome-fantasia" name="nome-fantasia"
+                                placeholder="Nome Empresa" required>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-mapa.svg" alt="icone-mapa">
+                        </div>
+                        <div class="input-itens">
+                            <label for="state" class="text">Estado</label>
+                            <input class="text-emphasis" list="state" name="state" placeholder="Selecione o Estado"
+                                required>
+                            <datalist id="state">
+                                <option value="Santa Catarina">
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-logradouro.svg" alt="icone-bairro">
+                        </div>
+                        <div class="input-itens">
+                            <label class="text" for="district" class="district">Bairro</label>
+                            <input class="text-emphasis" type="text" id="district" name="district" placeholder="Nome"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-numeros.svg" alt="icone-numero">
+                        </div>
+                        <div class="input-itens">
+                            <label class="text" for="number" class="number">Número</label>
+                            <input class="text-emphasis" type="number" id="number" name="number" placeholder="XXXX">
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+
+
+        </section>
+
+    </main>
+
+
+
+</body>
+
+
+
+</html>
