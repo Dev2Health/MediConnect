@@ -4,7 +4,6 @@
 	<head>
 		<title>Cadastro de Paciente</title>
 		<style><%@include file="../../styles/pagina-inicial.css"%></style>
-		<script><%@include file="../../scripts/script.js"%></script>
 	</head>
 	<body>
 		<div>
@@ -13,7 +12,7 @@
 					Cadastrar Paciente
 				</h1>
 				<div>
-					<form action="inserir-paciente" method="post">
+					<form action="ins erir-paciente" method="post">
 					<input type="hidden" name="id" value="<c:out value='${paciente.id}' />" />
 					<label>Nome:</label>
 					<input type="text" value="<c:out value='${paciente.nome}' />" id="p.nome" name="nome" oninput="mascaraNome()" placeholder="Informe o nome..."> 

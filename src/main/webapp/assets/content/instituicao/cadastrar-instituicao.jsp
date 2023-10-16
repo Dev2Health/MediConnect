@@ -4,7 +4,6 @@
 	<head>
 		<title>Cadastro de Instituição</title>
 		<style><%@include file="../../styles/pagina-inicial.css"%></style>
-		<script><%@include file="../../scripts/script.js"%></script>
 	</head>
 	<body>
 		<div>
