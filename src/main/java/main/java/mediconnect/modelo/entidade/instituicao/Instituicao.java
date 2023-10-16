@@ -71,6 +71,14 @@ public class Instituicao extends Usuario implements Serializable {
 		setHorarioInicioAtendimento(horarioInicioAtendimento);
 		setHorarioFimAtendimento(horarioFimAtendimento);
 	}
+	
+	public Instituicao(String cnpj, Endereco endereco, String razaoSocial, String nomeFantasia, String email, String senha, boolean ehAtivo) {
+		super(email, senha, ehAtivo);
+		setCnpj(cnpj);
+		setEndereco(endereco);
+		setRazaoSocial(razaoSocial);
+		setNomeFantasia(nomeFantasia);
+	}
 
 	// MÉTODOS DE ACESSO
 
