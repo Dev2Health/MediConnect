@@ -3,7 +3,8 @@
 <html>
 	<head>
 		<title>Cadastro de Instituição</title>
-		<style><%@include file="../../styles/pagina-inicial.css"%></style>
+		<style><%@include file="../../styles/cadastro-instituicao-1.css"%>
+		<%@include file="../../styles/cadastro-instituicao-2.css"%></style>
 	</head>
 	<body>
 		<div>

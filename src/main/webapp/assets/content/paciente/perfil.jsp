@@ -3,14 +3,15 @@
 <html>
 	<head>
 		<title>Perfil de Paciente</title>
-		<style><%@include file="../../styles/pagina-inicial.css"%></style>
+		<style><%@include file="../../styles/perfil-instituicao.css"%></style>
 	</head>
 	<body>
 		<%@ include file="../../../menu.jsp"%>
 <div>
         <input type="hidden" name="id" value="<c:out value='${paciente.id}' />" />
         <div>
-            <img src="././images/imagem-paciente.svg" alt="imagem-paciente">
+        <img src="<c:out value='${paciente.imagem}'/>" alt="imagem-paciente">
+            <p></p>
         </div>
         <div>
         <p><c:out value="${paciente.nome}"/> <c:out value="${paciente.sobrenome}"/></p>
