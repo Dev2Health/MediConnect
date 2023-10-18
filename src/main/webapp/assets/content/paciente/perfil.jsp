@@ -21,7 +21,7 @@
         <img src="././images/icone-selo-pontual.svg" alt="selo-pontual">
         <p>Assíduo <c:out value="${paciente.seloPontual}"/></p>
         <img src="././images/icone-selo-assiduo.svg" alt="selo-assiduo">
-        <p>Pontual <c:out value="${paciente.seloAssidu}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
+        <p>Pontual <c:out value="${paciente.seloAssiduo}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
         </div>
     </div>
 			</div>
