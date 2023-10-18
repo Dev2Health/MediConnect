@@ -6,7 +6,20 @@
 		<style><%@include file="../../styles/perfil-instituicao.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../menu.jsp"%>
+		<header>
+	<nav>
+		<ul>
+			<li class="dropdown">
+			 <!-- <a href="#" class="dropbtn">Menu</a> -->
+			<a class="dropbtn">Perfil de Paciente</a>
+				<div class="dropdown-content">
+					<a href="<%=request.getContextPath()%>/cadastrar-paciente">Novo</a>
+					 <a href="<%=request.getContextPath()%>/perfil-paciente">Listar</a>
+				</div>
+			</li>
+		</ul>
+	</nav>
+		</header>
 <div>
 
         <div>
