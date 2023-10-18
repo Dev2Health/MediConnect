@@ -9,6 +9,9 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import main.java.mediconnect.modelo.entidade.conquista.Conquista;
+import main.java.mediconnect.modelo.entidade.consulta.Consulta_;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente_;
 import main.java.mediconnect.modelo.entidade.pacienteConquista.PacienteConquista;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
@@ -132,4 +135,47 @@ public BuildFactory fac;
 		}
 		return conquistas;
 	}
+	
+public List<Conquista> recuperarConquistaPacientePorId(Integer id) {
+		
+		Session sessao = null;
+		List<Conquista> conquistas = null;
+
+		try {
+			
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
+			Root<Conquista> raizConquista = criteria.from(Conquista.class);
+			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
+
+			criteria.select(raizConquista);
+
+			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), id));
+					
+			conquistas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+			
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return conquistas;
+	}
+	
+	
 }

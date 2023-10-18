@@ -136,11 +136,12 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 		}
 		return conquistas;
 	}
+		
 	
 	public List<Conquista> filtrarConquistaViaPacienteDoPacientePorStatus(StatusConsulta status, Paciente paciente) {
 
 		Session sessao = null;
-		List<Conquista> consultas = null;
+		List<Conquista> conquistas = null;
 
 		try {
 			sessao = fac.ConectFac().openSession();
@@ -156,7 +157,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 			criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status),
 					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), paciente.getId()));
 
-			consultas = sessao.createQuery(criteria).getResultList();
+			conquistas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
 		} catch (Exception e) {
@@ -170,6 +171,6 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 			}
 		}
 
-		return consultas;
+		return conquistas;
 	}
 }
