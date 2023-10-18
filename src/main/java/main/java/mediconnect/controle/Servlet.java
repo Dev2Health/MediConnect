@@ -310,8 +310,13 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-paciente.jsp");
+		
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);	
+		
+		request.setAttribute("paciente", paciente);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/perfil.jsp");
 		dispatcher.forward(request, response);
+		
 		
 	}
 	
@@ -322,8 +327,6 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 
-		//Paciente paciente = pacienteDAO.recuperarPaciente();
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil.jsp");
 		dispatcher.forward(request, response);
 		

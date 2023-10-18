@@ -3,8 +3,8 @@
 <html>
 	<head>
 		<title>Cadastro de Paciente</title>
-		<style><%@include file="../../styles/cadastrar-paciente.css"%></style>
-		<script><%@include file="../../script/cadastro-paciente.js"%></script>
+		<style><%@include file="../../styles/cadastro-paciente.css"%></style>
+		<script><%@include file="../../scripts/cadastro-paciente.js"%></script>
 	</head>
 	<body>
 		<div>

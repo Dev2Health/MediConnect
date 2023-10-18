@@ -475,5 +475,11 @@ public class Principal {
 		notificacaoConsulta.setNotificacao(notificacao);
 		
 		notificacaoConsultaDAO.inserirNotificacaoConsulta(notificacaoConsulta);
-	}
+		
+		System.out.println(pacienteDAO.recuperarPacientePorId(4));
+		
+		
+		}
+	
+	
 }
