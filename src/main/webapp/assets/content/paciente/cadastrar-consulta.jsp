@@ -24,15 +24,15 @@
 						<input type="hidden" name="id" value="<c:out value='${consulta.id}' />" />
 					</c:if>
 					<label>Horário:</label>
-					<input type="time" value="<c:out value='${consulta.horario}' />" id="c.horario" name="horario" oninput="mascaraHorario()" placeholder="Informe o horário..."> 
+					<input type="time" />" id="c.horario" name="horario" oninput="mascaraHorario()" placeholder="Informe o horário..."> 
 					<label>Data:</label>
-					<input type="date" value="<c:out value='${consulta.data}' />" id="c.data" name="data" oninput="mascaraData()" placeholder="Informe a data..."> 
+					<input type="date" />" id="c.data" name="data" oninput="mascaraData()" placeholder="Informe a data..."> 
 					<label>Especialidade Profissional:</label>
-					<input type="text" value="<c:out value='${consulta.especialidade}' />" id="c.especialidade" name="especialidade" placeholder="Informe a especialidade..."> 
+					<input type="text" />" id="c.especialidade" name="especialidade" placeholder="Informe a especialidade..."> 
 					<label>Instituição:</label>
-					<input type="text" value="<c:out value='${consulta.instituicao}' />" id="c.instituicao" name="instituicao" placeholder="Informe a instituição..."> 
+					<input type="text" />" id="c.instituicao" name="instituicao" placeholder="Informe a instituição..."> 
 					<label>Profissional de Saúde:</label>
-					<input type="text" value="<c:out value='${consulta.profissional}' />" id="c.profissional" name="profissional" placeholder="Informe profissional de saúde..."> 
+					<input type="text" />" id="c.profissional" name="profissional" placeholder="Informe profissional de saúde..."> 
 
 					<button type="submit">Salvar</button>
 					<button type="reset">Limpar Formulário</button>
