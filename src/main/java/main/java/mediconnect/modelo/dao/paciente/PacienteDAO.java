@@ -9,4 +9,5 @@ public interface PacienteDAO {
 	void deletarPaciente(Paciente paciente);
 	void atualizarPaciente(Paciente paciente);
 	List<Paciente> recuperarPaciente();
+	Paciente recuperarPacientePorId(Integer id);
 }
