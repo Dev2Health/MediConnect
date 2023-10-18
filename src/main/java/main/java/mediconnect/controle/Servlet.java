@@ -310,7 +310,6 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
 		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);	
 		
 		request.setAttribute("paciente", paciente);
