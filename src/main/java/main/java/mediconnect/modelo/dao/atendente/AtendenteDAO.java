@@ -16,4 +16,5 @@ public interface AtendenteDAO {
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(int cadastro, Instituicao instituicao);
+	Atendente filtrarAtendenteViaInstituicaoPorId(Integer id);
 }
