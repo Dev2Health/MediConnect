@@ -2,8 +2,6 @@
 
 <html lang="pt-br">
 
-<!--Só lembrando para revisar a coloração desta página-->
-
 <head>
 
     <title>Editar perfil | Mediconnect</title>
@@ -13,8 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
 
 </head>
-
-
 
 <body>
 
@@ -29,120 +25,102 @@
 
         <div>
 
-            <img src="../../images/perfil-instituicao.png" alt="logo-mediconnect" class="foto-de-perfil">
+            <img src="../../images/perfil-paciente.png" alt="foto-de-perfil">
 
         </div>
 
     </header>
-
     <main>
         <form>
             <section>
+                <div class="form-left">
+
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-paciente.svg">
+                        </div>
+                        <div class="input-itens">
+                            <label for="name" class="text">Nome</label>
+                            <input class="text-emphasis" type="text" id="name" name="name" placeholder="Joana" disabled>
+                        </div>
+
+                    </div>
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-cpf.svg">
+                        </div>
+                        <div class="input-itens">
+                            <label for="cpf" class="text">CPF</label>
+                            <input class="text-emphasis" type="text" id="cpf" name="cpf" placeholder="189.891.961-59"
+                                disabled>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-right">
+
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-paciente.svg">
+                        </div>
+                        <div class="input-itens">
+                            <label for="surname" class="text">Sobrenome</label>
+                            <input class="text-emphasis" type="text" id="surname" name="surname"
+                                placeholder="Silva Castela" disabled>
+                        </div>
+
+                    </div>
+
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-paciente.svg">
+                        </div>
+                        <div class="input-itens">
+                            <label for="date" class="text">Data de nascimento</label>
+                            <input class="text-emphasis" type="date" id="date" name="date" placeholder="10/08/2002" disabled>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </section>
+
+            <section>
+
+
 
                 <div>
-                    <p class="text">Alterar dados da instituição</p>
+                    <p class="text">Alterar dado de contato</p>
                     <div>
                         <button class="btn-square-la" disabled>Habilitar edição</button>
                         <img src="../../images/icone-editar.svg">
                     </div>
                 </div>
+
                 <div class="form-left">
+
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-instituicao.svg">
+                            <img src="../../images/icone-telefone.svg" alt="icone-telefone">
                         </div>
                         <div class="input-itens">
-                            <label for="razao-social" class="text">Razão Social</label>
-                            <input class="text-emphasis" type="text" id="razao-social" name="razao-social"
-                                placeholder="Empresa Privada LTDA" required>
-                        </div>
-                    </div>
-                    <div class="form-input">
-                        <div class="input-icon">
-                            <img src="../../images/icone-cep.svg">
-                        </div>
-                        <div class="input-itens">
-                            <label for="cep" class="text">CEP</label>
-                            <input class="text-emphasis" type="text" id="cep" name="cep" placeholder="XXXXX-XXX"
-                                maxlength="9" required>
+                            <label for="phone" class="text">Telefone</label>
+                            <input class="text-emphasis" type="tel" id="phone" name="phone"
+                                placeholder="(00) 9 9999-9999" maxlength="16"
+                                pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
                         </div>
                         <div class="input-element">
-                            <img src="../../images/icone-nao-verificado.svg">
-                        </div>
-                    </div>
-                    <div class="form-input">
-                        <div class="input-icon">
-                            <img src="../../images/icone-mapa.svg">
-                        </div>
-                        <div class="input-itens">
-                            <label for="city" class="text">Cidade</label>
-                            <input class="text-emphasis" type="text" id="city" name="city" placeholder="Cidade"
-                                required>
-                        </div>
-                    </div>
-                    <div class="form-input">
-                        <div class="input-icon">
-                            <img src="../../images/icone-logradouro.svg">
-                        </div>
-                        <div class="input-itens">
-                            <label for="route" class="text">Logradouro</label>
-                            <input class="text-emphasis" type="text" id="route" name="route"
-                                placeholder="Rua Jardim das Flores" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-right">
-                    <div class="form-input">
-                        <div class="input-icon">
-                            <img src="../../images/icone-instituicao.svg">
-                        </div>
-                        <div class="input-itens">
-                            <label for="nome-fantasia" class="text">Nome Fantasia</label>
-                            <input class="text-emphasis" type="text" id="nome-fantasia" name="nome-fantasia"
-                                placeholder="Nome Empresa" required>
-                        </div>
-                    </div>
-                    <div class="form-input">
-                        <div class="input-icon">
-                            <img src="../../images/icone-mapa.svg">
-                        </div>
-                        <div class="input-itens">
-                            <label for="state" class="text">Estado</label>
-                            <input class="text-emphasis" list="state" name="state" placeholder="Selecione o Estado"
-                                required>
-                            <datalist id="state">
-                                <option value="Santa Catarina">
-                            </datalist>
-                        </div>
-                    </div>
-                    <div class="form-input">
-                        <div class="input-icon">
-                            <img src="../../images/icone-logradouro.svg">
-                        </div>
-                        <div class="input-itens">
-                            <label class="text" for="district" class="district">Bairro</label>
-                            <input class="text-emphasis" type="text" id="district" name="district" placeholder="Nome"
-                                required>
-                        </div>
-                    </div>
-                    <div class="form-input">
-                        <div class="input-icon">
-                            <img src="../../images/icone-numeros.svg">
-                        </div>
-                        <div class="input-itens">
-                            <label class="text" for="number" class="number">Número</label>
-                            <input class="text-emphasis" type="number" id="number" name="number" placeholder="XXXX">
+                            <img src="../../images/icone-verificado.svg">
                         </div>
                     </div>
 
                 </div>
+
+
             </section>
 
-
-
-
             <section>
-
                 <div id="confirm-email" class="template-grid">
                     <div class="email-header">
                         <img src="../../images/icone-email.svg" alt="icone-email">
@@ -219,6 +197,6 @@
     </main>
     <script src="../scripts/esqueceu-sua-senha.js"></script>
 </body>
-
+</body>
 
 </html>
