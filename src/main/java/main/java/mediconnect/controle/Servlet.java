@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAO;
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAOImpl;
 import main.java.mediconnect.modelo.dao.conquista.ConquistaDAO;
@@ -23,6 +24,9 @@ import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAOImpl;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAO;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAOImpl;
+import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
+import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
+import main.java.mediconnect.modelo.entidade.conquista.Conquista;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
@@ -40,10 +44,12 @@ public class Servlet extends HttpServlet {
 	private ConsultaDAO consultaDAO;
 	private PacienteDAO pacienteDAO;
 	private ConquistaDAO conquistaDAO;
+	private PacienteConquistaDAO pacienteConquistaDAO;
 
 	
 	public void init() {
 		
+		pacienteConquistaDAO = new PacienteConquistaDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		pacienteDAO = new PacienteDAOImpl();
 		instituicaoDAO = new InstituicaoDAOImpl();
@@ -304,8 +310,12 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);	
+		
+		request.setAttribute("paciente", paciente);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/perfil.jsp");
 		dispatcher.forward(request, response);
+		
 		
 	}
 	
@@ -316,8 +326,6 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 
-		//Paciente paciente = pacienteDAO.recuperarPaciente();
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil.jsp");
 		dispatcher.forward(request, response);
 		
@@ -327,8 +335,8 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		//List<Conquista> conquistas = conquistaDAO.filtrarConquistaViaPacienteDoPacientePorStatus();
-		//request.setAttribute("conquistas", conquistas);
+		List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistaPacientePorId(id);
+		request.setAttribute("conquistas", conquistas);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("conquistas-paciente.jsp");
 
 		dispatcher.forward(request, response);
