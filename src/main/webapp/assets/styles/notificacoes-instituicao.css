@@ -117,7 +117,7 @@ main {
     gap: 45px;
 }
 
-.consult-date img:first-child {
+.consult-date img {
     filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(75%) contrast(80%);
 }
 
