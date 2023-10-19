@@ -28,7 +28,7 @@
     --font-special: 'Fredoka', sans-serif;
 }
 
-/* Textos - alterar o letter-spacing de forma com que fique "responsivo" */
+/* Textos - alterar o tamanho e o letter-spacing de forma com que fique "responsivo" */
 
 .text {
     font-family: var(--font-general);
@@ -148,7 +148,7 @@
     width: 465px;
 }
 
-/* Ilustrações - precisaremos colocar medidas/tamanhos relativos, eliminando o uso de px por % (exemplo) */
+/* Ilustrações */
 
 .illustration {
     width: 33.33vw;
@@ -168,6 +168,10 @@
 
 .content-right { 
     grid-column: 7 / 12;
+}
+
+#search-return .text {
+    grid-column: 2 / 12;
 }
 
 /* Formulários */
