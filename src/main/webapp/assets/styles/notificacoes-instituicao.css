@@ -114,7 +114,7 @@ main {
 }
 
 .consult-date img {
-    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(75%) contrast(80%);
+    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
 }
 
 .notification-bottom {
