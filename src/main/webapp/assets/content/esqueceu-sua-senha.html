@@ -18,14 +18,14 @@
         <img src="../images/logo-legendado.svg" alt="logo-mediconnect" class="header-logo">
     </header>
     <main>
-        <div id="content-box">
+        <form>
             <div id="confirm-email" class="template-grid">
                 <div class="email-header">
                     <img src="../images/icone-email.svg" alt="icone-email">
                     <p class="text">Antes de prosseguir, informe seu endereço de e-mail abaixo</p>
                 </div>
                 <div class="email-content">
-                    <form>
+                    <div class="input-email">
                         <label for="email" class="text">E-mail atual</label>
                         <div id="form-email"> 
                             <div id="form-icon">
@@ -33,7 +33,7 @@
                             </div>
                             <input class="text-emphasis" type="email" id="email" name="email" placeholder="seu.email@gmail.com">
                         </div>
-                    </form>
+                    </div>
                     <div id="email-validation">
                         <div class="validation-content">
                             <img src="../images/icone-atencao.svg" alt="icone-atencao"> <!--Alterar para Icone-->
@@ -44,23 +44,22 @@
             </div>
             <div id="redefine-password" class="template-grid">
                 <div class="password-content">
-                    <form>
+                    <div class="input-password">
                         <div id="current-password">
                             <label for="password" class="text">Nova Senha</label>
                             <div class="password-input">
-                                <!-- Border, flex row -->
                                 <input class="text-emphasis" type="password" id="password" name="password" placeholder="********">
-                                <img src="../images/icone-olho-aberto.svg" alt="icone-olho-fechado">
+                                <img src="../images/icone-olho-fechado.svg" id="btn-password" onclick="showPassword()">
                             </div>
                         </div>
                         <div id="new-password">
                             <label for="newpassword" class="text">Confirmar Senha</label>
                             <div class="password-input">
                                 <input class="text-emphasis" type="password" id="newpassword" name="newpassword" placeholder="********">
-                                <img src="../images/icone-olho-fechado.svg" alt="icone-olho-fechado">
+                                <img src="../images/icone-olho-fechado.svg" id="btn-new-password" onclick="showPasswordAgain()">
                             </div>
                         </div>
-                    </form>
+                    </div>
                     <div id="password-validation">
                         <div class="validation-content">
                             <img src="../images/icone-atencao.svg" alt="icone-atencao">
@@ -79,7 +78,8 @@
                     <button class="btn-round-me text-emphasis link-purple" type="reset">Descartar alterações</button>
                 </div>
             </div>
-        </div>            
+        </form>           
     </main>
+    <script src="../scripts/esqueceu-sua-senha.js"></script>
 </body>
 </html>
