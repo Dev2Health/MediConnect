@@ -48,6 +48,13 @@ public abstract class Usuario implements Serializable {
 		setEhAtivo(ehAtivo);
 	}
 	
+	public Usuario (String email, String senha, boolean ehAtivo) {
+		super();
+		setEmail(email);
+		setSenha(senha);
+		setEhAtivo(ehAtivo);
+	}
+	
 	// MÉTODOS DE ACESSO
 	
 	// Id

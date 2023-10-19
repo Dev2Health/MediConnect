@@ -17,27 +17,27 @@ import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class AtendenteDAOImpl implements AtendenteDAO {
-	
+
 	public BuildFactory fac;
-	
+
 	public AtendenteDAOImpl() {
 		fac = new BuildFactory();
 	}
-	
+
 	@Override
 	public void inserirAtendente(Atendente atendente) {
 		Session sessao = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
 			sessao.save(atendente);
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
@@ -54,22 +54,22 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	@Override
 	public void deletarAtendente(Atendente atendente) {
 		Session sessao = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
 			sessao.delete(atendente);
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
 			if (sessao != null) {
 				sessao.close();
@@ -81,21 +81,21 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	@Override
 	public void atualizarAtendente(Atendente atendente) {
 		Session sessao = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 			sessao.update(atendente);
 			sessao.getTransaction().commit();
 
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
 			if (sessao != null) {
 				sessao.close();
@@ -108,9 +108,9 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	public List<Atendente> recuperarListaDeAtendentes() {
 		Session sessao = null;
 		List<Atendente> atendentes = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
@@ -122,9 +122,9 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 			atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
@@ -137,7 +137,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		}
 		return atendentes;
 	}
-	
+
 	public List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao) {
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -200,7 +200,6 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
 			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
-
 			criteria.select(raizAtendente);
 			Expression<String> cpfExpression = raizAtendente.get(Atendente_.CPF);
 			criteria.where(construtor.equal(cpfExpression, cpf),
@@ -247,7 +246,6 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
 			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
-
 			criteria.select(raizAtendente);
 			Expression<String> ctpsExpression = raizAtendente.get(Atendente_.CTPS);
 			criteria.where(construtor.equal(ctpsExpression, ctps),
@@ -278,7 +276,8 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
+			Instituicao instituicao) {
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
 
@@ -292,7 +291,6 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
 			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
-
 
 			criteria.select(raizAtendente);
 			Expression<String> dataCadastroExpression = raizAtendente.get(Atendente_.DATA_CADASTRO);
@@ -339,7 +337,6 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
 			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
-
 			criteria.select(raizAtendente);
 			Expression<String> cadastroExpression = raizAtendente.get(Atendente_.ID);
 			criteria.where(construtor.equal(cadastroExpression, cadastro),
@@ -354,19 +351,54 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
-
 			}
 
 		} finally {
 
 			if (sessao != null) {
 				sessao.close();
-
 			}
-
 		}
 
 		return Atendentes;
 	}
-	
+
+	public Atendente filtrarAtendenteViaInstituicaoPorId(Integer id) {
+		Session sessao = null;
+		Atendente atendente = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
+			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+
+			criteria.select(raizAtendente);
+
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id));
+
+			atendente = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return atendente;
+	}
+
 }

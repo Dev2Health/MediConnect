@@ -8,6 +8,7 @@
 	<body>
 		<%@ include file="../../../menu.jsp"%>
 <div>
+        <c:forEach var="consulta" items="${consultas}">
         <p>Consulta - <c:out value="${consulta.id}" /></p>
         <div>
             <img src="././images/icone-calendario.svg" alt="icone-calendario">
@@ -21,9 +22,8 @@
             <button>Ver detalhes</button>
             // Vai abrir um modal a partir do onClick
         </div>
-    </div>
-			</div>
-		</div>
+        </c:forEach>
+</div>
 	</body>
 </html>
     

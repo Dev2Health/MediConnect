@@ -8,6 +8,7 @@
 	<body>
 		<%@ include file="../../../menu.jsp"%>
 <div>
+        <c:forEach var="especialidade" items="${especialidades}">
         <input type="hidden" name="id" value="<c:out value='${especialidade.id}' />" />
         <p><c:out value="${especialidade.nome}"/></p>
         <div>
@@ -18,9 +19,8 @@
             <button>Ver detalhes</button>
             // Vai abrir um modal a partir do onClick
         </div>
-    </div>
-			</div>
-		</div>
+        </c:forEach>
+</div>
 	</body>
 </html>
     
