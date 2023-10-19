@@ -1,0 +1,134 @@
+body {
+    width: 100vw;
+    color: var(--dark);
+    background-color: var(--background-institution);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Menu */
+
+#content-header {
+    width: 100vw;
+    align-items: center;
+    height: 140px;
+}
+
+[class*="nav-"], .filter-box, .filter-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar {
+    grid-column: 2 / 4;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.nav-bar img {
+    width: 50px;
+}
+
+.nav-filter {
+    grid-column: 5 / 12;
+    justify-content: space-between;
+}
+
+.filter-box {
+    justify-content: space-between;
+    border: 3px solid var(--purple);
+    border-radius: 15px;
+    width: 30vw;
+    height: 55px;
+}
+
+.input-itens input {
+    color: var(--purple);
+    padding-left: 1.4vw;
+}
+
+.input-itens input::placeholder {
+    color: var(--purple-light);
+}
+
+.filter-icon {
+    height: 100%;
+    background-color: var(--purple);
+    border-radius: 0 10px 10px 0;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.filter-icon img {
+    height: 35px;
+}
+
+.nav-filter button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    color: var(--background-institution);
+    background-color: var(--purple);
+}
+
+.nav-filter button img {
+    height: 35px;
+}
+
+/* Notificações */
+
+#search-return .text {
+    grid-column: 2 / 12;
+}
+
+#notification {
+    margin-bottom: 50px;
+}
+
+.card-notification {
+    grid-column: 2 / 12;
+    margin-top: 50px;
+    border: 3px solid var(--purple);
+    border-radius: 40px;
+    background-color: var(--light);
+}
+
+.notification-top {
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 8.33vw;
+}
+
+.consult-info {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.consult-info img {
+    width: 50px;
+}
+
+.consult-info [class*="consult-"] {
+    display: flex;
+    gap: 45px;
+}
+
+.consult-date img {
+    filter: brightness(78%) contrast(110%);
+}
+
+.consult-time img {
+    filter: invert(47%) sepia(40%) saturate(965%) hue-rotate(200deg) brightness(80%) contrast(90%);
+}
+
+.notification-bottom {
+    margin: 0 8.33vw 25px 8.33vw;
+}
+
+.notification-bottom .text-emphasis {
+    font-size: 1em;
+}
