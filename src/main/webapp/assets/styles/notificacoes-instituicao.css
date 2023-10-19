@@ -80,10 +80,6 @@ main {
 
 /* Notificações */
 
-#search-return .text {
-    grid-column: 2 / 12;
-}
-
 #notification {
     margin-bottom: 50px;
 }

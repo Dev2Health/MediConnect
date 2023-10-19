@@ -1,77 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <title>Especialidades | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/especialidades-instituicao.css">
 </head>
-
 <body>
-    <header>
-        <img src="../../images/icone-menu.svg" alt="icone-menu">
-        <img src="../../images/favicon.ico" alt="icnoe-mediconnect">
-        <nav>
-            <div>
-                <h3 class="text">Pesquisar</h3>
-                <div>
-                    <img src="../../images/icone-lupa.svg" alt="icone-lupa">
-                </div>
-                <div>
-                    <h3 class="text">Filtrar</h3>
-                    <img src="../../images/icone-filtro.svg" alt="icone-filtro">
-                </div>
-            </div>
+    <header id="content-header" class="template-grid">
+        <nav class="nav-bar">
+            <img src="../../images/icone-menu.svg" alt="icone-menu">
+            <img src="../../images/logo.svg" alt="logo-mediconnect">
         </nav>
     </header>
-
     <main>
-        <div class="content-left">
-            <h3 class="text">Especialidades atendidas pela instituição</h3>
-        </div>
-        <div class="content-right">
-            <div>
-                <h3 class="text">Adicionar</h3>
-                <img src="../../images/icone-adicionar.svg" alt="icone-adicionar">
+        <div id="search-return" class="template-grid">
+            <div id="return-specialty">
+                <p class="text">Especialidades atendidas pela instituição</p>
+                <button class="btn-square-sm text">Adicionar <img src="../../images/icone-adicionar.svg"></button>
             </div>
         </div>
-        <div><!--inicio do card-->
-            <h3 class="text-emphasis">Clínico Geral</h3>
-            <div>
-                <img src="../../images/icone-especialidade.svg" alt="icone-especialidade">
-                <h3 class="text">04</h3>
-            </div>
-            <button class="btn-round-me">Ver detalhes</button>
-        </div><!--fim do card-->
-        <div><!--inicio do card-->
-            <h3 class="text-emphasis">Odontologia</h3>
-            <div>
-                <img src="../../images/icone-especialidade.svg" alt="icone-especialidade">
-                <h3 class="text">02</h3>
-            </div>
-            <button class="btn-round-me">Ver detalhes</button>
-        </div><!--fim do card-->
-        <div><!--inicio do card-->
-            <h3 class="text-emphasis">Oncologia</h3>
-            <div>
-                <img src="../../images/icone-especialidade.svg" alt="icone-especialidade">
-                <h3 class="text">03</h3>
-            </div>
-            <button class="btn-round-me">Ver detalhes</button>
-        </div><!--fim do card-->
-        <div><!--inicio do card-->
-            <h3 class="text-emphasis">Psicologia</h3>
-            <div>
-                <img src="../../images/icone-especialidade.svg" alt="icone-especialidade">
-                <h3 class="text">01</h3>
-            </div>
-            <button class="btn-round-me">Ver detalhes</button>
-        </div><!--fim do card-->
+        <div id="specialty" class="template-grid">
 
+            <div class="card-specialty">
+                <p class="text-emphasis">Clínico Geral</p>
+                <div class="card-info">
+                    <div class="info-professional">
+                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
+                        <p class="text">04</p>
+                    </div>
+                    <button class="btn-square-me text-emphasis">Ver detalhes</button>
+                </div>
+            </div>
 
+            <div class="card-specialty">
+                <p class="text-emphasis">Odontologia</p>
+                <div class="card-info">
+                    <div class="info-professional">
+                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
+                        <p class="text">02</p>
+                    </div>
+                    <button class="btn-square-me text-emphasis">Ver detalhes</button>
+                </div>
+            </div>
 
+            <div class="card-specialty">
+                <p class="text-emphasis">Psicologia</p>
+                <div class="card-info">
+                    <div class="info-professional">
+                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
+                        <p class="text">01</p>
+                    </div>
+                    <button class="btn-square-me text-emphasis">Ver detalhes</button>
+                </div>
+            </div>
+
+        </div>
     </main>
     <footer>
         <div class="template-grid" id="footer-links">
@@ -109,7 +95,5 @@
             </div>
         </div>
     </footer>
-
 </body>
-
 </html>
