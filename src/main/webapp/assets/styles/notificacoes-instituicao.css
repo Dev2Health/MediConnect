@@ -1,4 +1,5 @@
 body {
+    width: 100vw;
     color: var(--dark);
     background-color: var(--background-institution);
 }
@@ -10,6 +11,7 @@ main {
 /* Menu */
 
 #content-header {
+    width: 100vw;
     align-items: center;
     height: 140px;
 }
@@ -54,7 +56,7 @@ main {
 .filter-icon {
     height: 100%;
     background-color: var(--blue);
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 10px 10px 0;
     padding: 0 15px;
     cursor: pointer;
 }
@@ -97,9 +99,32 @@ main {
 .notification-top {
     display: flex;
     justify-content: space-between;
+    margin: 35px 8.33vw;
 }
 
-.consult-data {
+.consult-info {
     display: flex;
     align-items: center;
+    gap: 50px;
+}
+
+.consult-info img {
+    width: 50px;
+}
+
+.consult-info [class*="consult-"] {
+    display: flex;
+    gap: 45px;
+}
+
+.consult-date img:first-child {
+    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(75%) contrast(80%);
+}
+
+.notification-bottom {
+    margin: 0 8.33vw 25px 8.33vw;
+}
+
+.notification-bottom .text-emphasis {
+    font-size: 1em;
 }
