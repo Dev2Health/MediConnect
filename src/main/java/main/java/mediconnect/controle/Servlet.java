@@ -24,6 +24,9 @@ import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAOImpl;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAO;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAOImpl;
+import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
+import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
+import main.java.mediconnect.modelo.entidade.conquista.Conquista;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
@@ -39,12 +42,13 @@ public class Servlet extends HttpServlet {
 	private AtendenteDAO atendenteDAO;
 	private ConsultaDAO consultaDAO;
 	private PacienteDAO pacienteDAO;
+	private PacienteConquistaDAO pacienteConquistaDAO;
 	private ConquistaDAO conquistaDAO;
-	
-	
 
+	
 	public void init() {
 		
+		pacienteConquistaDAO = new PacienteConquistaDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		pacienteDAO = new PacienteDAOImpl();
 		instituicaoDAO = new InstituicaoDAOImpl();
@@ -230,7 +234,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastroPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastro-paciente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/cadastrar-paciente.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -249,7 +253,8 @@ public class Servlet extends HttpServlet {
 		String logradouro = request.getParameter("logradouro");
 		int numero = Integer.parseInt(request.getParameter("numero"));
 		
-		endereco = new Endereco(cep, numero, logradouro, cidade, estado, bairro);	
+		endereco = new Endereco(cep, numero, logradouro, cidade, estado, bairro);
+
 		enderecoDAO.inserirEndereco(endereco);
 		
 		Instituicao instituicao = null;
@@ -257,10 +262,12 @@ public class Servlet extends HttpServlet {
 		String razaoSocial = request.getParameter("razao");
 		String nomeFantasia = request.getParameter("fantasia");
 		String cnpj = request.getParameter("cnpj");
+		boolean ehAtivo = true;
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		
-		instituicao = new Instituicao(cnpj, endereco, razaoSocial, nomeFantasia, email, senha);
+		instituicao = new Instituicao(cnpj, endereco, razaoSocial, nomeFantasia, email, senha, ehAtivo);
+
 		
 		instituicaoDAO.inserirInstituicao(instituicao);
 		response.sendRedirect("perfil-instituicao");
@@ -276,12 +283,13 @@ public class Servlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		String cpf = request.getParameter("cpf");
-		LocalDate dataNascimento = LocalDate.parse("data");
+		boolean ehAtivo = true;
+		LocalDate dataNascimento = LocalDate.parse(request.getParameter("data"));
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
 		
-		paciente = new Paciente(email, senha, nome, sobrenome, cpf, dataNascimento, telefone);
+		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone);
 		
 		pacienteDAO.inserirPaciente(paciente);
 		response.sendRedirect("perfil-paciente");
@@ -303,19 +311,26 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-paciente.jsp");
-		dispatcher.forward(request, response);
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);	
 		
+		request.setAttribute("paciente", paciente);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/perfil.jsp");
+		dispatcher.forward(request, response);
+				
 	}
 	
+
+	// TELA PERFIL PACIENTE 
+
 	
 	private void mostrarTelaEditarPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+
 		//Paciente paciente = pacienteDAO.recuperarPaciente();
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-paciente.jsp");
-		dispatcher.forward(request, response);
+
 		
 	}
 	
@@ -323,9 +338,11 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
+
 		//List<Conquista> conquistas = conquistaDAO.filtrarConquistaViaPacienteDoPacientePorStatus();
 		//request.setAttribute("conquistas", conquistas);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("conquistas-paciente.jsp");
+
 		dispatcher.forward(request, response);
 		
 	}
@@ -359,7 +376,6 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil-atendente.jsp");
 		dispatcher.forward(request, response);

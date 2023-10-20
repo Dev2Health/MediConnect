@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--background-light);
 }
@@ -22,6 +26,10 @@ body {
 }
 
 #content-header .btn-round-me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
     background-color: var(--purple);
 }
 
@@ -39,6 +47,14 @@ body {
 
 .span-purple {
     color: var(--purple-dark);
+}
+
+/* Sessões */
+
+[id*="section-"] {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
 }
 
 /* Sessão - Principal */
@@ -77,62 +93,4 @@ body {
     grid-column: 8 / 12;
     display: flex;
     justify-content: flex-end;
-}
-
-/* Footer */
-
-footer {
-    width: 100vw;
-    height: 455px;
-    padding-top: 55px;
-    color: var(--background-light);
-    background-color: var(--dark);
-}
-
-[class*="footer-"] {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 20px;
-}
-
-.footer-mediconnect {
-    grid-column: 3 / 5;
-}
-
-.footer-contact {
-    grid-column: 6 / 8;
-}
-
-.footer-social {
-    grid-column: 9 / 11;
-}
-
-.footer-social [class*="social-"] {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.footer-social img {
-    width: 30px;
-    height: 30px;
-}
-
-#footer-commercial {
-    grid-column: 2 / 12;
-    margin-top: 60px;
-}
-
-#footer-commercial hr {
-    grid-column: 2 / 12;
-    border-bottom: 1px solid var(--background-light);
-}
-
-.commercial-content {
-    grid-column: 2 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 25px;
 }

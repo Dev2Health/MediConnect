@@ -27,17 +27,18 @@ import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class ConsultaDAOImpl implements ConsultaDAO {
 	public BuildFactory fac;
-	
+
 	public ConsultaDAOImpl() {
 		fac = new BuildFactory();
 	}
+
 	@Override
 	public void inserirConsulta(Consulta consulta) {
 		
 		Session sessao = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
@@ -64,9 +65,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 	public void deletarConsulta(Consulta consulta) {
 		
 		Session sessao = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
@@ -76,47 +77,48 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		} catch (Exception sqlException) {
 			
 			sqlException.printStackTrace();
-			
+		
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
 			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-		
+
 	}
 
 	@Override
 	public void atualizarConsulta(Consulta consulta) {
 		
 		Session sessao = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
-			
+
 			sessao.update(consulta);
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
 			
 			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
 			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-		
+
 	}
 
 	@Override
@@ -124,9 +126,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		
 		Session sessao = null;
 		List<Consulta> consultas = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
@@ -156,7 +158,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		
 		return consultas;
 	}
-	
+
 	public List<Consulta> filtrarConsultaViaInstituicaoPorPaciente(Paciente paciente, Instituicao instituicao) {
 		
         Session sessao = null;
@@ -183,32 +185,26 @@ public class ConsultaDAOImpl implements ConsultaDAO {
             criteria.where
             		(construtor.like(nomeExpression, "%" + paciente.getNome() + " " + paciente.getSobrenome() + "%"),
             		 construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
-            
-           
-            
+      
             consultas = sessao.createQuery(criteria).getResultList();
           
             sessao.getTransaction().commit();  
 
-        }catch (Exception sqlException) {       
-     
+        } catch (Exception sqlException) {       
+            
         	sqlException.printStackTrace(); 
+			
 
-            if (sessao.getTransaction() != null) {
-                sessao.getTransaction().rollback();
+		} finally {
 
-            }            
+			if (sessao != null) {
+				sessao.close();
 
-        } finally {
+			}
 
-            if (sessao != null) {
-            	sessao.close();
+		}
 
-            }
-
-        }
-           
-        return consultas;
+		return consultas;
         
     }
     
@@ -239,25 +235,20 @@ public class ConsultaDAOImpl implements ConsultaDAO {
           
             sessao.getTransaction().commit();  
 
-        }catch (Exception sqlException) {       
-     
+        } catch (Exception sqlException) {       
+            
         	sqlException.printStackTrace(); 
 
-            if (sessao.getTransaction() != null) {
-                sessao.getTransaction().rollback();
+		} finally {
 
-            }            
+			if (sessao != null) {
+				sessao.close();
 
-        } finally {
+			}
 
-            if (sessao != null) {
-            	sessao.close();
+		}
 
-            }
-
-        }
-           
-        return consultas;
+		return consultas;
         
     }
     
@@ -288,25 +279,21 @@ public class ConsultaDAOImpl implements ConsultaDAO {
           
             sessao.getTransaction().commit();  
 
-        }catch (Exception sqlException) {       
+        } catch (Exception sqlException) {       
      
         	sqlException.printStackTrace(); 
+			
 
-            if (sessao.getTransaction() != null) {
-                sessao.getTransaction().rollback();
+		} finally {
 
-            }            
+			if (sessao != null) {
+				sessao.close();
 
-        } finally {
+			}
 
-            if (sessao != null) {
-            	sessao.close();
+		}
 
-            }
-
-        }
-           
-        return consultas;
+		return consultas;
         
     }
     
@@ -355,52 +342,99 @@ public class ConsultaDAOImpl implements ConsultaDAO {
         return consultas;
         
     }
+
 	@Override
-	public List<Consulta> filtrarConsultaViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal, Instituicao instituicao) {
-		
-        Session sessao = null;
-        List<Consulta> consultas = null;
-        
-        try {
-       
-            sessao = fac.ConectFac().openSession();
-            sessao.beginTransaction();
-            
-            CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-            
-            CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
-            Root<Consulta> raizConsulta = criteria.from(Consulta.class);           
-                        
-            criteria.select(raizConsulta);
-            
-            criteria.where(construtor.between(raizConsulta.get(Consulta_.DATA), dataInicial, dataFinal),
-     			   		   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
-            
-            consultas = sessao.createQuery(criteria).getResultList();
-          
-            sessao.getTransaction().commit();  
+	public List<Consulta> filtrarConsultaViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
+			Instituicao instituicao) {
+		Session sessao = null;
+		List<Consulta> consultas = null;
 
-        }catch (Exception sqlException) {       
-     
-        	sqlException.printStackTrace(); 
+		try {
 
-            if (sessao.getTransaction() != null) {
-                sessao.getTransaction().rollback();
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
 
-            }            
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
-        } finally {
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
 
-            if (sessao != null) {
-            	sessao.close();
+			criteria.select(raizConsulta);
 
-            }
+			criteria.where(construtor.between(raizConsulta.get(Consulta_.DATA), dataInicial, dataFinal), construtor
+					.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 
-        }
-           
-        return consultas;
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
 	}
-	
+
+	public Consulta filtrarConsultasViaAtendentePorTitulo(Integer id, Instituicao instituicao) {
+
+		Session sessao = null;
+		Consulta consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.ID), id),
+					construtor.equal(raizConsulta.get(Consulta_.instituicao), instituicao));
+
+			consultas = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
+
+	}
+
 	public List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude,
 			Paciente paciente) {
 
@@ -449,7 +483,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 	}
 
 	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(EspecialidadeProfissional especialidadeProfissional, Paciente paciente) {
-
+		
 		Session sessao = null;
 		List<Consulta> consultas = null;
 
@@ -534,7 +568,8 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal, Paciente paciente) {
+	public List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
+			Paciente paciente) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -606,6 +641,40 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			
 		} finally {
 			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return consultas;
+	}
+
+	public List<Consulta> filtrarConsultasViaPacientePorId(Integer id) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
 			if (sessao != null) {
 				sessao.close();
 			}

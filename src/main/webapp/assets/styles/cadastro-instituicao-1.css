@@ -30,6 +30,10 @@ main {
 }
 
 .nav-bar .btn-round-sm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
     background-color: var(--dark);
 }
 

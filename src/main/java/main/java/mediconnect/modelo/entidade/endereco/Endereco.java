@@ -43,15 +43,6 @@ public class Endereco implements Serializable {
 	// CONSTRUTOR
 	
 	public Endereco() {}
-
-	public Endereco(String cep,int numero, String logradouro, String cidade, String estado, String bairro) {
-		setCep(cep);
-		setNumero(numero);
-		setLogradouro(logradouro);
-		setCidade(cidade);
-		setEstado(estado);
-		setBairro(bairro);	
-	}
 	
 	public Endereco(Integer id, String cep,int numero, String logradouro, String cidade, String estado, String bairro, Instituicao instituicao) {
 		setId(id);
@@ -63,6 +54,15 @@ public class Endereco implements Serializable {
 		setEstado(estado);
 		setBairro(bairro);	
 		setInstituicao(instituicao);
+	}
+	
+	public Endereco(String cep, int numero, String logradouro, String cidade, String estado, String bairro) {
+		setCep(cep);
+		setNumero(numero);
+		setLogradouro(logradouro);
+		setCidade(cidade);
+		setEstado(estado);
+		setBairro(bairro);	
 	}
 
 	// MÉTODOS DE ACESSO
