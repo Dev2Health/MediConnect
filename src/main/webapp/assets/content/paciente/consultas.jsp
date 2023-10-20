@@ -1,3 +1,5 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -42,48 +44,21 @@
         </div><!--fim do título-->
 
         <div> <!--notificações-->
-
+            <c:forEach var="consulta" items="${consultas}">
             <div> <!--Card notificação-->
 
-                <p class="text-emphasis">Título da consulta</p>
+                <p class="text-emphasis">Consulta - <c:out value="${consulta.id}" /></p>
                 <div>
                     <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                    <p class="text">20/08/2000</p>
+                    <p class="text"><c:out value="${consulta.data}" /></p>
                 </div>
                 <div>
                     <img src="../../images/icone-horario.svg" alt="icone-horario">
-                    <p class="text">13h59</p>
+                    <p class="text"><c:out value="${consulta.horario}" /></p>
                 </div>
                 <button class="btn-square-la">Ver detalhes</button>
             </div>
-
-            <div> <!--Card notificação-->
-
-                <p class="text-emphasis">Título da consulta</p>
-                <div>
-                    <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                    <p class="text">20/08/2000</p>
-                </div>
-                <div>
-                    <img src="../../images/icone-horario.svg" alt="icone-horario">
-                    <p class="text">13h59</p>
-                </div>
-                <button class="btn-square-la">Ver detalhes</button>
-            </div>
-
-            <div> <!--Card notificação-->
-
-                <p class="text-emphasis">Título da consulta</p>
-                <div>
-                    <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                    <p class="text">20/08/2000</p>
-                </div>
-                <div>
-                    <img src="../../images/icone-horario.svg" alt="icone-horario">
-                    <p class="text">13h59</p>
-                </div>
-                <button class="btn-square-la">Ver detalhes</button>
-            </div>
+            </c:forEach>
 
         </div>
 

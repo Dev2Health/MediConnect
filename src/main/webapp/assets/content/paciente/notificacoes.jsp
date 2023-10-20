@@ -1,3 +1,5 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,45 +32,28 @@
         <div id="search-return" class="template-grid">
             <p class="text">Notificações recebidas</p>
         </div>
-        <div id="notification" class="template-grid">                        
-            <div class="card-notification">
-                <div class="notification-top">
-                    <h2 class="subtitle">Notificação</h2>
-                    <div class="consult-info">
-                        <div class="consult-date">
-                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                            <p class="text">20/08/2000</p>
-                        </div>
-                        <div class="consult-time">
-                            <img src="../../images/icone-horario.svg" alt="icone-horario">
-                            <p class="text">13h59</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="notification-bottom">
-                    <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p>
-                </div>
-            </div>
-
-            <div class="card-notification">
-                <div class="notification-top">
-                    <h2 class="subtitle">Notificação</h2>
-                    <div class="consult-info">
-                        <div class="consult-date">
-                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                            <p class="text">20/08/2000</p>
-                        </div>
-                        <div class="consult-time">
-                            <img src="../../images/icone-horario.svg" alt="icone-horario">
-                            <p class="text">13h59</p>
+        <c:forEach var="notificacao" items="${notificacoes}">
+            <div id="notificacao" class="template-grid">                 
+                <div class="card-notificacao">
+                    <div class="notificacao-top">
+                        <h2 class="subtitle">Notificação</h2>
+                        <div class="consulta-info">
+                            <div class="consulta-data">
+                                <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                                <p class="text"><c:out value="${notificacao.data}"/></p>
+                            </div>
+                            <div class="consulta-horario">
+                                <img src="../../images/icone-horario.svg" alt="icone-horario">
+                                <p class="text"><c:out value="${notificacao.horario}"/></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="notification-bottom">
-                    <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p>
-                    <!-- Quando não couber a descrição toda, o javascript adiciona um ellipsis (ou seja, ...) -->
-                </div>
-            </div>
+                    <div class="notificacao-bottom"> <!--Inferior-->
+                        <p class="text-no-emphasis"><c:out value="${notificacao.descricao}"/></p>
+                        <!-- <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p> -->
+                    </div>
+                </div><!--fim do card-->
+            </c:forEach>   
 
         </div>
         <footer>
