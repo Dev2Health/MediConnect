@@ -128,7 +128,9 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+			
 			criteria.select(raizAtendente);
+			
 			atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -149,6 +151,53 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		}
 		return atendentes;
 	}
+	
+	@Override
+	public List<Atendente> filtrarAtendenteViaInstituicaoPorId(Integer id, Instituicao instituicao) {
+			
+			Session sessao = null;
+			List<Atendente> Atendentes = null;
+	
+			try {
+	
+				sessao = fac.ConectFac().openSession();
+				sessao.beginTransaction();
+	
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	
+				CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
+				Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+				
+				criteria.select(raizAtendente);
+				
+				criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id),
+							   construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
+				
+				Atendentes = sessao.createQuery(criteria).getResultList();
+	
+				sessao.getTransaction().commit();
+	
+			} catch (Exception sqlException) {
+	
+				sqlException.printStackTrace();
+	
+				if (sessao.getTransaction() != null) {
+					sessao.getTransaction().rollback();
+	
+				}
+	
+			} finally {
+	
+				if (sessao != null) {
+					sessao.close();
+	
+				}
+	
+			}
+	
+			return Atendentes;
+	
+		}
 	
 	public List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao) {
 		

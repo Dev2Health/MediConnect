@@ -9,6 +9,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
+import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class InstituicaoDAOImpl implements InstituicaoDAO {
@@ -146,4 +147,47 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 		
 		return instituicoes;
 	}
+	
+	
+	public Instituicao recuperarInstituicaoPorId(Integer id) {
+		
+		Session sessao = null;
+		Instituicao instituicao = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Instituicao> criteria = construtor.createQuery(Instituicao.class);
+			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
+			
+			criteria.select(raizInstituicao);
+			
+			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), id));
+			
+			instituicao = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		
+		return instituicao;
+	}
+	
 }

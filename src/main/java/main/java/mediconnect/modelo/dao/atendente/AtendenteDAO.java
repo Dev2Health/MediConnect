@@ -11,6 +11,7 @@ public interface AtendenteDAO {
 	void deletarAtendente(Atendente atendente);
 	void atualizarAtendente(Atendente atendente);
 	List<Atendente> recuperarListaDeAtendentes();
+	List<Atendente> filtrarAtendenteViaInstituicaoPorId(Integer id, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Instituicao instituicao);

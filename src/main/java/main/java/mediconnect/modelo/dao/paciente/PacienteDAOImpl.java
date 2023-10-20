@@ -12,6 +12,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
 import main.java.mediconnect.modelo.entidade.conquista.Conquista;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta_;
@@ -139,6 +140,49 @@ public class PacienteDAOImpl implements PacienteDAO {
 			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
 
 			criteria.select(raizPaciente);
+
+			pacientes = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return pacientes;
+	}
+	
+	public List<Paciente> recuperarPacientesCadastradosPorId(Integer id, Instituicao instituicao) {
+		
+		Session sessao = null;
+		List<Paciente> pacientes = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Paciente> criteria = construtor.createQuery(Paciente.class);
+			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
+			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
+
+			criteria.select(raizPaciente);
+			
+			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), id),
+						   construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
 
 			pacientes = sessao.createQuery(criteria).getResultList();
 

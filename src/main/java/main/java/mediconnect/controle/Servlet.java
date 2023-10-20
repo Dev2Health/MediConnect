@@ -345,6 +345,11 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		//Instituicao instituicao = request.getParameter("instituicao");
+		
+		//atendenteDAO.filtrarAtendenteViaInstituicaoPorId(id, instituicao);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-atendente.jsp");
 		dispatcher.forward(request, response);
 		
@@ -352,6 +357,9 @@ public class Servlet extends HttpServlet {
 	
 	private void mostrarTelaEditarPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil-atendente.jsp");
 		dispatcher.forward(request, response);
@@ -369,6 +377,8 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaVerPacientesCadastrados(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		//List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosPorId(id, instituicao);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("pacientes-atendente.jsp");
 		dispatcher.forward(request, response);
 		
@@ -379,6 +389,8 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-instituicao.jsp");
 		dispatcher.forward(request, response);
 		
