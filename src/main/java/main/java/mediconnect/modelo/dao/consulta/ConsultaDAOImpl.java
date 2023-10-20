@@ -527,7 +527,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorInstituicao(Instituicao instituicao, Paciente paciente) {
+	public List<Consulta> filtrarConsultaViaPacientePorInstituicao(Integer id, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -543,8 +543,8 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			criteria.select(raizConsulta);
 
 			criteria.where(
-					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()),
-					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), paciente.getId()));
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao),
+					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id));
 
 			consultas = sessao.createQuery(criteria).getResultList();
 

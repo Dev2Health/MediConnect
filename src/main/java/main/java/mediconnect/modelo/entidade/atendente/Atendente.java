@@ -41,19 +41,20 @@ public class Atendente extends Pessoa implements Serializable {
 
 	public Atendente() {}
 
-	public Atendente(Integer id, String email, String senha, boolean ehAtivo, String nome, String sobrenome,
-			String cpf) {
-		super(id, email, senha, ehAtivo, nome, sobrenome, cpf);
-	}
-
 	public Atendente(Integer id, String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
 			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps) {
 		super(id, email, senha, ehAtivo, nome, sobrenome, cpf);
 		setDataCadastro(dataCadastro);
 		setInstituicao(instituicao);
 		setCtps(ctps);
-		
-
+	}
+	
+	public Atendente( String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
+			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps) {
+		super(email, senha, ehAtivo, nome, sobrenome, cpf);
+		setDataCadastro(dataCadastro);
+		setInstituicao(instituicao);
+		setCtps(ctps);
 	}
 
 	// MÉTODOS DE ACESSO

@@ -10,6 +10,6 @@ public interface PacienteDAO {
 	void deletarPaciente(Paciente paciente);
 	void atualizarPaciente(Paciente paciente);
 	List<Paciente> recuperarPaciente();
-	List<Paciente> recuperarPacientesCadastradosPorId(Integer id, Instituicao instituicao);
+	List<Paciente> recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(Integer id);
 	Paciente recuperarPacientePorId(Integer id);
 }

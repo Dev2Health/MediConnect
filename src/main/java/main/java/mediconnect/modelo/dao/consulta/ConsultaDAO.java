@@ -24,7 +24,7 @@ public interface ConsultaDAO {
 	Consulta filtrarConsultasViaAtendentePorTitulo(Integer id, Instituicao instituicao);
 	List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude, Paciente paciente);
 	List<Consulta> filtrarConsultaViaPacientePorEspecialidade(EspecialidadeProfissional especialidadeProfissional, Paciente paciente);
-	List<Consulta> filtrarConsultaViaPacientePorInstituicao(Instituicao instituicao, Paciente paciente);
+	List<Consulta> filtrarConsultaViaPacientePorInstituicao(Integer id, Integer idInstituicao);
 	List<Consulta> filtrarConsultaViaPacientePorStatus(StatusConsulta status, Paciente paciente);
 	List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal, Paciente paciente);
 	List<Consulta> filtrarConsultasViaPacientePorId(Integer id);

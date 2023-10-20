@@ -9,6 +9,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
+import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfissionalDAO{
@@ -123,7 +124,9 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 
 			CriteriaQuery<EspecialidadeProfissional> criteria = construtor.createQuery(EspecialidadeProfissional.class);
 			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
+			
 			criteria.select(raizEspecialidadeProfissional);
+			
 			especialidadesProfissionais = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -144,4 +147,87 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 		}
 		return especialidadesProfissionais;
 	}
+	
+	public 	EspecialidadeProfissional recuperarEspecialidadePorId(Integer id) {
+		
+		Session sessao = null;
+		EspecialidadeProfissional especialidadeProfissionai = null;
+		
+		try {
+			
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<EspecialidadeProfissional> criteria = construtor.createQuery(EspecialidadeProfissional.class);
+			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
+			
+			criteria.select(raizEspecialidadeProfissional);
+			
+			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(EspecialidadeProfissional_.ID), id));
+			
+			especialidadeProfissionai = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return especialidadeProfissionai;
+	}
+	
+	public 	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisPorId(Integer id) {
+		
+		Session sessao = null;
+		List<EspecialidadeProfissional> especialidadesProfissionais = null;
+		
+		try {
+			
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<EspecialidadeProfissional> criteria = construtor.createQuery(EspecialidadeProfissional.class);
+			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
+			
+			criteria.select(raizEspecialidadeProfissional);
+			
+			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(EspecialidadeProfissional_.ID), id));
+			
+			especialidadesProfissionais = sessao.createQuery(criteria).getResultList();	
+
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		
+		return especialidadesProfissionais;
+	}
+	
+
 }

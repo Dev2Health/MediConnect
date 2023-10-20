@@ -3,6 +3,7 @@ package main.java.mediconnect.controle;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -20,17 +21,24 @@ import main.java.mediconnect.modelo.dao.consulta.ConsultaDAO;
 import main.java.mediconnect.modelo.dao.consulta.ConsultaDAOImpl;
 import main.java.mediconnect.modelo.dao.endereco.EnderecoDAO;
 import main.java.mediconnect.modelo.dao.endereco.EnderecoDAOImpl;
+import main.java.mediconnect.modelo.dao.especialidadeProfissional.EspecialidadeProfissionalDAO;
+import main.java.mediconnect.modelo.dao.especialidadeProfissional.EspecialidadeProfissionalDAOImpl;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAOImpl;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAO;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAOImpl;
 import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
 import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
-import main.java.mediconnect.modelo.entidade.conquista.Conquista;
+import main.java.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAO;
+import main.java.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAOImpl;
+import main.java.mediconnect.modelo.entidade.atendente.Atendente;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.endereco.Endereco;
+import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente;
+import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
+import main.java.mediconnect.modelo.enumeracao.consulta.StatusConsulta;
 
 
 @WebServlet("/")
@@ -40,7 +48,9 @@ public class Servlet extends HttpServlet {
 	private InstituicaoDAO instituicaoDAO;
 	private EnderecoDAO enderecoDAO;
 	private AtendenteDAO atendenteDAO;
+	private ProfissionalDeSaudeDAO profissionalDAO;
 	private ConsultaDAO consultaDAO;
+	private EspecialidadeProfissionalDAO especialidadeDAO;
 	private PacienteDAO pacienteDAO;
 	private PacienteConquistaDAO pacienteConquistaDAO;
 	private ConquistaDAO conquistaDAO;
@@ -48,10 +58,12 @@ public class Servlet extends HttpServlet {
 	
 	public void init() {
 		
+		especialidadeDAO = new EspecialidadeProfissionalDAOImpl();
 		pacienteConquistaDAO = new PacienteConquistaDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		pacienteDAO = new PacienteDAOImpl();
 		instituicaoDAO = new InstituicaoDAOImpl();
+		profissionalDAO = new ProfissionalDeSaudeDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
 		atendenteDAO = new AtendenteDAOImpl();
 		consultaDAO = new ConsultaDAOImpl();	
@@ -157,7 +169,15 @@ public class Servlet extends HttpServlet {
 				
 			case "/consultas-atendente":
 				mostrarTelaVerConsultas(request, response);
-				break;	
+				break;
+				
+			case "/agendar-consulta":
+				mostrarTelaAgendarConsultas(request, response);
+				break;
+				
+			case "/inserir-consulta":
+				inserirConsulta(request, response);
+				break;
 				
 			case "/pacientes-atendente":
 				mostrarTelaVerPacientesCadastrados(request, response);
@@ -173,6 +193,17 @@ public class Servlet extends HttpServlet {
 				mostrarTelaEditarPerfilInstituicao(request, response);
 				break;	
 				
+			// TELA CADASTRAR ATENDENTE
+			
+			case "/cadastrar-atendente":
+				mostrarTelaCadastrarAtendente(request, response);
+				break;
+				
+			case "/inserir-atendente":
+				inserirAtendente(request, response);
+				break;
+				
+				
 			case "/atendentes-instituicao":
 				mostrarTelaAtendentesInstituicao(request, response);
 				break;
@@ -180,7 +211,11 @@ public class Servlet extends HttpServlet {
 			case "/especialidades-instituicao":
 				mostrarTelaEspecialidadesInstituicao(request, response);
 				break;
-
+				
+			case "/inserir-especialidade":
+				inserirEspecialidade(request, response);
+				break;
+				
 				
 			default:
 				mostrarTelaInicialDeslogado(request, response);
@@ -318,11 +353,7 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 				
 	}
-	
-
-	// TELA PERFIL PACIENTE 
-
-	
+		
 	private void mostrarTelaEditarPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -351,9 +382,54 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		List<Consulta> consultas = consultaDAO.recuperarListaDeConsultas();
+		List<Consulta> consultas = consultaDAO.filtrarConsultasViaPacientePorId(id);
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("consultas.jsp");
 		dispatcher.forward(request, response);
+		
+	}
+	
+	// TELA AGENDAR CONSULTA PACIENTE
+	
+	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		List<Consulta> consultas = consultaDAO.filtrarConsultasViaPacientePorId(id);
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("agendar-consulta.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void inserirConsulta(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		Consulta consulta = null;
+
+		LocalTime horarioConsulta = LocalTime.parse(request.getParameter("horario")); 
+		LocalDate dataConsulta = LocalDate.parse(request.getParameter("data"));
+		Integer idEspecialidade = Integer.parseInt(request.getParameter("idEspecialidade"));
+		Integer idInstituicao = Integer.parseInt(request.getParameter("idInstituicao"));
+		Integer idProfissional = Integer.parseInt(request.getParameter("idProfissional"));
+		Integer idPaciente = Integer.parseInt(request.getParameter("idPaciente"));
+		
+		StatusConsulta status = StatusConsulta.AGENDADA;
+		
+		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadePorId(idEspecialidade);	
+		
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+		
+		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
+		
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(idPaciente);
+		
+		consulta = new Consulta(especialidade, instituicao, profissional, dataConsulta, horarioConsulta, paciente, status);
+		
+		consultaDAO.inserirConsulta(consulta);
+		response.sendRedirect("consultas");
 		
 	}
 	
@@ -394,7 +470,9 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		//List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosPorId(id, instituicao);
+		
+		List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(id);		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("pacientes-atendente.jsp");
 		dispatcher.forward(request, response);
 		
@@ -428,13 +506,74 @@ public class Servlet extends HttpServlet {
 		
 	}
 	
+	// TELA CADASTRAR ATENDENTE 
+	
+	private void mostrarTelaCadastrarAtendente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		List<Atendente> atendentes = atendenteDAO.filtrarAtendentesViaInstituicaoPorId(id);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-atendente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void inserirAtendente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		Atendente atendente = null;
+
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		String cpf = request.getParameter("cpf");
+		String ctps = request.getParameter("ctps");
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		int numeroCadastro = Integer.parseInt(request.getParameter("cadastro"));			
+		LocalDate dataCadastro = LocalDate.parse(request.getParameter("data")); 
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		boolean ehAtivo = true;
+		
+		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, numeroCadastro, dataCadastro, instituicao, ctps);
+		
+		atendenteDAO.inserirAtendente(atendente);
+		
+		response.sendRedirect("atendentes");
+		
+	}
+	
 	private void mostrarTelaEspecialidadesInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		List<EspecialidadeProfissional> profissionais = especialidadeDAO.recuperarEspecialidadesProfissionaisPorId(id);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("especialidades-instituicao.jsp");
 		dispatcher.forward(request, response);
 		
 	}
+	
+	private void inserirEspecialidade(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		EspecialidadeProfissional especialidade = null;
+		
+		String nome = request.getParameter("nome");
+		
+		especialidade = new EspecialidadeProfissional(nome);
+		
+		especialidadeDAO.inserirEspecialidadeProfissional(especialidade);
+		
+		response.sendRedirect("especialidades-instituicao");
+		
+	}
+	
+	
 
 	
 }

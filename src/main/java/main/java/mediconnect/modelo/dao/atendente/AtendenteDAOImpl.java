@@ -153,7 +153,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 	
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorId(Integer id, Instituicao instituicao) {
+	public 	List<Atendente> filtrarAtendentesViaInstituicaoPorId(Integer id) {
 			
 			Session sessao = null;
 			List<Atendente> Atendentes = null;
@@ -170,8 +170,8 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 				
 				criteria.select(raizAtendente);
 				
-				criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id),
-							   construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
+				criteria.where(construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), id));
+							   
 				
 				Atendentes = sessao.createQuery(criteria).getResultList();
 	

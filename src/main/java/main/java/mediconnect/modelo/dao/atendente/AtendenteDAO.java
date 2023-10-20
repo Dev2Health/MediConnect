@@ -11,11 +11,10 @@ public interface AtendenteDAO {
 	void deletarAtendente(Atendente atendente);
 	void atualizarAtendente(Atendente atendente);
 	List<Atendente> recuperarListaDeAtendentes();
-	List<Atendente> filtrarAtendenteViaInstituicaoPorId(Integer id, Instituicao instituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorId(Integer id);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(int cadastro, Instituicao instituicao);
-	Atendente filtrarAtendenteViaInstituicaoPorId(Integer id);
 }

@@ -53,6 +53,10 @@ public class EspecialidadeProfissional implements Serializable {
 		setId(id);
 		setNome(nome);
 	}
+	
+	public EspecialidadeProfissional(String nome) {
+		setNome(nome);
+	}
 
 	// MÉTODOS DE ACESSO
 
