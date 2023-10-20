@@ -1,62 +1,53 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Especialidades | MediConnect</title>
+    <title>Atendentes | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/especialidades-instituicao.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/atendentes-instituicao.css">
 </head>
 <body>
     <header id="content-header" class="template-grid">
         <nav class="nav-bar">
             <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="logo-mediconnect">
+            <img src="../../images/logo.svg" alt="icone-mediconnect">
+        </nav>
+        <nav class="nav-filter">
+            <div class="filter-box">
+                <div class="input-itens">
+                    <input class="text-emphasis" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
+                </div>
+                <div class="filter-icon">
+                    <img src="../../images/icone-lupa.svg" alt="icone-pesquisar">
+                </div>
+            </div>
+            <button class="btn-square-la text">Filtrar <img src="../../images/icone-filtro.svg"> </button>
         </nav>
     </header>
     <main>
-        <div id="search-return" class="template-grid">
-            <div id="return-specialty">
-                <p class="text">Especialidades atendidas pela instituição</p>
+        <div id="pesquisa-retornar" class="template-grid">
+            <div id="retornar-atendente">
+                <p class="text">Atendentes da instituição</p>
                 <button class="btn-square-sm text">Adicionar <img src="../../images/icone-adicionar.svg"></button>
             </div>
         </div>
-        <div id="specialty" class="template-grid">
-
-            <div class="card-specialty">
-                <p class="text-emphasis">Clínico Geral</p>
+        <div id="atendente" class="template-grid">
+            <c:forEach var="atendente" items="${atendentes}">
+            <div class="card-atendente">
+                <p class="text-emphasis atendente-name"><c:out value='${especialidade.id}' /> <c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
                 <div class="card-info">
-                    <div class="info-professional">
-                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
-                        <p class="text">04</p>
+                    <div class="info-atendente">
+                        <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                        <p class="text-emphasis">Contratação: <c:out value="${atendente.data}" /></p>
                     </div>
                     <button class="btn-square-sm text-emphasis">Ver detalhes</button>
                 </div>
-            </div>
-
-            <div class="card-specialty">
-                <p class="text-emphasis">Odontologia</p>
-                <div class="card-info">
-                    <div class="info-professional">
-                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
-                        <p class="text">02</p>
-                    </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
-                </div>
-            </div>
-
-            <div class="card-specialty">
-                <p class="text-emphasis">Psicologia</p>
-                <div class="card-info">
-                    <div class="info-professional">
-                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
-                        <p class="text">01</p>
-                    </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
-                </div>
-            </div>
-
+            </div><!--fim do card-->
+            </c:forEach>
         </div>
     </main>
     <footer>
@@ -95,5 +86,6 @@
             </div>
         </div>
     </footer>
+</main>
 </body>
 </html>

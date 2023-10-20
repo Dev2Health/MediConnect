@@ -1,3 +1,5 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,7 +23,7 @@
             <h1 class="title">Informe os dados da instituição</h1>
         </div>
 
-        <form action="" autocomplete="on" id="content-form" class="template-grid">
+        <form action="inserir-instituicao" method="post" autocomplete="on" id="content-form" class="template-grid">
             <div class="form-left">
                 <div class="form-input">
                     <div class="input-icon">
@@ -29,7 +31,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="cep" class="text">CEP</label>
-                        <input class="text-emphasis" type="text" id="cep" name="cep" placeholder="XXXXX-XXX" maxlength="9" required>
+                        <input class="text-emphasis" type="text" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="XXXXX-XXX" maxlength="9" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-nao-verificado.svg">
@@ -40,8 +42,8 @@
                         <img src="../../images/icone-mapa.svg" alt="icone-mapa">
                     </div>
                     <div class="input-itens">
-                        <label for="city" class="text">Cidade</label>
-                        <input class="text-emphasis" type="text" id="city" name="city" placeholder="Cidade" required>
+                        <label for="cidade" class="text">Cidade</label>
+                        <input class="text-emphasis" type="text" id="i.cidade" name="cidade" placeholder="Cidade" required>
                     </div>
                 </div>
                 <div class="form-input">
@@ -49,8 +51,8 @@
                         <img src="../../images/icone-logradouro.svg" alt="icone-logradouro">
                     </div>
                     <div class="input-itens">
-                        <label for="route" class="text">Logradouro</label>
-                        <input class="text-emphasis" type="text" id="route" name="route" placeholder="Rua Jardim das Flores" required>
+                        <label for="logradouro" class="text">Logradouro</label>
+                        <input class="text-emphasis" type="text" id="i.logradouro" name="logradouro" placeholder="Rua Jardim das Flores" required>
                     </div>
                 </div>
             </div>
@@ -60,10 +62,10 @@
                         <img src="../../images/icone-mapa.svg" alt="icone-mapa">
                     </div>
                     <div class="input-itens">
-                        <label for="state" class="text">Estado</label>
-                        <input class="text-emphasis" list="state" name="state" placeholder="Selecione o Estado" required>
-                        <datalist id="state">
-                            <option value="Santa Catarina">
+                        <label for="estado" class="text">Estado</label>
+                        <input class="text-emphasis" list="estado" id="i.estado" name="estado" placeholder="Selecione o Estado" required>
+                        <datalist id="estado">
+                            <option value="Pegar estado do CEP">
                         </datalist>
                     </div>
                 </div>
@@ -72,8 +74,8 @@
                         <img src="../../images/icone-logradouro.svg" alt="icone-bairro">
                     </div>
                     <div class="input-itens">
-                        <label class="text" for="district" class="district">Bairro</label>
-                        <input class="text-emphasis" type="text" id="district" name="district" placeholder="Nome" required>
+                        <label class="text" for="bairro" class="bairro">Bairro</label>
+                        <input class="text-emphasis" type="text" id="i.bairro" name="bairro" placeholder="Nome" required>
                     </div>
                 </div>
                 <div class="form-input">
@@ -81,8 +83,8 @@
                         <img src="../../images/icone-numeros.svg" alt="icone-numero">
                     </div>
                     <div class="input-itens">
-                        <label class="text" for="number" class="number">Número</label>
-                        <input class="text-emphasis" type="number" id="number" name="number" placeholder="XXXX">
+                        <label class="text" for="numero" class="numero">Número</label>
+                        <input class="text-emphasis" type="number" id="i.numero" name="numero" placeholder="XXXX">
                     </div>
                 </div>
                 <div class="form-footer">

@@ -1,3 +1,5 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,7 +23,7 @@
             <h1 class="title">Informe os dados da instituição</h1>
             <!-- Faltou fazer os ícones de navegação entre páginas -->
         </div>
-        <form action="" autocomplete="on" id="content-form" class="template-grid">
+        <form action="inserir-instituicao" method="post" autocomplete="on" id="content-form" class="template-grid">
             <div class="form-left">
                 <div class="form-input">
                     <div class="input-icon">
@@ -29,7 +31,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="razao-social" class="text">Razão Social</label>
-                        <input class="text-emphasis" type="text" id="razao-social" name="razao-social" placeholder="Empresa Privada LTDA" required>
+                        <input class="text-emphasis" type="text" id="i.razao" name="razao" oninput="mascaraRazao()" placeholder="Empresa Privada LTDA" required>
                     </div>
                 </div>
                 <div class="form-input">
@@ -38,7 +40,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="cnpj" class="text">CNPJ</label>
-                        <input class="text-emphasis" type="text" id="cnpj" name="cnpj" placeholder="XX.XXX.XXX/XXXX-XX" maxlength="18" required>
+                        <input class="text-emphasis" type="text" id="i.cnpj" name="cnpj" oninput="mascaraCnpj()" placeholder="XX.XXX.XXX/XXXX-XX" maxlength="18" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-nao-verificado.svg">
@@ -50,7 +52,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="senha" class="text">Senha</label>
-                        <input class="text-emphasis" type="password" id="senha" name="senha" placeholder="********" required>
+                        <input class="text-emphasis" type="password" id="i.senha" name="senha" oninput="mascaraSenha()" placeholder="********" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-olho-fechado.svg">
@@ -64,7 +66,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="nome-fantasia" class="text">Nome Fantasia</label>
-                        <input class="text-emphasis" type="text" id="nome-fantasia" name="nome-fantasia" placeholder="Nome Empresa" required>
+                        <input class="text-emphasis" type="text" id="i.fantasia" name="fantasia" oninput="mascaraFantasia()" placeholder="Nome Empresa" required>
                     </div>
                 </div>
                 <div class="form-input">
@@ -73,7 +75,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="email" class="text">E-mail</label>
-                        <input class="text-emphasis" type="email" id="email" name="email" placeholder="seu.email@gmail.com" required>
+                        <input class="text-emphasis" type="email" id="i.email" name="email" placeholder="seu.email@gmail.com" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-nao-verificado.svg">
@@ -85,7 +87,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="confirmar senha" class="text">Confirmar Senha</label>
-                        <input class="text-emphasis" type="confirmar-senha" id="confirmar-senha" name="confirmar-senha" placeholder="********">
+                        <input class="text-emphasis" type="confirmar-senha" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" placeholder="********">
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-olho-fechado.svg">

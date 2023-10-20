@@ -30,6 +30,7 @@
         <div id="search-return" class="template-grid">
             <p class="text">Notificações recebidas pela instituição</p>
         </div>
+        <c:forEach var="notificacao" items="${notificacoes}">
         <div id="notification" class="template-grid">                 
             <div class="card-notification">
                 <div class="notification-top">
@@ -37,36 +38,20 @@
                     <div class="consult-info">
                         <div class="consult-date">
                             <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                            <p class="text">20/08/2000</p>
+                            <p class="text"><c:out value="${notificacao.data}"/></p>
                         </div>
                         <div class="consult-time">
                             <img src="../../images/icone-horario.svg" alt="icone-horario">
-                            <p class="text">13h59</p>
+                            <p class="text"><c:out value="${notificacao.horario}"/></p>
                         </div>
                     </div>
                 </div>
                 <div class="notification-bottom"> <!--Inferior-->
-                    <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p>
+                    <p class="text-no-emphasis"><c:out value="${notificacao.descricao}"/></p>
+                    <!-- <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p> -->
                 </div>
             </div><!--fim do card-->
-            <div class="card-notification">
-                <div class="notification-top">
-                    <h2 class="subtitle">Notificação</h2>
-                    <div class="consult-info">
-                        <div class="consult-date">
-                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                            <p class="text">20/08/2000</p>
-                        </div>
-                        <div class="consult-time">
-                            <img src="../../images/icone-horario.svg" alt="icone-horario">
-                            <p class="text">13h59</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="notification-bottom"> <!--Inferior-->
-                    <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p>
-                </div>
-            </div><!--fim do card-->            
+        </c:forEach>        
         </div>
         <footer>
             <div class="template-grid" id="footer-links">

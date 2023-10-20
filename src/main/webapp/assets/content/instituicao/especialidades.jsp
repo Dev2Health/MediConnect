@@ -1,73 +1,43 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Atendentes | MediConnect</title>
+    <title>Especialidades | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/atendentes-instituicao.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/especialidades-instituicao.css">
 </head>
 <body>
     <header id="content-header" class="template-grid">
         <nav class="nav-bar">
             <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="icone-mediconnect">
-        </nav>
-        <nav class="nav-filter">
-            <div class="filter-box">
-                <div class="input-itens">
-                    <input class="text-emphasis" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
-                </div>
-                <div class="filter-icon">
-                    <img src="../../images/icone-lupa.svg" alt="icone-pesquisar">
-                </div>
-            </div>
-            <button class="btn-square-la text">Filtrar <img src="../../images/icone-filtro.svg"> </button>
+            <img src="../../images/logo.svg" alt="logo-mediconnect">
         </nav>
     </header>
     <main>
-        <div id="search-return" class="template-grid">
-            <div id="return-attendant">
-                <p class="text">Atendentes da instituição</p>
+        <div id="pesquisa-retornar" class="template-grid">
+            <div id="retornar-especialidade">
+                <p class="text">Especialidades atendidas pela instituição</p>
                 <button class="btn-square-sm text">Adicionar <img src="../../images/icone-adicionar.svg"></button>
             </div>
         </div>
-        <div id="attendant" class="template-grid">
+        <div id="especialidade" class="template-grid">
 
-            <div class="card-attendant">
-                <p class="text-emphasis attendant-name">João Carlos S. Alcântara</p>
+            <c:forEach var="especialidade" items="${especialidades}">
+            <div class="card-especialidade">
+                <p class="text-emphasis"><c:out value='${especialidade.id}' /> <c:out value="${especialidade.nome}"/> Geral</p>
                 <div class="card-info">
-                    <div class="info-attendant">
-                        <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                        <p class="text-emphasis">Contratação: 20/08/2000</p>
+                    <div class="info-profissional">
+                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
+                        <p class="text"><c:out value="${especialidade.profissionais}" /></p> <!-- descobrir como pegar esse número -->
                     </div>
                     <button class="btn-square-sm text-emphasis">Ver detalhes</button>
                 </div>
-            </div><!--fim do card-->
-
-            <div class="card-attendant">
-                <p class="text-emphasis attendant-name">Gleice Silva Pinheiro</p>
-                <div class="card-info">
-                    <div class="info-attendant">
-                        <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                        <p class="text-emphasis">Contratação: 15/04/2009</p>
-                    </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
-                </div>
-            </div><!--fim do card-->
-
-            <div class="card-attendant">
-                <p class="text-emphasis attendant-name">Kelvin Teixeira</p>
-                <div class="card-info">
-                    <div class="info-attendant">
-                        <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                        <p class="text-emphasis">Contratação: 26/10/2012</p>
-                    </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
-                </div>
-            </div><!--fim do card-->
-
+            </div>
+            </c:forEach>
         </div>
     </main>
     <footer>
@@ -106,6 +76,5 @@
             </div>
         </div>
     </footer>
-</main>
 </body>
 </html>
