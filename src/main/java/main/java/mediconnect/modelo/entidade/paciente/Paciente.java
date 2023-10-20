@@ -70,7 +70,6 @@ public class Paciente extends Pessoa implements Serializable {
 	
 	public Paciente(String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
 			LocalDate dataNascimento, String telefone) {
-
 		super(email, senha, ehAtivo, nome, sobrenome, cpf);
 		setDataNascimento(dataNascimento);
 		setTelefone(telefone);

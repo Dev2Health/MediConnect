@@ -21,6 +21,7 @@ public BuildFactory fac;
 
 	@Override
 	public void inserirEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao) {
+		
 		Session sessao = null;
 		
 		try {
@@ -31,14 +32,16 @@ public BuildFactory fac;
 			sessao.save(especialidade_instituicao);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -47,6 +50,7 @@ public BuildFactory fac;
 
 	@Override
 	public void deletarEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao) {
+		
 		Session sessao = null;
 		
 		try {
@@ -57,14 +61,16 @@ public BuildFactory fac;
 			sessao.delete(especialidade_instituicao);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -74,6 +80,7 @@ public BuildFactory fac;
 
 	@Override
 	public void atualizarEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao) {
+		
 		Session sessao = null;
 		
 		try {
@@ -84,14 +91,16 @@ public BuildFactory fac;
 			sessao.update(especialidade_instituicao);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -101,6 +110,7 @@ public BuildFactory fac;
 
 	@Override
 	public List<EspecialidadeInstituicao> recuperarEspecialidadeInstituicao() {
+		
 		Session sessao = null;
 		List<EspecialidadeInstituicao> conquistas = null;
 		
@@ -118,14 +128,16 @@ public BuildFactory fac;
 
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}

@@ -20,6 +20,7 @@ public BuildFactory fac;
 
 	@Override
 	public void inserirPacienteSelo(PacienteSelo paciente_selo) {
+		
 		Session sessao = null;
 		
 		try {
@@ -30,14 +31,16 @@ public BuildFactory fac;
 			sessao.save(paciente_selo);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -46,6 +49,7 @@ public BuildFactory fac;
 
 	@Override
 	public void deletarPacienteSelo(PacienteSelo paciente_selo) {
+		
 		Session sessao = null;
 		
 		try {
@@ -56,14 +60,16 @@ public BuildFactory fac;
 			sessao.delete(paciente_selo);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -73,6 +79,7 @@ public BuildFactory fac;
 
 	@Override
 	public void atualizarPacienteSelo(PacienteSelo paciente_selo) {
+		
 		Session sessao = null;
 		
 		try {
@@ -83,23 +90,25 @@ public BuildFactory fac;
 			sessao.update(paciente_selo);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-		
 	}
 
 	@Override
 	public List<PacienteSelo> recuperarPacienteSelo() {
+		
 		Session sessao = null;
 		List<PacienteSelo> selos = null;
 		
@@ -117,14 +126,15 @@ public BuildFactory fac;
 
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}

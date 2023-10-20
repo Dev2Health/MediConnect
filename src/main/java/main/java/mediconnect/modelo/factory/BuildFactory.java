@@ -28,7 +28,9 @@ import main.java.mediconnect.modelo.entidade.selo.Selo;
 import main.java.mediconnect.modelo.entidade.usuario.Usuario;
 
 public class BuildFactory {
+	
 	public SessionFactory ConectFac() {
+		
 		Configuration config = new Configuration();
 		
 		config.addAnnotatedClass(Atendente.class);

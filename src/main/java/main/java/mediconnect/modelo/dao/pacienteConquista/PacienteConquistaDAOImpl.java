@@ -24,6 +24,7 @@ public BuildFactory fac;
 
 	@Override
 	public void inserirPacienteConquista(PacienteConquista paciente_conquista) {
+		
 		Session sessao = null;
 		
 		try {
@@ -34,14 +35,16 @@ public BuildFactory fac;
 			sessao.save(paciente_conquista);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -50,6 +53,7 @@ public BuildFactory fac;
 
 	@Override
 	public void deletarPacienteConquista(PacienteConquista paciente_conquista) {
+		
 		Session sessao = null;
 		
 		try {
@@ -60,14 +64,16 @@ public BuildFactory fac;
 			sessao.delete(paciente_conquista);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -77,6 +83,7 @@ public BuildFactory fac;
 
 	@Override
 	public void atualizarPacienteConquista(PacienteConquista paciente_conquista) {
+		
 		Session sessao = null;
 		
 		try {
@@ -87,14 +94,16 @@ public BuildFactory fac;
 			sessao.update(paciente_conquista);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -104,6 +113,7 @@ public BuildFactory fac;
 
 	@Override
 	public List<PacienteConquista> recuperarPacienteConquista() {
+		
 		Session sessao = null;
 		List<PacienteConquista> conquistas = null;
 		
@@ -121,18 +131,21 @@ public BuildFactory fac;
 
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
+		
 		return conquistas;
 	}
 	

@@ -21,6 +21,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 
 	@Override
 	public void inserirEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional) {
+		
 		Session sessao = null;
 		
 		try {
@@ -31,14 +32,16 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 			sessao.save(especialidadeProfissional);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -48,6 +51,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 
 	@Override
 	public void deletarEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional) {
+		
 		Session sessao = null;
 		
 		try {
@@ -58,14 +62,16 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 			sessao.delete(especialidadeProfissional);
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -75,6 +81,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 
 	@Override
 	public void atualizarEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional) {
+		
 		Session sessao = null;
 		
 		try {
@@ -84,14 +91,16 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 			sessao.update(especialidadeProfissional);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -101,6 +110,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 
 	@Override
 	public List<EspecialidadeProfissional> recuperarEspecialidadeProfissional() {
+		
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;
 		
@@ -118,14 +128,16 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 
 			sessao.getTransaction().commit();
 			
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 			
-			e.printStackTrace();
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}

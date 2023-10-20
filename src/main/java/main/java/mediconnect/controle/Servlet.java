@@ -33,7 +33,6 @@ import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente;
 
 
-
 @WebServlet("/")
 public class Servlet extends HttpServlet {
 	
@@ -43,8 +42,8 @@ public class Servlet extends HttpServlet {
 	private AtendenteDAO atendenteDAO;
 	private ConsultaDAO consultaDAO;
 	private PacienteDAO pacienteDAO;
-	private ConquistaDAO conquistaDAO;
 	private PacienteConquistaDAO pacienteConquistaDAO;
+	private ConquistaDAO conquistaDAO;
 
 	
 	public void init() {
@@ -255,6 +254,7 @@ public class Servlet extends HttpServlet {
 		int numero = Integer.parseInt(request.getParameter("numero"));
 		
 		endereco = new Endereco(cep, numero, logradouro, cidade, estado, bairro);
+
 		enderecoDAO.inserirEndereco(endereco);
 		
 		Instituicao instituicao = null;
@@ -267,6 +267,7 @@ public class Servlet extends HttpServlet {
 		String senha = request.getParameter("senha");
 		
 		instituicao = new Instituicao(cnpj, endereco, razaoSocial, nomeFantasia, email, senha, ehAtivo);
+
 		
 		instituicaoDAO.inserirInstituicao(instituicao);
 		response.sendRedirect("perfil-instituicao");
@@ -315,19 +316,21 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("paciente", paciente);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/perfil.jsp");
 		dispatcher.forward(request, response);
-		
-		
+				
 	}
 	
 
 	// TELA PERFIL PACIENTE 
+
 	
 	private void mostrarTelaEditarPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil.jsp");
-		dispatcher.forward(request, response);
+		//Paciente paciente = pacienteDAO.recuperarPaciente();
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-paciente.jsp");
+
 		
 	}
 	
@@ -335,8 +338,9 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistaPacientePorId(id);
-		request.setAttribute("conquistas", conquistas);
+
+		//List<Conquista> conquistas = conquistaDAO.filtrarConquistaViaPacienteDoPacientePorStatus();
+		//request.setAttribute("conquistas", conquistas);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("conquistas-paciente.jsp");
 
 		dispatcher.forward(request, response);
@@ -352,20 +356,26 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 		
 	}
-
+	
 	// TELA PERFIL ATENDENTE
 	
 	private void mostrarTelaPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		//Instituicao instituicao = request.getParameter("instituicao");
+		
+		//atendenteDAO.filtrarAtendenteViaInstituicaoPorId(id, instituicao);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-atendente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
-
 	
 	private void mostrarTelaEditarPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil-atendente.jsp");
 		dispatcher.forward(request, response);
@@ -383,17 +393,20 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaVerPacientesCadastrados(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		//List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosPorId(id, instituicao);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("pacientes-atendente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
 	
 	// TELA PERFIL INSTITUICAO
-
 	
 	private void mostrarTelaPerfilInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-instituicao.jsp");
 		dispatcher.forward(request, response);
 		
