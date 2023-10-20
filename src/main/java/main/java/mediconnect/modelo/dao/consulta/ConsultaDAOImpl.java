@@ -34,7 +34,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	@Override
 	public void inserirConsulta(Consulta consulta) {
-		
+
 		Session sessao = null;
 
 		try {
@@ -44,17 +44,17 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			sessao.save(consulta);
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -63,7 +63,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	@Override
 	public void deletarConsulta(Consulta consulta) {
-		
+
 		Session sessao = null;
 
 		try {
@@ -73,17 +73,17 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			sessao.delete(consulta);
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-		
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -93,7 +93,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	@Override
 	public void atualizarConsulta(Consulta consulta) {
-		
+
 		Session sessao = null;
 
 		try {
@@ -105,15 +105,15 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -123,7 +123,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	@Override
 	public List<Consulta> recuperarListaDeConsultas() {
-		
+
 		Session sessao = null;
 		List<Consulta> consultas = null;
 
@@ -140,60 +140,282 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-		
+
 		return consultas;
 	}
 
 	public List<Consulta> filtrarConsultaViaInstituicaoPorPaciente(Paciente paciente, Instituicao instituicao) {
-		
-        Session sessao = null;
-        List<Consulta> consultas = null;
-        
-        try {
-       
-            sessao = fac.ConectFac().openSession();
-            sessao.beginTransaction();
-            
-            CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-            
-            CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
-            Root<Consulta> raizConsulta = criteria.from(Consulta.class);  
-            
-            Join<Consulta, Paciente> pacienteJoin = raizConsulta.join(Consulta_.paciente);
-                        
-            criteria.select(raizConsulta);
-            
-            Expression<String> nomeExpression = construtor.concat(pacienteJoin.get(Paciente_.NOME), " ");
-            nomeExpression = construtor.concat(nomeExpression, (pacienteJoin.get(Paciente_.SOBRENOME)));
-            
-            
-            criteria.where
-            		(construtor.like(nomeExpression, "%" + paciente.getNome() + " " + paciente.getSobrenome() + "%"),
-            		 construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
-      
-            consultas = sessao.createQuery(criteria).getResultList();
-          
-            sessao.getTransaction().commit();  
 
-        } catch (Exception sqlException) {       
-            
-        	sqlException.printStackTrace(); 
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			Join<Consulta, Paciente> pacienteJoin = raizConsulta.join(Consulta_.paciente);
+
+			criteria.select(raizConsulta);
+
+			Expression<String> nomeExpression = construtor.concat(pacienteJoin.get(Paciente_.NOME), " ");
+			nomeExpression = construtor.concat(nomeExpression, (pacienteJoin.get(Paciente_.SOBRENOME)));
+
+			criteria.where(
+					construtor.like(nomeExpression, "%" + paciente.getNome() + " " + paciente.getSobrenome() + "%"),
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID),
+							instituicao.getId()));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
+
+	}
+
+	public List<Consulta> filtrarConsultaViaInstituicaoPorPaciente(Integer idPaciente, Integer idInstituicao) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(
+					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente),
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
+
+	}
+
+	public List<Consulta> filtrarConsultaViaInstituicaoPorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude,
+			Instituicao instituicao) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			Join<Consulta, ProfissionalDeSaude> profissionalJoin = raizConsulta.join(Consulta_.profissional_de_saude);
+
+			criteria.select(raizConsulta);
+
+			ParameterExpression<Integer> idProfissional = construtor.parameter(Integer.class);
+			criteria.where(construtor.equal(profissionalJoin.get(ProfissionalDeSaude_.ID), idProfissional), construtor
+					.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
+
+			consultas = sessao.createQuery(criteria).setParameter(idProfissional, profissionalDeSaude.getId())
+					.getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
+
+	}
+	
+	public List<Consulta> filtrarConsultaViaInstituicaoPorProfissionalDeSaude(Integer idProfissionalDeSaude,
+			Integer idInstituicao) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			Join<Consulta, ProfissionalDeSaude> profissionalJoin = raizConsulta.join(Consulta_.profissional_de_saude);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(profissionalJoin.get(ProfissionalDeSaude_.ID), idProfissionalDeSaude), 
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
+
+	}
+
+	public List<Consulta> filtrarConsultaViaInstituicaoPorEspecialidadeProfissional(
+			EspecialidadeProfissional especialidade, Instituicao instituicao) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			Join<Consulta, EspecialidadeProfissional> especialidadeJoin = raizConsulta
+					.join(Consulta_.especialidade_profissional);
+
+			criteria.select(raizConsulta);
+
+			ParameterExpression<Integer> idEspecialidade = construtor.parameter(Integer.class);
+			criteria.where(construtor.equal(especialidadeJoin.get(ProfissionalDeSaude_.ID), idEspecialidade), construtor
+					.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
+
+			consultas = sessao.createQuery(criteria).setParameter(idEspecialidade, especialidade.getId())
+					.getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
+
+	}
+	
+	public List<Consulta> filtrarConsultaViaInstituicaoPorEspecialidadeProfissional (Integer idEspecialidade, Integer idInstituicao) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			Join<Consulta, EspecialidadeProfissional> especialidadeJoin = raizConsulta
+					.join(Consulta_.especialidade_profissional);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(especialidadeJoin.get(ProfissionalDeSaude_.ID), idEspecialidade), 
+						   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
 			
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
 
 		} finally {
 
@@ -205,39 +427,41 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		}
 
 		return consultas;
-        
-    }
-    
-    public List<Consulta> filtrarConsultaViaInstituicaoPorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude, Instituicao instituicao) {
-    	
-        Session sessao = null;
-        List<Consulta> consultas = null;
-        
-        try {
-       
-            sessao = fac.ConectFac().openSession();
-            sessao.beginTransaction();
-            
-            CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-            
-            CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
-            Root<Consulta> raizConsulta = criteria.from(Consulta.class);        
-            
-            Join<Consulta, ProfissionalDeSaude> profissionalJoin = raizConsulta.join(Consulta_.profissional_de_saude);
-                        
-            criteria.select(raizConsulta);
-            
-            ParameterExpression<Integer> idProfissional = construtor.parameter(Integer.class);
-            criteria.where(construtor.equal(profissionalJoin.get(ProfissionalDeSaude_.ID), idProfissional), 
-            			   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
-            
-            consultas = sessao.createQuery(criteria).setParameter(idProfissional, profissionalDeSaude.getId()).getResultList();
-          
-            sessao.getTransaction().commit();  
 
-        } catch (Exception sqlException) {       
-            
-        	sqlException.printStackTrace(); 
+	}
+
+	public List<Consulta> filtrarConsultaViaInstituicaoPorStatus(StatusConsulta status, Instituicao instituicao) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status), construtor
+					.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
 
 		} finally {
 
@@ -249,40 +473,41 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		}
 
 		return consultas;
-        
-    }
-    
-    public List<Consulta> filtrarConsultaViaInstituicaoPorEspecialidadeProfissional(EspecialidadeProfissional especialidade, Instituicao instituicao) {
-    	
-        Session sessao = null;
-        List<Consulta> consultas = null;
-        
-        try {
-       
-            sessao = fac.ConectFac().openSession();
-            sessao.beginTransaction();
-            
-            CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-            
-            CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
-            Root<Consulta> raizConsulta = criteria.from(Consulta.class);  
-            
-            Join<Consulta, EspecialidadeProfissional> especialidadeJoin = raizConsulta.join(Consulta_.especialidade_profissional);
-                        
-            criteria.select(raizConsulta);
-            
-            ParameterExpression<Integer> idEspecialidade = construtor.parameter(Integer.class);
-            criteria.where(construtor.equal(especialidadeJoin.get(ProfissionalDeSaude_.ID), idEspecialidade), 
-            			   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
-           
-            consultas = sessao.createQuery(criteria).setParameter(idEspecialidade, especialidade.getId()).getResultList();
-          
-            sessao.getTransaction().commit();  
 
-        } catch (Exception sqlException) {       
-     
-        	sqlException.printStackTrace(); 
-			
+	}
+	
+	public List<Consulta> filtrarConsultaViaInstituicaoPorStatus(StatusConsulta status, Integer idInstituicao) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status), construtor
+					.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
 
 		} finally {
 
@@ -294,54 +519,8 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		}
 
 		return consultas;
-        
-    }
-    
-    public List<Consulta> filtrarConsultaViaInstituicaoPorStatus(StatusConsulta status, Instituicao instituicao) {
-    	
-        Session sessao = null;
-        List<Consulta> consultas = null;
-        
-        try {
-       
-            sessao = fac.ConectFac().openSession();
-            sessao.beginTransaction();
-            
-            CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-            
-            CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
-            Root<Consulta> raizConsulta = criteria.from(Consulta.class);           
-                        
-            criteria.select(raizConsulta);
-            
-            criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status),
-            			   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), instituicao.getId()));
-            
-            consultas = sessao.createQuery(criteria).getResultList();
-          
-            sessao.getTransaction().commit();  
 
-        }catch (Exception sqlException) {       
-     
-        	sqlException.printStackTrace(); 
-
-            if (sessao.getTransaction() != null) {
-                sessao.getTransaction().rollback();
-
-            }            
-
-        } finally {
-
-            if (sessao != null) {
-            	sessao.close();
-
-            }
-
-        }
-           
-        return consultas;
-        
-    }
+	}
 
 	@Override
 	public List<Consulta> filtrarConsultaViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
@@ -389,7 +568,52 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public Consulta filtrarConsultasViaAtendentePorTitulo(Integer id, Instituicao instituicao) {
+	public List<Consulta> filtrarConsultaViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
+			Integer idInstituicao) {
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.between(raizConsulta.get(Consulta_.DATA), dataInicial, dataFinal),
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
+	}
+
+	public Consulta filtrarConsultasViaAtendentePorTitulo(Integer id, Integer idInstituicao) {
 
 		Session sessao = null;
 		Consulta consultas = null;
@@ -407,7 +631,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			criteria.select(raizConsulta);
 
 			criteria.where(construtor.equal(raizConsulta.get(Consulta_.ID), id),
-					construtor.equal(raizConsulta.get(Consulta_.instituicao), instituicao));
+					construtor.equal(raizConsulta.get(Consulta_.instituicao), idInstituicao));
 
 			consultas = sessao.createQuery(criteria).getSingleResult();
 
@@ -421,6 +645,92 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 				sessao.getTransaction().rollback();
 
 			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return consultas;
+
+	}
+
+	/*
+	 * public Consulta filtrarConsultasViaAtendentePorTitulo(Integer id, Instituicao
+	 * instituicao) {
+	 * 
+	 * Session sessao = null; Consulta consultas = null;
+	 * 
+	 * try {
+	 * 
+	 * sessao = fac.ConectFac().openSession(); sessao.beginTransaction();
+	 * 
+	 * CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	 * 
+	 * CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+	 * Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+	 * 
+	 * criteria.select(raizConsulta);
+	 * 
+	 * criteria.where(construtor.equal(raizConsulta.get(Consulta_.ID), id),
+	 * construtor.equal(raizConsulta.get(Consulta_.instituicao), instituicao));
+	 * 
+	 * consultas = sessao.createQuery(criteria).getSingleResult();
+	 * 
+	 * sessao.getTransaction().commit();
+	 * 
+	 * } catch (Exception e) {
+	 * 
+	 * e.printStackTrace();
+	 * 
+	 * if (sessao.getTransaction() != null) { sessao.getTransaction().rollback();
+	 * 
+	 * }
+	 * 
+	 * } finally {
+	 * 
+	 * if (sessao != null) { sessao.close();
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * return consultas;
+	 * 
+	 * }
+	 */
+
+	public List<Consulta> filtrarConsultasViaAtendentePorIdDoPaciente(Integer id, Integer idInstituicao) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id),
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
 
 		} finally {
 
@@ -463,17 +773,60 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 					.setParameter(idPaciente, paciente.getId()).getResultList();
 
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return consultas;
+	}
+	
+	public List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(Integer idProfissionalDeSaude,
+			Integer idPaciente) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			Join<Consulta, ProfissionalDeSaude> profissionalJoin = raizConsulta.join(Consulta_.profissional_de_saude);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(profissionalJoin.get(ProfissionalDeSaude_.ID), idProfissionalDeSaude),
+					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -482,8 +835,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(EspecialidadeProfissional especialidadeProfissional, Paciente paciente) {
-		
+	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(
+			EspecialidadeProfissional especialidadeProfissional, Paciente paciente) {
+
 		Session sessao = null;
 		List<Consulta> consultas = null;
 
@@ -508,17 +862,61 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return consultas;
+	}
+	
+	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(Integer idEspecialidadeProfissional, Integer idPaciente) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			Join<Consulta, EspecialidadeProfissional> especialidadeJoin = raizConsulta
+					.join(Consulta_.especialidade_profissional);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(
+					construtor.equal(especialidadeJoin.get(EspecialidadeProfissional_.ID), idEspecialidadeProfissional),
+					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -549,17 +947,58 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return consultas;
+	}
+	
+	public List<Consulta> filtrarConsultaViaPacientePorInstituicao(Integer idInstituicao, Integer idPaciente) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao),
+					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -590,17 +1029,58 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return consultas;
+	}
+	
+	public List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
+			Integer idPaciente) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.between(raizConsulta.get(Consulta_.DATA), dataInicial, dataFinal),
+					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -630,17 +1110,57 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return consultas;
+	}
+	
+	public List<Consulta> filtrarConsultaViaPacientePorStatus(StatusConsulta status, Integer idPaciente) {
+
+		Session sessao = null;
+		List<Consulta> consultas = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status),
+					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente));
+
+			consultas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
 			if (sessao != null) {
 				sessao.close();
 			}
