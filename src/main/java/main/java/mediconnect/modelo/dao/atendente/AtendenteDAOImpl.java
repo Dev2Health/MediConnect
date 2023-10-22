@@ -26,6 +26,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	@Override
 	public void inserirAtendente(Atendente atendente) {
+		
 		Session sessao = null;
 
 		try {
@@ -35,15 +36,17 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			sessao.save(atendente);
 			sessao.getTransaction().commit();
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -53,6 +56,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	@Override
 	public void deletarAtendente(Atendente atendente) {
+		
 		Session sessao = null;
 
 		try {
@@ -62,15 +66,17 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			sessao.delete(atendente);
 			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
 
-		} catch (Exception e) {
-
-			e.printStackTrace();
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -80,6 +86,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	@Override
 	public void atualizarAtendente(Atendente atendente) {
+		
 		Session sessao = null;
 
 		try {
@@ -89,14 +96,16 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 			sessao.update(atendente);
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
-
-			e.printStackTrace();
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -106,6 +115,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	@Override
 	public List<Atendente> recuperarListaDeAtendentes() {
+		
 		Session sessao = null;
 		List<Atendente> atendentes = null;
 
@@ -118,27 +128,79 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+			
 			criteria.select(raizAtendente);
+			
 			atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
 		return atendentes;
 	}
-
+	
+	@Override
+	public List<Atendente> filtrarAtendenteViaInstituicaoPorId(Integer id, Instituicao instituicao) {
+			
+			Session sessao = null;
+			List<Atendente> Atendentes = null;
+	
+			try {
+	
+				sessao = fac.ConectFac().openSession();
+				sessao.beginTransaction();
+	
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	
+				CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
+				Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+				
+				criteria.select(raizAtendente);
+				
+				criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id),
+							   construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
+				
+				Atendentes = sessao.createQuery(criteria).getResultList();
+	
+				sessao.getTransaction().commit();
+	
+			} catch (Exception sqlException) {
+	
+				sqlException.printStackTrace();
+	
+				if (sessao.getTransaction() != null) {
+					sessao.getTransaction().rollback();
+	
+				}
+	
+			} finally {
+	
+				if (sessao != null) {
+					sessao.close();
+	
+				}
+	
+			}
+	
+			return Atendentes;
+	
+		}
+	
 	public List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao) {
+		
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
 
@@ -162,9 +224,9 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
@@ -186,6 +248,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	@Override
 	public List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Instituicao instituicao) {
+		
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
 
@@ -208,9 +271,9 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
@@ -232,6 +295,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	@Override
 	public List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Instituicao instituicao) {
+		
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
 
@@ -254,9 +318,9 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
@@ -276,8 +340,8 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
-			Instituicao instituicao) {
+	public List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Instituicao instituicao) {
+		
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
 
@@ -300,9 +364,9 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
@@ -323,6 +387,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	@Override
 	public List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(int cadastro, Instituicao instituicao) {
+		
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
 
@@ -345,9 +410,9 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();

@@ -26,6 +26,7 @@ public class PessoaDAOImpl implements PessoaDAO {
 	}
 
 	public void inserirPessoa(Pessoa Pessoa) {
+		
 		Session sessao = null;
 
 		try {
@@ -37,6 +38,7 @@ public class PessoaDAOImpl implements PessoaDAO {
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
+			
 			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
@@ -49,10 +51,10 @@ public class PessoaDAOImpl implements PessoaDAO {
 				sessao.close();
 			}
 		}
-
 	}
 
 	public void deletarPessoa(Pessoa Pessoa) {
+		
 		Session sessao = null;
 
 		try {
@@ -81,6 +83,7 @@ public class PessoaDAOImpl implements PessoaDAO {
 	}
 
 	public void atualizarPessoa(Pessoa Pessoa) {
+		
 		Session sessao = null;
 
 		try {
@@ -109,6 +112,7 @@ public class PessoaDAOImpl implements PessoaDAO {
 	}
 
 	public List<Pessoa> recuperarPessoa() {
+		
 		Session sessao = null;
 		List<Pessoa> pessoas = null;
 

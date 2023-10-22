@@ -28,6 +28,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	public void inserirNotificacao(Notificacao notificacao) {
+		
 		Session sessao = null;
 
 		try {
@@ -39,6 +40,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
+			
 			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
@@ -55,6 +57,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	public void deletarNotificacao(Notificacao notificacao) {
+		
 		Session sessao = null;
 
 		try {
@@ -83,6 +86,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	public void atualizarNotificacao(Notificacao notificacao) {
+		
 		Session sessao = null;
 
 		try {
@@ -111,6 +115,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	public List<Notificacao> recuperarNotificacao() {
+		
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
 
@@ -150,6 +155,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	
 	@Override
 	public List<Notificacao> filtrarNotificacaoViaAtendentePorIdConsulta(Integer id, Instituicao instituicao) {
+		
         Session sessao = null;
         List<Notificacao> notificacoes = null;
         
@@ -176,10 +182,9 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
             sessao.getTransaction().commit();  
             
             
-
-        }catch (Exception e) {       
+        }catch (Exception sqlException) {       
      
-            e.printStackTrace(); 
+        	sqlException.printStackTrace(); 
 
             if (sessao.getTransaction() != null) {
                 sessao.getTransaction().rollback();
@@ -199,7 +204,8 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 	
 	@Override
-	public List<Notificacao> filtrarNotificacaoViaAtendentePorCPFPaciente(String cpf, Instituicao instituicao) {       
+	public List<Notificacao> filtrarNotificacaoViaAtendentePorCPFPaciente(String cpf, Instituicao instituicao) {     
+		
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
     
@@ -226,9 +232,9 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	        
 	        
 	
-	    }catch (Exception e) {       
+	    }catch (Exception sqlException) {       
 	 
-	        e.printStackTrace(); 
+	    	sqlException.printStackTrace(); 
 	
 	        if (sessao.getTransaction() != null) {
 	            sessao.getTransaction().rollback();
@@ -250,6 +256,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	
 	@Override
 	public List<Notificacao> filtrarNotificacaoViaAtendentePorData(LocalDate dataInicial, LocalDate dataFinal, Instituicao instituicao) {
+		
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
     
@@ -275,9 +282,9 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	        
 	        
 	
-	    }catch (Exception e) {       
+	    }catch (Exception sqlException) {       
 	 
-	        e.printStackTrace(); 
+	    	sqlException.printStackTrace(); 
 	
 	        if (sessao.getTransaction() != null) {
 	            sessao.getTransaction().rollback();
@@ -298,6 +305,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 
 	@Override
 	public List<Notificacao> filtrarNotificacaoViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal, Paciente paciente) {
+		
 		Session sessao = null;
 		List<Notificacao> Atendentes = null;
 
@@ -321,9 +329,9 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 
 			sessao.getTransaction().commit();
 
-		} catch (Exception e) {
+		} catch (Exception sqlException) {
 
-			e.printStackTrace();
+			sqlException.printStackTrace();
 
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
@@ -367,17 +375,23 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 			notificacoes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
+			
 		}
-
+		
 		return notificacoes;
 	}
 
@@ -404,12 +418,17 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 			notificacoes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}
@@ -439,12 +458,17 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 			notificacoes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
 			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
+				sessao.getTransaction().rollback();				
 			}
+			
 		} finally {
+			
 			if (sessao != null) {
 				sessao.close();
 			}

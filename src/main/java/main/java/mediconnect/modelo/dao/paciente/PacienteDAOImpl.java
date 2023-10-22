@@ -8,6 +8,16 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
+import main.java.mediconnect.modelo.entidade.conquista.Conquista;
+import main.java.mediconnect.modelo.entidade.consulta.Consulta;
+import main.java.mediconnect.modelo.entidade.consulta.Consulta_;
+import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
+import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional_;
+import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
+import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
+import main.java.mediconnect.modelo.entidade.notificacao.Notificacao;
+import main.java.mediconnect.modelo.entidade.notificacao.Notificacao_;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
@@ -20,6 +30,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void inserirPaciente(Paciente Paciente) {
+		
 		Session sessao = null;
 
 		try {
@@ -49,6 +60,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void deletarPaciente(Paciente Paciente) {
+		
 		Session sessao = null;
 
 		try {
@@ -77,6 +89,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void atualizarPaciente(Paciente Paciente) {
+		
 		Session sessao = null;
 
 		try {
@@ -105,6 +118,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public List<Paciente> recuperarPaciente() {
+		
 		Session sessao = null;
 		List<Paciente> pacientes = null;
 
@@ -141,8 +155,55 @@ public class PacienteDAOImpl implements PacienteDAO {
 
 		return pacientes;
 	}
+	
+	public List<Paciente> recuperarPacientesCadastradosPorId(Integer id, Instituicao instituicao) {
+		
+		Session sessao = null;
+		List<Paciente> pacientes = null;
 
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Paciente> criteria = construtor.createQuery(Paciente.class);
+			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
+
+			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
+
+			criteria.select(raizPaciente);
+			
+			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), id),
+						   construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+
+			pacientes = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return pacientes;
+
+	}
+
+	@Override
 	public Paciente recuperarPacientePorId(Integer id) {
+		
 		Session sessao = null;
 		Paciente paciente = null;
 
@@ -157,16 +218,14 @@ public class PacienteDAOImpl implements PacienteDAO {
 			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
 
 			criteria.select(raizPaciente);
-
+			
 			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), id));
 
 			paciente = sessao.createQuery(criteria).getSingleResult();
 
 			sessao.getTransaction().commit();
 
-		} catch (
-
-		Exception sqlException) {
+		} catch (Exception sqlException) {
 
 			sqlException.printStackTrace();
 
@@ -182,5 +241,6 @@ public class PacienteDAOImpl implements PacienteDAO {
 		}
 
 		return paciente;
+
 	}
 }

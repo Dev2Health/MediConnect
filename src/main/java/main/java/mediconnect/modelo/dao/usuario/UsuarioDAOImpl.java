@@ -94,6 +94,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			sessao.update(usuario);
 			
 			sessao.getTransaction().commit();
+			
 		} catch (Exception sqlException) {
 			
 			sqlException.printStackTrace();
@@ -111,6 +112,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	public List<Usuario> recupearUsuarios() {
+		
 		Session sessao = null;
 		List<Usuario> usuarios = null;
 		

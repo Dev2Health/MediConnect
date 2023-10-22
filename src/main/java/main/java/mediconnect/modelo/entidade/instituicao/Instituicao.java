@@ -62,6 +62,15 @@ public class Instituicao extends Usuario implements Serializable {
 	
 	public Instituicao() {}
 	
+	public Instituicao(String cnpj, Endereco endereco, String razaoSocial, String nomeFantasia, String email, String senha) {
+		super(email, senha);
+		setCnpj(cnpj);
+		setEndereco(endereco);
+		setRazaoSocial(razaoSocial);
+		setNomeFantasia(nomeFantasia);
+
+	}
+	
 	public Instituicao(String cnpj, Endereco endereco, String razaoSocial, String nomeFantasia, LocalTime horarioInicioAtendimento, LocalTime horarioFimAtendimento, Integer id, String email, String senha, boolean ehAtivo) {
 		super(id, email, senha, ehAtivo);
 		setCnpj(cnpj);

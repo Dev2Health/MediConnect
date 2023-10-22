@@ -9,4 +9,5 @@ public interface InstituicaoDAO {
 	void deletarInstituicao(Instituicao instituicao);
 	void atualizarInstituicao(Instituicao instituicao);
 	List<Instituicao> recuperarInstituicao();
+	Instituicao recuperarInstituicaoPorId(Integer id);
 }
