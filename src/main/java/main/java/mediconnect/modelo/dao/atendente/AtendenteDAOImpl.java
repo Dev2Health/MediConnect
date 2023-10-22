@@ -14,6 +14,8 @@ import main.java.mediconnect.modelo.entidade.atendente.Atendente;
 import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class AtendenteDAOImpl implements AtendenteDAO {
@@ -110,6 +112,49 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 				sessao.close();
 			}
 		}
+
+	}
+	
+	@Override
+	public Atendente recuperarAtendentePorId(Integer id) {
+		
+		Session sessao = null;
+		Atendente atendente = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
+			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+
+			criteria.select(raizAtendente);
+			
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id));
+
+			atendente = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return atendente;
 
 	}
 

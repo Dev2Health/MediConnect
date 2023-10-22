@@ -56,6 +56,10 @@ public class Atendente extends Pessoa implements Serializable {
 		setInstituicao(instituicao);
 		setCtps(ctps);
 	}
+	
+	public Atendente( String email) {
+
+	}
 
 	// MÉTODOS DE ACESSO
 

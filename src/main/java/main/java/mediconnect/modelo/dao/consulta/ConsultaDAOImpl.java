@@ -649,7 +649,8 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultasViaPacientePorId(Integer id) {
+	@Override
+	public List<Consulta> recuperarConsultasViaPacientePorId(Integer id) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -682,4 +683,46 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 		return consultas;
 	}
+	
+		@Override
+		public List<Consulta> recuperarConsultasAgendadasViaPacientePorId(Integer id) {
+		
+		Session sessao = null;
+		List<Consulta> consultas = null;
+	
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+	
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+	
+			criteria.select(raizConsulta);
+	
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id), 
+						   construtor.equal(raizConsulta.get(Consulta_.STATUS), StatusConsulta.AGENDADA));
+	
+			consultas = sessao.createQuery(criteria).getResultList();
+	
+			sessao.getTransaction().commit();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+			
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+	
+		return consultas;
+	}
+		
 }

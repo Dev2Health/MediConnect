@@ -10,6 +10,7 @@ public interface AtendenteDAO {
 	void inserirAtendente(Atendente atendente);
 	void deletarAtendente(Atendente atendente);
 	void atualizarAtendente(Atendente atendente);
+	Atendente recuperarAtendentePorId(Integer id);
 	List<Atendente> recuperarListaDeAtendentes();
 	List<Atendente> filtrarAtendentesViaInstituicaoPorId(Integer id);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao);

@@ -2,7 +2,6 @@ package main.java.mediconnect.modelo.dao.paciente;
 
 import java.util.List;
 
-import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente;
 
 public interface PacienteDAO {
