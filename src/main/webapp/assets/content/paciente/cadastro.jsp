@@ -1,3 +1,5 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,7 +31,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="name" class="text">Nome</label>
-                        <input class="text-emphasis" type="text" id="name" name="name" placeholder="Nome" required>
+                        <input class="text-emphasis" type="text" id="p.nome" name="nome" placeholder="Nome" required>
                     </div>
                 </div>
                 <div class="form-input">
@@ -38,7 +40,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="cpf" class="text">CPF</label>
-                        <input class="text-emphasis" type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" maxlength="14" required>
+                        <input class="text-emphasis" type="text" id="p.cpf" name="cpf" oninput="mascaraCpf()" placeholder="XXX.XXX.XXX-XX" maxlength="14" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-nao-verificado.svg">
@@ -62,7 +64,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="password" class="text">Senha</label>
-                        <input class="text-emphasis" type="password" id="password" name="password" placeholder="*********" maxlength="100" required>
+                        <input class="text-emphasis" type="password" id="p.email" name="email" placeholder="*********" maxlength="100" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-olho-fechado.svg" id="btn-password" onclick="showPassword()">
@@ -76,7 +78,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="surname" class="text">Sobrenome</label>
-                        <input class="text-emphasis" type="text" id="surname" name="surname" placeholder="Sobrenome" required>
+                        <input class="text-emphasis" type="text" id="p.sobrenome" name="sobrenome" placeholder="Sobrenome" required>
                     </div>
                 </div>
                 <div class="form-input">
@@ -85,7 +87,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="date" class="text">Data de Nascimento</label>
-                        <input class="text-emphasis" type="date" id="date" name="date" data-placeholder="DD/MM/AAAA" required>
+                        <input class="text-emphasis" type="date" id="p.data" name="data" oninput="mascaraData()" data-placeholder="DD/MM/AAAA" required>
                     </div>
                 </div>
                 <div class="form-input">
@@ -94,7 +96,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="phone" class="text">Telefone</label>
-                        <input class="text-emphasis" type="tel" id="phone" name="phone" placeholder="(00) 9 9999-9999" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
+                        <input class="text-emphasis" type="tel" id="p.telefone" name="telefone" oninput="mascaraTelefone()" placeholder="(00) 9 9999-9999" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-nao-verificado.svg">
@@ -105,8 +107,8 @@
                         <img src="../../images/icone-senha.svg" alt="icone-senha">
                     </div>
                     <div class="input-itens">
-                        <label for="password" class="text">Senha</label>
-                        <input class="text-emphasis" type="password" id="password" name="password" placeholder="*********" maxlength="100" required>
+                        <label for="password" class="text">Confirmar Senha</label>
+                        <input class="text-emphasis" type="password" id="p.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" placeholder="*********" maxlength="100" required>
                     </div>
                     <div class="input-element">
                         <img src="../../images/icone-olho-fechado.svg" id="btn-password" onclick="showPassword()">

@@ -1,63 +1,67 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <title>Especialidades | MediConnect</title>
+    <title>Consultas | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/especialidades-instituicao.css">
 </head>
+
 <body>
-    <header id="content-header" class="template-grid">
-        <nav class="nav-bar">
-            <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="logo-mediconnect">
+    <header>
+        <img src="../../images/icone-menu.svg" alt="icone-menu">
+        <img src="../../images/favicon.ico" alt="icnoe-mediconnect">
+        <nav>
+            <div>
+                <h3 class="text">Pesquisar</h3>
+                <div>
+                    <img src="../../images/icone-lupa.svg" alt="icone-lupa">
+                </div>
+                <div>
+                    <h3 class="text">Filtrar</h3>
+                    <img src="../../images/icone-filtro.svg" alt="icone-filtro">
+                </div>
+            </div>
         </nav>
     </header>
     <main>
-        <div id="search-return" class="template-grid">
-            <div id="return-specialty">
-                <p class="text">Especialidades atendidas pela instituição</p>
-                <button class="btn-square-sm text">Adicionar <img src="../../images/icone-adicionar.svg"></button>
-            </div>
-        </div>
-        <div id="specialty" class="template-grid">
 
-            <div class="card-specialty">
-                <p class="text-emphasis">Clínico Geral</p>
-                <div class="card-info">
-                    <div class="info-professional">
-                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
-                        <p class="text">04</p>
-                    </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
+        <div> <!--título da págia+botão-->
+            <div>
+                <div>
+                    <p class="text">Pendentes</p>
+                </div>
+                <div>
+                    <p class="text">Todas</p>
                 </div>
             </div>
+            <button class="btn-square-sm text">Agendar <img src="../../images/icone-adicionar.svg"
+                    alt="icone-adicionar"></button>
+        </div><!--fim do título-->
 
-            <div class="card-specialty">
-                <p class="text-emphasis">Odontologia</p>
-                <div class="card-info">
-                    <div class="info-professional">
-                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
-                        <p class="text">02</p>
-                    </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
-                </div>
-            </div>
+        <div> <!--notificações-->
+            <c:forEach var="consulta" items="${consultas}">
+            <div> <!--Card notificação-->
 
-            <div class="card-specialty">
-                <p class="text-emphasis">Psicologia</p>
-                <div class="card-info">
-                    <div class="info-professional">
-                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
-                        <p class="text">01</p>
-                    </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
+                <p class="text-emphasis">Consulta - <c:out value="${consulta.id}" /></p>
+                <div>
+                    <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                    <p class="text"><c:out value="${consulta.data}" /></p>
                 </div>
+                <div>
+                    <img src="../../images/icone-horario.svg" alt="icone-horario">
+                    <p class="text"><c:out value="${consulta.horario}" /></p>
+                </div>
+                <button class="btn-square-la">Ver detalhes</button>
             </div>
+            </c:forEach>
 
         </div>
+
     </main>
     <footer>
         <div class="template-grid" id="footer-links">
@@ -96,4 +100,5 @@
         </div>
     </footer>
 </body>
+
 </html>

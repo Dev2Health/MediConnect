@@ -16,9 +16,9 @@
 					<form action="inserir-paciente" method="post">
 					<input type="hidden" name="id" value="<c:out value='${paciente.id}' />" />
 					<label>Nome:</label>
-					<input type="text" id="p.nome" name="nome" oninput="mascaraNome()" placeholder="Informe o nome..."> 
+					<input type="text" id="p.nome" name="nome" placeholder="Informe o nome..."> 
 					<label>Sobrenome:</label>
-					<input type="text" id="p.sobrenome" name="sobrenome" oninput="mascaraSobrenome()" placeholder="Informe o sobrenome..."> 
+					<input type="text" id="p.sobrenome" name="sobrenome" placeholder="Informe o sobrenome..."> 
 					<label>CPF</label>
 					<input type="text" id="p.cpf" name="cpf" oninput="mascaraCpf()" placeholder="Informe o cpf..."> 
 					<label>Data de Nascimento:</label>
