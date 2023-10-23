@@ -1,0 +1,166 @@
+body {
+    width: 100vw;
+    color: var(--dark);
+    background-color: var(--background-institution);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Menu */
+
+#content-header {
+    width: 100vw;
+    align-items: center;
+    height: 140px;
+}
+
+[class*="nav-"], .filter-box, .filter-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar {
+    grid-column: 2 / 4;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.nav-bar img {
+    width: 50px;
+}
+
+.nav-filter {
+    grid-column: 5 / 12;
+    justify-content: space-between;
+}
+
+.filter-box {
+    justify-content: space-between;
+    border: 3px solid var(--purple);
+    border-radius: 15px;
+    width: 30vw;
+    height: 55px;
+}
+
+.input-itens input {
+    color: var(--purple);
+    padding-left: 1.4vw;
+}
+
+.input-itens input::placeholder {
+    color: var(--purple-light);
+}
+
+.filter-icon {
+    height: 100%;
+    background-color: var(--purple);
+    border-radius: 0 10px 10px 0;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.filter-icon img {
+    height: 35px;
+}
+
+.nav-filter button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    color: var(--background-institution);
+    background-color: var(--purple);
+}
+
+.nav-filter button img {
+    height: 35px;
+}
+
+/* Retorno */
+
+#return-options {
+    grid-column: 2 / 12;
+    display: flex;
+    justify-content: space-between;
+}
+
+#options-switch {
+    display: flex;
+    gap: 25px;
+}
+
+#return-options button {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--purple);
+}
+
+#return-options #options-switch button {
+    color: var(--purple);
+    background-color: var(--background-institution);
+    border: 3px solid var(--purple);
+}
+
+#return-options #options-switch button:focus {
+    color: var(--background-institution);
+    background-color: var(--purple);
+}
+
+/* Consultas */
+
+#consult {
+    margin-bottom: 50px;
+}
+
+.card-consult {
+    grid-column: 2 / 12;
+    margin-top: 50px;
+    padding: 25px 4.16vw 25px 8.33vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--light);
+    border: 3px solid var(--purple);
+    border-radius: 40px;
+}
+
+.card-consult .consult-name {
+    width: 25vw;
+}
+
+.card-consult .card-info {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.card-info .info-consult {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 35vw;
+    gap: 40px;
+}
+
+.info-consult [class*="consult-"] {
+    display: flex;
+    gap: 25px;
+}
+
+.info-consult .consult-date img {
+    height: 50px;
+    filter: brightness(75%);
+}
+
+.info-consult .consult-time img {
+    height: 50px;
+    filter: invert(48%) sepia(40%) saturate(859%) hue-rotate(205deg) brightness(80%) contrast(80%);
+}
+
+.card-info button {
+    color: var(--background-institution);
+    background-color: var(--purple);
+}
