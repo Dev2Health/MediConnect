@@ -25,7 +25,7 @@
 
         <div>
 
-            <img src="../../images/perfil-paciente.png" alt="foto-de-perfil">
+            <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
 
         </div>
 
@@ -50,9 +50,21 @@
                             <img src="../../images/icone-cpf.svg">
                         </div>
                         <div class="input-itens">
-                            <label for="cpf" class="text">CPF</label>
+                            <label for="cpf" class="text">CTPS</label>
                             <input class="text-emphasis" type="text" id="cpf" name="cpf" placeholder="189.891.961-59"
                                 disabled>
+                        </div>
+
+                    </div>
+
+                    <div class="form-input">
+                        <div class="input-icon">
+                            <img src="../../images/icone-calendario.svg">
+                        </div>
+                        <div class="input-itens">
+                            <label for="numero-de-cadastro" class="text">Número de Cadastro</label>
+                            <input class="text-emphasis" type="number" id="numero-de-cadastro" name="numero-de-cadastro"
+                                placeholder="189.891.961-59" disabled>
                         </div>
 
                     </div>
@@ -73,12 +85,12 @@
 
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-paciente.svg">
+                            <img src="../../images/icone-calendario.svg">
                         </div>
                         <div class="input-itens">
-                            <label for="date" class="text">Data de nascimento</label>
-                            <input class="text-emphasis" type="date" id="date" name="date" placeholder="10/08/2002"
-                                disabled>
+                            <label for="data-de-cadastro" class="text">Data de Cadastro</label>
+                            <input class="text-emphasis" type="date" id="data-de-cadastro" name="data-de-cadastro"
+                                placeholder="DD/MM/AAAA" disabled>
                         </div>
                     </div>
 
@@ -86,41 +98,6 @@
 
 
             </section>
-
-            <section>
-
-
-
-                <div>
-                    <p class="text">Alterar dado de contato</p>
-                    <div>
-                        <button class="btn-square-la text">Habilitar edição</button> <!--Este botão deve habilitar a opção de edição-->
-                        <img src="../../images/icone-editar.svg">
-                    </div>
-                </div>
-
-                <div class="form-left">
-
-                    <div class="form-input">
-                        <div class="input-icon">
-                            <img src="../../images/icone-telefone.svg" alt="icone-telefone">
-                        </div>
-                        <div class="input-itens">
-                            <label for="phone" class="text">Telefone</label>
-                            <input class="text-emphasis" type="tel" id="phone" name="phone"
-                                placeholder="(00) 9 9999-9999" maxlength="16"
-                                pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" disabled>
-                        </div>
-                        <div class="input-element">
-                            <img src="../../images/icone-verificado.svg">
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </section>
-
             <section>
                 <div>
                     <p class="text">Alterar dados sensíveis</p>
@@ -210,6 +187,4 @@
     </main>
     <script src="../scripts/esqueceu-sua-senha.js"></script>
 </body>
-
-
 </html>
