@@ -38,7 +38,7 @@
         <div id="atendente" class="template-grid">
             <c:forEach var="atendente" items="${atendentes}">
             <div class="card-atendente">
-                <p class="text-emphasis atendente-name"><c:out value='${especialidade.id}' /> <c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
+                <p class="text-emphasis atendente-name"><c:out value='${atendente.id}' /> <c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
                 <div class="card-info">
                     <div class="info-atendente">
                         <img src="../../images/icone-calendario.svg" alt="icone-calendario">
