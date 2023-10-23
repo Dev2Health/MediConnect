@@ -32,11 +32,10 @@ public interface ConsultaDAO {
 	List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(Integer IdProfissionalDeSaude, Integer IdPaciente);
 	List<Consulta> filtrarConsultaViaPacientePorEspecialidade(EspecialidadeProfissional especialidadeProfissional, Paciente paciente);
 	List<Consulta> filtrarConsultaViaPacientePorEspecialidade(Integer idEspecialidadeProfissional, Integer idPaciente);
-	List<Consulta> filtrarConsultaViaPacientePorInstituicao(Instituicao instituicao, Paciente paciente);
 	List<Consulta> filtrarConsultaViaPacientePorInstituicao(Integer idInstituicao, Integer idPaciente);
-	List<Consulta> filtrarConsultaViaPacientePorStatus(StatusConsulta status, Paciente paciente);
 	List<Consulta> filtrarConsultaViaPacientePorStatus(StatusConsulta status, Integer idPaciente);
-	List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal, Paciente paciente);
+	List<Consulta> recuperarConsultasAgendadasViaPacientePorId(Integer id);
 	List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal, Integer idPaciente);
-	List<Consulta> filtrarConsultasViaPacientePorId(Integer id);
+	List<Consulta> recuperarConsultasViaPacientePorId(Integer id);
+
 }

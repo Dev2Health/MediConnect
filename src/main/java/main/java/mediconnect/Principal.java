@@ -2,6 +2,7 @@ package main.java.mediconnect;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAO;
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAOImpl;
@@ -467,6 +468,46 @@ public class Principal {
 		consulta2.setStatus(status2);
 
 		consultaDAO2.inserirConsulta(consulta2);
+		
+		ConsultaDAO consultaDAO3 = new ConsultaDAOImpl();
+		Consulta consulta3 = new Consulta();
+
+		String descricao3 = "Descrição";
+
+		LocalDate dataConsulta3 = LocalDate.of(2023, 7, 30);
+		LocalTime horarioConsulta3 = LocalTime.of(11, 21);
+		StatusConsulta status3 = StatusConsulta.AGENDADA;
+
+		consulta3.setInstituicao(instituicao);
+		consulta3.setEspecialidadeProfissional(especialidade);
+		consulta3.setProfissionalDeSaude(profissional);
+		consulta3.setDescricao(descricao3);
+		consulta3.setData(dataConsulta3);
+		consulta3.setHorario(horarioConsulta3);
+		consulta3.setPaciente(paciente2);
+		consulta3.setStatus(status3);
+
+		consultaDAO3.inserirConsulta(consulta3);
+		
+		ConsultaDAO consultaDAO4 = new ConsultaDAOImpl();
+		Consulta consulta4 = new Consulta();
+
+		String descricao4 = "Descrição";
+
+		LocalDate dataConsulta4 = LocalDate.of(2023, 7, 30);
+		LocalTime horarioConsulta4 = LocalTime.of(11, 21);
+		StatusConsulta status4 = StatusConsulta.AGENDADA;
+
+		consulta4.setInstituicao(instituicao);
+		consulta4.setEspecialidadeProfissional(especialidade);
+		consulta4.setProfissionalDeSaude(profissional);
+		consulta4.setDescricao(descricao4);
+		consulta4.setData(dataConsulta4);
+		consulta4.setHorario(horarioConsulta4);
+		consulta4.setPaciente(paciente2);
+		consulta4.setStatus(status4);
+
+		consultaDAO4.inserirConsulta(consulta4);
     
 		NotificacaoConsultaDAO notificacaoConsultaDAO = new NotificacaoConsultaDAOImpl();
 		NotificacaoConsulta notificacaoConsulta = new NotificacaoConsulta();
@@ -476,7 +517,9 @@ public class Principal {
 		
 		notificacaoConsultaDAO.inserirNotificacaoConsulta(notificacaoConsulta);
 		
-		System.out.println(pacienteDAO.recuperarPacientePorId(4));
+		List<Consulta> consaunuadw = consultaDAO.recuperarConsultasAgendadasViaPacientePorId(6);
+		
+		System.out.println(consaunuadw);
 		
 		
 		}

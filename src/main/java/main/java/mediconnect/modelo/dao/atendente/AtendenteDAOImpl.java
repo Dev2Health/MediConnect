@@ -14,6 +14,8 @@ import main.java.mediconnect.modelo.entidade.atendente.Atendente;
 import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class AtendenteDAOImpl implements AtendenteDAO {
@@ -112,6 +114,49 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		}
 
 	}
+	
+	@Override
+	public Atendente recuperarAtendentePorId(Integer id) {
+		
+		Session sessao = null;
+		Atendente atendente = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
+			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+
+			criteria.select(raizAtendente);
+			
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id));
+
+			atendente = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return atendente;
+
+	}
 
 	@Override
 	public List<Atendente> recuperarListaDeAtendentes() {
@@ -153,7 +198,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 	
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorId(Integer id, Instituicao instituicao) {
+	public 	List<Atendente> filtrarAtendentesViaInstituicaoPorId(Integer id) {
 			
 			Session sessao = null;
 			List<Atendente> Atendentes = null;
@@ -170,8 +215,8 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 				
 				criteria.select(raizAtendente);
 				
-				criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id),
-							   construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
+				criteria.where(construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), id));
+							   
 				
 				Atendentes = sessao.createQuery(criteria).getResultList();
 	

@@ -2,43 +2,42 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <title>Consultas | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/consultas-paciente.css">
 </head>
-
 <body>
-    <header>
-        <img src="../../images/icone-menu.svg" alt="icone-menu">
-        <img src="../../images/favicon.ico" alt="icnoe-mediconnect">
-        <nav>
-            <div>
-                <h3 class="text">Pesquisar</h3>
-                <div>
-                    <img src="../../images/icone-lupa.svg" alt="icone-lupa">
+    <header id="content-header" class="template-grid">
+        <nav class="nav-bar">
+            <img src="../../images/icone-menu.svg" alt="icone-menu">
+            <img src="../../images/logo.svg" alt="icone-mediconnect">
+        </nav>
+        <nav class="nav-filter">
+            <div class="filter-box">
+                <div class="input-itens">
+                    <input class="text-emphasis" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
                 </div>
-                <div>
-                    <h3 class="text">Filtrar</h3>
-                    <img src="../../images/icone-filtro.svg" alt="icone-filtro">
+                <div class="filter-icon">
+                    <img src="../../images/icone-lupa.svg" alt="icone-pesquisar">
                 </div>
             </div>
+            <button class="btn-square-la text">Filtrar <img src="../../images/icone-filtro.svg"> </button>
         </nav>
     </header>
     <main>
-
-        <div> <!--título da págia+botão-->
-            <div>
-                <div>
-                    <p class="text">Pendentes</p>
+        <div id="search-return" class="template-grid">
+            <div id="return-options">
+                <div id="options-switch">
+                    <button class="btn-square-sm text-emphasis" autofocus>Pendentes</button>
+                    <button class="btn-square-sm text-emphasis">Todas</button>
                 </div>
-                <div>
-                    <p class="text">Todas</p>
-                </div>
+                <button class="btn-square-sm text-emphasis link-light">Agendar <img src="../../images/icone-adicionar.svg"></button>
             </div>
+<<<<<<< HEAD:src/main/webapp/assets/content/paciente/consultas.jsp
             <button class="btn-square-sm text">Agendar <img src="../../images/icone-adicionar.svg"
                     alt="icone-adicionar"></button>
         </div><!--fim do título-->
@@ -60,8 +59,66 @@
             </div>
             </c:forEach>
 
+=======
+>>>>>>> 3972b692696732b795a14486c9aef966576b2504:src/main/webapp/assets/content/paciente/consultas.html
         </div>
 
+        
+
+        <div id="consult" class="template-grid">
+
+            <div class="card-consult">
+                <p class="text-emphasis">Título da Consulta</p>
+                <div class="card-info">
+                    <div class="info-consult">
+                        <div class="consult-date">
+                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                            <p class="text-emphasis">20/08/2000</p>
+                        </div>
+                        <div class="consult-time">
+                            <img src="../../images/icone-horario.svg" alt="icone-horario">
+                            <p class="text-emphasis">13h59</p>
+                        </div>
+                    </div>
+                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
+                </div>
+            </div><!--fim do card-->
+
+            <div class="card-consult">
+                <p class="text-emphasis">Título da Consulta</p>
+                <div class="card-info">
+                    <div class="info-consult">
+                        <div class="consult-date">
+                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                            <p class="text-emphasis">20/08/2000</p>
+                        </div>
+                        <div class="consult-time">
+                            <img src="../../images/icone-horario.svg" alt="icone-horario">
+                            <p class="text-emphasis">13h59</p>
+                        </div>
+                    </div>
+                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
+                </div>
+            </div><!--fim do card-->
+
+            <div class="card-consult">
+                <p class="text-emphasis">Título da Consulta</p>
+                <div class="card-info">
+                    <div class="info-consult">
+                        <div class="consult-date">
+                            <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                            <p class="text-emphasis">20/08/2000</p>
+                        </div>
+                        <div class="consult-time">
+                            <img src="../../images/icone-horario.svg" alt="icone-horario">
+                            <p class="text-emphasis">13h59</p>
+                        </div>
+                    </div>
+                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
+                </div>
+            </div><!--fim do card-->
+
+        </div>
     </main>
     <footer>
         <div class="template-grid" id="footer-links">
@@ -100,5 +157,4 @@
         </div>
     </footer>
 </body>
-
 </html>

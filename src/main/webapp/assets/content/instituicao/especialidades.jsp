@@ -21,7 +21,7 @@
         <div id="pesquisa-retornar" class="template-grid">
             <div id="retornar-especialidade">
                 <p class="text">Especialidades atendidas pela instituição</p>
-                <button class="btn-square-sm text">Adicionar <img src="../../images/icone-adicionar.svg"></button>
+                <button class="btn-square-sm text-emphasis">Adicionar <img src="../../images/icone-adicionar.svg"></button>
             </div>
         </div>
         <div id="especialidade" class="template-grid">

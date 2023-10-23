@@ -83,6 +83,19 @@ public class Consulta implements Serializable {
 		setPaciente(paciente);
 		setStatus(status);
 	}
+	
+	public Consulta(EspecialidadeProfissional especialidade_profissional, Instituicao instituicao,
+			ProfissionalDeSaude profissional_de_saude, LocalDate data, LocalTime horario, Paciente paciente,
+			StatusConsulta status) {
+
+		setEspecialidadeProfissional(especialidade_profissional);
+		setInstituicao(instituicao);
+		setProfissionalDeSaude(profissional_de_saude);
+		setData(data);
+		setHorario(horario);
+		setPaciente(paciente);
+		setStatus(status);
+	}
 
 	// MÉTODOS DE ACESSO
 

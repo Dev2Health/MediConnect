@@ -8,6 +8,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import main.java.mediconnect.modelo.entidade.atendente.Atendente;
 import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
 import main.java.mediconnect.modelo.entidade.conquista.Conquista;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
@@ -156,7 +157,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 		return pacientes;
 	}
 	
-	public List<Paciente> recuperarPacientesCadastradosPorId(Integer id, Instituicao instituicao) {
+	public List<Paciente> recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(Integer id) {
 		
 		Session sessao = null;
 		List<Paciente> pacientes = null;
@@ -169,14 +170,14 @@ public class PacienteDAOImpl implements PacienteDAO {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
 			CriteriaQuery<Paciente> criteria = construtor.createQuery(Paciente.class);
+			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
 			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
-
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizPaciente);
 			
-			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), id),
-						   construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), id),
+						   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), id));
 
 			pacientes = sessao.createQuery(criteria).getResultList();
 

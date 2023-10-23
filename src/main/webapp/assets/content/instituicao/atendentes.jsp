@@ -32,7 +32,7 @@
         <div id="pesquisa-retornar" class="template-grid">
             <div id="retornar-atendente">
                 <p class="text">Atendentes da instituição</p>
-                <button class="btn-square-sm text">Adicionar <img src="../../images/icone-adicionar.svg"></button>
+                <button class="btn-square-sm text-emphasis">Adicionar <img src="../../images/icone-adicionar.svg"></button>
             </div>
         </div>
         <div id="atendente" class="template-grid">
