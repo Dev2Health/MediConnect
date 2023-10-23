@@ -75,10 +75,21 @@ public class Paciente extends Pessoa implements Serializable {
 		setTelefone(telefone);
 
 	}
+	
+	public Paciente(String nome, String sobrenome, String email, String telefone, String senha) {
+			
+		setNome(nome);
+		setSobrenome(sobrenome);
+		setEmail(email);
+		setTelefone(telefone);
+		setSenha(senha);
+
+	}
+
 
 	// MÉTODOS DE ACESSO
-
-
+		
+	
 	// Data de Nascimento
 	public LocalDate getDataNasciento() {
 		return dataNascimento;

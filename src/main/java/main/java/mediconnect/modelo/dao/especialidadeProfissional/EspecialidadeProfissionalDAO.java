@@ -9,4 +9,6 @@ public interface EspecialidadeProfissionalDAO {
 	void deletarEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional);
 	void atualizarEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional);
 	List<EspecialidadeProfissional> recuperarEspecialidadeProfissional();
+	EspecialidadeProfissional recuperarEspecialidadePorId(Integer id);
+	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisPorId(Integer id);
 }

@@ -88,6 +88,13 @@ public class Instituicao extends Usuario implements Serializable {
 		setRazaoSocial(razaoSocial);
 		setNomeFantasia(nomeFantasia);
 	}
+	
+	public Instituicao(Endereco endereco, String razaoSocial, String nomeFantasia, String email, String senha) {
+		
+		setEndereco(endereco);
+		setRazaoSocial(razaoSocial);
+		setNomeFantasia(nomeFantasia);
+	}
 
 	// MÉTODOS DE ACESSO
 
