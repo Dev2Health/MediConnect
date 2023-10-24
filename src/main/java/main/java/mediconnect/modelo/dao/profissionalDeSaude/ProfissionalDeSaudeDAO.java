@@ -10,4 +10,5 @@ public interface ProfissionalDeSaudeDAO {
 	void atualizarProfissionalDeSaude(ProfissionalDeSaude ProfissionalDeSaude);
 	List<ProfissionalDeSaude> recuperarProfissionaisDeSaude();
 	ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer id);
+	ProfissionalDeSaude recuperarProfissionalPorId(Integer id);
 }
