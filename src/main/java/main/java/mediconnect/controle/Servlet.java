@@ -52,14 +52,12 @@ public class Servlet extends HttpServlet {
 	private ConsultaDAO consultaDAO;
 	private EspecialidadeProfissionalDAO especialidadeDAO;
 	private PacienteDAO pacienteDAO;
-	private PacienteConquistaDAO pacienteConquistaDAO;
 	private ConquistaDAO conquistaDAO;
 
 	
 	public void init() {
 		
 		especialidadeDAO = new EspecialidadeProfissionalDAOImpl();
-		pacienteConquistaDAO = new PacienteConquistaDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
 		pacienteDAO = new PacienteDAOImpl();
 		instituicaoDAO = new InstituicaoDAOImpl();
@@ -245,6 +243,19 @@ public class Servlet extends HttpServlet {
 				
 			case "/inserir-especialidade":
 				inserirEspecialidade(request, response);
+				break;
+				
+			// TELA PROFISSIONAIS 
+				
+				
+			case "/cadastrar-profissional":
+				mostrarTelaCadastrarProfissional(request, response);
+				break;
+				
+			// TELA CADASTRAR PROFISSIONAL
+				
+			case "/inserir-profissional":
+				inserirProfissional(request, response);
 				break;
 				
 				
@@ -451,7 +462,6 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
-		//recuperar a entidade e setar informações novas nela ou atualizar com new Entidade?
 		
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
@@ -459,7 +469,13 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
 		
-		pacienteDAO.atualizarPaciente(new Paciente(nome, sobrenome, telefone, email, senha));
+		paciente.setNome(nome);
+		paciente.setSobrenome(sobrenome);
+		paciente.setEmail(email);
+		paciente.setTelefone(telefone);
+		paciente.setSenha(senha);
+		
+		pacienteDAO.atualizarPaciente(paciente);
 		response.sendRedirect("perfil");
 		//nomenclatura do jsp dos perfils vai dar problema?
 
@@ -572,11 +588,12 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
-		//recuperar a entidade e setar informações novas nela ou atualizar com new Entidade?
 		
 		String email = request.getParameter("email");
 		
-		atendenteDAO.atualizarAtendente(new Atendente(email));
+		atendente.setEmail(email);
+		
+		atendenteDAO.atualizarAtendente(atendente);
 		response.sendRedirect("perfil");
 	
 	}
@@ -639,7 +656,7 @@ public class Servlet extends HttpServlet {
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		//recuperar a entidade e setar informações novas nela ou atualizar com new Entidade?
 		
-		Endereco endereco = null;
+		Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
 		
 		String razaoSocial = request.getParameter("razaoSocial");
 		String nomeFantasia = request.getParameter("nomeFantasia");
@@ -652,19 +669,30 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		
-		endereco = new Endereco(cep, numero, logradouro, cidade, estado, bairro);
+		endereco.setCep(cep);
+		endereco.setEstado(estado);
+		endereco.setCidade(cidade);
+		endereco.setBairro(bairro);
+		endereco.setLogradouro(logradouro);
+		endereco.setNumero(numero);
 		
 		enderecoDAO.atualizarEndereco(endereco);
 		//atualizar endereco antes de inserir na instituicao sendo editada??
 			
 		instituicaoDAO.atualizarInstituicao(new Instituicao(endereco, razaoSocial, nomeFantasia, email, senha));
-		response.sendRedirect("perfil");
+		response.sendRedirect("perfil-instituicao");
 		//nomenclatura do jsp dos perfils ta certo?
 
 	}
 	
 	private void mostrarTelaAtendentesInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		List<Atendente> atendentes = atendenteDAO.filtrarAtendentesViaInstituicaoPorId(id);
+		
+		request.setAttribute("atendentes", atendentes);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("atendentes-instituicao.jsp");
 		dispatcher.forward(request, response);
@@ -676,9 +704,6 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarAtendente(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		
-		List<Atendente> atendentes = atendenteDAO.filtrarAtendentesViaInstituicaoPorId(id);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-atendente.jsp");
 		dispatcher.forward(request, response);
@@ -716,7 +741,9 @@ public class Servlet extends HttpServlet {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
-		List<EspecialidadeProfissional> profissionais = especialidadeDAO.recuperarEspecialidadesProfissionaisPorId(id);
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionaisPorId(id);
+		
+		request.setAttribute("especialidaed", especialidades);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("especialidades-instituicao.jsp");
 		dispatcher.forward(request, response);
@@ -726,6 +753,11 @@ public class Servlet extends HttpServlet {
 	private void inserirEspecialidade(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorIdInstituicao(id);
+		
 		EspecialidadeProfissional especialidade = null;
 		
 		String nome = request.getParameter("nome");
@@ -734,7 +766,44 @@ public class Servlet extends HttpServlet {
 		
 		especialidadeDAO.inserirEspecialidadeProfissional(especialidade);
 		
+		instituicao.adicionarEspecialidadeProfissional(especialidade);
+		
+		instituicaoDAO.atualizarInstituicao(instituicao);
+		
+		profissional.setEspecialidadeProfissional(especialidade);
+		
+		profissionalDAO.atualizarProfissionalDeSaude(profissional);
+		
 		response.sendRedirect("especialidades-instituicao");
+		
+	}
+	
+	private void mostrarTelaCadastrarProfissional(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-profissional.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void inserirProfissional(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadePorId(id);
+		
+		ProfissionalDeSaude profissional = null;
+		
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		
+		profissional = new ProfissionalDeSaude(nome, sobrenome, especialidade, instituicao);
+		
+		profissionalDAO.inserirProfissionalDeSaude(profissional);
+		
+		response.sendRedirect("perfil-instituicao");
 		
 	}
 	

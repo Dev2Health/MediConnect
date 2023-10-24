@@ -9,5 +9,5 @@ public interface ProfissionalDeSaudeDAO {
 	void deletarProfissionalDeSaude(ProfissionalDeSaude ProfissionalDeSaude);
 	void atualizarProfissionalDeSaude(ProfissionalDeSaude ProfissionalDeSaude);
 	List<ProfissionalDeSaude> recuperarProfissionaisDeSaude();
-	ProfissionalDeSaude recuperarProfissionalPorId(Integer id);
+	ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer id);
 }

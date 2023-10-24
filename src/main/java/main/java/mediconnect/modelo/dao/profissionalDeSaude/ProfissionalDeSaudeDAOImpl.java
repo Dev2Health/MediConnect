@@ -20,6 +20,7 @@ import main.java.mediconnect.modelo.entidade.especialidadeProfissional.Especiali
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
+import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
@@ -154,7 +155,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 		return profissionaisDeSaude;
 	}
 	
-	public ProfissionalDeSaude recuperarProfissionalPorId(Integer id) {
+	public ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer id) {
 		
 		Session sessao = null;
 		ProfissionalDeSaude profissionalDeSaude = null;
@@ -171,7 +172,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 			
 			criteria.select(raizProfissionalDeSaude);
 			
-			criteria.where(construtor.equal(raizProfissionalDeSaude.get(EspecialidadeProfissional_.ID), id));
+			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.instituicao).get(Instituicao_.ID), id));
 					 
 			profissionalDeSaude = sessao.createQuery(criteria).getSingleResult();
 			

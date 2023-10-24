@@ -35,7 +35,10 @@ public class ProfissionalDeSaude implements Serializable {
 	private Integer id;
 	
 	@Column(name = "nome_profissional_de_saude", length = 120, nullable = false, unique = false)
-	private String nomeCompleto;
+	private String nome;
+	
+	@Column(name = "sobrenome_profissional_de_saude", length = 120, nullable = false, unique = false)
+	private String sobrenome;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_especialidade_profissional")
@@ -59,13 +62,22 @@ public class ProfissionalDeSaude implements Serializable {
 	
 	public ProfissionalDeSaude() {}
 	
-	public ProfissionalDeSaude(Integer id, String nomeCompleto, EspecialidadeProfissional especialidade_profissional, Instituicao instituicao, boolean ehAtivo) {
+	public ProfissionalDeSaude(Integer id, String nome, String sobrenome, EspecialidadeProfissional especialidade_profissional, Instituicao instituicao, boolean ehAtivo) {
 		super();
 		setId(id);
-		setNomeCompleto(nomeCompleto);
+		setNome(nome);
+		setSobrenome(sobrenome);
 		setEspecialidadeProfissional(especialidade_profissional);
 		setInstituicao(instituicao);
 		setEhAtivo(ehAtivo);
+	}
+	
+	public ProfissionalDeSaude(String nome, String sobrenome, EspecialidadeProfissional especialidade_profissional, Instituicao instituicao) {
+		super();
+		setNome(nome);
+		setSobrenome(sobrenome);
+		setEspecialidadeProfissional(especialidade_profissional);
+		setInstituicao(instituicao);
 	}
 	
 	// MÉTODOS DE ACESSO
@@ -79,12 +91,21 @@ public class ProfissionalDeSaude implements Serializable {
 	}
 	
 	// Nome completo
-	public String getNomeCompleto() {
-		return nomeCompleto;
+	
+	public String getNome() {
+		return nome;
 	}
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
+	
+	public String getSobrenome() {
+		return sobrenome;
+	}
+	
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}	
 	
 	// Especialidade profissional
 	public EspecialidadeProfissional getEspecialidade() {
