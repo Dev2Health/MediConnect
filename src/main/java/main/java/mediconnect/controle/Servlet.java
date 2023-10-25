@@ -320,7 +320,7 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		
-		//Cada info da tela inicial logada da instituição é uma query diferente?
+		//Cada info da tela inicial logada da instituiï¿½ï¿½o ï¿½ uma query diferente?
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("home-instituicao.jsp");
 		dispatcher.forward(request, response);
@@ -332,7 +332,7 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 
 		
-		//Cada info da tela inicial logada ddo atendente é uma query diferente?
+		//Cada info da tela inicial logada ddo atendente ï¿½ uma query diferente?
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("home-atendente.jsp");
 		dispatcher.forward(request, response);
@@ -654,7 +654,7 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-		//recuperar a entidade e setar informações novas nela ou atualizar com new Entidade?
+		//recuperar a entidade e setar informaï¿½ï¿½es novas nela ou atualizar com new Entidade?
 		
 		Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
 		
@@ -705,7 +705,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-atendente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastrar-atendente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -713,7 +713,7 @@ public class Servlet extends HttpServlet {
 	private void inserirAtendente(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
+//		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		Atendente atendente = null;
 
@@ -723,12 +723,12 @@ public class Servlet extends HttpServlet {
 		String ctps = request.getParameter("ctps");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		int numeroCadastro = Integer.parseInt(request.getParameter("cadastro"));			
+//		int numeroCadastro = Integer.parseInt(request.getParameter("cadastro"));			
 		LocalDate dataCadastro = LocalDate.parse(request.getParameter("data")); 
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+//		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		boolean ehAtivo = true;
 		
-		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, numeroCadastro, dataCadastro, instituicao, ctps);
+		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, dataCadastro, ctps);
 		
 		atendenteDAO.inserirAtendente(atendente);
 		
