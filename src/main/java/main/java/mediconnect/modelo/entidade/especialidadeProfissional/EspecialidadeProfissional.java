@@ -39,12 +39,12 @@ public class EspecialidadeProfissional implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "especialidade_profissional", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ProfissionalDeSaude> profissionalDeSaude = new ArrayList<ProfissionalDeSaude>();
 	/* Uma Especialidade contém vários Profissionais | Um Profissional terá uma Especialidade */
-//
-//	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-//	@JoinTable(name = "instituicao_especialidade_profissional", joinColumns = @JoinColumn(name = "id_especialidade_profissional"), inverseJoinColumns = @JoinColumn(name = "id_usuario"))
-//	private List<Instituicao> instituicao = new ArrayList<Instituicao>();
-//	/* Uma instituição possuirá diversas Especialidades | Uma especialidade pode estar presente em diversas Instituições */
-//	
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "instituicao_especialidade_profissional", joinColumns = @JoinColumn(name = "id_especialidade_profissional"), inverseJoinColumns = @JoinColumn(name = "id_usuario"))
+	private List<Instituicao> instituicao = new ArrayList<Instituicao>();
+	/* Uma instituição possuirá diversas Especialidades | Uma especialidade pode estar presente em diversas Instituições */
+	
 	
 	// CONSTRUTOR
 	public EspecialidadeProfissional() {}

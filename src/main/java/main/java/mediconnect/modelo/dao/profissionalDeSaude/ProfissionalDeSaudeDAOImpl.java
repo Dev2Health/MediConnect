@@ -20,6 +20,7 @@ import main.java.mediconnect.modelo.entidade.especialidadeProfissional.Especiali
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
+import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
@@ -154,6 +155,49 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 		return profissionaisDeSaude;
 	}
 	
+	@Override
+	public ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer id) {
+		
+		Session sessao = null;
+		ProfissionalDeSaude profissionalDeSaude = null;
+		
+		try {
+			
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+			
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			
+			CriteriaQuery<ProfissionalDeSaude> criteria = construtor.createQuery(ProfissionalDeSaude.class);
+			Root<ProfissionalDeSaude> raizProfissionalDeSaude = criteria.from(ProfissionalDeSaude.class);
+			
+			criteria.select(raizProfissionalDeSaude);
+			
+			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.instituicao).get(Instituicao_.ID), id));
+					 
+			profissionalDeSaude = sessao.createQuery(criteria).getSingleResult();
+			
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+			
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		
+		return profissionalDeSaude;
+	}	
+	
+	@Override
 	public ProfissionalDeSaude recuperarProfissionalPorId(Integer id) {
 		
 		Session sessao = null;
@@ -171,7 +215,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 			
 			criteria.select(raizProfissionalDeSaude);
 			
-			criteria.where(construtor.equal(raizProfissionalDeSaude.get(EspecialidadeProfissional_.ID), id));
+			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.ID), id));
 					 
 			profissionalDeSaude = sessao.createQuery(criteria).getSingleResult();
 			

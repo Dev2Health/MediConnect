@@ -9,6 +9,10 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import main.java.mediconnect.modelo.entidade.endereco.Endereco;
+import main.java.mediconnect.modelo.entidade.endereco.Endereco_;
+import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente;
+import main.java.mediconnect.modelo.entidade.paciente.Paciente_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 
@@ -108,6 +112,49 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 			}
 		}
 		
+	}
+	
+	@Override
+	public Endereco recuperarEnderecoPorInstituicao(Instituicao instituicao) {
+		
+		Session sessao = null;
+		Endereco endereco = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Endereco> criteria = construtor.createQuery(Endereco.class);
+			Root<Endereco> raizEndereco = criteria.from(Endereco.class);
+
+			criteria.select(raizEndereco);
+			
+			criteria.where(construtor.equal(raizEndereco.get(Endereco_.INSTITUICAO), instituicao));
+
+			endereco = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return endereco;
+
 	}
 
 	@Override
