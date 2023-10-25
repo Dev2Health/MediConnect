@@ -39,7 +39,7 @@
                 </div>
             </div>
         </section>
-        <section id="section-map" class="template-grid">
+        <section id="section-map" class="template-grid"> <!--Especialidades-->
             <div id="map">
                 <div class="map-header">
                     <div class="header-title">
@@ -56,17 +56,101 @@
                 </div>
             </div>
         </section>
-        <section id="section-cards" class="template-grid">
-            <div id="cards">
-                <div class="card-atendente">
-                    <img src="../../images/icone-atendente.svg" alt="icone-atendente">
-                    <h2 class="legenda">Atendente</h2>
-                    <p class="text-no-emphasis">Veja os <span class="text-emphasis">atendentes</span> que atuam conosco na instituição ou consulte seus <span class="text-emphasis">dados</span></p>
-                </div>
-                <div class="card-especialidade">         
-                    <img src="../../images/icone-especialidade.svg" alt="icone-especialidade">
-                    <h2 class="legenda">Especialidades</h2>
-                    <p class="text-no-emphasis">Veja as <span class="text-emphasis">especialidades</span> disponibilizadas pela instituição e seus respectivos <span class="text-emphasis">atendentes</span></p>
+        <section id="section-cards" class="template-grid"> <!--Atendentes-->
+            <div><!--agrupamento de tudo-->
+                <h2 class="subtitle">Atendentes Cadastrados</h2>
+                <div>
+                    <div><!--todos os cards-->
+                        <div><!--card completo-->
+                            <div><!--foto-->
+                                <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
+                            </div>
+                            <div><!--card-->
+                                <div><!--Header-->
+                                    <div><!--Textos-->
+                                        <p class="text">Gleice Silva Pinheiro</p>
+                                        <p class="text-no-emphasis">Nº Cadastro 456456</p>
+                                    </div>
+                                </div>
+                                <div><!--divisão-->
+                                    <img src="../../images/icone-informacoes.svg" alt="icone-informações">
+                                    <p class="text">Informações Gerais</p>
+                                </div>
+                                <div><!--Conteúdo do card-->
+                                    <div><!--Textos-->
+                                        <div>
+                                            <p class="text-no-emphasis">Data de cadastro</p>
+                                            <p class="text-no-emphasis">Nº Cadastro 456456</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-no-emphasis">CTPS</p>
+                                            <p class="text-no-emphasis">123.456.789-10</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div><!--card completo-->
+                            <div><!--foto-->
+                                <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
+                            </div>
+                            <div><!--card-->
+                                <div><!--Header-->
+                                    <div><!--Textos-->
+                                        <p class="text">João Carlos S. Alcântara</p>
+                                        <p class="text-no-emphasis">Nº Cadastro 123123</p>
+                                    </div>
+                                </div>
+                                <div><!--divisão-->
+                                    <img src="../../images/icone-informacoes.svg" alt="icone-informações">
+                                    <p class="text">Informações Gerais</p>
+                                </div>
+                                <div><!--Conteúdo do card-->
+                                    <div><!--Textos-->
+                                        <div>
+                                            <p class="text-no-emphasis">Data de cadastro</p>
+                                            <p class="text-no-emphasis">20/08/2008</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-no-emphasis">CTPS</p>
+                                            <p class="text-no-emphasis">457.755.760-63</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div><!--card completo-->
+                            <div><!--foto-->
+                                <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
+                            </div>
+                            <div><!--card-->
+                                <div><!--Header-->
+                                    <div><!--Textos-->
+                                        <p class="text">Patrícia Melo dos Santos</p>
+                                        <p class="text-no-emphasis">N° Cadastro 78789</p>
+                                    </div>
+                                </div>
+                                <div><!--divisão-->
+                                    <img src="../../images/icone-informacoes.svg" alt="icone-informações">
+                                    <p class="text">Informações Gerais</p>
+                                </div>
+                                <div><!--Conteúdo do card-->
+                                    <div><!--Textos-->
+                                        <div>
+                                            <p class="text-no-emphasis">Data de cadastro</p>
+                                            <p class="text-no-emphasis">05/02/2012</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-no-emphasis">CTPS</p>
+                                            <p class="text-no-emphasis">101.390.426-52</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-square-sm text">Ver todas <img src="../../images/icone-seta.svg"
+                            alt="icone-seta"></button>
                 </div>
             </div>
         </section>
