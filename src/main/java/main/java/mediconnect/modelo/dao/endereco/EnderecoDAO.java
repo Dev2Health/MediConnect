@@ -10,5 +10,6 @@ public interface EnderecoDAO {
 	void deletarEndereco(Endereco endereco);
 	void atualizarEndereco(Endereco endereco);
 	Endereco recuperarEnderecoPorInstituicao(Instituicao instituicao);
+	Endereco recuperarEnderecoPorInstituicao(Integer idInstituicao);
 	List<Endereco> recuperarListaDeEnderecos();
 }
