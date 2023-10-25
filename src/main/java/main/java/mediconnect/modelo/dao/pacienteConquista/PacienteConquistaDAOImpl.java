@@ -189,6 +189,8 @@ public List<Conquista> recuperarConquistaPacientePorId(Integer id) {
 
 		return conquistas;
 	}
+
+
 	
 	
 }

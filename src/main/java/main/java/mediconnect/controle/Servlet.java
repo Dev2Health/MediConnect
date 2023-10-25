@@ -27,19 +27,20 @@ import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAOImpl;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAO;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAOImpl;
-import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
-import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
 import main.java.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAO;
 import main.java.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAOImpl;
 import main.java.mediconnect.modelo.entidade.atendente.Atendente;
+import main.java.mediconnect.modelo.entidade.conquista.Conquista;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente;
+import main.java.mediconnect.modelo.entidade.pacienteConquista.PacienteConquista;
 import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
 import main.java.mediconnect.modelo.enumeracao.consulta.StatusConsulta;
-
+import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
+import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -53,6 +54,7 @@ public class Servlet extends HttpServlet {
 	private EspecialidadeProfissionalDAO especialidadeDAO;
 	private PacienteDAO pacienteDAO;
 	private ConquistaDAO conquistaDAO;
+	private PacienteConquistaDAO pacienteConquistaDAO;
 
 	
 	public void init() {
@@ -64,7 +66,8 @@ public class Servlet extends HttpServlet {
 		profissionalDAO = new ProfissionalDeSaudeDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
 		atendenteDAO = new AtendenteDAOImpl();
-		consultaDAO = new ConsultaDAOImpl();	
+		consultaDAO = new ConsultaDAOImpl();
+		pacienteConquistaDAO = new PacienteConquistaDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -320,7 +323,7 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		
-		//Cada info da tela inicial logada da instituição é uma query diferente?
+		//Cada info da tela inicial logada da instituiï¿½ï¿½o ï¿½ uma query diferente?
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("home-instituicao.jsp");
 		dispatcher.forward(request, response);
@@ -332,7 +335,7 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 
 		
-		//Cada info da tela inicial logada ddo atendente é uma query diferente?
+		//Cada info da tela inicial logada ddo atendente ï¿½ uma query diferente?
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("home-atendente.jsp");
 		dispatcher.forward(request, response);
@@ -486,10 +489,10 @@ public class Servlet extends HttpServlet {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
-		// query que retorna as conquistas do paciente vai na classe intermediaria?
+		List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistaPacientePorId(id);
 
-		//List<Conquista> conquistas = conquistaDAO.filtrarConquistaViaPacienteDoPacientePorStatus();
-		//request.setAttribute("conquistas", conquistas);
+		request.setAttribute("conquistas", conquistas);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("conquistas-paciente.jsp");
 
 		dispatcher.forward(request, response);
@@ -654,7 +657,7 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-		//recuperar a entidade e setar informações novas nela ou atualizar com new Entidade?
+		//recuperar a entidade e setar informaï¿½ï¿½es novas nela ou atualizar com new Entidade?
 		
 		Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
 		

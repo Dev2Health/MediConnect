@@ -194,7 +194,8 @@ public class Principal {
 
 		ProfissionalDeSaude profissional = new ProfissionalDeSaude();
 
-		profissional.setNomeCompleto(nomeProfissionalDeSaude);
+		profissional.setNome(nomeProfissionalDeSaude);
+		profissional.setSobrenome(nomeProfissionalDeSaude);
 
 		profissionalDAO.inserirProfissionalDeSaude(profissional);
 
@@ -365,7 +366,8 @@ public class Principal {
 
 		ProfissionalDeSaude profissional2 = new ProfissionalDeSaude();
 
-		profissional2.setNomeCompleto(nomeProfissionalDeSaude2);
+		profissional2.setNome(nomeProfissionalDeSaude2);
+		profissional2.setSobrenome(nomeProfissionalDeSaude2);
 
 		profissional2DAO.inserirProfissionalDeSaude(profissional2);
 
@@ -376,7 +378,8 @@ public class Principal {
 
 		ProfissionalDeSaude profissional3 = new ProfissionalDeSaude();
 
-		profissional3.setNomeCompleto(nomeProfissionalDeSaude3);
+		profissional3.setNome(nomeProfissionalDeSaude3);
+		profissional3.setNome(nomeProfissionalDeSaude3);
 
 		profissional3DAO.inserirProfissionalDeSaude(profissional3);
 
@@ -387,7 +390,8 @@ public class Principal {
 
 		ProfissionalDeSaude profissional4 = new ProfissionalDeSaude();
 
-		profissional4.setNomeCompleto(nomeProfissionalDeSaude4);
+		profissional4.setNome(nomeProfissionalDeSaude4);
+		profissional4.setSobrenome(nomeProfissionalDeSaude4);
 
 		profissional4DAO.inserirProfissionalDeSaude(profissional4);
 
@@ -398,7 +402,8 @@ public class Principal {
 
 		ProfissionalDeSaude profissional5 = new ProfissionalDeSaude();
 
-		profissional5.setNomeCompleto(nomeProfissionalDeSaude5);
+		profissional5.setNome(nomeProfissionalDeSaude5);
+		profissional5.setSobrenome(nomeProfissionalDeSaude5);
 
 		profissional5DAO.inserirProfissionalDeSaude(profissional5);
 

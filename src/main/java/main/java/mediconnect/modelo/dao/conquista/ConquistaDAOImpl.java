@@ -190,4 +190,6 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 		return conquistas;
 	}
+	
+	
 }
