@@ -29,7 +29,7 @@
                     <input type="hidden" value="<c:out value='${conquista.id}'" />/>
                     <div><!--caixa-->
                         <div><!--icone-->
-                            <img src="../../images/icone-<c:out value='${conquista.titulo}' />.svg" alt="icone-<c:out value='${conquista.titulo}' />">
+                            <img src="../../images/icone-<c:out value='${conquista.titulo}'svg" alt="icone-<c:out value='${conquista.titulo}' "/>>
                     </div>
                     <div><!--texto-->
                         <h2 class="subtitle"><c:out value='${conquista.titulo}' /></h2>
@@ -73,6 +73,7 @@
                 </div>
                 <input type="range">
             </div> 
+            </c:forEach>
 
         </section>
     </main>

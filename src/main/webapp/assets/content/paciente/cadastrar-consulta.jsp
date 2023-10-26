@@ -23,6 +23,7 @@
 					<c:if test="${consulta != null}">
 						<input type="hidden" name="id" value="<c:out value='${consulta.id}' />" />
 					</c:if>
+						<input type="hidden" name="paciente" value=1 />
 					<label>Horário:</label>
 					<input type="time" id="c.horario" name="horario" oninput="mascaraHorario()" placeholder="Informe o horário..."> 
 					<label>Data:</label>
@@ -33,6 +34,8 @@
 					<input type="text" id="c.instituicao" name="instituicao" placeholder="Informe a instituição..."> 
 					<label>Profissional de Saúde:</label>
 					<input type="text" id="c.profissional" name="profissional" placeholder="Informe profissional de saúde..."> 
+					<label>Descrição:</label>
+					<input type="text" id="c.descricao" name="descricao" placeholder="Informe a descrição..."> 
 
 					<button type="submit">Salvar</button>
 					<button type="reset">Limpar Formulário</button>

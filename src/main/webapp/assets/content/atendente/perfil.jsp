@@ -44,7 +44,7 @@
             <button>Ver detalhes</button>
             // Vai abrir um modal a partir do onClick
         </div>
-        
+        </c:forEach>
 </div>
 	</body>
 </html>

@@ -27,8 +27,6 @@ import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAOImpl;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAO;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAOImpl;
-import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
-import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
 import main.java.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAO;
 import main.java.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAOImpl;
 import main.java.mediconnect.modelo.entidade.atendente.Atendente;
@@ -500,7 +498,7 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
+		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(1);
 			
 		if(consultas != null) {
 			
@@ -518,7 +516,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("agendar-consulta.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/cadastrar-consulta.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -530,10 +528,11 @@ public class Servlet extends HttpServlet {
 
 		LocalTime horarioConsulta = LocalTime.parse(request.getParameter("horario")); 
 		LocalDate dataConsulta = LocalDate.parse(request.getParameter("data"));
-		Integer idEspecialidade = Integer.parseInt(request.getParameter("idEspecialidade"));
-		Integer idInstituicao = Integer.parseInt(request.getParameter("idInstituicao"));
-		Integer idProfissional = Integer.parseInt(request.getParameter("idProfissional"));
-		Integer idPaciente = Integer.parseInt(request.getParameter("idPaciente"));
+		Integer idEspecialidade = Integer.parseInt(request.getParameter("especialidade"));
+		Integer idInstituicao = Integer.parseInt(request.getParameter("instituicao"));
+		Integer idProfissional = Integer.parseInt(request.getParameter("profissional"));
+		Integer idPaciente = Integer.parseInt(request.getParameter("paciente"));
+//		String descricao = request.getParameter("descricao");
 		
 		StatusConsulta status = StatusConsulta.AGENDADA;
 		
@@ -781,7 +780,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-profissional.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastrar-profissional.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -789,17 +788,23 @@ public class Servlet extends HttpServlet {
 	private void inserirProfissional(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
+//		Integer id = Integer.parseInt(request.getParameter("id"));
 		
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadePorId(id);
+		
 		
 		ProfissionalDeSaude profissional = null;
 		
+//		String nome = request.getParameter("nome");
+//		String sobrenome = request.getParameter("sobrenome");
+//		Integer idEspecialidade = Integer.parseInt(request.getParameter("especialidade"));
+//		Integer idInstituicao = Integer.parseInt(request.getParameter("instituicao"));
+//		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+//		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadePorId(idEspecialidade);
+//		profissional = new ProfissionalDeSaude(nome, sobrenome, especialidade, instituicao);
+		
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
-		
-		profissional = new ProfissionalDeSaude(nome, sobrenome, especialidade, instituicao);
+		profissional = new ProfissionalDeSaude(nome, sobrenome);
 		
 		profissionalDAO.inserirProfissionalDeSaude(profissional);
 		

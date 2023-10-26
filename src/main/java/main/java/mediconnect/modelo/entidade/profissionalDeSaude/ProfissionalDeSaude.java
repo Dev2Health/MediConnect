@@ -82,6 +82,11 @@ public class ProfissionalDeSaude implements Serializable {
 	
 	// MÉTODOS DE ACESSO
 	
+	public ProfissionalDeSaude(String nome, String sobrenome) {
+		setNome(nome);
+		setSobrenome(sobrenome);
+	}
+
 	// Id
 	public Integer getId() {
 		return id;
