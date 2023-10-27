@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="pt-br">
 
 <head>
@@ -40,13 +41,13 @@
                         <div>
                             <div></div><!--esta belissima div é para ser o nosso querido e amado bolinh verde-->
                             <img src="../../images/icone-selo-assiduo.svg" alt="icone-assiduo">
-                            <p class="text-small"><c:out value="${paciente.seloAssiduo}" /></p>
+                            <p class="text-small">colocar selo assíduo</p>
                         </div>
                         <div>
                             <div></div>
                             <img src="../../images/icone-selo-pontual.svg" alt="icone-pontual">
                             <!--Socorro pq isso ta quebrado?-->
-                            <p class="text-small"><c:out value="${paciente.seloPontual}" /></p>
+                            <p class="text-small">colocar selo pontual</p>
                         </div>
                     </div>
                 </div>
@@ -58,7 +59,7 @@
 
             <c:forEach var="conquista" items="${conquistas}">
                 <div><!--agrupamento-->
-                    <input type="hidden" value="<c:out value='${conquista.id}'" />/>
+                    <input type="hidden" value="<c:out value='${conquista.id}'/>" />
                     <div><!--caixa-->
                         <div><!--icone-->
                             <img src="../../images/icone-<c:out value='${conquista.titulo}' />.svg" alt="icone-<c:out value='${conquista.titulo}' />">
