@@ -88,6 +88,12 @@ public class Instituicao extends Usuario implements Serializable {
 		setRazaoSocial(razaoSocial);
 		setNomeFantasia(nomeFantasia);
 	}
+	public Instituicao(String cnpj, String razaoSocial, String nomeFantasia, String email, String senha, boolean ehAtivo) {
+		super(email, senha, ehAtivo);
+		setCnpj(cnpj);
+		setRazaoSocial(razaoSocial);
+		setNomeFantasia(nomeFantasia);
+	}
 	
 	public Instituicao(Endereco endereco, String razaoSocial, String nomeFantasia, String email, String senha) {
 		
@@ -97,6 +103,8 @@ public class Instituicao extends Usuario implements Serializable {
 	}
 
 	// MÉTODOS DE ACESSO
+
+
 
 	// Cnpj
 	public String getCnpj() {

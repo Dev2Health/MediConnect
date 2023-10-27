@@ -23,7 +23,8 @@
             <h1 class="title">Informe os dados da instituição</h1>
         </div>
 
-        <form action="inserir-instituicao" method="post" autocomplete="on" id="content-form" class="template-grid">
+        <form action="inserir-endereco" method="post" autocomplete="on" id="content-form" class="template-grid">
+        <input type="hidden" name="instituicao" value=1 />
             <div class="form-left">
                 <div class="form-input">
                     <div class="input-icon">

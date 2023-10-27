@@ -114,11 +114,15 @@ public class Servlet extends HttpServlet {
 			// TELA CADASTRO 	
 				
 			case "/cadastrar-instituicao":
-				mostrarTelaCadastroInstituicao(request, response);
+				mostrarTelaCadastrarInstituicao(request, response);
+				break;
+				
+			case "/cadastrar-instituicao-2":
+				mostrarTelaCadastrarEndereco(request, response);
 				break;
 
 			case "/cadastrar-paciente":
-				mostrarTelaCadastroPaciente(request, response);
+				mostrarTelaCadastrarPaciente(request, response);
 				break;	
 			
 				
@@ -126,6 +130,9 @@ public class Servlet extends HttpServlet {
 				
 			case "/inserir-instituicao":
 				inserirInstituicao(request, response);
+				break;
+			case "/inserir-endereco":
+				inserirEndereco(request, response);
 				break;
 				
 			//TELA CADASTRO PACIENTE 
@@ -239,6 +246,10 @@ public class Servlet extends HttpServlet {
 				mostrarTelaEspecialidadesInstituicao(request, response);
 				break;
 				
+			case "/cadastrar-especialidade":
+				mostrarTelaCadastrarEspecialidade(request, response);
+				break;
+				
 			case "/inserir-especialidade":
 				inserirEspecialidade(request, response);
 				break;
@@ -345,14 +356,20 @@ public class Servlet extends HttpServlet {
 	
 	// TELA CADASTRO 
 	
-	private void mostrarTelaCadastroInstituicao(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarTelaCadastrarInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastrar-instituicao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastro-1.jsp");
+		dispatcher.forward(request, response);
+	}
+	private void mostrarTelaCadastrarEndereco(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastro-2.jsp");
 		dispatcher.forward(request, response);
 	}
 	
-	private void mostrarTelaCadastroPaciente(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarTelaCadastrarPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/cadastrar-paciente.jsp");
@@ -362,6 +379,24 @@ public class Servlet extends HttpServlet {
 	// TELA CADASTRO INSTITUICAO 
 	
 	private void inserirInstituicao(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		Instituicao instituicao = null;
+		
+		String razaoSocial = request.getParameter("razao");
+		String nomeFantasia = request.getParameter("fantasia");
+		String cnpj = request.getParameter("cnpj");
+		boolean ehAtivo = true;
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		
+		instituicao = new Instituicao(cnpj, razaoSocial, nomeFantasia, email, senha, ehAtivo);
+
+		
+		instituicaoDAO.inserirInstituicao(instituicao);
+		response.sendRedirect("cadastrar-instituicao-2");
+	}
+	private void inserirEndereco(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
 		Endereco endereco = null;
@@ -376,22 +411,13 @@ public class Servlet extends HttpServlet {
 		endereco = new Endereco(cep, numero, logradouro, cidade, estado, bairro);
 
 		enderecoDAO.inserirEndereco(endereco);
-		
-		Instituicao instituicao = null;
-		
-		String razaoSocial = request.getParameter("razao");
-		String nomeFantasia = request.getParameter("fantasia");
-		String cnpj = request.getParameter("cnpj");
-		boolean ehAtivo = true;
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
-		
-		instituicao = new Instituicao(cnpj, endereco, razaoSocial, nomeFantasia, email, senha, ehAtivo);
-
-		
-		instituicaoDAO.inserirInstituicao(instituicao);
+		Integer idInstituicao = Integer.parseInt(request.getParameter("instituicao"));
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+		instituicao.setEndereco(endereco);
+		instituicaoDAO.atualizarInstituicao(instituicao);
 		response.sendRedirect("perfil-instituicao");
 	}
+	
 	
 	//TELA CADASTRO PACIENTE
 	
@@ -742,7 +768,7 @@ public class Servlet extends HttpServlet {
 		
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionaisPorId(id);
 		
-		request.setAttribute("especialidaed", especialidades);
+		request.setAttribute("especialidade", especialidades);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("especialidades-instituicao.jsp");
 		dispatcher.forward(request, response);
@@ -752,11 +778,11 @@ public class Servlet extends HttpServlet {
 	private void inserirEspecialidade(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
+//		Integer id = Integer.parseInt(request.getParameter("id"));
 		
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorIdInstituicao(id);
-		
+//		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+//		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorIdInstituicao(id);
+//		
 		EspecialidadeProfissional especialidade = null;
 		
 		String nome = request.getParameter("nome");
@@ -765,14 +791,14 @@ public class Servlet extends HttpServlet {
 		
 		especialidadeDAO.inserirEspecialidadeProfissional(especialidade);
 		
-		instituicao.adicionarEspecialidadeProfissional(especialidade);
-		
-		instituicaoDAO.atualizarInstituicao(instituicao);
-		
-		profissional.setEspecialidadeProfissional(especialidade);
-		
-		profissionalDAO.atualizarProfissionalDeSaude(profissional);
-		
+//		instituicao.adicionarEspecialidadeProfissional(especialidade);
+//		
+//		instituicaoDAO.atualizarInstituicao(instituicao);
+//		
+//		profissional.setEspecialidadeProfissional(especialidade);
+//		
+//		profissionalDAO.atualizarProfissionalDeSaude(profissional);
+//		
 		response.sendRedirect("especialidades-instituicao");
 		
 	}
@@ -781,6 +807,13 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastrar-profissional.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	private void mostrarTelaCadastrarEspecialidade(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastrar-especialidade.jsp");
 		dispatcher.forward(request, response);
 		
 	}
