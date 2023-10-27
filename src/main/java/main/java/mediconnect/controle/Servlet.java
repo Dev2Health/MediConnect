@@ -676,12 +676,22 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+//		Integer id = Integer.parseInt(request.getParameter("id"));
+		boolean concluido = false;
+		int id = 1;
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
+		while(!concluido) {
+		instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		if (instituicao == null) 
+			id++;
+		 else 
+			concluido = true;
+		
+		}
 		
 		request.setAttribute("instituicao", instituicao);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-instituicao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/perfil.jsp");
 		dispatcher.forward(request, response);
 		
 	}
