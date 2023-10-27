@@ -715,7 +715,7 @@ public class Servlet extends HttpServlet {
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
-		List<Atendente> atendentes = atendenteDAO.filtrarAtendentesViaInstituicaoPorId(id);
+		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentes(id);
 		
 		request.setAttribute("atendentes", atendentes);
 		
