@@ -478,13 +478,20 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEditarPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));	
-
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
+		boolean concluido = false;
+		int id = 1;
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
+		while(!concluido) {
+		paciente = pacienteDAO.recuperarPacientePorId(id);
+		if (paciente == null) 
+			id++;
+		 else 
+			concluido = true;
 		
+		}
 		request.setAttribute("paciente", paciente);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/editar-perfil.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/editar-perfil-paciente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
