@@ -8,15 +8,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
-import main.java.mediconnect.modelo.entidade.atendente.Atendente;
-import main.java.mediconnect.modelo.entidade.paciente.Paciente;
 import main.java.mediconnect.modelo.entidade.pessoa.Pessoa;
-import main.java.mediconnect.modelo.entidade.usuario.Usuario;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class PessoaDAOImpl implements PessoaDAO {
