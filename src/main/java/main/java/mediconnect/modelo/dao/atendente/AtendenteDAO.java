@@ -12,6 +12,7 @@ public interface AtendenteDAO {
 	void atualizarAtendente(Atendente atendente);
 	Atendente recuperarAtendentePorId(Integer id);
 	List<Atendente> recuperarListaDeAtendentes();
+	List<Atendente> recuperarListaDeAtendentes(Integer id);
 	Atendente filtrarAtendenteViaInstituicaoPorId(Integer id);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Integer idInstituicao);
