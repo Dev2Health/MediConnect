@@ -27,4 +27,5 @@ public interface NotificacaoDAO {
 	List<Notificacao> filtrarNotificacaoViaPacientePorIdConsulta(Integer idConsulta, Integer idPaciente);
 	List<Notificacao> filtrarNotificacaoViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal, Paciente paciente);
 	List<Notificacao> filtrarNotificacaoViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal, Integer idPaciente);
+	Notificacao filtrarNotificacaoViaAtendentePorTitulo(Integer idNotificacao, Integer idAtendente);
 }

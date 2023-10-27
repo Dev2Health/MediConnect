@@ -12,6 +12,8 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import main.java.mediconnect.modelo.entidade.atendente.Atendente;
+import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta_;
 import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
@@ -224,8 +226,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			criteria.select(raizConsulta);
 
-			criteria.where(
-					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente),
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente),
 					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
 
 			consultas = sessao.createQuery(criteria).getResultList();
@@ -294,7 +295,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 
 	}
-	
+
 	public List<Consulta> filtrarConsultaViaInstituicaoPorProfissionalDeSaude(Integer idProfissionalDeSaude,
 			Integer idInstituicao) {
 
@@ -315,7 +316,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			criteria.select(raizConsulta);
 
-			criteria.where(construtor.equal(profissionalJoin.get(ProfissionalDeSaude_.ID), idProfissionalDeSaude), 
+			criteria.where(construtor.equal(profissionalJoin.get(ProfissionalDeSaude_.ID), idProfissionalDeSaude),
 					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
 
 			consultas = sessao.createQuery(criteria).getResultList();
@@ -385,8 +386,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 
 	}
-	
-	public List<Consulta> filtrarConsultaViaInstituicaoPorEspecialidadeProfissional (Integer idEspecialidade, Integer idInstituicao) {
+
+	public List<Consulta> filtrarConsultaViaInstituicaoPorEspecialidadeProfissional(Integer idEspecialidade,
+			Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -406,9 +408,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			criteria.select(raizConsulta);
 
-			criteria.where(construtor.equal(especialidadeJoin.get(ProfissionalDeSaude_.ID), idEspecialidade), 
-						   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
-			
+			criteria.where(construtor.equal(especialidadeJoin.get(ProfissionalDeSaude_.ID), idEspecialidade),
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
+
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -475,7 +477,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 
 	}
-	
+
 	public List<Consulta> filtrarConsultaViaInstituicaoPorStatus(StatusConsulta status, Integer idInstituicao) {
 
 		Session sessao = null;
@@ -493,8 +495,8 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			criteria.select(raizConsulta);
 
-			criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status), construtor
-					.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status),
+					construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), idInstituicao));
 
 			consultas = sessao.createQuery(criteria).getResultList();
 
@@ -613,10 +615,10 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public Consulta filtrarConsultasViaAtendentePorTitulo(Integer id, Integer idInstituicao) {
+	public Consulta filtrarConsultaViaAtendentePorTitulo(Integer idConsulta, Integer idAtendente) {
 
 		Session sessao = null;
-		Consulta consultas = null;
+		Consulta consulta = null;
 
 		try {
 
@@ -627,13 +629,16 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
 			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizConsulta);
 
-			criteria.where(construtor.equal(raizConsulta.get(Consulta_.ID), id),
-					construtor.equal(raizConsulta.get(Consulta_.instituicao), idInstituicao));
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.ID), idConsulta),
+						   construtor.equal(raizAtendente.get(Atendente_.ID), idAtendente),
+						   construtor.equal(raizAtendente.get(Atendente_.ID).get(Instituicao_.ID).get(Instituicao_.ID), raizInstituicao.get(Instituicao_.ID)));
 
-			consultas = sessao.createQuery(criteria).getSingleResult();
+			consulta = sessao.createQuery(criteria).getSingleResult();
 
 			sessao.getTransaction().commit();
 
@@ -655,7 +660,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 		}
 
-		return consultas;
+		return consulta;
 
 	}
 
@@ -791,7 +796,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 		return consultas;
 	}
-	
+
 	public List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(Integer idProfissionalDeSaude,
 			Integer idPaciente) {
 
@@ -880,8 +885,9 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 		return consultas;
 	}
-	
-	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(Integer idEspecialidadeProfissional, Integer idPaciente) {
+
+	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(Integer idEspecialidadeProfissional,
+			Integer idPaciente) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -1006,7 +1012,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 		return consultas;
 	}
-	
+
 	public List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
 			Integer idPaciente) {
 
@@ -1087,7 +1093,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 		return consultas;
 	}
-	
+
 	public List<Consulta> filtrarConsultaViaPacientePorStatus(StatusConsulta status, Integer idPaciente) {
 
 		Session sessao = null;
@@ -1162,47 +1168,46 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 		return consultas;
 	}
-	
-		@Override
-		public List<Consulta> recuperarConsultasAgendadasViaPacientePorId(Integer id) {
-		
+
+	@Override
+	public List<Consulta> recuperarConsultasAgendadasViaPacientePorId(Integer id) {
+
 		Session sessao = null;
 		List<Consulta> consultas = null;
-	
+
 		try {
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
-	
+
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
 			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
-	
+
 			criteria.select(raizConsulta);
-	
-			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id), 
-						   construtor.equal(raizConsulta.get(Consulta_.STATUS), StatusConsulta.AGENDADA));
-	
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id),
+					construtor.equal(raizConsulta.get(Consulta_.STATUS), StatusConsulta.AGENDADA));
+
 			consultas = sessao.createQuery(criteria).getResultList();
-	
+
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-	
+
 		return consultas;
 	}
 
-		
 }

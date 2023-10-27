@@ -11,6 +11,8 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import main.java.mediconnect.modelo.entidade.atendente.Atendente;
+import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta_;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
@@ -445,7 +447,8 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	@Override
-	public List<Notificacao> filtrarNotificacaoViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal, Paciente paciente) {
+	public List<Notificacao> filtrarNotificacaoViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
+			Paciente paciente) {
 
 		Session sessao = null;
 		List<Notificacao> Atendentes = null;
@@ -488,7 +491,8 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return Atendentes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal, Integer idPaciente) {
+	public List<Notificacao> filtrarNotificacaoViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
+			Integer idPaciente) {
 
 		Session sessao = null;
 		List<Notificacao> Atendentes = null;
@@ -575,7 +579,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 
 		return notificacoes;
 	}
-	
+
 	public List<Notificacao> filtrarNotificacaoViaPacientePorInstituicao(Instituicao instituicao, Integer idPaciente) {
 
 		Session sessao = null;
@@ -662,7 +666,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 
 		return notificacoes;
 	}
-	
+
 	public List<Notificacao> filtrarNotificacaoViaPacientePorIdConsulta(Integer idConsulta, Integer idPaciente) {
 
 		Session sessao = null;
@@ -745,7 +749,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 
 		return notificacoes;
 	}
-	
+
 	public List<Notificacao> filtrarNotificacaoViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
 			Integer idPaciente) {
 
@@ -785,6 +789,55 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		}
 
 		return notificacoes;
+	}
+
+	public Notificacao filtrarNotificacaoViaAtendentePorTitulo(Integer idNotificacao, Integer idAtendente) {
+
+		Session sessao = null;
+		Notificacao notificacao = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Notificacao> criteria = construtor.createQuery(Notificacao.class);
+			Root<Notificacao> raizNotificacao = criteria.from(Notificacao.class);
+			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
+
+			criteria.select(raizNotificacao);
+
+			criteria.where(construtor.equal(raizNotificacao.get(Notificacao_.ID), idNotificacao),
+						   construtor.equal(raizAtendente.get(Atendente_.ID), idAtendente),
+						   construtor.equal(raizAtendente.get(Atendente_.ID).get(Instituicao_.ID).get(Instituicao_.ID),raizInstituicao.get(Instituicao_.ID)));
+
+			notificacao = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return notificacao;
+
 	}
 
 }
