@@ -194,6 +194,47 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		}
 		return atendentes;
 	}
+	
+	public List<Atendente> recuperarListaDeAtendentes(Integer idInstituicao) {
+
+		Session sessao = null;
+		List<Atendente> atendentes = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
+			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
+
+			criteria.select(raizAtendente);
+			
+			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+
+			atendentes = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return atendentes;
+	}
 
 	@Override
 	public Atendente filtrarAtendenteViaInstituicaoPorId(Integer id) {
