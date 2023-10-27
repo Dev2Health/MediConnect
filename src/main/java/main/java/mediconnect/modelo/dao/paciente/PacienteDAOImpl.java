@@ -10,15 +10,9 @@ import org.hibernate.Session;
 
 import main.java.mediconnect.modelo.entidade.atendente.Atendente;
 import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
-import main.java.mediconnect.modelo.entidade.conquista.Conquista;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta_;
-import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
-import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional_;
-import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
-import main.java.mediconnect.modelo.entidade.notificacao.Notificacao;
-import main.java.mediconnect.modelo.entidade.notificacao.Notificacao_;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
