@@ -9,21 +9,26 @@
 		<%@ include file="../../../menu.jsp"%>
 		<div>
 			<div>
-					<form action="inserir-atendente" method="post">
+				<h1>
+					<c:if test="${atendente != null}">Editar Atendente</c:if>
+					<c:if test="${atendente == null}">Inserir Atendente</c:if>
+				</h1>
+				<div>
+					<c:if test="${atendente != null}">
+						<form action="atualizar-atendente" method="post">
+					</c:if>
+					<c:if test="${atendente == null}">
+						<form action="inserir-atendente" method="post">
+					</c:if>
+					<c:if test="${atendente != null}">
+						<input type="hidden" name="id" value="<c:out value='${atendente.id}' />" />
+					</c:if>
 					<label>Nome:</label>
 					<input type="text" id="a.nome" name="nome" placeholder="Informe o nome...">
 					<label>Sobrenome:</label>
 					<input type="text" id="a.sobrenome" name="sobrenome" placeholder="Informe o sobrenome...">
 					<label>CTPS:</label>
 					<input type="text" id="a.ctps" name="ctps" oninput="mascaraCtps()" placeholder="Informe o ctps...">
-					<label>CPF:</label>
-					<input type="text" id="a.cpf" name="cpf" oninput="mascaraCtps()" placeholder="Informe o cpf...">
-					<label>Email:</label>
-					<input type="email" id="i.email" name="email" placeholder="Informe o email..."/>
-					<label>Senha:</label>
-					<input type="password" id="i.senha" name="senha" oninput="mascaraSenha()" placeholder="Informe a senha..."/>
-					<label>Confirmar Senha:</label>
-					<input type="password" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" placeholder="Confirme a senha..."/>
 					<label>Data de Cadastro:</label>
 					<input type="date" id="a.data" name="data" oninput="mascaraData()" placeholder="Informe a data de cadastro...">
 

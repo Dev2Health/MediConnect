@@ -50,7 +50,7 @@ public class Consulta implements Serializable {
 	private ProfissionalDeSaude profissional_de_saude;
 	/* Uma consulta poderá ter um profissional | Um profissional poderá ter várias consultas */
 	
-	@Column(name = "descricao_consulta", length = 300, nullable = false, unique = false)
+	@Column(name = "descricao_consulta", length = 300, nullable = true, unique = false)
 	private String descricao;
 	
 	@Column(name = "data_consulta", length = 10, nullable = false, unique = false)

@@ -1,39 +1,28 @@
-<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-        <!DOCTYPE html>
-        <html lang="pt-br">
-
-        <head>
-            <title>Notificações Paciente | MediConnect</title>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-            <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-            <link rel="stylesheet" type="text/css" href="../../styles/notificacoes-paciente.css">
-        </head>
-
-        <body>
-            <header id="content-header" class="template-grid">
-                <nav class="nav-bar">
-                    <img src="../../images/icone-menu.svg" alt="icone-menu">
-                    <img src="../../images/logo.svg" alt="icone-mediconnect">
-                </nav>
-                <nav class="nav-filter">
-                    <div class="filter-box">
-                        <div class="input-itens">
-                            <input class="text-emphasis" type="text" id="pesquisar" name="pesquisar"
-                                placeholder="Pesquisar">
-                        </div>
-                        <div class="filter-icon">
-                            <img src="../../images/icone-lupa.svg" alt="icone-pesquisar">
-                        </div>
-                    </div>
-                    <button class="btn-square-la text">Filtrar <img src="../../images/icone-filtro.svg"> </button>
-                </nav>
-            </header>
-            <main>
-                <div id="search-return" class="template-grid">
-                    <p class="text">Notificações recebidas</p>
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Notificações | MediConnect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/notificacoes-paciente.css">
+</head>
+<body>
+    <header id="content-header" class="template-grid">
+        <nav class="nav-bar">
+            <img src="../../images/icone-menu.svg" alt="icone-menu">
+            <img src="../../images/logo.svg" alt="icone-mediconnect">
+        </nav>
+        <nav class="nav-filter">
+            <div class="filter-box">
+                <div class="input-itens">
+                    <input class="text-emphasis" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
+                </div>
+                <div class="filter-icon">
+                    <img src="../../images/icone-lupa.svg" alt="icone-pesquisar">
                 </div>
                 <c:forEach var="notificacao" items="${notificacoes}">
                     <div id="notificacao" class="template-grid">

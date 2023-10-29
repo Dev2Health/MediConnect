@@ -7,17 +7,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
-import main.java.mediconnect.modelo.entidade.atendente.Atendente_;
-import main.java.mediconnect.modelo.entidade.consulta.Consulta;
-import main.java.mediconnect.modelo.entidade.consulta.Consulta_;
-import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
-import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional_;
-import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
 import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude_;
@@ -156,7 +146,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 	}
 	
 	@Override
-	public ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer id) {
+	public ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer idInstituicao) {
 		
 		Session sessao = null;
 		ProfissionalDeSaude profissionalDeSaude = null;
@@ -173,7 +163,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 			
 			criteria.select(raizProfissionalDeSaude);
 			
-			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.instituicao).get(Instituicao_.ID), id));
+			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.instituicao).get(Instituicao_.ID), idInstituicao));
 					 
 			profissionalDeSaude = sessao.createQuery(criteria).getSingleResult();
 			
