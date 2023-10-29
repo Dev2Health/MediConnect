@@ -86,6 +86,13 @@
     letter-spacing: 4.75px;
 }
 
+/* Posição do subtítulo nos perfis */
+
+.section-subtitle {
+    display: flex;
+    justify-content: center;
+}
+
 /* Links */
 
 .link-light {
