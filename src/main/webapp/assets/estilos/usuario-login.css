@@ -2,7 +2,8 @@ body {
     width: 100vw;
     height: 100vh;
     align-items: center;
-    background-color: var(--background-light);
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
 }
 
 main {
@@ -12,24 +13,24 @@ main {
 
 /* Menu */
 
-#content-header {
+#cabecalho {
     align-items: center;
     height: 140px;
 }
 
-.nav-bar {
+.barra-navegacao {
     grid-column: 2 / 4;
     display: flex;
     align-items: center;
     gap: 30px;
 }
 
-.nav-bar img {
+.barra-navegacao img {
     width: 55px;
     height: 100%;
 }
 
-.header-logo  {
+.logo  {
     grid-column: 11 / 12;
     width: 140px;
     height: 100%;
@@ -37,49 +38,44 @@ main {
 
 /* Conteúdo - Direita */
 
-.content-right {
+.conteudo-direita {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 50px;
 }
 
-.title-special {
+.titulo-especial {
     text-align: center;
-    color: var(--purple);
+    color: var(--roxo);
 }
 
 /* Formulário */
 
-#content-form {
+#formulario {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.form-input {
-    border-color: var(--purple);
+.formulario-input {
+    border-color: var(--roxo);
 }
 
-.input-itens input {
-    color: var(--purple);
+.input-item input {
+    color: var(--roxo);
 }
 
 ::placeholder {
-    color: var(--purple-light);
+    color: var(--roxo-claro);
 }
 
-.form-footer {
+.formulario-rodape {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.form-footer .btn-round-sm {
-    background-color: var(--purple);
-    cursor: pointer;
-}
-
-.form-footer a {
-    color: var(--purple-dark);
+.formulario-rodape .botao-circular-p {
+    background-color: var(--roxo);
 }

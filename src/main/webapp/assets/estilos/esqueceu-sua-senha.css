@@ -2,8 +2,8 @@ body {
     width: 100vw;
     height: 100vh;
     align-items: center;
-    color: var(--dark);
-    background-color: var(--background-light);
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
 }
 
 main {
@@ -13,30 +13,30 @@ main {
 
 /* Menu */
 
-#content-header {
+#cabecalho {
     align-items: center;
     height: 140px;
 }
 
-.nav-bar {
+.barra-navegacao {
     grid-column: 2 / 4;
     display: flex;
     align-items: center;
     gap: 30px;
 }
 
-.nav-bar img {
+.barra-navegacao img {
     width: 55px;
     height: 100%;
 }
 
-.title {
+.titulo {
     grid-column: 4 / 10;
     display: flex;
     justify-content: center;
 }
 
-.header-logo  {
+.logo  {
     grid-column: 11 / 12;
     width: 140px;
     height: 100%;
@@ -50,16 +50,16 @@ form {
     gap: 55px;
 }
 
-.validation-content {
+.validar-conteudo {
     display: flex;
     gap: 25px;
 }
 
-.validation-content img {
+.validar-conteudo img {
     width: 25px;
 }
 
-#email-validation, #password-validation {
+#email-validar, #senha-validacao {
     display: flex;
     margin: 25px 0;
 }
@@ -69,133 +69,133 @@ form {
 }
 
 [class*="input-"] input::placeholder {
-    color: var(--purple-light);
+    color: var(--roxo-light);
 }
 
 /* Confirmar E-mail */
 
-#confirm-email [class*="email-"] {
+#confirmar-email [class*="email-"] {
     grid-column: 2 / 12;
 }
 
-.email-header {
+.email-superior {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
     gap: 45px;
-    color: var(--background-light);
-    background-color: var(--purple);
+    color: var(--fundo-claro);
+    background-color: var(--roxo);
     border-radius: 40px 40px 0 0;
 }
 
-.email-header img {
+.email-superior img {
     filter: brightness(100);
     width: 35px;
 }
 
-.email-content {
+.email-conteudo {
     padding: 0 8.33vw 0 8.33vw;
-    border: 3px solid var(--purple);
+    border: 3px solid var(--roxo);
     border-radius: 0 0 40px 40px;
 }
 
-.email-content .input-email {
+.email-conteudo .input-email {
     display: flex;
     gap: 40px;
     margin-top: 50px;
 }
 
-.email-content #form-email {
+.email-conteudo #formulario-email {
     display: flex;
     align-items: center;
     width: 35vw;
     height: 55px;
-    border: 3px solid var(--purple);
+    border: 3px solid var(--roxo);
     border-radius: 15px;
 }
 
-.email-content #form-icon {
+.email-conteudo #formulario-icone {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 4.15vw;
     height: 100%;
-    background-color: var(--purple);
+    background-color: var(--roxo);
     border-radius: 10px 0 0 10px;
 }
 
-#form-icon img {
+#formulario-icone img {
     filter: brightness(100);
     width: 35px;
 }
 
-#form-email input {
+#formulario-email input {
     width: 22vw;
     margin-left: 4.15vw;
-    color: var(--purple);
+    color: var(--roxo);
     background: none;
 }
 
 /* Alterar Senha */
 
-.password-content {
+.senha-conteudo {
     grid-column: 2 / 12;
     padding: 0 8.33vw 0 8.33vw;
-    border: 3px solid var(--purple);
+    border: 3px solid var(--roxo);
     border-radius: 40px;
 }
 
-.password-content .input-password {
+.senha-conteudo .input-senhas {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
 }
 
-.input-password [id$="-password"] {
+.input-senhas [id*="senha-"] {
     display: flex;
     align-items: center;
     gap: 40px;
 }
 
-.input-password [id$="-password"] .password-input {
+.input-senhas [id*="senha-"] .input-senha {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1vw;
     width: 15vw;
     height: 55px;
-    border: 3px solid var(--purple);
+    border: 3px solid var(--roxo);
     border-radius: 15px;
 }
 
-.input-password [id$="-password"] input {
+.input-senhas [id*="senha-"] input {
     width: 8.5vw;
-    color: var(--purple);
+    color: var(--roxo);
     background: none;
 }
 
-.input-password [id$="-password"] img {
+.input-senhas [id*="senha-"] img {
     width: 35px;
 }
 
-#password-validation {
+#senha-validacao {
     gap: 8.33vw;
 }
 
 /* Botões */
 
-#buttons {
+.botoes {
     grid-column: 2 / 12;
     display: flex;
     gap: 50px;
 }
 
-#buttons button:first-child {
-    background-color: var(--purple);
+.botoes button:first-child {
+    background-color: var(--roxo);
 }
 
-#buttons button:last-child {
-    border: 3px solid var(--purple);
-    background-color: var(--background-light);
+.botoes button:nth(2)-child {
+    border: 3px solid var(--roxo);
+    background-color: var(--fundo-claro);
 }

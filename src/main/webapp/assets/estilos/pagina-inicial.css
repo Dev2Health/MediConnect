@@ -1,19 +1,16 @@
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    background-color: var(--background-light);
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
 }
 
 /* Menu */
 
-#content-header {
+#cabecalho {
     align-items: center;
     height: 140px;
 }
 
-.nav-bar {
+.barra-navegacao {
     grid-column: 4 / 12;
     display: flex;
     align-items: center;
@@ -21,37 +18,29 @@ body {
     gap: 80px;
 }
 
-#content-header img {
+#cabecalho img {
     grid-column: 2 / 3;
 }
 
-#content-header .btn-round-me {
+.barra-navegacao .botao-circular-m {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.8em;
-    background-color: var(--purple);
+    background-color: var(--roxo);
 }
 
 /* Definições Gerais */
 
-.text-box {
+.caixa-textual {
     display: flex;
     flex-direction: column;
     gap: 45px;
 }
 
-.span-blue {
-    color: var(--blue);
-}
-
-.span-purple {
-    color: var(--purple-dark);
-}
-
 /* Sessões */
 
-[id*="section-"] {
+[id*="sessao-"] {
     width: 100vw;
     height: 100vh;
     align-items: center;
@@ -59,12 +48,12 @@ body {
 
 /* Sessão - Principal */
 
-#section-home .title-special {
+#sessao-principal .titulo-especial {
     text-transform: uppercase;
-    color: var(--purple);
+    color: var(--roxo);
 }
 
-#section-home .content-right {
+#sessao-principal .conteudo-direita {
     grid-column: 8 / 12;
     display: flex;
     justify-content: flex-end;
@@ -72,12 +61,12 @@ body {
 
 /* Sessão - Gamificação */
 
-#section-gamification {
-    color: var(--background-light);
-    background-color: var(--purple);
+#sessao-gamificacao {
+    color: var(--fundo-claro);
+    background-color: var(--roxo);
 }
 
-#section-gamification .content-right {
+#sessao-gamificacao .conteudo-direita {
     grid-column: 8 / 12;
     display: flex;
     justify-content: flex-end;
@@ -85,11 +74,11 @@ body {
 
 /* Sessão - Notificações */
 
-#section-notification .title-special {
-    color: var(--purple);
+#sessao-notificacao .titulo-especial {
+    color: var(--roxo);
 }
 
-#section-notification .content-right {
+#sessao-notificacao .conteudo-direita {
     grid-column: 8 / 12;
     display: flex;
     justify-content: flex-end;
