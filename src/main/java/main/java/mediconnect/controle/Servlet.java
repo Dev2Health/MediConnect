@@ -267,6 +267,63 @@ public class Servlet extends HttpServlet {
 				inserirProfissional(request, response);
 				break;
 				
+			// ROTAS CRIADAS PARA TRF40
+				
+			case "/cadastrar-editar-profissional":
+				mostrarTelaCadastrarEditarProfissional(request, response);
+				break;
+				
+			case "/card-paciente":
+				mostrarCardPaciente(request, response);
+				break;
+				
+			case "/modal-atendente":
+				mostrarModalAtendente(request, response);
+				break;
+				
+			case "/modal-especialidade":
+				mostrarModalEspecialidade(request, response);
+				break;
+				
+			case "/notificacoes-instituicao":
+				mostrarTelaNotificacoesDaInstituicao(request, response);
+				break;
+				
+			case "/cadastro-paciente":
+				mostrarTelaCadastroDoPaciente(request, response);
+				break;
+				
+			case "/card-consulta-paciente":
+				mostrarCardConsulta(request, response);
+				break;
+				
+			case "/editar-perfil-paciente":
+				mostrarTelaEditarPerfil(request, response);
+				break;
+				
+			case "/listar-consulta-paciente":
+				mostrarTelaListarConsulta(request, response);
+				break;
+				
+			case "/modal-consulta-paciente":
+				mostrarModalConsulta(request, response);
+				break;
+				
+			case "/notificacoes-paciente":
+				mostrarTelaNotificacoesDoPaciente(request, response);
+				break;
+				
+			case "/perfil-paciente2":
+				mostrarTelaPerfilDoPaciente(request, response);
+				break;
+				
+			case "/listar-notificacao":
+				mostrarTelaListarNotificacao(request, response);
+				break;
+				
+			case "/modal-notificacao":
+				mostrarModalNotificacao(request, response);
+				break;	
 				
 			default:
 				mostrarTelaInicialDeslogado(request, response);
@@ -290,14 +347,14 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaSobreMediconnect(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("sobre.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/sobre-nos.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	private void mostrarTelaLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/usuario-login.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -319,7 +376,7 @@ public class Servlet extends HttpServlet {
 			
 		}
 				
-		RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -331,7 +388,7 @@ public class Servlet extends HttpServlet {
 		
 		//Cada info da tela inicial logada da institui��o � uma query diferente?
 				
-		RequestDispatcher dispatcher = request.getRequestDispatcher("home-instituicao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -341,16 +398,16 @@ public class Servlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 
 		
-		//Cada info da tela inicial logada ddo atendente � uma query diferente?
+		//Cada info da tela inicial logada do atendente � uma query diferente?
 				
-		RequestDispatcher dispatcher = request.getRequestDispatcher("home-atendente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	private void mostrarTelaCadastro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastro.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/usuario-cadastro.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -359,20 +416,20 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastro-1.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastro-1.jsp");
 		dispatcher.forward(request, response);
 	}
 	private void mostrarTelaCadastrarEndereco(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastro-2.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastro-2.jsp");
 		dispatcher.forward(request, response);
 	}
 	
 	private void mostrarTelaCadastrarPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/cadastrar-paciente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastrar-paciente.jsp");
 		dispatcher.forward(request, response);
 	}
 	
@@ -447,7 +504,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEsqueciSenha(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("esqueci-senha.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/esqueceu-sua-senha.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -456,12 +513,21 @@ public class Servlet extends HttpServlet {
 	
 	private void mostrarTelaPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		boolean concluido = false;
+		int id = 1;
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
+		while(!concluido) {
+		paciente = pacienteDAO.recuperarPacientePorId(id);
+		if (paciente == null) 
+			id++;
+		 else 
+			concluido = true;
 		
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);	
+		}
 		
 		request.setAttribute("paciente", paciente);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/perfil.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
 		dispatcher.forward(request, response);
 				
 	}
@@ -469,13 +535,20 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEditarPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));	
-
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
+		boolean concluido = false;
+		int id = 1;
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
+		while(!concluido) {
+		paciente = pacienteDAO.recuperarPacientePorId(id);
+		if (paciente == null) 
+			id++;
+		 else 
+			concluido = true;
 		
+		}
 		request.setAttribute("paciente", paciente);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/editar-perfil.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-perfil-paciente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -514,7 +587,7 @@ public class Servlet extends HttpServlet {
 
 		//List<Conquista> conquistas = conquistaDAO.filtrarConquistaViaPacienteDoPacientePorStatus();
 		//request.setAttribute("conquistas", conquistas);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("conquistas-paciente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/tela-conquistas.jsp");
 
 		dispatcher.forward(request, response);
 		
@@ -532,7 +605,7 @@ public class Servlet extends HttpServlet {
 			
 		} 
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("consultas.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/consultas.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -542,7 +615,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/cadastrar-consulta.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastrar-consulta.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -582,13 +655,30 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		boolean concluido = false;
+		int id = 1;
+		Atendente atendente = atendenteDAO.recuperarAtendentePorId(1);
+		while(!concluido) {
+		atendente = atendenteDAO.recuperarAtendentePorId(id);
+		if (atendente == null) 
+			id++;
+		 else 
+			concluido = true;
 		
-		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
+		}
+//
+//		if (request.getParameter("id") != null)
+//			id = Integer.parseInt(request.getParameter("id"));
+			
+		atendente = atendenteDAO.recuperarAtendentePorId(id);
+		Instituicao instituicao = atendente.getInstituicao();
+		Endereco endereco = instituicao.getEndereco();
 		
 		request.setAttribute("atendente", atendente);
+		request.setAttribute("instituicao", instituicao);
+		request.setAttribute("endereco", endereco);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-atendente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -602,7 +692,7 @@ public class Servlet extends HttpServlet {
 		
 		request.setAttribute("paciente", atendente);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/atendente/editar-perfil.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -626,7 +716,9 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaVerConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("consultas-atendente.jsp");
+		// Verificar o nome da rota quando tiver o arquivo JSP pronto
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/consultas.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -640,7 +732,9 @@ public class Servlet extends HttpServlet {
 		
 		request.setAttribute("pacientes", pacientes);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("pacientes-cadastrados.jsp");
+		// Verificar o nome da rota quando tiver o arquivo JSP pronto
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/pacientes.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -650,12 +744,22 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+//		Integer id = Integer.parseInt(request.getParameter("id"));
+		boolean concluido = false;
+		int id = 1;
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
+		while(!concluido) {
+		instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		if (instituicao == null) 
+			id++;
+		 else 
+			concluido = true;
+		
+		}
 		
 		request.setAttribute("instituicao", instituicao);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-instituicao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -668,7 +772,7 @@ public class Servlet extends HttpServlet {
 		
 		request.setAttribute("instituicao", instituicao);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil-instituicao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -719,7 +823,7 @@ public class Servlet extends HttpServlet {
 		
 		request.setAttribute("atendentes", atendentes);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("atendentes-instituicao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/atendentes.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -730,7 +834,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastrar-atendente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastrar-atendente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -738,7 +842,9 @@ public class Servlet extends HttpServlet {
 	private void inserirAtendente(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-//		Integer id = Integer.parseInt(request.getParameter("id"));
+		Integer id = 3;
+		if (request.getParameter("id") != null)
+			id = Integer.parseInt(request.getParameter("id"));
 		
 		Atendente atendente = null;
 
@@ -748,16 +854,15 @@ public class Servlet extends HttpServlet {
 		String ctps = request.getParameter("ctps");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-//		int numeroCadastro = Integer.parseInt(request.getParameter("cadastro"));			
 		LocalDate dataCadastro = LocalDate.parse(request.getParameter("data")); 
-//		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		boolean ehAtivo = true;
 		
-		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, dataCadastro, ctps);
+		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, dataCadastro, instituicao, ctps);
 		
 		atendenteDAO.inserirAtendente(atendente);
 		
-		response.sendRedirect("atendentes");
+		response.sendRedirect("perfil-atendente");
 		
 	}
 	
@@ -770,7 +875,7 @@ public class Servlet extends HttpServlet {
 		
 		request.setAttribute("especialidade", especialidades);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("especialidades-instituicao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -806,14 +911,14 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastrar-profissional.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastrar-profissional.jsp");
 		dispatcher.forward(request, response);
 		
 	}
 	private void mostrarTelaCadastrarEspecialidade(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/cadastrar-especialidade.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastrar-especialidade.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -845,7 +950,141 @@ public class Servlet extends HttpServlet {
 		
 	}
 	
+	// MÉTODOS CRIADOS NA TRF40
 	
+	// INSTITUIÇÃO
+	
+	private void mostrarTelaCadastrarEditarProfissional(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastrar-editar-profissional.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarCardPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/card-paciente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarModalAtendente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/modal-atendente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarModalEspecialidade(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/modal-especialidade.jsp");
+		dispatcher.forward(request, response);
+		
+	}
 
+	private void mostrarTelaNotificacoesDaInstituicao(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/notificacoes.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	// PACIENTE
+	
+	private void mostrarTelaCadastroDoPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastro.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarCardConsulta(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/card-consulta.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarTelaEditarPerfil(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-perfil.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarTelaListarConsulta(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/listar-consulta.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarModalConsulta(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/modal-consulta.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarTelaNotificacoesDoPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/notificacoes.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarTelaPerfilDoPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil-paciente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	// SISTEMA
+	
+	private void mostrarTelaListarNotificacao(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/listar-notificacao.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarModalNotificacao(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/modal-notificacao.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	
+	
 	
 }
