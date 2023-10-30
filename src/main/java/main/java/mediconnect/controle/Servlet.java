@@ -267,6 +267,63 @@ public class Servlet extends HttpServlet {
 				inserirProfissional(request, response);
 				break;
 				
+			// ROTAS CRIADAS PARA TRF40
+				
+			case "/cadastrar-editar-profissional":
+				mostrarTelaCadastrarEditarProfissional(request, response);
+				break;
+				
+			case "/card-paciente":
+				mostrarCardPaciente(request, response);
+				break;
+				
+			case "/modal-atendente":
+				mostrarModalAtendente(request, response);
+				break;
+				
+			case "/modal-especialidade":
+				mostrarModalEspecialidade(request, response);
+				break;
+				
+			case "/notificacoes-instituicao":
+				mostrarTelaNotificacoesDaInstituicao(request, response);
+				break;
+				
+			case "/cadastro-paciente":
+				mostrarTelaCadastroDoPaciente(request, response);
+				break;
+				
+			case "/card-consulta-paciente":
+				mostrarCardConsulta(request, response);
+				break;
+				
+			case "/editar-perfil-paciente":
+				mostrarTelaEditarPerfil(request, response);
+				break;
+				
+			case "/listar-consulta-paciente":
+				mostrarTelaListarConsulta(request, response);
+				break;
+				
+			case "/modal-consulta-paciente":
+				mostrarModalConsulta(request, response);
+				break;
+				
+			case "/notificacoes-paciente":
+				mostrarTelaNotificacoesDoPaciente(request, response);
+				break;
+				
+			case "/perfil-paciente2":
+				mostrarTelaPerfilDoPaciente(request, response);
+				break;
+				
+			case "/listar-notificacao":
+				mostrarTelaListarNotificacao(request, response);
+				break;
+				
+			case "/modal-notificacao":
+				mostrarModalNotificacao(request, response);
+				break;	
 				
 			default:
 				mostrarTelaInicialDeslogado(request, response);
