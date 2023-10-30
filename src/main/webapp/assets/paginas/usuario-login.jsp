@@ -32,7 +32,7 @@
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">E-mail</label>
-                        <input class="texto-enfase" type="email" id="email" name="email" placeholder="seu.email@gmail.com" required>
+                        <input class="texto-enfase" type="email" id="email" name="email" placeholder="seu.email@gmail.com" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
                         <img src="../imagens/icone-nao-verificado.svg">
