@@ -7,7 +7,7 @@
     <meta name="description" content="Utilizar o sistema MediConnect traz vários benefícios, como praticidade, pontualidade e maior engajamento dos usuários com suas consultas. Venha conferir!">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="${contextPath }/assets/imagens/favicon.ico">
     <style><%@include file="/assets/estilos/padroes.css"%></style>
     <style><%@include file="/assets/estilos/pagina-inicial.css"%></style>
 </head>

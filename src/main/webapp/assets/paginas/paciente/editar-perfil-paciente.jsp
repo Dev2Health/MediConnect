@@ -14,16 +14,16 @@
             <img src="././images/imagem-paciente.svg" alt="imagem-paciente">
         <p>Dados pessoais</p>
         <p>Nome</p>
-        <input type="text" value="<c:out value='${paciente.nome}/>'" id="p.nome" name="nome"/>
+        <input type="text" value="<c:out value='${paciente.nome}'/>" id="p.nome" name="nome"/>
         <p>Sobrenome</p>
-        <input type="text" value="<c:out value='${paciente.sobrenome}/>'" id="p.sobrenome" name="sobrenome"/>
+        <input type="text" value="<c:out value='${paciente.sobrenome}'/>" id="p.sobrenome" name="sobrenome"/>
         <p>CPF</p>
-        <input type="text" value="<c:out value='${paciente.cpf}/>'" id="p.cpf" name="cpf"/>
+        <input type="text" value="<c:out value='${paciente.cpf}'/>" id="p.cpf" name="cpf"/>
         <p>Data de Nascimento</p>
-        <input type="text" value="<c:out value='${paciente.data}/>'" id="p.data" name="data"/>
+        <input type="date" value="<c:out value='${paciente.dataNascimento}'/>" id="p.data" name="data"/>
         <p>Alterar dado de contato</p>
         <p>Telefone</p>
-        <input type="text" value="<c:out value='${paciente.telefone}/>'" id="p.telefone" name="telefone" oninput="mascaraTelefone()"/>
+        <input type="text" value="<c:out value='${paciente.telefone}'/>" id="p.telefone" name="telefone" oninput="mascaraTelefone()"/>
         <button type="submit">Salvar</button>
         <button type="reset">Limpar Formulário</button>
         </form>

@@ -37,7 +37,6 @@
                 </div>
                 <button class="btn-square-sm text-emphasis link-light">Agendar <img src="../../images/icone-adicionar.svg"></button>
             </div>
-<<<<<<< HEAD:src/main/webapp/assets/content/paciente/consultas.jsp
             <button class="btn-square-sm text">Agendar <img src="../../images/icone-adicionar.svg"
                     alt="icone-adicionar"></button>
         </div><!--fim do título-->
@@ -59,8 +58,6 @@
             </div>
             </c:forEach>
 
-=======
->>>>>>> 3972b692696732b795a14486c9aef966576b2504:src/main/webapp/assets/content/paciente/consultas.html
         </div>
 
         
