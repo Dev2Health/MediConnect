@@ -32,7 +32,7 @@
         </section>
         <section id="sessao-gamificacao" class="template-grid">
             <div class="conteudo-esquerda">
-                <img src="./assets/imagens/inicial-gamificacao.svg" alt="ilustracao-gamificacao" class="ilustracao">
+                <img src="${pageContext.request.contextPath}./assets/imagens/inicial-gamificacao.svg" alt="ilustracao-gamificacao" class="ilustracao">
             </div>
             <div class="conteudo-direita caixa-textual">
                 <h1 class="titulo-especial">Gamificação</h1>

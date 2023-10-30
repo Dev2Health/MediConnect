@@ -21,7 +21,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 	}
 
 	@Override
-	public void inserirEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional) {
+	public void inserirEspecialidadeProfissionalDaInstituicao(EspecialidadeProfissional especialidadeProfissional) {
 		
 		Session sessao = null;
 		
@@ -51,7 +51,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 	}
 
 	@Override
-	public void deletarEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional) {
+	public void deletarEspecialidadeProfissionalDaInstituicao(EspecialidadeProfissional especialidadeProfissional) {
 		
 		Session sessao = null;
 		
@@ -81,7 +81,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 	}
 
 	@Override
-	public void atualizarEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional) {
+	public void atualizarEspecialidadeProfissionalDaInstituicao(EspecialidadeProfissional especialidadeProfissional) {
 		
 		Session sessao = null;
 		
@@ -110,7 +110,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 	}
 
 	@Override
-	public List<EspecialidadeProfissional> recuperarEspecialidadeProfissional() {
+	public List<EspecialidadeProfissional> recuperarEspecialidadeProfissionalDaInstituicao() {
 		
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;
@@ -148,7 +148,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 		return especialidadesProfissionais;
 	}
 	
-	public 	EspecialidadeProfissional recuperarEspecialidadePorId(Integer id) {
+	public 	EspecialidadeProfissional recuperarEspecialidadeDaInstituicaoPorId(Integer id) {
 		
 		Session sessao = null;
 		EspecialidadeProfissional especialidadeProfissionai = null;
@@ -188,7 +188,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 		return especialidadeProfissionai;
 	}
 	
-	public 	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisPorId(Integer id) {
+	public 	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisDaInstituicaoPorId(Integer id) {
 		
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;

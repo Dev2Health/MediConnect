@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/cadastro-instituicao-2.css">
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/cadastro-instituicao-2.css"%></style>
 </head>
 <body>
     <header class="template-grid" id="content-header">
@@ -24,7 +24,6 @@
         </div>
 
         <form action="inserir-endereco" method="post" autocomplete="on" id="content-form" class="template-grid">
-        <input type="hidden" name="instituicao" value=1 />
             <div class="form-left">
                 <div class="form-input">
                     <div class="input-icon">
