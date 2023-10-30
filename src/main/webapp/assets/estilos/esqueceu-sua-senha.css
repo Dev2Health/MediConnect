@@ -69,7 +69,7 @@ form {
 }
 
 [class*="input-"] input::placeholder {
-    color: var(--roxo-light);
+    color: var(--roxo-claro);
 }
 
 /* Confirmar E-mail */
