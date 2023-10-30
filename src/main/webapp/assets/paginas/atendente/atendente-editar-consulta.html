@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Editar Consulta | MediConnect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../imagens/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../estilos/padroes.css">
+</head>
+
+<body>
+    <header class="template-grid" id="cabecalho">
+        <nav class="barra-navegacao">
+            <img src="../../imagens/icone-voltar.svg" alt="icone-voltar">
+            <a href="../../../index.jsp" class="texto link-escuro">Voltar</a>
+        </nav>
+        <img src="../../imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
+    </header>
+    <main>
+        <div>
+            <h2 class="subtitulo">Informações da consulta</h2>
+            <button class="botao-quadrado-g texto">Habilitar edição <img src="../../imagens/icone-editar.svg"
+                    alt="icone-editar"></button>
+        </div>
+        <form>
+            <div>
+                <!-- Caixa inteira -->
+                <div>
+                    <!-- Parte do status -->
+                    <img src="../../imagens/icone-consulta.svg" alt="icone-status">
+                    <label for="status" class="texto">Status da Consulta</label>
+                    <input list="status-list" class="texto-enfase" type="text" id="status" name="status"
+                        placeholder="(Selecione o Status)" disabled>
+                    <datalist id="status-list"> <!--A listagem deve ser feita para o JSP-->
+                        <option value="Confirmada"></option>
+                        <option value="Agendada"></option>
+                        <option value="Cancelada"></option>
+                        <option value="Aguardando Confirmação"></option>
+                        <option value="Realizada"></option>
+                        <option value="Finalizada"></option>
+                    </datalist>
+                </div>
+
+                <div>
+
+
+                    <input type="checkbox">
+                    <p class="texto-enfase">Compareceu no horário</p>
+
+
+                </div>
+
+                <div>
+                    <div>
+                        <img src="../../imagens/icone-horario.svg" alt="icone-horario">
+                        <p class="texto">Horário de comparecimento</p>
+                    </div>
+                    <div>
+                        <div>
+                            <p class="texto">Previsto</p>
+                            <div>
+                                <p class="texto-enfase">13h30</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="texto">Atraso</p>
+                            <input class="texto-enfase" type="time" id="atraso" name="atraso" disabled>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <!-- Caixa inteira -->
+
+                <div>
+                    <div>
+                        <label for="data-agendada" class="texto">Data Agendada</label>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="../../imagens/icone-calendario.svg" alt="icone-data-agendada">
+                        </div>
+                        <input class="texto-enfase" type="date" id="data-agendada" name="data-agendada" disabled>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="alterar-profissional" class="texto">Alterar profissional</label>
+                    <div>
+                        <div>
+                            <img src="../../imagens/icone-profissional.svg" alt="icone-profissional">
+                        </div>
+                        <input list="profissionais" class="texto-enfase" type="text" id="alterar-profissional"
+                            name="alterar-profissional" placeholder="(Selecione o Profissional)" disabled>
+                        <datalist id="profissionais">
+                            <option value="Dr. Ricardo Soares"></option>
+                            <option value="Dra. Julia Zimmermann"></option>
+                            <option value="Dr. Alberto dos Santos"></option>
+                        </datalist>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="horario-previsto"></label>
+                    <div>
+                        <img src="../../imagens/icone-horario.svg" alt="icone-horario">
+                    </div>
+                    <input class="texto-enfase" type="time" id="horario-previsto" name="horario-previsto" disabled>
+                </div>
+
+            </div>
+            <button class="botao-circular-p texto-enfase link-claro" type="submit">Salvar Alterações</button>
+            <button class="botao-circular-p texto-enfase link-roxo" type="reset">Descartar Alterações</button>
+        </form>
+    </main>
+</body>
