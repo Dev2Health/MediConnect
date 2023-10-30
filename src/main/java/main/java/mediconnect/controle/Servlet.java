@@ -923,11 +923,148 @@ public class Servlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		profissional = new ProfissionalDeSaude(nome, sobrenome);
-
+		
 		profissionalDAO.inserirProfissionalDeSaude(profissional);
-
+		
 		response.sendRedirect("perfil-instituicao");
-
+		
+	}
+	
+	// MÉTODOS CRIADOS NA TRF40
+	
+	// INSTITUIÇÃO
+	
+	private void mostrarTelaCadastrarEditarProfissional(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastrar-editar-profissional.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarCardPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/card-paciente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarModalAtendente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/modal-atendente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarModalEspecialidade(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/modal-especialidade.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
+	private void mostrarTelaNotificacoesDaInstituicao(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/notificacoes.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	// PACIENTE
+	
+	private void mostrarTelaCadastroDoPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastro.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarCardConsulta(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/card-consulta.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarTelaEditarPerfil(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-perfil.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarTelaListarConsulta(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/listar-consulta.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarModalConsulta(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/modal-consulta.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarTelaNotificacoesDoPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/notificacoes.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarTelaPerfilDoPaciente(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil-paciente.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	// SISTEMA
+	
+	private void mostrarTelaListarNotificacao(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/listar-notificacao.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	private void mostrarModalNotificacao(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/modal-notificacao.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	
+	
+	
 }
