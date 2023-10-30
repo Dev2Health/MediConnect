@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
-    <style><%@include file="../../styles/padroes.css"%></style>
-    <style><%@include file="../../styles/pagina-inicial.css"%></style>
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/pagina-inicial.css"%></style>
 </head>
 <body>
     <header id="content-header" class="template-grid">

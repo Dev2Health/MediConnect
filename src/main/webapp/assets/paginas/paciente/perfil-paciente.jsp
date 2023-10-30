@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Perfil de Paciente</title>
-		<style><%@include file="../../styles/perfil-instituicao.css"%></style>
+		<style><%@include file="../../estilos/perfil-instituicao.css"%></style>
 	</head>
 	<body>
 		<header>
