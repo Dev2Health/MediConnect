@@ -280,15 +280,15 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaSobreMediconnect(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("sobre.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/sobre-nos.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarTelaLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/usuario-login.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -309,8 +309,8 @@ public class Servlet extends HttpServlet {
 			request.setAttribute("instituicoes", instituicoes);
 
 		}
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+				
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -318,10 +318,11 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
-
-		// Cada info da tela inicial logada da institui��o � uma query diferente?
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("home-instituicao.jsp");
+		
+		
+		//Cada info da tela inicial logada da institui��o � uma query diferente?
+				
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -330,16 +331,17 @@ public class Servlet extends HttpServlet {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
 
-		// Cada info da tela inicial logada ddo atendente � uma query diferente?
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("home-atendente.jsp");
+		
+		//Cada info da tela inicial logada do atendente � uma query diferente?
+				
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	private void mostrarTelaCadastro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastro.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/usuario-cadastro.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -436,17 +438,17 @@ public class Servlet extends HttpServlet {
 
 		pacienteDAO.inserirPaciente(paciente);
 		response.sendRedirect("perfil-paciente");
-
+		
 	}
-
-	// TELA LOGIN
-
+	
+	// TELA LOGIN 
+	
 	private void mostrarTelaEsqueciSenha(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("esqueci-senha.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/esqueceu-sua-senha.jsp");
 		dispatcher.forward(request, response);
-
+		
 	}
 
 	// TELA PERFIL PACIENTE
@@ -526,10 +528,9 @@ public class Servlet extends HttpServlet {
 
 		// query que retorna as conquistas do paciente vai na classe intermediaria?
 
-		// List<Conquista> conquistas =
-		// conquistaDAO.filtrarConquistaViaPacienteDoPacientePorStatus();
-		// request.setAttribute("conquistas", conquistas);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("conquistas-paciente.jsp");
+		//List<Conquista> conquistas = conquistaDAO.filtrarConquistaViaPacienteDoPacientePorStatus();
+		//request.setAttribute("conquistas", conquistas);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/tela-conquistas.jsp");
 
 		dispatcher.forward(request, response);
 
@@ -567,7 +568,7 @@ public class Servlet extends HttpServlet {
 		
 			request.setAttribute("consulta", consulta);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("consultas.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/consultas.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -678,8 +679,10 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaVerConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("consultas-atendente.jsp");
+		
+		// Verificar o nome da rota quando tiver o arquivo JSP pronto
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/consultas.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -692,8 +695,10 @@ public class Servlet extends HttpServlet {
 		List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(id);
 
 		request.setAttribute("pacientes", pacientes);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("pacientes-cadastrados.jsp");
+		
+		// Verificar o nome da rota quando tiver o arquivo JSP pronto
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/pacientes.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -730,8 +735,8 @@ public class Servlet extends HttpServlet {
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 		request.setAttribute("instituicao", instituicao);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("editar-perfil-instituicao.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -782,8 +787,8 @@ public class Servlet extends HttpServlet {
 		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentes(id);
 
 		request.setAttribute("atendentes", atendentes);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("atendentes-instituicao.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/atendentes.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -848,7 +853,7 @@ public class Servlet extends HttpServlet {
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionaisDaInstituicaoPorId(id);
 
 		request.setAttribute("especialidade", especialidades);
-
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);
 
