@@ -1209,5 +1209,45 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 		return consultas;
 	}
+	
+	public Consulta filtrarConsultaViaPacientePorIdDaConsulta(Integer idConsulta, Integer idPaciente) {
+
+		Session sessao = null;
+		Consulta consulta = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente),
+					construtor.equal(raizConsulta.get(Consulta_.ID), idConsulta));
+
+			consulta = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return consulta;
+	}
 
 }

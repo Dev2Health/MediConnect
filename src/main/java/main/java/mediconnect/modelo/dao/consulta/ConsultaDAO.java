@@ -29,7 +29,7 @@ public interface ConsultaDAO {
 	Consulta filtrarConsultaViaAtendentePorTitulo(Integer idConsulta, Integer idAtendente);
 	List<Consulta> filtrarConsultasViaAtendentePorIdDoPaciente(Integer id, Integer idInstituicao);
 	List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude, Paciente paciente);
-	List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(Integer IdProfissionalDeSaude, Integer IdPaciente);
+	List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(Integer idProfissionalDeSaude, Integer IdPaciente);
 	List<Consulta> filtrarConsultaViaPacientePorEspecialidade(EspecialidadeProfissional especialidadeProfissional, Paciente paciente);
 	List<Consulta> filtrarConsultaViaPacientePorEspecialidade(Integer idEspecialidadeProfissional, Integer idPaciente);
 	List<Consulta> filtrarConsultaViaPacientePorInstituicao(Integer idInstituicao, Integer idPaciente);
@@ -37,5 +37,6 @@ public interface ConsultaDAO {
 	List<Consulta> recuperarConsultasAgendadasViaPacientePorId(Integer id);
 	List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal, Integer idPaciente);
 	List<Consulta> recuperarConsultasViaPacientePorId(Integer id);
+	Consulta filtrarConsultaViaPacientePorIdDaConsulta(Integer idConsulta, Integer idPaciente);
 
 }
