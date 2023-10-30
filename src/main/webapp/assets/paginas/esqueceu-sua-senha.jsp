@@ -33,7 +33,7 @@
                             <div id="formulario-icone">
                                 <img src="../imagens/icone-email.svg" alt="icone-email">
                             </div>
-                            <input class="texto-enfase" type="email" id="email" name="email" placeholder="seu.email@gmail.com">
+                            <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="seu.email@gmail.com" maxlength="100" required>
                         </div>
                     </div>
                     <div id="email-validar">
@@ -50,14 +50,14 @@
                         <div id="senha-atual">
                             <label for="senha" class="texto">Nova Senha</label>
                             <div class="input-senha">
-                                <input class="texto-enfase" type="password" id="senha" name="senha" placeholder="********">
+                                <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" required>
                                 <img src="../imagens/icone-olho-fechado.svg" id="botao-senha">
                             </div>
                         </div>
                         <div id="senha-nova">
                             <label for="novasenha" class="texto">Confirmar Senha</label>
                             <div class="input-senha">
-                                <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********">
+                                <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" required>
                                 <img src="../imagens/icone-olho-fechado.svg" id="botao-novasenha">
                             </div>
                         </div>

@@ -1,7 +1,8 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-color: var(--background-light);
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
 }
 
 main {
@@ -11,66 +12,66 @@ main {
 
 /* Menu */
 
-#content-header {
+#cabecalho {
     align-items: center;
     height: 140px;
 }
 
-#content-header img {
+#cabecalho img {
     grid-column: 2 / 3;
     width: 140px;
     height: 100%;
 }
 
-.nav-bar {
+.barra-navegacao {
     grid-column: 7 / 12;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-bar .btn-round-sm {
+.barra-navegacao .botao-circular-m {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.8em;
-    background-color: var(--dark);
+    background-color: var(--escuro);
 }
 
 /* Conteúdo Principal */
 
-.title {
+.titulo {
     grid-column: 2 / 10;
-    color: var(--purple);
+    color: var(--roxo);
     margin-bottom: 40px;
 }
 
 /* Formulário */
 
-.form-input {
-    border-color: var(--purple);
+.formulario-input {
+    border-color: var(--roxo);
 }
 
-.input-itens input {
-    color: var(--purple);
+.input-item input {
+    color: var(--roxo);
 }
 
 ::placeholder {
-    color: var(--purple-light);
+    color: var(--roxo-claro);
 }
 
-.form-footer {
+.formulario-rodape {
     display: flex;
     justify-content: flex-end;
     width: 37vw;
     gap: 50px;
 }
 
-.form-footer .btn-round-sm:first-child {
-    background-color: var(--purple);
+.formulario-rodape .botao-circular-p:first-child {
+    background-color: var(--roxo);
 }
 
-.form-footer .btn-round-sm:nth-child(2) {
-    background-color: var(--background-light);
-    border: 3px solid var(--purple);
+.formulario-rodape .botao-circular-p:last-child {
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--roxo);
 }
