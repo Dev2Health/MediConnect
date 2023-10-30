@@ -456,8 +456,17 @@ public class Servlet extends HttpServlet {
 	
 	private void mostrarTelaPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		boolean concluido = false;
+		int id = 1;
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
+		while(!concluido) {
+		paciente = pacienteDAO.recuperarPacientePorId(id);
+		if (paciente == null) 
+			id++;
+		 else 
+			concluido = true;
 		
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);	
+		}
 		
 		request.setAttribute("paciente", paciente);
 		
@@ -469,13 +478,20 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEditarPerfilPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));	
-
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
+		boolean concluido = false;
+		int id = 1;
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
+		while(!concluido) {
+		paciente = pacienteDAO.recuperarPacientePorId(id);
+		if (paciente == null) 
+			id++;
+		 else 
+			concluido = true;
 		
+		}
 		request.setAttribute("paciente", paciente);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/editar-perfil.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/paciente/editar-perfil-paciente.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -582,13 +598,30 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		boolean concluido = false;
+		int id = 1;
+		Atendente atendente = atendenteDAO.recuperarAtendentePorId(1);
+		while(!concluido) {
+		atendente = atendenteDAO.recuperarAtendentePorId(id);
+		if (atendente == null) 
+			id++;
+		 else 
+			concluido = true;
 		
-		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
+		}
+//
+//		if (request.getParameter("id") != null)
+//			id = Integer.parseInt(request.getParameter("id"));
+			
+		atendente = atendenteDAO.recuperarAtendentePorId(id);
+		Instituicao instituicao = atendente.getInstituicao();
+		Endereco endereco = instituicao.getEndereco();
 		
 		request.setAttribute("atendente", atendente);
+		request.setAttribute("instituicao", instituicao);
+		request.setAttribute("endereco", endereco);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-atendente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/atendente/perfil.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -650,12 +683,22 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaPerfilInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+//		Integer id = Integer.parseInt(request.getParameter("id"));
+		boolean concluido = false;
+		int id = 1;
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
+		while(!concluido) {
+		instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		if (instituicao == null) 
+			id++;
+		 else 
+			concluido = true;
+		
+		}
 		
 		request.setAttribute("instituicao", instituicao);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("perfil-instituicao.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/content/instituicao/perfil.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -738,7 +781,9 @@ public class Servlet extends HttpServlet {
 	private void inserirAtendente(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-//		Integer id = Integer.parseInt(request.getParameter("id"));
+		Integer id = 3;
+		if (request.getParameter("id") != null)
+			id = Integer.parseInt(request.getParameter("id"));
 		
 		Atendente atendente = null;
 
@@ -748,16 +793,15 @@ public class Servlet extends HttpServlet {
 		String ctps = request.getParameter("ctps");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-//		int numeroCadastro = Integer.parseInt(request.getParameter("cadastro"));			
 		LocalDate dataCadastro = LocalDate.parse(request.getParameter("data")); 
-//		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		boolean ehAtivo = true;
 		
-		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, dataCadastro, ctps);
+		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, dataCadastro, instituicao, ctps);
 		
 		atendenteDAO.inserirAtendente(atendente);
 		
-		response.sendRedirect("atendentes");
+		response.sendRedirect("perfil-atendente");
 		
 	}
 	
