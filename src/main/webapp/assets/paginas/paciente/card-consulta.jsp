@@ -11,10 +11,10 @@
     </button>
         <p>Consulta - <c:out value="${consulta.id}" /></p>
         <div>
-            <p><c:out value="${consulta.status}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
+            <p><c:out value="${consulta.status}" /></p>
         </div>
         <div>
-            <p><c:out value="${consulta.data}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
+            <p><c:out value="${consulta.data}" /></p>
         </div>
         <div>
             <p><c:out value="${consulta.horario}" /></p>

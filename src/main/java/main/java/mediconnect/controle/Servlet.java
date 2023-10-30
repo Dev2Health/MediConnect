@@ -557,18 +557,29 @@ public class Servlet extends HttpServlet {
 		
 		boolean concluido = false;
 		int id = 1;
-		Consulta consulta = consultaDAO.recuperarConsultasAgendadasViaPacientePorId(1);
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
 		while(!concluido) {
-		consulta = consultaDAO.recuperarConsultasAgendadasViaPacientePorId(id);
+			paciente = pacienteDAO.recuperarPacientePorId(id);
+			if (paciente == null) 
+				id++;
+			else 
+				concluido = true;
+		}
+		boolean concluido2 = false;
+		int idConsulta = 1;
+		Consulta consulta = consultaDAO.filtrarConsultaViaPacientePorIdDaConsulta(1, paciente.getId());
+		while(!concluido2) {
+		consulta = consultaDAO.filtrarConsultaViaPacientePorIdDaConsulta(idConsulta, paciente.getId());
 		if (consulta == null) 
-			id++;
+			idConsulta++;
 		 else 
-			concluido = true;
+			concluido2 = true;
 		}
 		
 			request.setAttribute("consulta", consulta);
+			request.setAttribute("paciente", paciente);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/consultas.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/card-consulta.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -593,7 +604,17 @@ public class Servlet extends HttpServlet {
 		Integer idEspecialidade = Integer.parseInt(request.getParameter("especialidade"));
 		Integer idInstituicao = Integer.parseInt(request.getParameter("instituicao"));
 		Integer idProfissional = Integer.parseInt(request.getParameter("profissional"));
-		Integer idPaciente = Integer.parseInt(request.getParameter("paciente"));
+		String descricao = request.getParameter("descricao");
+		boolean concluido = false;
+		int id = 1;
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
+		while(!concluido) {
+		paciente = pacienteDAO.recuperarPacientePorId(id);
+		if (paciente == null) 
+			id++;
+		 else 
+			concluido = true;
+		}
 //		String descricao = request.getParameter("descricao");
 
 		StatusConsulta status = StatusConsulta.AGENDADA;
@@ -604,10 +625,8 @@ public class Servlet extends HttpServlet {
 
 		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
 
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(idPaciente);
-
 		consulta = new Consulta(especialidade, instituicao, profissional, dataConsulta, horarioConsulta, paciente,
-				status);
+				status, descricao);
 
 		consultaDAO.inserirConsulta(consulta);
 		response.sendRedirect("consultas");
@@ -848,12 +867,14 @@ public class Servlet extends HttpServlet {
 				id++;
 			else
 				concluido = true;
+			System.out.println(especialidade.getId());
+			System.out.println(especialidade.getNome());
 		}
 
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionaisDaInstituicaoPorId(id);
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadeProfissionalDaInstituicao();
 
-		request.setAttribute("especialidade", especialidades);
-		
+		request.setAttribute("especialidades", especialidades);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);
 
