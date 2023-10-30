@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="template-grid" id="content-header">
-        <img src="../images/logo.svg" alt="logo-mediconnect" id="logo">
+        <img src="./assets./images/logo.svg" alt="logo-mediconnect" id="logo">
         <nav class="nav-bar">
             <a href="./assets/content/sobre-nos.html" class="text link-dark">Sobre o MediConnect</a>
             <a href="./assets/content/login-usuario.html" class="text link-dark">Entrar</a>
