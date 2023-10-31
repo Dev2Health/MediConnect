@@ -11,111 +11,149 @@ import org.hibernate.Session;
 import main.java.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.mediconnect.modelo.entidade.endereco.Endereco_;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
-import main.java.mediconnect.modelo.entidade.paciente.Paciente;
-import main.java.mediconnect.modelo.entidade.paciente.Paciente_;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
-
 public class EnderecoDAOImpl implements EnderecoDAO {
-	
+
 	private BuildFactory fac;
-	
+
 	public EnderecoDAOImpl() {
 		fac = new BuildFactory();
 	}
 
 	public void inserirEndereco(Endereco endereco) {
-		
+
 		Session sessao = null;
-		
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
-			
+
 			sessao.save(endereco);
-			
+
 			sessao.getTransaction().commit();
-		
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}
-		}	
+		}
 	}
 
 	@Override
 	public void deletarEndereco(Endereco endereco) {
-		
+
 		Session sessao = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
 			sessao.delete(endereco);
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-		
+
 	}
 
 	@Override
 	public void atualizarEndereco(Endereco endereco) {
-		
+
 		Session sessao = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
-			
+
 			sessao.update(endereco);
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-			
+
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
-		
+
 	}
-	
+
 	@Override
 	public Endereco recuperarEnderecoPorInstituicao(Instituicao instituicao) {
+
+		Session sessao = null;
+		Endereco endereco = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Endereco> criteria = construtor.createQuery(Endereco.class);
+			Root<Endereco> raizEndereco = criteria.from(Endereco.class);
+
+			criteria.select(raizEndereco);
+
+			criteria.where(construtor.equal(raizEndereco.get(Endereco_.INSTITUICAO), instituicao));
+
+			endereco = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return endereco;
+
+	}
+	
+public Endereco recuperarEnderecoPorInstituicao(Integer idInstituicao) {
 		
 		Session sessao = null;
 		Endereco endereco = null;
@@ -132,7 +170,7 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 
 			criteria.select(raizEndereco);
 			
-			criteria.where(construtor.equal(raizEndereco.get(Endereco_.INSTITUICAO), instituicao));
+			criteria.where(construtor.equal(raizEndereco.get(Endereco_.INSTITUICAO), idInstituicao));
 
 			endereco = sessao.createQuery(criteria).getSingleResult();
 
@@ -159,12 +197,12 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 
 	@Override
 	public List<Endereco> recuperarListaDeEnderecos() {
-		
+
 		Session sessao = null;
 		List<Endereco> enderecos = null;
-		
+
 		try {
-			
+
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
@@ -176,17 +214,17 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 			enderecos = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-			
+
 		} catch (Exception sqlException) {
-			
+
 			sqlException.printStackTrace();
-			
+
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
 
 		} finally {
-			
+
 			if (sessao != null) {
 				sessao.close();
 			}

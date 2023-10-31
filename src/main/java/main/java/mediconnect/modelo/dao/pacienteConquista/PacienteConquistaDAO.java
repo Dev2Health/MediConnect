@@ -9,6 +9,6 @@ public interface PacienteConquistaDAO {
 	void inserirPacienteConquista(PacienteConquista paciente_conquista);
 	void deletarPacienteConquista(PacienteConquista paciente_conquista);
 	void atualizarPacienteConquista(PacienteConquista paciente_conquista);
-	List<Conquista> recuperarConquistaPacientePorId(Integer id);
+	List<Conquista> recuperarConquistasPacientePorId(Integer idPaciente);
 	List<PacienteConquista> recuperarPacienteConquista();
 }

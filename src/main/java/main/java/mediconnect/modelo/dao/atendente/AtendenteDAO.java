@@ -12,10 +12,16 @@ public interface AtendenteDAO {
 	void atualizarAtendente(Atendente atendente);
 	Atendente recuperarAtendentePorId(Integer id);
 	List<Atendente> recuperarListaDeAtendentes();
-	List<Atendente> filtrarAtendentesViaInstituicaoPorId(Integer id);
+	List<Atendente> recuperarListaDeAtendentes(Integer id);
+	Atendente filtrarAtendenteViaInstituicaoPorId(Integer id);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao);
+	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Integer idInstituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Instituicao instituicao);
+	List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Integer idInstituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Instituicao instituicao);
+	List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Integer idInstituicao);
 	List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Instituicao instituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(int cadastro, Instituicao instituicao);
+	List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Integer idInstituicao);
+	List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(Integer cadastro, Instituicao instituicao);
+	List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(Integer cadastro, Integer idInstituicao);
 }

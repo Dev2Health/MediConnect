@@ -56,11 +56,13 @@ public class Atendente extends Pessoa implements Serializable {
 		setInstituicao(instituicao);
 		setCtps(ctps);
 	}
-	
-	public Atendente( String email) {
-
+	public Atendente( String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
+			LocalDate dataCadastro, Instituicao instituicao, String ctps) {
+		super(email, senha, ehAtivo, nome, sobrenome, cpf);
+		setDataCadastro(dataCadastro);
+		setInstituicao(instituicao);
+		setCtps(ctps);
 	}
-
 	// MÉTODOS DE ACESSO
 
 	// Data de Cadastro

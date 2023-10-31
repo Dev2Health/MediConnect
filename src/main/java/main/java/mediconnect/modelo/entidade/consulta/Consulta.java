@@ -50,7 +50,7 @@ public class Consulta implements Serializable {
 	private ProfissionalDeSaude profissional_de_saude;
 	/* Uma consulta poderá ter um profissional | Um profissional poderá ter várias consultas */
 	
-	@Column(name = "descricao_consulta", length = 300, nullable = false, unique = false)
+	@Column(name = "descricao_consulta", length = 300, nullable = true, unique = false)
 	private String descricao;
 	
 	@Column(name = "data_consulta", length = 10, nullable = false, unique = false)
@@ -95,6 +95,19 @@ public class Consulta implements Serializable {
 		setHorario(horario);
 		setPaciente(paciente);
 		setStatus(status);
+	}
+	public Consulta(EspecialidadeProfissional especialidade_profissional, Instituicao instituicao,
+			ProfissionalDeSaude profissional_de_saude, LocalDate data, LocalTime horario, Paciente paciente,
+			StatusConsulta status, String descricao) {
+		
+		setEspecialidadeProfissional(especialidade_profissional);
+		setInstituicao(instituicao);
+		setProfissionalDeSaude(profissional_de_saude);
+		setData(data);
+		setHorario(horario);
+		setPaciente(paciente);
+		setStatus(status);
+		setDescricao(descricao);
 	}
 
 	// MÉTODOS DE ACESSO

@@ -190,6 +190,46 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 		return conquistas;
 	}
-	
-	
+
+	public List<Conquista> filtrarConquistaViaPacienteDoPacientePorStatus(StatusConsulta status, Integer idPaciente) {
+
+		Session sessao = null;
+		List<Conquista> conquistas = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
+			Root<Conquista> raizConquista = criteria.from(Conquista.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+
+			criteria.select(raizConquista);
+
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status),
+					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente));
+
+			conquistas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+			
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return conquistas;
+	}
+
 }

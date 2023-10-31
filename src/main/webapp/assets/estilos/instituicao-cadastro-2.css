@@ -1,0 +1,77 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    align-items: center;
+    margin: 50px 0 25px 0;
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+#cabecalho img {
+    grid-column: 2 / 3;
+    width: 140px;
+    height: 100%;
+}
+
+.barra-navegacao {
+    grid-column: 7 / 12;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra-navegacao .botao-circular-m {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+    background-color: var(--escuro);
+}
+
+/* Conteúdo Principal */
+
+.titulo {
+    grid-column: 2 / 10;
+    color: var(--roxo);
+    margin-bottom: 40px;
+}
+
+/* Formulário */
+
+.formulario-input {
+    border-color: var(--roxo);
+}
+
+.input-item input {
+    color: var(--roxo);
+}
+
+::placeholder {
+    color: var(--roxo-claro);
+}
+
+.formulario-rodape {
+    display: flex;
+    justify-content: flex-end;
+    width: 37vw;
+    gap: 50px;
+}
+
+.formulario-rodape .botao-circular-p:first-child {
+    background-color: var(--roxo);
+}
+
+.formulario-rodape .botao-circular-p:last-child {
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--roxo);
+}
