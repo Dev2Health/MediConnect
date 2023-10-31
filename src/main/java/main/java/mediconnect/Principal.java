@@ -185,7 +185,7 @@ public class Principal {
 
 		especialidade.setNome(nomeEspecialidadeProfissional);
 
-		especialidadeDAO.inserirEspecialidadeProfissional(especialidade);
+		especialidadeDAO.inserirEspecialidadeProfissionalDaInstituicao(especialidade);
 
 		// PROFISSIONAL DE SAÚDE
 		String nomeProfissionalDeSaude = "Cleber do Nascimento";
@@ -338,7 +338,7 @@ public class Principal {
 
 		especialidade2.setNome(nomeEspecialidadeProfissional2);
 
-		especialidade2DAO.inserirEspecialidadeProfissional(especialidade2);
+		especialidade2DAO.inserirEspecialidadeProfissionalDaInstituicao(especialidade2);
 
 		// ESPECIALIDADE PROFISSIONAL 3
 		EspecialidadeProfissionalDAO especialidade3DAO = new EspecialidadeProfissionalDAOImpl();
@@ -349,7 +349,7 @@ public class Principal {
 
 		especialidade3.setNome(nomeEspecialidadeProfissional3);
 
-		especialidade3DAO.inserirEspecialidadeProfissional(especialidade3);
+		especialidade3DAO.inserirEspecialidadeProfissionalDaInstituicao(especialidade3);
 		
 		EspecialidadeInstituicao especialidadeInstituicao = new EspecialidadeInstituicao();
 		EspecialidadeInstituicaoDAO especialidadeInstituicaoDAO = new EspecialidadeInstituicaoDAOImpl();

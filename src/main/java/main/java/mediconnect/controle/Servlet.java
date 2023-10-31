@@ -1022,25 +1022,6 @@ public class Servlet extends HttpServlet {
 		
 	}
 	
-	private void confirmarLogin(HttpServletRequest request, HttpServletResponse response) 
-			throws SQLException, IOException, ServletException {
-		
-		String usuarioInvalido = null;
-		String emailUsuario = request.getParameter("email");
-		String senhaUsuario = request.getParameter("senha");
-		boolean existe = usuarioDAO.verificarUsuario(emailUsuario, senhaUsuario);
-		
-		if(existe) {
-			
-			HttpSession sessao = request.getSession();
-			Usuario usuario = usuarioDAO.recuperarUsuarioPorEmail(emailUsuario);
-			sessao.setAttribute("usuario", usuario);
-			response.sendRedirect("home");
-		
-		}
-		
-	}
-	
 	// INSTITUIÇÃO
 	
 	private void mostrarTelaCadastrarEditarProfissional(HttpServletRequest request, HttpServletResponse response) 
@@ -1170,6 +1151,27 @@ public class Servlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/modal-notificacao.jsp");
 		dispatcher.forward(request, response);
+		
+		
+		
+	}
+	
+	private void confirmarLogin(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		String usuarioInvalido = null;
+		String emailUsuario = request.getParameter("email");
+		String senhaUsuario = request.getParameter("senha");
+		boolean existe = usuarioDAO.verificarUsuario(emailUsuario, senhaUsuario);
+		
+		if(existe) {
+			
+			HttpSession sessao = request.getSession();
+			Usuario usuario = usuarioDAO.recuperarUsuarioPorEmail(emailUsuario);
+			sessao.setAttribute("usuario", usuario);
+			response.sendRedirect("home");
+		
+		}
 		
 	}
 	
