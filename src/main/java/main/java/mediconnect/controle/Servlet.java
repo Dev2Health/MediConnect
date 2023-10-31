@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAO;
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAOImpl;
@@ -27,8 +28,12 @@ import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
 import main.java.mediconnect.modelo.dao.instituicao.InstituicaoDAOImpl;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAO;
 import main.java.mediconnect.modelo.dao.paciente.PacienteDAOImpl;
+import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
+import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
 import main.java.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAO;
 import main.java.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAOImpl;
+import main.java.mediconnect.modelo.dao.usuario.UsuarioDAO;
+import main.java.mediconnect.modelo.dao.usuario.UsuarioDAOImpl;
 import main.java.mediconnect.modelo.entidade.atendente.Atendente;
 import main.java.mediconnect.modelo.entidade.conquista.Conquista;
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
@@ -36,11 +41,9 @@ import main.java.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente;
-import main.java.mediconnect.modelo.entidade.pacienteConquista.PacienteConquista;
 import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
+import main.java.mediconnect.modelo.entidade.usuario.Usuario;
 import main.java.mediconnect.modelo.enumeracao.consulta.StatusConsulta;
-import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
-import main.java.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -55,6 +58,7 @@ public class Servlet extends HttpServlet {
 	private PacienteDAO pacienteDAO;
 	private ConquistaDAO conquistaDAO;
 	private PacienteConquistaDAO pacienteConquistaDAO;
+	private UsuarioDAO usuarioDAO;
 
 	
 	public void init() {
@@ -68,6 +72,7 @@ public class Servlet extends HttpServlet {
 		atendenteDAO = new AtendenteDAOImpl();
 		consultaDAO = new ConsultaDAOImpl();
 		pacienteConquistaDAO = new PacienteConquistaDAOImpl();
+		usuarioDAO = new UsuarioDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -298,6 +303,11 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaInicialLogadoPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		HttpSession sessao = request.getSession();
+		
+		if (sessao.getAttribute("usuario" instanceOf Paciente)) {
+			
+		}
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		List<Consulta> consultas = consultaDAO.recuperarConsultasAgendadasViaPacientePorId(id);
@@ -810,7 +820,29 @@ public class Servlet extends HttpServlet {
 		
 	}
 	
+	private void confirmarLogin(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException, ServletException {
+		
+		String usuarioInvalido = null;
+		String emailUsuario = request.getParameter("email");
+		String senhaUsuario = request.getParameter("senha");
+		boolean existe = usuarioDAO.verificarUsuario(emailUsuario, senhaUsuario);
+		
+		if(existe) {
+			
+			HttpSession sessao = request.getSession();
+			Usuario usuario = usuarioDAO.recuperarUsuarioPorEmail(emailUsuario);
+			sessao.setAttribute("usuario", usuario);
+			response.sendRedirect("home");
+		
+		}
+	
+		
+		}
+	
+	
+}
+	
 	
 
 	
-}
