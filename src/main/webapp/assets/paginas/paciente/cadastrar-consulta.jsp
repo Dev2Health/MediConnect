@@ -23,7 +23,6 @@
 					<c:if test="${consulta != null}">
 						<input type="hidden" name="id" value="<c:out value='${consulta.id}' />" />
 					</c:if>
-						<input type="hidden" name="paciente" value=1 />
 					<label>Horário:</label>
 					<input type="time" id="c.horario" name="horario" oninput="mascaraHorario()" placeholder="Informe o horário..."> 
 					<label>Data:</label>
