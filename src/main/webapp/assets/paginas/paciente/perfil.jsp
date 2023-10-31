@@ -6,15 +6,15 @@
     <title>Perfil | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../imagens/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
 </head>
 
 <body>
     <header id="content-header" class="template-grid">
         <nav class="nav-bar">
-            <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="logo-mediconnect">
+            <img src="../../imagens/icone-menu.svg" alt="icone-menu">
+            <img src="../../imagens/logo.svg" alt="logo-mediconnect">
         </nav>
     </header>
     <main>
@@ -22,16 +22,16 @@
             <div id="profile">
                 <div id="profile-presentation">
                     <div class="profile-photo">
-                        <img src="../../images/icone-camera.svg" alt="icone-camera"> <!--Icone deve ser azul-->
+                        <img src="../../imagens/icone-camera.svg" alt="icone-camera"> <!--Icone deve ser azul-->
                     </div>
                     <div class="profile-edit">
-                        <button class="btn-square-me text">Editar Perfil <img src="../../images/icone-editar.svg"
+                        <button class="btn-square-me text">Editar Perfil <img src="../../imagens/icone-editar.svg"
                                 alt="icone-editar"></button>
                     </div>
                 </div>
                 <div id="profile-information"> <!-- Posição grid, flex space-between, fundo azul, color(text) branca -->
                     <div class="image-portion">
-                        <img class="patient-icon" src="../../images/icone-paciente.svg" alt="icone-paciente">
+                        <img class="patient-icon" src="../../imagens/icone-paciente.svg" alt="icone-paciente">
                     </div>
                     <div class="description-portion">
                         <h1 class="subtitle"><c:out value="${paciente.nome}"/> <c:out value="${paciente.sobrenome}"/></h1>
@@ -40,12 +40,12 @@
                     <div>
                         <div>
                             <div></div><!--esta belissima div é para ser o nosso querido e amado bolinh verde-->
-                            <img src="../../images/icone-selo-assiduo.svg" alt="icone-assiduo">
+                            <img src="../../imagens/icone-selo-assiduo.svg" alt="icone-assiduo">
                             <p class="text-small">colocar selo assíduo</p>
                         </div>
                         <div>
                             <div></div>
-                            <img src="../../images/icone-selo-pontual.svg" alt="icone-pontual">
+                            <img src="../../imagens/icone-selo-pontual.svg" alt="icone-pontual">
                             <!--Socorro pq isso ta quebrado?-->
                             <p class="text-small">colocar selo pontual</p>
                         </div>
@@ -62,7 +62,7 @@
                     <input type="hidden" value="<c:out value='${conquista.id}'/>" />
                     <div><!--caixa-->
                         <div><!--icone-->
-                            <img src="../../images/icone-<c:out value='${conquista.titulo}' />.svg" alt="icone-<c:out value='${conquista.titulo}' />">
+                            <img src="../../imagens/icone-<c:out value='${conquista.titulo}' />.svg" alt="icone-<c:out value='${conquista.titulo}' />">
                     </div>
                     <div><!--texto-->
                         <h2 class="subtitle"><c:out value='${conquista.titulo}' /></h2>
@@ -120,7 +120,7 @@
 
                             <div>
                                 <p class="text">Editar consulta</p>
-                                <img src="../../images/icone-editar.svg" alt="icone-editar">
+                                <img src="../../imagens/icone-editar.svg" alt="icone-editar">
                             </div>
 
                         </div>
@@ -129,7 +129,7 @@
                 </div>
                 </c:forEach>
             </div>
-            <button class="btn-square-sm text">Ver todas <img src="../../images/icone-seta.svg"></button>
+            <button class="btn-square-sm text">Ver todas <img src="../../imagens/icone-seta.svg"></button>
         </section>
 
 
@@ -150,15 +150,15 @@
             <div class="footer-social">
                 <p class="text">Redes Sociais</p>
                 <div class="social-whatsapp">
-                    <img src="../../images/logo-whatsapp.svg">
+                    <img src="assets/imagens/logo-whatsapp.svg">
                     <a href="#" class="text-no-emphasis link-light">WhatsApp</a>
                 </div>
                 <div class="social-github">
-                    <img src="../../images/logo-github.svg">
+                    <img src="../../imagens/logo-github.svg">
                     <a href="#" class="text-no-emphasis link-light">GitHub</a>
                 </div>
                 <div class="social-instagram">
-                    <img src="../../images/logo-instagram.svg">
+                    <img src="../../imagens/logo-instagram.svg">
                     <a href="#" class="text-no-emphasis link-light">Instagram</a>
                 </div>
             </div>
@@ -166,7 +166,7 @@
         <div class="template-grid" id="footer-commercial">
             <hr><br>
             <div class="commercial-content">
-                <img src="../../images/logo-rodape.svg" alt="logo-mediconnect">
+                <img src="../../imagens/logo-rodape.svg" alt="logo-mediconnect">
                 <p class="text-small">2023 &copy Todos os direitos reservados</p>
             </div>
         </div>

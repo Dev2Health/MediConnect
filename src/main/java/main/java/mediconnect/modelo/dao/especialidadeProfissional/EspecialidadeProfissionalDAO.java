@@ -5,10 +5,10 @@ import java.util.List;
 import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 
 public interface EspecialidadeProfissionalDAO {
-	void inserirEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional);
-	void deletarEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional);
-	void atualizarEspecialidadeProfissional(EspecialidadeProfissional especialidadeProfissional);
-	List<EspecialidadeProfissional> recuperarEspecialidadeProfissional();
-	EspecialidadeProfissional recuperarEspecialidadePorId(Integer id);
-	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisPorId(Integer id);
+	void inserirEspecialidadeProfissionalDaInstituicao(EspecialidadeProfissional especialidadeProfissional);
+	void deletarEspecialidadeProfissionalDaInstituicao(EspecialidadeProfissional especialidadeProfissional);
+	void atualizarEspecialidadeProfissionalDaInstituicao(EspecialidadeProfissional especialidadeProfissional);
+	List<EspecialidadeProfissional> recuperarEspecialidadeProfissionalDaInstituicao();
+	EspecialidadeProfissional recuperarEspecialidadeDaInstituicaoPorId(Integer id);
+	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisDaInstituicaoPorId(Integer id);
 }

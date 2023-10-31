@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/especialidades-instituicao.css">
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/especialidades-instituicao.css"%></style>
 </head>
 <body>
     <header id="content-header" class="template-grid">
@@ -21,20 +21,19 @@
         <div id="pesquisa-retornar" class="template-grid">
             <div id="retornar-especialidade">
                 <p class="text">Especialidades atendidas pela instituição</p>
-                <button class="btn-square-sm text-emphasis">Adicionar <img src="../../images/icone-adicionar.svg"></button>
+                <button class="botao-quadrado-p texto-enfase">Adicionar <img src="../../images/icone-adicionar.svg"></button>
             </div>
         </div>
         <div id="especialidade" class="template-grid">
 
             <c:forEach var="especialidade" items="${especialidades}">
             <div class="card-especialidade">
-                <p class="text-emphasis"><c:out value='${especialidade.id}' /> <c:out value="${especialidade.nome}"/> Geral</p>
+                <p class="texto-enfase"><c:out value='${especialidade.id}' /> <c:out value="${especialidade.nome}"/></p>
                 <div class="card-info">
                     <div class="info-profissional">
                         <img src="../../images/icone-profissional.svg" alt="icone-profissional">
-                        <p class="text"><c:out value="${especialidade.profissionais}" /></p> <!-- descobrir como pegar esse número -->
-                    </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
+                        <p class="text">Mostrar profissionais</p>
+                    <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
                 </div>
             </div>
             </c:forEach>
@@ -72,7 +71,7 @@
             <hr><br>
             <div class="commercial-content">
                 <img src="../../images/logo-rodape.svg" alt="logo-mediconnect">
-                <p class="text-small">2023 &copy Todos os direitos reservados</p>
+                <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
             </div>
         </div>
     </footer>
