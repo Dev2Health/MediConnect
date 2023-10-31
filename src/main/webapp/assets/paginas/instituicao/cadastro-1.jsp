@@ -6,13 +6,13 @@
     <title>Cadastrar Instituição | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../imagens/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="webapp/assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/instituicao-cadastro-1.css"%></style>
 </head>
 <body>
     <header class="template-grid" id="cabecalho">
-        <img src="../../imagens/logo-legendado.svg" alt="logo-mediconnect">
+        <img src="webapp/assets/imagens/logo-legendado.svg" alt="logo-mediconnect">
         <nav class="barra-navegacao">
             <a href="../cadastro-usuario.html" class="texto link-escuro">Voltar ao cadastro</a>
             <a href="#" class="botao-circular-m texto link-claro">Nos contacte</a>
@@ -27,7 +27,7 @@
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="../../imagens/icone-instituicao.svg" alt="icone-instituicao">
+                        <img src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                     </div>
                     <div class="input-item">
                         <label for="razao" class="texto">Razão Social</label>
@@ -36,33 +36,33 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="../../imagens/icone-cnpj.svg" alt="icone-cnpj">
+                        <img src="webapp/assets/imagens/icone-cnpj.svg" alt="icone-cnpj">
                     </div>
                     <div class="input-item">
                         <label for="cnpj" class="texto">CNPJ</label>
                         <input class="texto-enfase" type="text" id="i.cnpj" name="cnpj" oninput="mascaraCnpj()" placeholder="XX.XXX.XXX/XXXX-XX" maxlength="18" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="../../imagens/icone-nao-verificado.svg">
+                        <img src="webapp/assets/imagens/icone-nao-verificado.svg">
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="../../imagens/icone-senha.svg" alt="icone-senha">
+                        <img src="webapp/assets/imagens/icone-senha.svg" alt="icone-senha">
                     </div>
                     <div class="input-item">
                         <label for="senha" class="texto">Senha</label>
                         <input class="texto-enfase" type="password" id="i.senha" name="senha" oninput="mascaraSenha()" placeholder="********" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="../../imagens/icone-olho-fechado.svg">
+                        <img src="webapp/assets/imagens/icone-olho-fechado.svg">
                     </div>
                 </div>
             </div>
             <div class="formulario-direita">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="../../imagens/icone-instituicao.svg" alt="icone-instituicao">
+                        <img src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                     </div>
                     <div class="input-item">
                         <label for="fantasia" class="texto">Nome Fantasia</label>
@@ -71,26 +71,26 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="../../imagens/icone-email.svg" alt="icone-email">
+                        <img src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">E-mail</label>
                         <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="seu.email@gmail.com" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="../../imagens/icone-nao-verificado.svg">
+                        <img src="webapp/assets/imagens/icone-nao-verificado.svg">
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="../../imagens/icone-senha.svg" alt="icone-senha">
+                        <img src="webapp/assets/imagens/icone-senha.svg" alt="icone-senha">
                     </div>
                     <div class="input-item">
                         <label for="confirmar-senha" class="texto">Confirmar Senha</label>
                         <input class="texto-enfase" type="password" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" maxlength="100" placeholder="********">
                     </div>
                     <div class="input-elemento">
-                        <img src="../../imagens/icone-olho-fechado.svg">
+                        <img src="webapp/assets/imagens/icone-olho-fechado.svg">
                     </div>
                 </div>
                 <div class="formulario-rodape">

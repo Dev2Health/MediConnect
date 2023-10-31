@@ -168,7 +168,7 @@ body {
 .card-attendant {
     border: 3px solid var(--blue);
     border-radius: 40px;
-    width: 25vw;  /* Talvez precisará ter tamanho + responsivo no futuro */
+    width: 25vw;
     height: 525px;
     background-color: var(--light);
     margin-top: 150px;
