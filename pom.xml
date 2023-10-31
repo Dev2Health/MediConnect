@@ -39,7 +39,15 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>
+
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.14.0</version>
+
+		</dependency>
 	</dependencies>
+	
 	<build>
 		<pluginManagement>
 			<plugins>

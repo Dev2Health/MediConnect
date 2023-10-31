@@ -8,11 +8,15 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
+import main.java.mediconnect.controle.util.ConverterImagem;
+import main.java.mediconnect.controle.util.ConverterImagemImpl;
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAO;
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAOImpl;
 import main.java.mediconnect.modelo.dao.conquista.ConquistaDAO;
@@ -38,6 +42,7 @@ import main.java.mediconnect.modelo.entidade.paciente.Paciente;
 import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
 import main.java.mediconnect.modelo.enumeracao.consulta.StatusConsulta;
 
+@MultipartConfig
 @WebServlet("/")
 public class Servlet extends HttpServlet {
 
@@ -50,6 +55,8 @@ public class Servlet extends HttpServlet {
 	private EspecialidadeProfissionalDAO especialidadeDAO;
 	private PacienteDAO pacienteDAO;
 	private ConquistaDAO conquistaDAO;
+	private ConverterImagem converterImagem;
+	private byte [] fotoPerfil = null;
 
 	public void init() {
 
@@ -61,6 +68,7 @@ public class Servlet extends HttpServlet {
 		enderecoDAO = new EnderecoDAOImpl();
 		atendenteDAO = new AtendenteDAOImpl();
 		consultaDAO = new ConsultaDAOImpl();
+		converterImagem = new ConverterImagemImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -482,6 +490,8 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		Paciente paciente = null;
+		Part parteFoto = null;
+		
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
@@ -491,8 +501,11 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
+		parteFoto = request.getPart("foto-perfil");
+		fotoPerfil = converterImagem.obterBytesImagem(parteFoto);
+		
 
-		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone);
+		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, fotoPerfil);
 
 		pacienteDAO.inserirPaciente(paciente);
 		response.sendRedirect("perfil-paciente");
