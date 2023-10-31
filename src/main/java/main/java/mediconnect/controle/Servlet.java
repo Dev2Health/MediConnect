@@ -305,7 +305,7 @@ public class Servlet extends HttpServlet {
 		
 		HttpSession sessao = request.getSession();
 		
-		if (sessao.getAttribute("usuario" instanceOf Paciente)) {
+		if (sessao.getAttribute("usuario") instanceof Paciente) {
 			
 		}
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -836,9 +836,8 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("home");
 		
 		}
-	
 		
-		}
+	}
 	
 	
 }
