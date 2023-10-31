@@ -615,7 +615,7 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
-		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(1);
+		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
 
 		if (consultas != null) {
 
@@ -958,11 +958,11 @@ public class Servlet extends HttpServlet {
 	private void inserirEspecialidade(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-//		Integer id = Integer.parseInt(request.getParameter("id"));
+		Integer id = Integer.parseInt(request.getParameter("id"));
 
-//		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-//		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorIdInstituicao(id);
-//		
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorIdInstituicao(id);
+		
 		EspecialidadeProfissional especialidade = null;
 
 		String nome = request.getParameter("nome");
@@ -971,14 +971,14 @@ public class Servlet extends HttpServlet {
 
 		especialidadeDAO.inserirEspecialidadeProfissionalDaInstituicao(especialidade);
 
-//		instituicao.adicionarEspecialidadeProfissional(especialidade);
-//		
-//		instituicaoDAO.atualizarInstituicao(instituicao);
-//		
-//		profissional.setEspecialidadeProfissional(especialidade);
-//		
-//		profissionalDAO.atualizarProfissionalDeSaude(profissional);
-//		
+		instituicao.adicionarEspecialidadeProfissional(especialidade);
+	
+		instituicaoDAO.atualizarInstituicao(instituicao);
+		
+		profissional.setEspecialidadeProfissional(especialidade);
+		
+		profissionalDAO.atualizarProfissionalDeSaude(profissional);
+		
 		response.sendRedirect("especialidades-instituicao");
 
 	}
@@ -1170,8 +1170,21 @@ public class Servlet extends HttpServlet {
 			Usuario usuario = usuarioDAO.recuperarUsuarioPorEmail(emailUsuario);
 			sessao.setAttribute("usuario", usuario);
 			response.sendRedirect("home");
+		} else { 
+			usuarioInvalido = "invalido";
+			
+			request.setAttribute("usuarioInvalido", usuarioInvalido);
+			response.sendRedirect("login");
+		}	 
 		
-		}
+	}
+	
+	private void finalizarLogin(HttpServletRequest request, HttpServletResponse response) 
+			throws SQLException, IOException {
+		
+		request.getSession().invalidate();
+		
+		response.sendRedirect("index");
 		
 	}
 	
