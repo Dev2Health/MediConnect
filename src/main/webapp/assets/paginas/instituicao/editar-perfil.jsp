@@ -24,7 +24,7 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados da instituição</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro">Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
                     </div>
                 </div>
                 <div id="dados-formulario" class="template-grid">
@@ -125,7 +125,7 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados sensíveis</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro">Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
                     </div>
                 </div>
                 <div id="confirmar-email" class="template-grid">
@@ -140,7 +140,7 @@
                                 <div class="formulario-icone">
                                     <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
                                 </div>
-                                <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100" required>
+                                <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100" disabled>
                             </div>
                         </div>
                         <div class="email-validar">
@@ -161,14 +161,14 @@
                             <div id="senha-atual">
                                 <label for="senha" class="texto">Nova Senha</label>
                                 <div class="input-senha">
-                                    <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" required>
+                                    <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" disabled>
                                     <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha">
                                 </div>
                             </div>
                             <div id="senha-nova">
                                 <label for="novasenha" class="texto">Confirmar Senha</label>
                                 <div class="input-senha">
-                                    <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" required>
+                                    <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" disabled>
                                     <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
                                 </div>
                             </div>
