@@ -99,19 +99,19 @@ html {
 
 /* Links */
 
-.link-claro {
+.texto-claro {
     color: var(--fundo-claro);
 }
 
-.link-escuro {
+.texto-escuro {
     color: var(--escuro);
 }
 
-.link-roxo {
+.texto-roxo {
     color: var(--roxo);
 }
 
-.link-azul {
+.texto-azul {
     color: var(--azul);
 }
 
@@ -163,6 +163,10 @@ html {
 
 .ilustracao {
     width: 33.33vw;
+}
+
+.icone-claro {
+    filter: brightness(100);
 }
 
 /* Grid - Posicionamento */
@@ -245,7 +249,133 @@ html {
 
 /* Perfil */
 
+.perfil-apresentacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
 
+.perfil-apresentacao .perfil-foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border: 5px solid;
+    border-radius: 50%;
+    background-color: var(--claro);
+}
+
+.perfil-apresentacao .perfil-editar button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    color: var(--claro);
+
+    transition: 300ms background-color ease;
+    /* quando em :hover, o fundo do botão será claro - especificar isso nas telas */
+}
+
+.perfil-apresentacao .perfil-editar img {
+    width: 30px;
+}
+
+.ver-tudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.ver-tudo button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    transition: 300ms background-color ease;
+    /* quando em :hover, o fundo do botão será claro - especificar isso nas telas */
+}
+
+.ver-tudo button img {
+    width: 20px;
+}
+
+/* Cards - Atendentes & Pacientes Cadastrados */
+
+.cards-agrupamento {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+
+.card-entidade {
+    border: 3px solid;
+    border-radius: 40px;
+    width: 25vw;
+    height: 525px;
+    background-color: var(--claro);
+    margin-top: 150px;
+}
+
+.card-superior {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.card-superior .entidade-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 180px;
+    border: 3px solid;
+    border-radius: 50%;
+
+    position: absolute;
+    top: -100px;
+    left: auto;
+}
+
+.card-superior .entidade-imagem img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.card-superior .entidade-informacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0 20px 0;
+}
+
+.card-meio {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.card-meio img {
+    width: 30px;
+}
+
+.card-inferior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 15px;
+}
+
+.card-inferior .inferior-informacao {
+    width: 200px;
+}
 
 /* Footer */
 
