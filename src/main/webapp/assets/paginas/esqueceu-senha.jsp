@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="webapp/assets/imagens/favicon.ico">
     <style><%@include file="../estilos/padroes.css"%></style>
-    <style><%@include file="../estilos/esqueceu-sua-senha.css"%></style>
+    <style><%@include file="../estilos/esqueceu-senha.css"%></style>
 </head>
 <body>
     <header class="template-grid" id="cabecalho">
         <nav class="barra-navegacao">
             <img src="webapp/assets/imagens/icone-voltar.svg" alt="icone-voltar">
-            <a href="../../index.jsp" class="texto link-escuro">Voltar</a>
+            <a href="../../index.jsp" class="texto texto-escuro">Voltar</a>
         </nav>
         <h1 class="titulo">Esqueceu sua senha?</h1>
         <img src="webapp/assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
@@ -23,7 +23,7 @@
         <form action="">
             <div id="confirmar-email" class="template-grid">
                 <div class="email-superior">
-                    <img src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
+                    <img class="icone-claro" src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
                     <p class="texto">Antes de prosseguir, informe seu endereço de e-mail abaixo</p>
                 </div>
                 <div class="email-conteudo">
@@ -31,7 +31,7 @@
                         <label for="email" class="texto">E-mail atual</label>
                         <div id="formulario-email"> 
                             <div id="formulario-icone">
-                                <img src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
+                                <img class="icone-claro" src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
                             </div>
                             <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="seu.email@gmail.com" maxlength="100" required>
                         </div>
@@ -68,7 +68,7 @@
                             <p class="texto-sem-enfase">Enviar confirmação para o e-mail cadastrado</p>
                         </div>
                         <div class="validar-conteudo">
-                            <a href="#" class="texto-enfase link-escuro">Enviar confirmação</a>
+                            <a href="#" class="texto-enfase texto-escuro">Enviar confirmação</a>
                             <img src="webapp/assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
                         </div>
                     </div>
@@ -76,8 +76,8 @@
             </div>
             <div class="template-grid">
                 <div class="botoes">
-                    <button type="submit" class="botao-circular-m texto-enfase link-claro">Salvar Alterações</button>
-                    <button type="reset" class="botao-circular-m texto-enfase link-roxo">Descartar Alterações</button>
+                    <button type="submit" class="botao-circular-m texto-enfase texto-claro">Salvar Alterações</button>
+                    <button type="reset" class="botao-circular-m texto-enfase texto-roxo">Descartar Alterações</button>
                 </div>
             </div>
         </form>           
