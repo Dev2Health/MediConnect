@@ -1,0 +1,135 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.barra-navegacao img {
+    width: 50px;
+}
+
+/* Definições Gerais */
+
+.institution-icon {
+    /* Isso está sendo usado? */
+    height: 50px;
+}
+
+.ver-tudo button {
+    color: var(--fundo-instituicao);
+    background-color: var(--azul-escuro);
+}
+
+.ver-tudo button:hover {
+    background-color: var(--azul);
+}
+
+/* Perfil - Início */
+
+#perfil {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 85px;
+}
+
+.perfil-apresentacao .perfil-foto {
+    border-color: var(--azul);
+}
+
+.perfil-apresentacao .perfil-editar button {
+    background-color: var(--azul-escuro);
+}
+
+.perfil-apresentacao .perfil-editar button:hover {
+    background-color: var(--azul);
+}
+
+.perfil-informacao {
+    grid-column: 2 / 12;
+    display: flex;
+    color: var(--claro);
+    background-color: var(--azul);
+    border-radius: 40px;
+}
+
+.perfil-informacao .perfil-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.5vw;
+}
+
+.perfil-informacao .perfil-imagem img {
+    width: 50px;
+}
+
+
+/* Cards Especialidades */
+
+#especialidades {
+    margin-top: 120px;
+}
+
+.card-especialidade {
+    grid-column: 2 / 12;
+    margin-top: 50px;
+    padding: 25px 8.33vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--claro);
+    border: 3px solid var(--azul);
+    border-radius: 40px;
+}
+
+.card-especialidade .card-informacao {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.card-informacao .informacao-profissional {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.card-informacao .informacao-profissional img {
+    height: 50px;
+}
+
+.card-informacao button {
+    color: var(--fundo-instituicao);
+    background-color: var(--azul);
+}
+
+/* Cards Atendentes */
+
+.card-entidade {
+    border-color: var(--azul);
+}
+
+.card-superior .entidade-imagem {
+    border-color: var(--azul);
+}
+
+.card-meio {
+    color: var(--fundo-instituicao);
+    background-color: var(--azul);
+}

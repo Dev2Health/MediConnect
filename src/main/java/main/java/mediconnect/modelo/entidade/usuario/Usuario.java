@@ -3,6 +3,7 @@ package main.java.mediconnect.modelo.entidade.usuario;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import javax.persistence.*;
@@ -36,6 +37,10 @@ public abstract class Usuario implements Serializable {
 	@Column(name = "eh_ativo_usuario", nullable = false)
 	private boolean ehAtivo;
 	
+	@Lob
+	@Column(name="foto_perfil_usuario", nullable = true, unique = false)
+	private byte[] fotoPerfil;
+	
 	// CONSTRUTOR
 	
 	public Usuario() {}
@@ -59,6 +64,23 @@ public abstract class Usuario implements Serializable {
 		setEmail(email);
 		setSenha(senha);
 		setEhAtivo(ehAtivo);
+	}
+	
+	public Usuario (Integer id, String email, String senha, boolean ehAtivo,  byte[] fotoPerfil) {
+		super();
+		setId(id);
+		setEmail(email);
+		setSenha(senha);
+		setEhAtivo(ehAtivo);
+		setFotoPerfil(fotoPerfil);
+	}
+	
+	public Usuario (String email, String senha, boolean ehAtivo,  byte[] fotoPerfil) {
+		super();
+		setEmail(email);
+		setSenha(senha);
+		setEhAtivo(ehAtivo);
+		setFotoPerfil(fotoPerfil);
 	}
 	
 	// MÉTODOS DE ACESSO
@@ -103,5 +125,19 @@ public abstract class Usuario implements Serializable {
 	
 	public void setEhAtivo (boolean ehAtivo) {
 		this.ehAtivo = ehAtivo;
+	}
+	
+	// Imagem
+	public byte[] getfotoPerfil() {
+		return fotoPerfil;
+	}
+	
+	public void setFotoPerfil(byte[] fotoPerfil) {
+		this.fotoPerfil = fotoPerfil;
+	}
+	
+	public String urlFoto() {
+		String urlFoto =("data:image/jpeg;base64," + Base64.getEncoder().encodeToString(this.fotoPerfil));
+		return urlFoto;
 	}
 }

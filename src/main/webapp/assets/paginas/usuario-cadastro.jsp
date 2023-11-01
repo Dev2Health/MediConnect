@@ -14,7 +14,7 @@
     <header class="template-grid" id="cabecalho">
         <nav class="barra-navegacao">
             <img src="webapp/assets/imagens/icone-voltar.svg" alt="icone-voltar">
-            <a href="../../index.jsp" class="texto link-escuro">Voltar</a>
+            <a href="../../index.jsp" class="texto texto-escuro">Voltar</a>
         </nav>
         <img src="webapp/assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
     </header>
@@ -26,15 +26,15 @@
             <h1 class="titulo-especial">Deseja criar o seu cadastro?</h1>
             <div class="botoes">
                 <button class="botao-circular-g">
-                    <img src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-cadastro">
-                    <a href="./instituicao/cadastro-1.html" class="texto link-claro">Cadastrar Instituição</a>
+                    <img class="icone-claro" src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-cadastro">
+                    <a href="./instituicao/cadastro-1.html" class="texto texto-claro">Cadastrar Instituição</a>
                 </button>
                 <button class="botao-circular-g">
-                    <img src="webapp/assets/imagens/icone-paciente.svg" alt="icone-paciente">
-                    <a href="./paciente/cadastro.html" class="texto link-claro">Cadastrar Paciente</a>
+                    <img class="icone-claro" src="webapp/assets/imagens/icone-paciente.svg" alt="icone-paciente">
+                    <a href="./paciente/cadastro.html" class="texto texto-claro">Cadastrar Paciente</a>
                 </button>
             </div>
-            <p class="texto-sem-enfase">Caso possua uma conta, <a href="./usuario-login.jsp" class="texto-enfase link-roxo">clique aqui</a> para fazer o login</p>
+            <p class="texto-sem-enfase">Caso possua uma conta, <a href="./usuario-login.jsp" class="texto-enfase texto-roxo">clique aqui</a> para fazer o login</p>
         </div>
     </main>
 </body>

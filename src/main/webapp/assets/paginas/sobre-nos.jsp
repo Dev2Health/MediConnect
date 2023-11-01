@@ -15,15 +15,15 @@
     <header class="template-grid" id="cabecalho">
         <img src="webapp/assets/imagens/logo.svg" alt="logo-mediconnect" id="logo">
         <nav class="barra-navegacao">
-            <a href="../../index.jsp" class="texto link-escuro">Página Inicial</a>
-            <a href="./login-usuario.html" class="texto link-escuro">Entrar</a>
-            <a href="./cadastro-usuario.html" class="botao-circular-m texto link-claro">Cadastrar</a>
+            <a href="../../index.jsp" class="texto texto-escuro">Página Inicial</a>
+            <a href="./login-usuario.html" class="texto texto-escuro">Entrar</a>
+            <a href="./cadastro-usuario.html" class="botao-circular-m texto texto-claro">Cadastrar</a>
         </nav>
     </header>
     <main>
         <section id="sessao-propositos" class="template-grid">
             <div id="propositos-titulo">
-                <h1 class="titulo-especial"><span class="link-azul">Medi</span>Connect</h1>
+                <h1 class="titulo-especial"><span class="texto-azul">Medi</span>Connect</h1>
             </div>
             <div id="container-propositos">
                 <div class="container-missao">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="conteudo-direita caixa-textual">
-                <h1 class="titulo-especial link-roxo">Quem somos?</h1>
+                <h1 class="titulo-especial texto-roxo">Quem somos?</h1>
                 <p class="texto-sem-enfase">Aqui, trazer pelo que cada um ficou responsável ao longo do projeto - expondo apenas brevemente e com poucos detalhes sobre cada um, apenas para ressaltar o enfoque que cada um deu no projeto (front-end, back-end, full-stack).</p>
             </div>
         </section>
@@ -70,27 +70,27 @@
         <div class="template-grid" id="rodape-links">
             <div class="rodape-mediconnect">
                 <p class="texto">MediConnect</p>
-                <a href="#sessao-propositos" class="texto-sem-enfase link-claro">Sobre nós</a>
-                <a href="../../index.jsp" class="texto-sem-enfase link-claro">Página inicial</a>
+                <a href="#sessao-propositos" class="texto-sem-enfase texto-claro">Sobre nós</a>
+                <a href="../../index.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
             </div>
             <div class="rodape-contato">
                 <p class="texto">Atendimento</p>
-                <a href="#" class="texto-sem-enfase link-claro">Contato</a>
-                <a href="#" class="texto-sem-enfase link-claro">Termos de Uso</a>
+                <a href="#" class="texto-sem-enfase texto-claro">Contato</a>
+                <a href="#" class="texto-sem-enfase texto-claro">Termos de Uso</a>
             </div>
             <div class="rodape-social">
                 <p class="texto">Redes Sociais</p>
                 <div class="social-whatsapp">
                     <img src="webapp/assets/imagens/logo-whatsapp.svg">
-                    <a href="#" class="texto-sem-enfase link-claro">WhatsApp</a>
+                    <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
                 </div>
                 <div class="social-github">
                     <img src="webapp/assets/imagens/logo-github.svg">
-                    <a href="#" class="texto-sem-enfase link-claro">GitHub</a>
+                    <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
                 </div>
                 <div class="social-instagram">
                     <img src="webapp/assets/imagens/logo-instagram.svg">
-                    <a href="#" class="texto-sem-enfase link-claro">Instagram</a>
+                    <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
                 </div>
             </div>
         </div>

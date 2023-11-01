@@ -14,8 +14,8 @@
     <header class="template-grid" id="cabecalho">
         <img src="webapp/assets/imagens/logo-legendado.svg" alt="logo-mediconnect">
         <nav class="barra-navegacao">
-            <a href="../cadastro-usuario.html" class="texto link-escuro">Voltar ao cadastro</a>
-            <a href="#" class="botao-circular-m texto link-claro">Nos contacte</a>
+            <a href="../cadastro-usuario.html" class="texto texto-escuro">Voltar ao cadastro</a>
+            <a href="#" class="botao-circular-m texto texto-claro">Nos contacte</a>
         </nav>
     </header>
     <main>
@@ -94,8 +94,8 @@
                     </div>
                 </div>
                 <div class="formulario-rodape">
-                    <button type="submit" class="botao-circular-p texto-enfase link-claro">Continuar</button>
-                    <button type="reset" class="botao-circular-p texto-enfase">Limpar</button>
+                    <button type="submit" class="botao-circular-p texto-enfase texto-claro">Continuar</button>
+                    <button type="reset" class="botao-circular-p texto-enfase texto-escuro">Limpar</button>
                 </div>
             </div>
         </form>

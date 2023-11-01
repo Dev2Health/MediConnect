@@ -60,17 +60,17 @@ public class Paciente extends Pessoa implements Serializable {
 	}
 
 	public Paciente(Integer id, String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			LocalDate dataNascimento, String telefone) {
+			LocalDate dataNascimento, String telefone, byte[] fotoPerfil) {
 
-		super(id, email, senha, ehAtivo, nome, sobrenome, cpf);
+		super(id, email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
 		setDataNascimento(dataNascimento);
 		setTelefone(telefone);
 
 	}
 	
 	public Paciente(String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			LocalDate dataNascimento, String telefone) {
-		super(email, senha, ehAtivo, nome, sobrenome, cpf);
+			LocalDate dataNascimento, String telefone, byte[] fotoPerfil) {
+		super(email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
 		setDataNascimento(dataNascimento);
 		setTelefone(telefone);
 

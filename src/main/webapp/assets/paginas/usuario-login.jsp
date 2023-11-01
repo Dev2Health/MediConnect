@@ -15,7 +15,7 @@
     <header class="template-grid" id="cabecalho">
         <nav class="barra-navegacao">
             <img src="webapp/assets/imagens/icone-voltar.svg" alt="icone-voltar">
-            <a href="../../index.jsp" class="texto link-escuro">Voltar</a>
+            <a href="../../index.jsp" class="texto texto-escuro">Voltar</a>
         </nav>
         <img src="webapp/assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
     </header>
@@ -51,8 +51,8 @@
                     </div>
                 </div>
                 <div class="formulario-rodape">
-                    <button type="submit" class="botao-circular-p texto-enfase link-claro">Entrar</button>
-                    <a href="./esqueceu-sua-senha.html" class="texto-enfase link-roxo">Esqueceu sua senha?</a>
+                    <button type="submit" class="botao-circular-p texto-enfase texto-claro">Entrar</button>
+                    <a href="./esqueceu-sua-senha.html" class="texto-enfase texto-roxo">Esqueceu sua senha?</a>
                 </div>
             </form>
         </div>

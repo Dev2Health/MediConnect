@@ -12,7 +12,7 @@
 					Cadastrar Paciente
 				</h1>
 				<div>
-					<form action="inserir-paciente" method="post">
+					<form action="inserir-paciente" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="id" value="<c:out value='${paciente.id}' />" />
 					<label>Nome:</label>
 					<input type="text" id="p.nome" name="nome" placeholder="Informe o nome..."> 
@@ -30,7 +30,9 @@
 					<input type="password" id="p.senha" name="senha" oninput="mascaraSenha()" placeholder="Informe a senha..."> 
 					<label>Confirmar Senha:</label>
 					<input type="password" id="p.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" placeholder="Confirme a senha..."> 
-
+					<label>Foto Perfil</label> 
+					<input type="file" id="foto-perfil" name="foto-perfil">
+					
 					<button type="submit">Salvar</button>
 					<button type="reset">Limpar Formulário</button>
 				</form>

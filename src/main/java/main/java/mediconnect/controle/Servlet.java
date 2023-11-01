@@ -2,18 +2,22 @@ package main.java.mediconnect.controle;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import javax.servlet.http.Part;
+import main.java.mediconnect.controle.util.ConverterImagem;
+import main.java.mediconnect.controle.util.ConverterImagemImpl;
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAO;
 import main.java.mediconnect.modelo.dao.atendente.AtendenteDAOImpl;
 import main.java.mediconnect.modelo.dao.conquista.ConquistaDAO;
@@ -45,6 +49,7 @@ import main.java.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeS
 import main.java.mediconnect.modelo.entidade.usuario.Usuario;
 import main.java.mediconnect.modelo.enumeracao.consulta.StatusConsulta;
 
+@MultipartConfig
 @WebServlet("/")
 public class Servlet extends HttpServlet {
 
@@ -59,6 +64,8 @@ public class Servlet extends HttpServlet {
 	private ConquistaDAO conquistaDAO;
 	private PacienteConquistaDAO pacienteConquistaDAO;
 	private UsuarioDAO usuarioDAO;
+	private ConverterImagem converterImagem;
+	private byte [] fotoPerfil = null;
 
 	public void init() {
 
@@ -72,7 +79,7 @@ public class Servlet extends HttpServlet {
 		consultaDAO = new ConsultaDAOImpl();
 		pacienteConquistaDAO = new PacienteConquistaDAOImpl();
 		usuarioDAO = new UsuarioDAOImpl();
-
+		converterImagem = new ConverterImagemImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -181,7 +188,7 @@ public class Servlet extends HttpServlet {
 
 			// TELA EDITAR PERFIL PACIENTE
 
-			case "/editar-paciente":
+			case "/atualizar-paciente":
 				editarPaciente(request, response);
 				break;
 
@@ -213,7 +220,7 @@ public class Servlet extends HttpServlet {
 
 			// TELA EDITAR PERFIL ATENDENTE
 
-			case "/editar-atendente":
+			case "/atualizar-atendente":
 				editarAtendente(request, response);
 				break;
 
@@ -229,7 +236,7 @@ public class Servlet extends HttpServlet {
 
 			// TELA EDITAR PERFIL INSTITUICAO
 
-			case "/editar-instituicao":
+			case "/atualizar-instituicao":
 				editarInstituicao(request, response);
 				break;
 
@@ -499,6 +506,8 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		Paciente paciente = null;
+		Part parteFoto = null;
+		
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
@@ -508,8 +517,11 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
+		parteFoto = request.getPart("foto-perfil");
+		fotoPerfil = converterImagem.obterBytesImagem(parteFoto);
+		
 
-		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone);
+		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, fotoPerfil);
 
 		pacienteDAO.inserirPaciente(paciente);
 		response.sendRedirect("perfil-paciente");
@@ -563,10 +575,11 @@ public class Servlet extends HttpServlet {
 				concluido = true;
 
 		}
+		Date dataNascimento = java.sql.Date.valueOf(paciente.getDataNasciento());
 		request.setAttribute("paciente", paciente);
-
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("assets/paginas/paciente/editar-perfil-paciente.jsp");
+		request.setAttribute("dataNascimento", dataNascimento);
+//		request.setAttribute("dataNascimento", paciente.getDataNasciento());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -574,9 +587,17 @@ public class Servlet extends HttpServlet {
 	private void editarPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		boolean concluido = false;
+		int id = 1;
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
+		while (!concluido) {
+			paciente = pacienteDAO.recuperarPacientePorId(id);
+			if (paciente == null)
+				id++;
+			else
+				concluido = true;
 
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
+		}
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
@@ -744,12 +765,20 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEditarPerfilAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		boolean concluido = false;
+		int id = 1;
+		Atendente atendente = atendenteDAO.recuperarAtendentePorId(1);
+		while (!concluido) {
+			atendente = atendenteDAO.recuperarAtendentePorId(id);
+			if (atendente == null)
+				id++;
+			else
+				concluido = true;
 
-		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
-
-		request.setAttribute("paciente", atendente);
-
+		}
+		Date dataCadastro = java.sql.Date.valueOf(atendente.getDataCadastro());
+		request.setAttribute("data", dataCadastro);
+		request.setAttribute("atendente", atendente);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/editar-perfil.jsp");
 		dispatcher.forward(request, response);
 
