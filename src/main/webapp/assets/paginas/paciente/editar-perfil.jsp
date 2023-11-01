@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html lang="pt-br">
 
 <head>
@@ -41,7 +42,7 @@
                         </div>
                         <div class="input-itens">
                             <label for="name" class="text">Nome</label>
-                            <input class="text-emphasis" type="text" value="<c:out value='${paciente.nome}/>'"
+                            <input class="text-emphasis" type="text" value="<c:out value='${paciente.nome}'/>"
                             id="p.nome" name="nome" disabled>
                         </div>
 
@@ -52,7 +53,7 @@
                         </div>
                         <div class="input-itens">
                             <label for="cpf" class="text">CPF</label>
-                            <input class="text-emphasis" type="text" value="<c:out value='${paciente.cpf}/>'"
+                            <input class="text-emphasis" type="text" value="<c:out value='${paciente.cpf}'/>"
                             id="p.cpf" name="cpf" disabled>
                         </div>
 
@@ -66,7 +67,7 @@
                         </div>
                         <div class="input-itens">
                             <label for="surname" class="text">Sobrenome</label>
-                            <input class="text-emphasis" type="text" value="<c:out value='${paciente.sobrenome}/>'"
+                            <input class="text-emphasis" type="text" value="<c:out value='${paciente.sobrenome}'/>"
                             id="p.sobrenome" name="sobrenome" disabled>
                         </div>
 
@@ -78,8 +79,9 @@
                         </div>
                         <div class="input-itens">
                             <label for="date" class="text">Data de nascimento</label>
-                            <input class="text-emphasis" type="date" value="<c:out value='${paciente.data}/>'"
-                            id="p.data" name="data" disabled>
+                            
+                            <input class="text-emphasis" type="datetime" value="<fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/>" id="p.data" name="data" disabled/>
+                            <p></p>
                         </div>
                     </div>
 
@@ -108,7 +110,7 @@
                         </div>
                         <div class="input-itens">
                             <label for="phone" class="text">Telefone</label>
-                            <input class="text-emphasis" type="tel" value="<c:out value='${paciente.telefone}/>'" id="p.telefone" name="telefone" oninput="mascaraTelefone()" maxlength="16"
+                            <input class="text-emphasis" type="tel" value="<c:out value='${paciente.telefone}'/>" id="p.telefone" name="telefone" oninput="mascaraTelefone()" maxlength="16"
                                 pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
                         </div>
                         <div class="input-element">
