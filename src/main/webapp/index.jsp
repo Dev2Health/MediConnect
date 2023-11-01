@@ -15,9 +15,9 @@
     <header class="template-grid" id="cabecalho">
         <img src="assets/imagens/logo-legendado.svg" alt="logo-mediconnect" id="logo">
         <nav class="barra-navegacao">
-            <a href="./assets/paginas/sobre-nos.html" class="texto texto-escuro">Sobre o MediConnect</a>
-            <a href="./assets/paginas/login-usuario.html" class="texto texto-escuro">Entrar</a>
-            <a href="./assets/paginas/cadastrar-usuario.jsp" class="botao-circular-m texto texto-claro">Cadastrar</a>
+            <a href="assets/paginas/sobre-nos.html" class="texto texto-escuro">Sobre o MediConnect</a>
+            <a href="assets/paginas/login-usuario.html" class="texto texto-escuro">Entrar</a>
+            <a href="assets/paginas/cadastrar-usuario.jsp" class="botao-circular-m texto texto-claro">Cadastrar</a>
         </nav>
     </header>
     <main>
@@ -53,7 +53,7 @@
         <div class="template-grid" id="rodape-links">
             <div class="rodape-mediconnect">
                 <p class="texto">MediConnect</p>
-                <a href="./assets/paginas/sobre-nos.html" class="texto-sem-enfase texto-claro">Sobre nós</a>
+                <a href="assets/paginas/sobre-nos.html" class="texto-sem-enfase texto-claro">Sobre nós</a>
                 <a href="#sessao-principal" class="texto-sem-enfase texto-claro">Página inicial</a>
             </div>
             <div class="rodape-contato">

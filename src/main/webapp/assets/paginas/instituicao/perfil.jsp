@@ -33,8 +33,8 @@
                         <img class="icone-claro" src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                     </div>
                     <div class="perfil-detalhes">
-                        <h2 class="subtitulo">Intendência Distrital do Grande Garcia</h2>
-                        <p class="texto">endereço.email@gmal.com</p>
+                        <h2 class="subtitle"><c:out value="${instituicao.nomeFantasia}"/></h2>
+                        <p class="text"><c:out value="${instituicao.email}" /></p>
                     </div>
                 </div>
             </div>
