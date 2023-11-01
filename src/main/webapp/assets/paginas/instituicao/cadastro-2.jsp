@@ -6,13 +6,13 @@
     <title>Cadastrar Instituição | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="webapp/assets/imagens/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/instituicao-cadastro-2.css"%></style>
 </head>
 <body>
     <header class="template-grid" id="cabecalho">
-        <img src="webapp/assets/imagens/logo-legendado.svg" alt="logo-mediconnect">
+        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect">
         <nav class="barra-navegacao">
             <a href="../cadastro-usuario.html" class="texto texto-escuro">Voltar ao cadastro</a>
             <a href="#" class="botao-circular-m texto texto-claro">Nos contacte</a>
@@ -28,19 +28,19 @@
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="webapp/assets/imagens/icone-cep.svg" alt="icone-cep">
+                        <img src="./assets/imagens/icone-cep.svg" alt="icone-cep">
                     </div>
                     <div class="input-item">
                         <label for="cep" class="texto">CEP</label>
                         <input class="texto-enfase" type="text" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="XXXXX-XXX" maxlength="9" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="webapp/assets/imagens/icone-nao-verificado.svg">
+                        <img src="./assets/imagens/icone-nao-verificado.svg">
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="webapp/assets/imagens/icone-mapa.svg" alt="icone-mapa">
+                        <img src="./assets/imagens/icone-mapa.svg" alt="icone-mapa">
                     </div>
                     <div class="input-item">
                         <label for="cidade" class="texto">Cidade</label>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="webapp/assets/imagens/icone-logradouro.svg" alt="icone-logradouro">
+                        <img src="./assets/imagens/icone-logradouro.svg" alt="icone-logradouro">
                     </div>
                     <div class="input-item">
                         <label for="logradouro" class="texto">Logradouro</label>
@@ -60,7 +60,7 @@
             <div class="formulario-direita">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="webapp/assets/imagens/icone-mapa.svg" alt="icone-mapa">
+                        <img src="./assets/imagens/icone-mapa.svg" alt="icone-mapa">
                     </div>
                     <div class="input-item">
                         <label for="estado" class="texto">Estado</label>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="webapp/assets/imagens/icone-logradouro.svg" alt="icone-bairro">
+                        <img src="./assets/imagens/icone-logradouro.svg" alt="icone-bairro">
                     </div>
                     <div class="input-item">
                         <label for="bairro" class="texto">Bairro</label>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="webapp/assets/imagens/icone-numeros.svg" alt="icone-numero">
+                        <img src="./assets/imagens/icone-numeros.svg" alt="icone-numero">
                     </div>
                     <div class="input-item">
                         <label for="numero" class="texto">Número</label>

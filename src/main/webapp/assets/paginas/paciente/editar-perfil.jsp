@@ -1,6 +1,7 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -8,8 +9,8 @@
     <title>Editar perfil | Mediconnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/padroes.css">
 
 </head>
 
@@ -19,14 +20,14 @@
 
         <nav class="nav-bar">
 
-            <img src="../../images/icone-voltar.svg" alt="icone-voltar">
-            <a href="../../index.html" class="text link-dark">Voltar</a>
+            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
+            <a href="./assets/index.html" class="text link-dark">Voltar</a>
 
         </nav>
 
         <div>
 
-            <img src="../../images/perfil-paciente.png" alt="foto-de-perfil">
+            <img src="./assets/imagens/perfil-paciente.png" alt="foto-de-perfil">
 
         </div>
 
@@ -38,7 +39,7 @@
 
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-paciente.svg">
+                            <img src="./assets/imagens/icone-paciente.svg">
                         </div>
                         <div class="input-itens">
                             <label for="name" class="text">Nome</label>
@@ -49,7 +50,7 @@
                     </div>
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-cpf.svg">
+                            <img src="./assets/imagens/icone-cpf.svg">
                         </div>
                         <div class="input-itens">
                             <label for="cpf" class="text">CPF</label>
@@ -63,7 +64,7 @@
 
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-paciente.svg">
+                            <img src="./assets/imagens/icone-paciente.svg">
                         </div>
                         <div class="input-itens">
                             <label for="surname" class="text">Sobrenome</label>
@@ -75,7 +76,7 @@
 
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-paciente.svg">
+                            <img src="./assets/imagens/icone-paciente.svg">
                         </div>
                         <div class="input-itens">
                             <label for="date" class="text">Data de nascimento</label>
@@ -98,7 +99,7 @@
                     <p class="text">Alterar dado de contato</p>
                     <div>
                         <button class="btn-square-la" disabled>Habilitar edição</button>
-                        <img src="../../images/icone-editar.svg">
+                        <img src="./assets/imagens/icone-editar.svg">
                     </div>
                 </div>
 
@@ -106,15 +107,15 @@
 
                     <div class="form-input">
                         <div class="input-icon">
-                            <img src="../../images/icone-telefone.svg" alt="icone-telefone">
+                            <img src="./assets/imagens/icone-telefone.svg" alt="icone-telefone">
                         </div>
                         <div class="input-itens">
                             <label for="phone" class="text">Telefone</label>
                             <input class="text-emphasis" type="tel" value="<c:out value='${paciente.telefone}'/>" id="p.telefone" name="telefone" oninput="mascaraTelefone()" maxlength="16"
-                                pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
+                                pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" disabled>
                         </div>
                         <div class="input-element">
-                            <img src="../../images/icone-verificado.svg">
+                            <img src="./assets/imagens/icone-verificado.svg">
                         </div>
                     </div>
 
@@ -126,7 +127,7 @@
             <section>
                 <div id="confirm-email" class="template-grid">
                     <div class="email-header">
-                        <img src="../../images/icone-email.svg" alt="icone-email">
+                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
                         <p class="text">Antes de prosseguir, informe seu endereço de e-mail abaixo</p>
                     </div>
                     <div class="email-content">
@@ -134,15 +135,15 @@
                             <label for="email" class="text">E-mail atual</label>
                             <div id="form-email">
                                 <div id="form-icon">
-                                    <img src="../../images/icone-email.svg" alt="icone-email">
+                                    <img src="./assets/imagens/icone-email.svg" alt="icone-email">
                                 </div>
                                 <input class="text-emphasis" type="email" id="p.email" name="email"
-                                    placeholder="seu.email@gmail.com">
+                                    placeholder="seu.email@gmail.com" disabled>
                             </div>
                         </div>
                         <div id="email-validation">
                             <div class="validation-content">
-                                <img src="../../images/icone-atencao.svg" alt="icone-atencao"> <!--Alterar para Icone-->
+                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao"> <!--Alterar para Icone-->
                                 <p class="text-no-emphasis">Enviar o token de verificação para este e-mail</p>
                             </div>
                         </div>
@@ -155,8 +156,8 @@
                                 <label for="password" class="text">Nova Senha</label>
                                 <div class="password-input">
                                     <input class="text-emphasis" type="password" id="password" name="password"
-                                        placeholder="********">
-                                    <img src="../../images/icone-olho-fechado.svg" id="btn-password"
+                                        placeholder="********" disabled>
+                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="btn-password"
                                         onclick="showPassword()">
                                 </div>
                             </div>
@@ -164,20 +165,20 @@
                                 <label for="newpassword" class="text">Confirmar Senha</label>
                                 <div class="password-input">
                                     <input class="text-emphasis" type="password" id="newpassword" name="newpassword"
-                                        placeholder="********">
-                                    <img src="../../images/icone-olho-fechado.svg" id="btn-new-password"
+                                        placeholder="********" disabled>
+                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="btn-new-password"
                                         onclick="showPasswordAgain()">
                                 </div>
                             </div>
                         </div>
                         <div id="password-validation">
                             <div class="validation-content">
-                                <img src="../../images/icone-atencao.svg" alt="icone-atencao">
+                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
                                 <p class="text-no-emphasis">Enviar confirmação para o e-mail cadastrado</p>
                             </div>
                             <div class="validation-content">
                                 <a href="#" class="text-emphasis link-dark">Enviar confirmação</a>
-                                <img src="../../images/icone-redirecionar.svg" alt="icone-redirecionar">
+                                <img src="./assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
                                 <!--Alterar para Icone-->
                             </div>
                         </div>

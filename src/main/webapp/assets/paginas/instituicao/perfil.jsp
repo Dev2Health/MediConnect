@@ -6,35 +6,35 @@
     <title>Início | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="webapp/assets/imagens/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/instituicao-perfil.css"%></style>
 </head>
 <body>
     <header id="cabecalho" class="template-grid">
         <nav class="barra-navegacao">
-            <img src="webapp/assets/imagens/icone-menu.svg" alt="icone-menu">
-            <img src="webapp/assets/imagens/logo.svg" alt="logo-mediconnect">
+            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
+            <img src="./assets/imagens/logo.svg" alt="logo-mediconnect">
         </nav>
     </header>
     <main>
         <section id="perfil">
             <div class="perfil-apresentacao">
                 <div class="perfil-foto">
-                    <img src="webapp/assets/imagens/icone-camera.svg" alt="icone-camera">
+                    <img src="./assets/imagens/icone-camera.svg" alt="icone-camera">
                 </div>
                 <div class="perfil-editar">
-                    <button class="botao-quadrado-m texto-enfase">Editar Perfil <img src="webapp/assets/imagens/icone-editar.svg" alt="icone-editar"></button>
+                    <button class="botao-quadrado-m texto-enfase">Editar Perfil <img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
                 </div>
             </div>
             <div class="template-grid">
                 <div class="perfil-informacao">
                     <div class="perfil-imagem">
-                        <img class="icone-claro" src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
+                        <img class="icone-claro" src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                     </div>
                     <div class="perfil-detalhes">
-                        <h2 class="subtitulo">Intendência Distrital do Grande Garcia</h2>
-                        <p class="texto">endereço.email@gmal.com</p>
+                        <h2 class="subtitle"><c:out value="${instituicao.nomeFantasia}"/></h2>
+                        <p class="text"><c:out value="${instituicao.email}" /></p>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     <p class="texto-enfase">Clínico Geral</p>
                     <div class="card-informacao">
                         <div class="informacao-profissional">
-                            <img src="webapp/assets/imagens/icone-profissional.svg" alt="icone-profissional">
+                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
                             <p class="texto">4</p>
                         </div>
                         <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
@@ -58,7 +58,7 @@
                     <p class="texto-enfase">Oncologia</p>
                     <div class="card-informacao">
                         <div class="informacao-profissional">
-                            <img src="webapp/assets/imagens/icone-profissional.svg" alt="icone-profissional">
+                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
                             <p class="texto">2</p>
                         </div>
                         <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
@@ -68,7 +68,7 @@
                     <p class="texto-enfase">Odontologia</p>
                     <div class="card-informacao">
                         <div class="informacao-profissional">
-                            <img src="webapp/assets/imagens/icone-profissional.svg" alt="icone-profissional">
+                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
                             <p class="texto">3</p>
                         </div>
                         <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="ver-tudo">
-                <button href="./especialidades.jsp" class="botao-quadrado-p texto-enfase"> Ver todas <img src="webapp/assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button href="./especialidades.jsp" class="botao-quadrado-p texto-enfase"> Ver todas <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
             </div>
         </section>
         <section id="atendentes">
@@ -88,7 +88,7 @@
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
-                                <img src="webapp/assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
                             <div class="entidade-informacao">
                                 <p class="texto">Gleice Silva Pinheiro</p>
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                         <div class="card-meio">
-                            <img src="webapp/assets/imagens/icone-informacoes.svg" alt="icone-informações">
+                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
                             <p class="texto">Informações Gerais</p>
                         </div>
                         <div class="card-inferior">
@@ -113,7 +113,7 @@
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
-                                <img src="webapp/assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
                             <div class="entidade-informacao">
                                 <p class="texto">Gleice Silva Pinheiro</p>
@@ -121,7 +121,7 @@
                             </div>
                         </div>
                         <div class="card-meio">
-                            <img src="webapp/assets/imagens/icone-informacoes.svg" alt="icone-informações">
+                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
                             <p class="texto">Informações Gerais</p>
                         </div>
                         <div class="card-inferior">
@@ -138,7 +138,7 @@
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
-                                <img src="webapp/assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
                             <div class="entidade-informacao">
                                 <p class="texto">Gleice Silva Pinheiro</p>
@@ -146,7 +146,7 @@
                             </div>
                         </div>
                         <div class="card-meio">
-                            <img src="webapp/assets/imagens/icone-informacoes.svg" alt="icone-informações">
+                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
                             <p class="texto">Informações Gerais</p>
                         </div>
                         <div class="card-inferior">
@@ -163,7 +163,7 @@
                 </div>
             </div>
             <div class="ver-tudo">
-                <button href="./especialidades.jsp" class="botao-quadrado-p texto-enfase"> Ver todas <img src="webapp/assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button href="./especialidades.jsp" class="botao-quadrado-p texto-enfase"> Ver todas <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
             </div>
         </section>
     </main>
@@ -182,15 +182,15 @@
             <div class="rodape-social">
                 <p class="texto">Redes Sociais</p>
                 <div class="social-whatsapp">
-                    <img src="webapp/assets/imagens/logo-whatsapp.svg">
+                    <img src="./assets/imagens/logo-whatsapp.svg">
                     <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
                 </div>
                 <div class="social-github">
-                    <img src="webapp/assets/imagens/logo-github.svg">
+                    <img src="./assets/imagens/logo-github.svg">
                     <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
                 </div>
                 <div class="social-instagram">
-                    <img src="webapp/assets/imagens/logo-instagram.svg">
+                    <img src="./assets/imagens/logo-instagram.svg">
                     <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
                 </div>
             </div>
@@ -198,7 +198,7 @@
         <div class="template-grid" id="rodape-comercial">
             <hr><br>
             <div class="comercial-conteudo">
-                <img src="webapp/assets/imagens/logo-rodape.svg" alt="logo-mediconnect">
+                <img src="./assets/imagens/logo-rodape.svg" alt="logo-mediconnect">
                 <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
             </div>
         </div>
