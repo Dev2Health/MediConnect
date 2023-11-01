@@ -111,7 +111,7 @@
                         <div class="input-itens">
                             <label for="phone" class="text">Telefone</label>
                             <input class="text-emphasis" type="tel" value="<c:out value='${paciente.telefone}'/>" id="p.telefone" name="telefone" oninput="mascaraTelefone()" maxlength="16"
-                                pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
+                                pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" disabled>
                         </div>
                         <div class="input-element">
                             <img src="../../images/icone-verificado.svg">
@@ -137,7 +137,7 @@
                                     <img src="../../images/icone-email.svg" alt="icone-email">
                                 </div>
                                 <input class="text-emphasis" type="email" id="p.email" name="email"
-                                    placeholder="seu.email@gmail.com">
+                                    placeholder="seu.email@gmail.com" disabled>
                             </div>
                         </div>
                         <div id="email-validation">
@@ -155,7 +155,7 @@
                                 <label for="password" class="text">Nova Senha</label>
                                 <div class="password-input">
                                     <input class="text-emphasis" type="password" id="password" name="password"
-                                        placeholder="********">
+                                        placeholder="********" disabled>
                                     <img src="../../images/icone-olho-fechado.svg" id="btn-password"
                                         onclick="showPassword()">
                                 </div>
@@ -164,7 +164,7 @@
                                 <label for="newpassword" class="text">Confirmar Senha</label>
                                 <div class="password-input">
                                     <input class="text-emphasis" type="password" id="newpassword" name="newpassword"
-                                        placeholder="********">
+                                        placeholder="********" disabled>
                                     <img src="../../images/icone-olho-fechado.svg" id="btn-new-password"
                                         onclick="showPasswordAgain()">
                                 </div>
