@@ -120,6 +120,16 @@ public class Servlet extends HttpServlet {
 			case "/home":
 				mostrarTelaInicial(request, response);
 				break;
+				
+			case "/confirmar-login":
+				confirmarLogin(request, response);
+				break;
+				
+			case "/deslogar":
+				finalizarLogin(request, response);
+				break;
+				
+					
 
 			// TELA CADASTRO
 
