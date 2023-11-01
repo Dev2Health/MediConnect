@@ -54,7 +54,8 @@
                             </div>
                             <div class="input-itens">
                                 <label for="razao-social" class="text">Razão Social</label>
-                                <input class="text-emphasis" type="text" id="i.razao" name="razao" oninput="mascaraRazao()" placeholder="Empresa Privada LTDA" required>
+                                <input class="text-emphasis" type="text" value="<c:out value='${instituicao.razaoSocial}'/>"
+                            id="i.razao" name="razao" disabled>
                             </div>
                         </div>
                         <div class="form-input">
@@ -63,7 +64,8 @@
                             </div>
                             <div class="input-itens">
                                 <label for="cep" class="text">CEP</label>
-                                <input class="text-emphasis" type="text" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="XXXXX-XXX" maxlength="9" required>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.cep}'/>"
+                            id="i.cep" name="cep" disabled>
                             </div>
                             <div class="input-element">
                                 <img src="../../images/icone-nao-verificado.svg">
@@ -75,7 +77,8 @@
                             </div>
                             <div class="input-itens">
                                 <label for="cidade" class="text">Cidade</label>
-                                <input class="text-emphasis" type="text" id="i.cidade" name="cidade" placeholder="Cidade" required>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.cidade}'/>"
+                            id="i.cidade" name="cidade" disabled>
                             </div>
                         </div>
                         <div class="form-input">
@@ -84,7 +87,8 @@
                             </div>
                             <div class="input-itens">
                                 <label for="logradouro" class="text">Logradouro</label>
-                                <input class="text-emphasis" type="text" id="i.logradouro" name="logradouro" placeholder="Rua Jardim das Flores" required>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.logradouro}'/>"
+                            id="i.logradouro" name="logradouro" disabled>
                             </div>
                         </div>
                     </div>
@@ -95,7 +99,8 @@
                             </div>
                             <div class="input-itens">
                                 <label for="nome-fantasia" class="text">Nome Fantasia</label>
-                                <input class="text-emphasis" type="text" id="i.fantasia" name="fantasia" oninput="mascaraFantasia()" placeholder="Nome Empresa" required>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.nomeFantasia}'/>"
+                            id="i.fantasia" name="fantasia" disabled>
                             </div>
                         </div>
                         <div class="form-input">
@@ -104,7 +109,8 @@
                             </div>
                             <div class="input-itens">
                                 <label for="estado" class="text">Estado</label>
-                                <input class="text-emphasis" list="estado" id="i.estado" name="estado" placeholder="Selecione o Estado" required>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.estado}'/>"
+                            id="i.estado" name="estado" disabled>
                                 <select id="estado">
                                     <option value="">(Selecione o estado)</option>
                                     <option value="Pegar estado do CEP">Pegar estado do CEP</option>
@@ -117,7 +123,8 @@
                             </div>
                             <div class="input-itens">
                                 <label class="text" for="bairro" class="bairro">Bairro</label>
-                                <input class="text-emphasis" type="text" id="i.bairro" name="bairro" placeholder="Nome" required>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.bairro}'/>"
+                            id="i.bairro" name="bairro" disabled>
                             </div>
                         </div>
                         <div class="form-input">
@@ -126,7 +133,8 @@
                             </div>
                             <div class="input-itens">
                                 <label class="text" for="numero" class="numero">Número</label>
-                                <input class="text-emphasis" type="number" id="i.numero" name="numero" placeholder="XXXX">
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.numero}'/>"
+                            id="i.numero" name="numero" disabled>
                             </div>
                         </div>
                         

@@ -854,10 +854,20 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEditarPerfilInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		boolean concluido = false;
+		int id = 1;
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
+		while (!concluido) {
+			instituicao =instituicaoDAO.recuperarInstituicaoPorId(id);
+			if (instituicao == null)
+				id++;
+			else
+				concluido = true;
 
+		}
+		
 		request.setAttribute("instituicao", instituicao);
+		request.setAttribute("endereco", instituicao.getEndereco());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/editar-perfil.jsp");
 		dispatcher.forward(request, response);

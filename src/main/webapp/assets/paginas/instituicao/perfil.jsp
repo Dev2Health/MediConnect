@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="pt-br">
 <head>
     <title>Início | Mediconnect</title>
@@ -31,8 +32,8 @@
                         <img class="icone-claro" src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                     </div>
                     <div class="perfil-detalhes">
-                        <h2 class="subtitulo">Intendência Distrital do Grande Garcia</h2>
-                        <p class="texto">endereço.email@gmal.com</p>
+                        <h2 class="subtitle"><c:out value="${instituicao.nomeFantasia}"/></h2>
+                        <p class="text"><c:out value="${instituicao.email}" /></p>
                     </div>
                 </div>
             </div>
