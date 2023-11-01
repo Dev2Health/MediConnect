@@ -1,0 +1,79 @@
+body {
+    width: 100vw;
+    color: var(--escuro);
+    background-color: var(--fundo-instituicao);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Menu */
+
+#cabecalho {
+    width: 100vw;
+    align-items: center;
+    height: 140px;
+}
+
+[class*="navegacao-"], .filtro, .filtro-icone {
+    display: flex;
+    align-items: center;
+}
+
+.navegacao-barra {
+    grid-column: 2 / 4;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.navegacao-barra img {
+    width: 50px;
+}
+
+.navegacao-filtro {
+    grid-column: 5 / 12;
+    justify-content: space-between;
+}
+
+.filtro {
+    justify-content: space-between;
+    border: 3px solid var(--azul);
+    border-radius: 15px;
+    width: 30vw;
+    height: 55px;
+}
+
+.input-item input {
+    color: var(--azul);
+    padding-left: 1.4vw;
+}
+
+.input-item input::placeholder {
+    color: var(--azul-claro);
+}
+
+.filtro-icone {
+    height: 100%;
+    background-color: var(--azul);
+    border-radius: 0 10px 10px 0;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.filtro-icone img {
+    height: 35px;
+}
+
+.navegacao-filtro button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    color: var(--fundo-instituicao);
+    background-color: var(--azul);
+}
+
+.navegacao-filtro button img {
+    height: 35px;
+}
