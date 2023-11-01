@@ -7,13 +7,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
-import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
-import main.java.mediconnect.modelo.entidade.notificacao.Notificacao;
 import main.java.mediconnect.modelo.entidade.usuario.Usuario;
 import main.java.mediconnect.modelo.entidade.usuario.Usuario_;
 import main.java.mediconnect.modelo.factory.BuildFactory;

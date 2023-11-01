@@ -2,8 +2,6 @@ package main.java.mediconnect.modelo.entidade.pessoa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import main.java.mediconnect.modelo.entidade.usuario.Usuario;

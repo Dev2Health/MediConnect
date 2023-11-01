@@ -6,8 +6,6 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
-
 @Embeddable
 public class EspecialidadeInstituicaoId implements Serializable {
 	
