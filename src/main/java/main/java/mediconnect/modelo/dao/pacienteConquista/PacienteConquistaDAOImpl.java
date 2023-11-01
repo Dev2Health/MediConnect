@@ -9,7 +9,6 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import main.java.mediconnect.modelo.entidade.conquista.Conquista;
-import main.java.mediconnect.modelo.entidade.consulta.Consulta_;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente;
 import main.java.mediconnect.modelo.entidade.paciente.Paciente_;
 import main.java.mediconnect.modelo.entidade.pacienteConquista.PacienteConquista;

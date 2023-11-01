@@ -9,4 +9,6 @@ public interface UsuarioDAO {
 	void deletarSelo(Usuario usuario);
 	void atualizarSelo(Usuario usuario);
 	List<Usuario> recupearUsuarios();
+	boolean verificarUsuario(String email, String senha);
+	Usuario recuperarUsuarioPorEmail(String email);
 }

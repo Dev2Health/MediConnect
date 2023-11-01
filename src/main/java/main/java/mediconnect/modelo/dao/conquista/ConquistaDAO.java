@@ -14,3 +14,4 @@ public interface ConquistaDAO {
 	List<Conquista> filtrarConquistaViaPacienteDoPacientePorStatus(StatusConsulta status, Paciente paciente);
 	List<Conquista> filtrarConquistaViaPacienteDoPacientePorStatus(StatusConsulta status, Integer idPaciente);
 }
+	
