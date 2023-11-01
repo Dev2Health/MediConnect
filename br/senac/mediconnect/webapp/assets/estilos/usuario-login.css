@@ -1,0 +1,81 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    align-items: center;
+    margin: 50px 0;
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 4;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.barra-navegacao img {
+    width: 55px;
+    height: 100%;
+}
+
+.logo  {
+    grid-column: 11 / 12;
+    width: 140px;
+    height: 100%;
+}
+
+/* Conteúdo - Direita */
+
+.conteudo-direita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.titulo-especial {
+    text-align: center;
+    color: var(--roxo);
+}
+
+/* Formulário */
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.formulario-input {
+    border-color: var(--roxo);
+}
+
+.input-item input {
+    color: var(--roxo);
+}
+
+::placeholder {
+    color: var(--roxo-claro);
+}
+
+.formulario-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.formulario-rodape .botao-circular-p {
+    background-color: var(--roxo);
+}
