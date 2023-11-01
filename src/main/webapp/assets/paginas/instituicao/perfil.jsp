@@ -1,12 +1,14 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Início | Mediconnect</title>
+    <title>Início | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="webapp/assets/imagens/favicon.ico">
-    <link rel="stylesheet" href="../../estilos/padroes.css">
-    <link rel="stylesheet" href="../../estilos/instituicao-perfil.css">
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/instituicao-perfil.css"%></style>
 </head>
 <body>
     <header id="cabecalho" class="template-grid">

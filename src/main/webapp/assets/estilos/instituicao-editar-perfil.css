@@ -1,14 +1,6 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
     color: var(--escuro);
-    background-color: var(--fundo-claro);
-}
-
-main {
-    align-items: center;
-    margin: 50px 0;
+    background-color: var(--fundo-instituicao);
 }
 
 /* Menu */
@@ -27,31 +19,46 @@ main {
 
 .barra-navegacao img {
     width: 55px;
-    height: 100%;
 }
 
-.titulo {
-    grid-column: 4 / 10;
-    display: flex;
-    justify-content: center;
-}
-
-.logo  {
+.perfil-foto  {
     grid-column: 11 / 12;
-    width: 140px;
-    height: 100%;
+    width: 120px;
+    border: 3px solid var(--azul);
+    border-radius: 50%;
 }
 
-/* Definições Gerais */
+/* Título */
 
-form {
+#retorno-pesquisa button {
     display: flex;
-    flex-direction: column;
-    gap: 55px;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    background-color: var(--azul-escuro);
+}
+
+/* Dados Formulário */
+
+.formulario-input {
+    border-color: var(--azul);
+}
+
+.input-item input {
+    color: var(--azul);
+}
+
+::placeholder {
+    color: var(--azul-claro);
+}
+
+.input-icone img {
+    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
 }
 
 .validar-conteudo {
     display: flex;
+    align-items: center;
     gap: 25px;
 }
 
@@ -59,17 +66,10 @@ form {
     width: 25px;
 }
 
-#email-validar, #senha-validacao {
+.email-validar, .senha-validacao {
     display: flex;
+    justify-content: space-between;
     margin: 25px 0;
-}
-
-[class*="input-"] input:focus {
-    outline: none;
-}
-
-[class*="input-"] input::placeholder {
-    color: var(--roxo-claro);
 }
 
 /* Confirmar E-mail */
@@ -85,7 +85,7 @@ form {
     height: 100px;
     gap: 45px;
     color: var(--fundo-claro);
-    background-color: var(--roxo);
+    background-color: var(--azul-escuro);
     border-radius: 40px 40px 0 0;
 }
 
@@ -95,8 +95,9 @@ form {
 
 .email-conteudo {
     padding: 0 8.33vw 0 8.33vw;
-    border: 3px solid var(--roxo);
+    border: 3px solid var(--azul-claro);
     border-radius: 0 0 40px 40px;
+    background-color: var(--claro);    
 }
 
 .email-conteudo .input-email {
@@ -105,43 +106,49 @@ form {
     margin-top: 50px;
 }
 
-.email-conteudo #formulario-email {
+.email-conteudo .formulario-email {
     display: flex;
     align-items: center;
     width: 35vw;
     height: 55px;
-    border: 3px solid var(--roxo);
+    border: 3px solid var(--azul);
     border-radius: 15px;
 }
 
-.email-conteudo #formulario-icone {
+.email-conteudo .formulario-icone {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 4.15vw;
     height: 100%;
-    background-color: var(--roxo);
+    background-color: var(--azul);
     border-radius: 10px 0 0 10px;
 }
 
-#formulario-icone img {
+.formulario-icone img {
     width: 35px;
 }
 
-#formulario-email input {
+.formulario-email input {
     width: 22vw;
     margin-left: 4.15vw;
-    color: var(--roxo);
+    color: var(--azul);
     background: none;
 }
 
 /* Alterar Senha */
 
+#redefinir-senha {
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
 .senha-conteudo {
     grid-column: 2 / 12;
     padding: 0 8.33vw 0 8.33vw;
-    border: 3px solid var(--roxo);
+    border: 3px solid var(--azul-claro);
     border-radius: 40px;
+    background-color: var(--claro);
 }
 
 .senha-conteudo .input-senhas {
@@ -163,37 +170,46 @@ form {
     padding: 1vw;
     width: 15vw;
     height: 55px;
-    border: 3px solid var(--roxo);
+    border: 3px solid var(--azul);
     border-radius: 15px;
 }
 
 .input-senhas [id*="senha-"] input {
     width: 8.5vw;
-    color: var(--roxo);
+    color: var(--azul);
     background: none;
 }
 
 .input-senhas [id*="senha-"] img {
     width: 35px;
+    filter: invert(62%) sepia(65%) saturate(289%) hue-rotate(174deg) brightness(87%) contrast(89%);
 }
 
-#senha-validacao {
-    gap: 8.33vw;
+/* Checkbox */
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 8.33vw;
 }
 
-/* Botões */
+.checkbox a {
+    font-size: 1em;
+}
 
 .botoes {
     grid-column: 2 / 12;
     display: flex;
-    gap: 50px;
+    gap: 4.15vw;
+    margin: 45px 0 85px 0;
 }
 
-.botoes button:first-child {
-    background-color: var(--roxo);
+.botoes .botao-circular-m:first-child {
+    background-color: var(--azul);
 }
 
-.botoes button:nth(2)-child {
-    border: 3px solid var(--roxo);
+.botoes .botao-circular-m:last-child {
     background-color: var(--fundo-claro);
+    border: 3px solid var(--azul);
 }

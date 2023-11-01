@@ -62,19 +62,6 @@ main {
     margin-top: 85px;
 }
 
-.checkbox input[type="checkbox"] {
-    appearance: none;
-    width: 35px;
-    height: 35px;
-    border: 0.3em solid var(--crimson);
-    border-radius: 0.65em;
-}
-
-.checkbox input[type="checkbox"]:checked {
-    border: 0.3em solid var(--viridian);
-    background-color: var(--viridian);
-}
-
 .checkbox a {
     font-size: 1em;
 }
