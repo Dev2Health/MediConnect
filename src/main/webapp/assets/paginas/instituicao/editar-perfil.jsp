@@ -6,17 +6,17 @@
     <title>Editar perfil | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="webapp/assets/imagens/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/instituicao-editar-perfil.css"%></style>
 </head>
 <body>
     <header class="template-grid" id="cabecalho">
         <nav class="barra-navegacao">
-            <img src="webapp/assets/imagens/icone-voltar.svg" alt="icone-voltar">
+            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
             <a href="../../../index.jsp" class="texto texto-escuro">Voltar</a>
         </nav>
-        <img class="perfil-foto" src="webapp/assets/imagens/perfil-instituicao.png" alt="logo-mediconnect">
+        <img class="perfil-foto" src="./assets/imagens/perfil-instituicao.png" alt="logo-mediconnect">
     </header>
     <main>
         <form>
@@ -24,14 +24,14 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados da instituição</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="webapp/assets/imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
                     </div>
                 </div>
                 <div id="dados-formulario" class="template-grid">
                     <div class="formulario-esquerda">
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
+                                <img src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                             </div>
                             <div class="input-item">
                                 <label for="razao" class="texto">Razão Social</label>
@@ -40,19 +40,19 @@
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-cep.svg" alt="icone-cep">
+                                <img src="./assets/imagens/icone-cep.svg" alt="icone-cep">
                             </div>
                             <div class="input-item">
                                 <label for="cep" class="texto">CEP</label>
                                 <input class="texto-enfase" type="text" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="XXXXX-XXX" maxlength="9" required>
                             </div>
                             <div class="input-elemento">
-                                <img src="webapp/assets/imagens/icone-nao-verificado.svg">
+                                <img src="./assets/imagens/icone-nao-verificado.svg">
                             </div>
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-mapa.svg" alt="icone-mapa">
+                                <img src="./assets/imagens/icone-mapa.svg" alt="icone-mapa">
                             </div>
                             <div class="input-item">
                                 <label for="cidade" class="texto">Cidade</label>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-logradouro.svg" alt="icone-logradouro">
+                                <img src="./assets/imagens/icone-logradouro.svg" alt="icone-logradouro">
                             </div>
                             <div class="input-item">
                                 <label for="logradouro" class="texto">Logradouro</label>
@@ -72,7 +72,7 @@
                     <div class="formulario-direita">
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
+                                <img src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                             </div>
                             <div class="input-item">
                                 <label for="fantasia" class="texto">Nome Fantasia</label>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-mapa.svg" alt="icone-mapa">
+                                <img src="./assets/imagens/icone-mapa.svg" alt="icone-mapa">
                             </div>
                             <div class="input-item">
                                 <label for="estado" class="texto">Estado</label>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-logradouro.svg" alt="icone-bairro">
+                                <img src="./assets/imagens/icone-logradouro.svg" alt="icone-bairro">
                             </div>
                             <div class="input-item">
                                 <label for="bairro" class="texto">Bairro</label>
@@ -102,7 +102,7 @@
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-numeros.svg" alt="icone-numero">
+                                <img src="./assets/imagens/icone-numeros.svg" alt="icone-numero">
                             </div>
                             <div class="input-item">
                                 <label for="numero" class="texto">Número</label>
@@ -116,12 +116,12 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados sensíveis</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="webapp/assets/imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
                     </div>
                 </div>
                 <div id="confirmar-email" class="template-grid">
                     <div class="email-superior">
-                        <img class="icone-claro" src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
+                        <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
                         <p class="texto">E-mail Atual: </p> <!-- Pegar o email atual da instituição com o jsp -->
                     </div>
                     <div class="email-conteudo">
@@ -129,19 +129,19 @@
                             <label for="email" class="texto">Alterar E-mail</label>
                             <div class="formulario-email">
                                 <div class="formulario-icone">
-                                    <img class="icone-claro" src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
+                                    <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
                                 </div>
                                 <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100" required>
                             </div>
                         </div>
                         <div class="email-validar">
                             <div class="validar-conteudo">
-                                <img src="webapp/assets/imagens/icone-atencao.svg" alt="icone-atencao">
+                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
                                 <p class="texto-sem-enfase">Enviar o token de verificação para este e-mail</p>
                             </div>
                             <div class="validar-conteudo">
                                 <a class="texto-enfase">Enviar confirmação</a>
-                                <img src="webapp/assets/imagens/icone-redirecionar.svg">
+                                <img src="./assets/imagens/icone-redirecionar.svg">
                             </div>
                         </div>
                     </div>
@@ -153,25 +153,25 @@
                                 <label for="senha" class="texto">Nova Senha</label>
                                 <div class="input-senha">
                                     <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" required>
-                                    <img src="webapp/assets/imagens/icone-olho-fechado.svg" id="botao-senha">
+                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha">
                                 </div>
                             </div>
                             <div id="senha-nova">
                                 <label for="novasenha" class="texto">Confirmar Senha</label>
                                 <div class="input-senha">
                                     <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" required>
-                                    <img src="webapp/assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
+                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
                                 </div>
                             </div>
                         </div>
                         <div class="senha-validacao">
                             <div class="validar-conteudo">
-                                <img src="webapp/assets/imagens/icone-atencao.svg" alt="icone-atencao">
+                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
                                 <p class="texto-sem-enfase">Enviar confirmação para o e-mail cadastrado</p>
                             </div>
                             <div class="validar-conteudo">
                                 <a href="#" class="texto-enfase texto-escuro">Enviar confirmação</a>
-                                <img src="webapp/assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
+                                <img src="./assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
                             </div>
                         </div>
                     </div>
