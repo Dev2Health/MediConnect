@@ -9,7 +9,6 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import main.java.mediconnect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicao;
-import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.mediconnect.modelo.factory.BuildFactory;
 
 public class EspecialidadeInstituicaoDAOImpl implements EspecialidadeInstituicaoDAO{

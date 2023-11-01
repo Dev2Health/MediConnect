@@ -5,7 +5,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
@@ -42,23 +50,23 @@ public class Atendente extends Pessoa implements Serializable {
 	public Atendente() {}
 
 	public Atendente(Integer id, String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps) {
-		super(id, email, senha, ehAtivo, nome, sobrenome, cpf);
+			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps, byte[] fotoPerfil) {
+		super(id, email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
 		setDataCadastro(dataCadastro);
 		setInstituicao(instituicao);
 		setCtps(ctps);
 	}
 	
 	public Atendente( String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps) {
-		super(email, senha, ehAtivo, nome, sobrenome, cpf);
+			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps, byte[] fotoPerfil) {
+		super(email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
 		setDataCadastro(dataCadastro);
 		setInstituicao(instituicao);
 		setCtps(ctps);
 	}
 	public Atendente( String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			LocalDate dataCadastro, Instituicao instituicao, String ctps) {
-		super(email, senha, ehAtivo, nome, sobrenome, cpf);
+			LocalDate dataCadastro, Instituicao instituicao, String ctps, byte[] fotoPerfil) {
+		super(email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
 		setDataCadastro(dataCadastro);
 		setInstituicao(instituicao);
 		setCtps(ctps);

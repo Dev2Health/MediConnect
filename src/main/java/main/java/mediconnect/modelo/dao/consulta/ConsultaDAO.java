@@ -3,7 +3,6 @@ package main.java.mediconnect.modelo.dao.consulta;
 import java.time.LocalDate;
 import java.util.List;
 
-
 import main.java.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.mediconnect.modelo.entidade.instituicao.Instituicao;
