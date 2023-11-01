@@ -4,7 +4,10 @@
 	<artifactId>mediconnect</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MediConnect</name>
-	<description>Missão, visão e valores</description>
+	<description>Missão: Transformar a relação das pessoas com consultas, trazendo mais praticidade e engajamento.
+				 Visão: Ser um sistema auxiliar para pessoas e instituições, reduzindo os índices de absenteísmo.
+				 Valores: Incentivo a saúde, ética, inovação e foco nas necessidades do público são nossos valores.
+	</description>
 	<dependencies>
 		<dependency>
 			<groupId>mysql</groupId>

@@ -6,17 +6,17 @@
     <title>Editar perfil | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="webapp/assets/imagens/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/instituicao-editar-perfil.css"%></style>
 </head>
 <body>
     <header class="template-grid" id="cabecalho">
         <nav class="barra-navegacao">
-            <img src="webapp/assets/imagens/icone-voltar.svg" alt="icone-voltar">
+            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
             <a href="../../../index.jsp" class="texto texto-escuro">Voltar</a>
         </nav>
-        <img class="perfil-foto" src="webapp/assets/imagens/perfil-instituicao.png" alt="logo-mediconnect">
+        <img class="perfil-foto" src="./assets/imagens/perfil-instituicao.png" alt="logo-mediconnect">
     </header>
     <main>
         <form>
@@ -24,89 +24,98 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados da instituição</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="webapp/assets/imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro">Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
                     </div>
                 </div>
                 <div id="dados-formulario" class="template-grid">
                     <div class="formulario-esquerda">
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
+                                <img src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                             </div>
-                            <div class="input-item">
-                                <label for="razao" class="texto">Razão Social</label>
-                                <input class="texto-enfase" type="text" id="i.razao" name="razao" oninput="mascaraCep()" placeholder="Empresa Privada LTDA" maxlength="65" required>
+                            <div class="input-itens">
+                                <label for="razao-social" class="text">Razão Social</label>
+                                <input class="text-emphasis" type="text" value="<c:out value='${instituicao.razaoSocial}'/>"
+                            id="i.razao" name="razao" disabled>
                             </div>
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-cep.svg" alt="icone-cep">
+                                <img src="./assets/imagens/icone-cep.svg" alt="icone-cep">
                             </div>
-                            <div class="input-item">
-                                <label for="cep" class="texto">CEP</label>
-                                <input class="texto-enfase" type="text" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="XXXXX-XXX" maxlength="9" required>
+                            <div class="input-itens">
+                                <label for="cep" class="text">CEP</label>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.cep}'/>"
+                            id="i.cep" name="cep" disabled>
                             </div>
                             <div class="input-elemento">
-                                <img src="webapp/assets/imagens/icone-nao-verificado.svg">
+                                <img src="./assets/imagens/icone-nao-verificado.svg">
                             </div>
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-mapa.svg" alt="icone-mapa">
+                                <img src="./assets/imagens/icone-mapa.svg" alt="icone-mapa">
                             </div>
-                            <div class="input-item">
-                                <label for="cidade" class="texto">Cidade</label>
-                                <input class="texto-enfase" type="text" id="i.cidade" name="cidade" placeholder="Cidade" maxlength="35" required>
+                            <div class="input-itens">
+                                <label for="cidade" class="text">Cidade</label>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.cidade}'/>"
+                            id="i.cidade" name="cidade" disabled>
                             </div>
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-logradouro.svg" alt="icone-logradouro">
+                                <img src="./assets/imagens/icone-logradouro.svg" alt="icone-logradouro">
                             </div>
-                            <div class="input-item">
-                                <label for="logradouro" class="texto">Logradouro</label>
-                                <input class="texto-enfase" type="text" id="i.logradouro" name="logradouro" placeholder="Rua Jardim das Flores" maxlength="70" required>
+                            <div class="input-itens">
+                                <label for="logradouro" class="text">Logradouro</label>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.logradouro}'/>"
+                            id="i.logradouro" name="logradouro" disabled>
                             </div>
                         </div>
                     </div>
                     <div class="formulario-direita">
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
+                                <img src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                             </div>
-                            <div class="input-item">
-                                <label for="fantasia" class="texto">Nome Fantasia</label>
-                                <input class="texto-enfase" type="text" id="i.fantasia" name="fantasia" oninput="mascaraCep()" placeholder="Nome da Empresa" maxlength="65" required>
-                            </div>
-                        </div>
-                        <div class="formulario-input">
-                            <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-mapa.svg" alt="icone-mapa">
-                            </div>
-                            <div class="input-item">
-                                <label for="estado" class="texto">Estado</label>
-                                <input class="texto-enfase" list="estado" id="i.estado" name="estado" placeholder="(Selecione o Estado)" maxlength="35" required>
-                                <datalist id="estado">
-                                    <option value="Pegar estado do CEP">
-                                </datalist>
+                            <div class="input-itens">
+                                <label for="nome-fantasia" class="text">Nome Fantasia</label>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.nomeFantasia}'/>"
+                            id="i.fantasia" name="fantasia" disabled>
                             </div>
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-logradouro.svg" alt="icone-bairro">
+                                <img src="./assets/imagens/icone-mapa.svg" alt="icone-mapa">
                             </div>
-                            <div class="input-item">
-                                <label for="bairro" class="texto">Bairro</label>
-                                <input class="texto-enfase" type="text" id="i.bairro" name="bairro" placeholder="Nome" required>
+                            <div class="input-itens">
+                                <label for="estado" class="text">Estado</label>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.estado}'/>"
+                            id="i.estado" name="estado" disabled>
+                                <select id="estado">
+                                    <option value="">(Selecione o estado)</option>
+                                    <option value="Pegar estado do CEP">Pegar estado do CEP</option>
+                                </select>
                             </div>
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="webapp/assets/imagens/icone-numeros.svg" alt="icone-numero">
+                                <img src="./assets/imagens/icone-logradouro.svg" alt="icone-bairro">
                             </div>
-                            <div class="input-item">
-                                <label for="numero" class="texto">Número</label>
-                                <input class="texto-enfase" type="number" id="i.numero" name="numero" placeholder="XXXX">
+                            <div class="input-itens">
+                                <label class="text" for="bairro" class="bairro">Bairro</label>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.bairro}'/>"
+                            id="i.bairro" name="bairro" disabled>
+                            </div>
+                        </div>
+                        <div class="formulario-input">
+                            <div class="input-icone">
+                                <img src="./assets/imagens/icone-numeros.svg" alt="icone-numero">
+                            </div>
+                            <div class="input-itens">
+                                <label class="text" for="numero" class="numero">Número</label>
+                                <input class="text-emphasis" type="text" value="<c:out value='${endereco.numero}'/>"
+                            id="i.numero" name="numero" disabled>
                             </div>
                         </div>
                     </div>
@@ -116,12 +125,12 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados sensíveis</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="webapp/assets/imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro">Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
                     </div>
                 </div>
                 <div id="confirmar-email" class="template-grid">
                     <div class="email-superior">
-                        <img class="icone-claro" src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
+                        <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
                         <p class="texto">E-mail Atual: </p> <!-- Pegar o email atual da instituição com o jsp -->
                     </div>
                     <div class="email-conteudo">
@@ -129,19 +138,19 @@
                             <label for="email" class="texto">Alterar E-mail</label>
                             <div class="formulario-email">
                                 <div class="formulario-icone">
-                                    <img class="icone-claro" src="webapp/assets/imagens/icone-email.svg" alt="icone-email">
+                                    <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
                                 </div>
-                                <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100" required>
+                                <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100" disabled>
                             </div>
                         </div>
                         <div class="email-validar">
                             <div class="validar-conteudo">
-                                <img src="webapp/assets/imagens/icone-atencao.svg" alt="icone-atencao">
+                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
                                 <p class="texto-sem-enfase">Enviar o token de verificação para este e-mail</p>
                             </div>
                             <div class="validar-conteudo">
                                 <a class="texto-enfase">Enviar confirmação</a>
-                                <img src="webapp/assets/imagens/icone-redirecionar.svg">
+                                <img src="./assets/imagens/icone-redirecionar.svg">
                             </div>
                         </div>
                     </div>
@@ -152,26 +161,26 @@
                             <div id="senha-atual">
                                 <label for="senha" class="texto">Nova Senha</label>
                                 <div class="input-senha">
-                                    <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" required>
-                                    <img src="webapp/assets/imagens/icone-olho-fechado.svg" id="botao-senha">
+                                    <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" disabled>
+                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha">
                                 </div>
                             </div>
                             <div id="senha-nova">
                                 <label for="novasenha" class="texto">Confirmar Senha</label>
                                 <div class="input-senha">
-                                    <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" required>
-                                    <img src="webapp/assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
+                                    <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" disabled>
+                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
                                 </div>
                             </div>
                         </div>
                         <div class="senha-validacao">
                             <div class="validar-conteudo">
-                                <img src="webapp/assets/imagens/icone-atencao.svg" alt="icone-atencao">
+                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
                                 <p class="texto-sem-enfase">Enviar confirmação para o e-mail cadastrado</p>
                             </div>
                             <div class="validar-conteudo">
                                 <a href="#" class="texto-enfase texto-escuro">Enviar confirmação</a>
-                                <img src="webapp/assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
+                                <img src="./assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
                             </div>
                         </div>
                     </div>
