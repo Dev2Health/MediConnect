@@ -1,7 +1,6 @@
 package main.java.br.senac.mediconnect.controle;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -810,7 +809,7 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
-
+  
 	private void editarInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

@@ -43,6 +43,20 @@ public abstract class Pessoa extends Usuario{
 		setSobrenome(sobrenome);
 		setCpf(cpf);
 	}
+	public Pessoa(String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf) {
+		
+		super(email, senha, ehAtivo);
+		setNome(nome);
+		setSobrenome(sobrenome);
+		setCpf(cpf);
+	}
+	public Pessoa(Integer id, String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf) {
+		
+		super(id, email, senha, ehAtivo);
+		setNome(nome);
+		setSobrenome(sobrenome);
+		setCpf(cpf);
+	}
 
 	// MÉTODOS DE ACESSO
 
