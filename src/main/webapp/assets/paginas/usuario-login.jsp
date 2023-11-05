@@ -25,7 +25,7 @@
         </div>
         <div class="conteudo-direita">
             <h1 class="titulo-especial">Olá! É bom ter você de volta!</h1>
-            <form action="" autocomplete="on" id="formulario">
+            <form action="confirmar-login" autocomplete="on" id="formulario">
                 <div class="formulario-input">
                     <div class="input-icone">
                         <img src="./assets/imagens/icone-email.svg" alt="icone-email">

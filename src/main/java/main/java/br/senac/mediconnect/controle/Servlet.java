@@ -360,7 +360,7 @@ public class Servlet extends HttpServlet {
 			
 			request.setAttribute("paciente", paciente);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/home.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
 			dispatcher.forward(request, response);
 			
 			List<Consulta> consultas = consultaDAO.recuperarConsultasAgendadasViaPacientePorId(id);
@@ -384,7 +384,7 @@ public class Servlet extends HttpServlet {
 			
 			//Cada info da tela inicial logada da institui��o � uma query diferente?	
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/home.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
 			dispatcher.forward(request, response);
 		}
 		
@@ -395,13 +395,13 @@ public class Servlet extends HttpServlet {
 			
 			request.setAttribute("atendente", atendente);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/home.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
 			dispatcher.forward(request, response);
 		}
 		
-					
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
-		dispatcher.forward(request, response);
+//					
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
+//		dispatcher.forward(request, response);
 	}
 
 	private void mostrarTelaCadastro(HttpServletRequest request, HttpServletResponse response)
@@ -1119,6 +1119,7 @@ public class Servlet extends HttpServlet {
 		String usuarioInvalido = null;
 		String emailUsuario = request.getParameter("email");
 		String senhaUsuario = request.getParameter("senha");
+		System.out.println(emailUsuario + ", " + senhaUsuario);
 		boolean existe = usuarioDAO.verificarUsuario(emailUsuario, senhaUsuario);
 		
 		if(existe) {
