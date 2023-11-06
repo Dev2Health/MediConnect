@@ -15,7 +15,7 @@
     <header class="template-grid" id="cabecalho">
         <nav class="barra-navegacao">
             <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
-            <a href="../../index.jsp" class="texto texto-escuro">Voltar</a>
+            <a href="./index" class="texto texto-escuro">Voltar</a>
         </nav>
         <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
     </header>

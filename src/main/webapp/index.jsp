@@ -16,8 +16,8 @@
         <img src="assets/imagens/logo-legendado.svg" alt="logo-mediconnect" id="logo">
         <nav class="barra-navegacao">
             <a href="./assets/paginas/sobre-nos.html" class="texto texto-escuro">Sobre o MediConnect</a>
-            <a href="./assets/paginas/login-usuario.html" class="texto texto-escuro">Entrar</a>
-            <a href="./assets/paginas/cadastrar-usuario.jsp" class="botao-circular-m texto texto-claro">Cadastrar</a>
+            <a href="./login" class="texto texto-escuro">Entrar</a>
+            <a href="./cadastro" class="botao-circular-m texto texto-claro">Cadastrar</a>
         </nav>
     </header>
     <main>
