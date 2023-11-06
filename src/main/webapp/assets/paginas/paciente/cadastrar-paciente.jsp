@@ -3,7 +3,6 @@
 <html>
 	<head>
 		<title>Cadastro de Paciente</title>
-		<style><%@include file="../../estilos/cadastro-paciente.css"%></style>
 	</head>
 	<body>
 		<div>
@@ -25,7 +24,7 @@
 					<label>Email:</label>
 					<input type="email" id="p.email" name="email" placeholder="Informe o email..."> 
 					<label>Telefone:</label>
-					<input type="tel" id="p.telefone" name="telefone" oninput="mascaraTelefone()" placeholder="Informe o telefone..."> 
+					<input type="text" id="p.telefone" name="telefone" oninput="mascaraTelefone()" placeholder="Informe o telefone..."> 
 					<label>Senha:</label>
 					<input type="password" id="p.senha" name="senha" oninput="mascaraSenha()" placeholder="Informe a senha..."> 
 					<label>Confirmar Senha:</label>

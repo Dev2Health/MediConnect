@@ -81,7 +81,6 @@
                             <label for="date" class="text">Data de nascimento</label>
                             
                             <input class="text-emphasis" type="datetime" value="<fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/>" id="p.data" name="data" disabled/>
-                            <p></p>
                         </div>
                     </div>
 

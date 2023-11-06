@@ -79,7 +79,7 @@
             <div><!--agrupamento de tudo-->
                 <div>
                     <div><!--todos os cards-->
-                        <c:forEach var="paciente" items="${pacientes}">
+                        <c:forEach var="pacienteAgendado" items="${pacientesAgendados}">
                         <div><!--card completo-->
                             <div><!--foto-->
                                 <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
@@ -87,8 +87,8 @@
                             <div><!--card-->
                                 <div><!--Header-->
                                     <div><!--Textos-->
-                                        <p class="text"><c:out value='${paciente.nome}'/></p>
-                                        <p class="text-no-emphasis"><c:out value='${paciente.telefone}'/></p>
+                                        <p class="text"><c:out value='${pacienteAgendado.nome}'/></p>
+                                        <p class="text-no-emphasis"><c:out value='${pacienteAgendado.telefone}'/></p>
                                     </div>
                                 </div>
                                 <div><!--divisão-->
@@ -103,7 +103,7 @@
                                         </div>
                                         <div>
                                             <p class="text-no-emphasis">CPF</p>
-                                            <p class="text-no-emphasis"><c:out value='${paciente.cpf}'/></p>
+                                            <p class="text-no-emphasis"><c:out value='${pacienteAgendado.cpf}'/></p>
                                         </div>
                                     </div>
                                 </div>

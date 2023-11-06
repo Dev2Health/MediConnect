@@ -1,3 +1,6 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -35,60 +38,26 @@
                     <button class="btn-square-sm text-emphasis">Todas</button>
                 </div>
             </div>
-            <div id="consult" class="template-grid">
-
+            <c:forEach var="consulta" items="${consultas}">
+            <div id="consulta" class="template-grid">
                 <div class="card-consult">
                     <p class="text-emphasis">Título da Consulta</p>
                     <div class="card-info">
                         <div class="info-consult">
                             <div class="consult-date">
                                 <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                                <p class="text-emphasis">20/08/2000</p>
+                                <p class="text-emphasis" type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${data}'/></p>
                             </div>
                             <div class="consult-time">
                                 <img src="../../images/icone-horario.svg" alt="icone-horario">
-                                <p class="text-emphasis">13h59</p>
+                                <p class="text-emphasis"><c:out value='${consulta.horario}'/></p>
                             </div>
                         </div>
                         <button class="btn-square-sm text-emphasis">Ver detalhes</button>
                     </div>
                 </div><!--fim do card-->
-
-                <div class="card-consult">
-                    <p class="text-emphasis">Título da Consulta</p>
-                    <div class="card-info">
-                        <div class="info-consult">
-                            <div class="consult-date">
-                                <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                                <p class="text-emphasis">20/08/2000</p>
-                            </div>
-                            <div class="consult-time">
-                                <img src="../../images/icone-horario.svg" alt="icone-horario">
-                                <p class="text-emphasis">13h59</p>
-                            </div>
-                        </div>
-                        <button class="btn-square-sm text-emphasis">Ver detalhes</button>
-                    </div>
-                </div><!--fim do card-->
-
-                <div class="card-consult">
-                    <p class="text-emphasis">Título da Consulta</p>
-                    <div class="card-info">
-                        <div class="info-consult">
-                            <div class="consult-date">
-                                <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                                <p class="text-emphasis">20/08/2000</p>
-                            </div>
-                            <div class="consult-time">
-                                <img src="../../images/icone-horario.svg" alt="icone-horario">
-                                <p class="text-emphasis">13h59</p>
-                            </div>
-                        </div>
-                        <button class="btn-square-sm text-emphasis">Ver detalhes</button>
-                    </div>
-                </div><!--fim do card-->
-
             </div>
+            </c:forEach>
     </main>
     <footer>
         <div class="template-grid" id="footer-links">
