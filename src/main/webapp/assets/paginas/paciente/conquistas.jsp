@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <input type="range">
+                <input type="range" min="0" max="">
             </c:forEach>
 
         </section>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <input type="range">
+                <input type="range" min="0" max=""> <!-- JSP deve pegar a informação dos valores máximos do nível da conquista -->
             </c:forEach>
 
         </section>
