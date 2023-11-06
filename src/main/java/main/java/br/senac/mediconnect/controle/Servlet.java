@@ -508,7 +508,7 @@ public class Servlet extends HttpServlet {
 		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, fotoPerfil);
 
 		pacienteDAO.inserirPaciente(paciente);
-		response.sendRedirect("perfil-paciente");
+		response.sendRedirect("paciente");
 		
 	}
 	
