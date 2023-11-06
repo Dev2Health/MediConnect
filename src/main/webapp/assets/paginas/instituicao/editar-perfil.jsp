@@ -19,7 +19,7 @@
         <img class="perfil-foto" src="./assets/imagens/perfil-instituicao.png" alt="logo-mediconnect">
     </header>
     <main>
-        <form>
+        <form action="atualizar-instituicao" method="post">
             <section id="informacoes">
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
@@ -35,7 +35,7 @@
                             </div>
                             <div class="input-item">
                                 <label for="razao" class="texto">Razão Social</label>
-                                <input class="texto-enfase" type="text" id="i.razao" name="razao" oninput="mascaraCep()" placeholder="Empresa Privada LTDA" maxlength="65" required>
+                                <input class="texto-enfase" type="text" id="i.razao" name="razao" oninput="mascaraCep()" value="<c:out value='${instituicao.razaoSocial}'/>" maxlength="65" required>
                             </div>
                         </div>
                         <div class="formulario-input">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="input-item">
                                 <label for="cep" class="texto">CEP</label>
-                                <input class="texto-enfase" type="text" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="XXXXX-XXX" maxlength="9" required>
+                                <input class="texto-enfase" type="text" id="i.cep" name="cep" oninput="mascaraCep()" value="<c:out value='${endereco.cep}'/>" maxlength="9" required>
                             </div>
                             <div class="input-elemento">
                                 <img src="./assets/imagens/icone-nao-verificado.svg">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="input-item">
                                 <label for="cidade" class="texto">Cidade</label>
-                                <input class="texto-enfase" type="text" id="i.cidade" name="cidade" placeholder="Cidade" maxlength="35" required>
+                                <input class="texto-enfase" type="text" id="i.cidade" name="cidade" value="<c:out value='${endereco.cidade}'/>" maxlength="35" required>
                             </div>
                         </div>
                         <div class="formulario-input">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="input-item">
                                 <label for="logradouro" class="texto">Logradouro</label>
-                                <input class="texto-enfase" type="text" id="i.logradouro" name="logradouro" placeholder="Rua Jardim das Flores" maxlength="70" required>
+                                <input class="texto-enfase" type="text" id="i.logradouro" name="logradouro" value="<c:out value='${endereco.logradouro}'/>" maxlength="70" required>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="input-item">
                                 <label for="fantasia" class="texto">Nome Fantasia</label>
-                                <input class="texto-enfase" type="text" id="i.fantasia" name="fantasia" oninput="mascaraCep()" placeholder="Nome da Empresa" maxlength="65" required>
+                                <input class="texto-enfase" type="text" id="i.fantasia" name="fantasia" oninput="mascaraCep()" value="<c:out value='${instituicao.nomeFantasia}'/>" maxlength="65" required>
                             </div>
                         </div>
                         <div class="formulario-input">
@@ -85,9 +85,11 @@
                             </div>
                             <div class="input-item">
                                 <label for="estado" class="texto">Estado</label>
-                                <input class="texto-enfase" list="estado" id="i.estado" name="estado" placeholder="(Selecione o Estado)" maxlength="35" required>
+                                <input class="texto-enfase" list="estado" id="i.estado" name="estado" value="<c:out value='${endereco.estado}'/>" maxlength="35" required>
                                 <datalist id="estado">
-                                    <option value="Pegar estado do CEP">
+                                    <c:forEach var="estado" items="${estados}">
+                                    <option value="<c:out value='${estado}'/>">
+                                    </c:forEach>
                                 </datalist>
                             </div>
                         </div>
@@ -97,7 +99,7 @@
                             </div>
                             <div class="input-item">
                                 <label for="bairro" class="texto">Bairro</label>
-                                <input class="texto-enfase" type="text" id="i.bairro" name="bairro" placeholder="Nome" required>
+                                <input class="texto-enfase" type="text" id="i.bairro" name="bairro" value="<c:out value='${endereco.bairro}'/>" required>
                             </div>
                         </div>
                         <div class="formulario-input">
@@ -106,7 +108,7 @@
                             </div>
                             <div class="input-item">
                                 <label for="numero" class="texto">Número</label>
-                                <input class="texto-enfase" type="number" id="i.numero" name="numero" placeholder="XXXX">
+                                <input class="texto-enfase" type="number" id="i.numero" name="numero" value="<c:out value='${endereco.numero}'/>" >
                             </div>
                         </div>
                     </div>
@@ -122,7 +124,7 @@
                 <div id="confirmar-email" class="template-grid">
                     <div class="email-superior">
                         <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
-                        <p class="texto">E-mail Atual: </p> <!-- Pegar o email atual da instituição com o jsp -->
+                        <p class="texto">E-mail Atual: value="<c:out value='${instituicao.email}'/>"</p> <!-- Pegar o email atual da instituição com o jsp -->
                     </div>
                     <div class="email-conteudo">
                         <div class="input-email">
