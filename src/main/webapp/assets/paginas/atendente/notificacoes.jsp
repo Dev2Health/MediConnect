@@ -1,3 +1,6 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -42,7 +45,7 @@
                             </div>
                             <div class="consulta-horario">
                                 <img src="../../images/icone-horario.svg" alt="icone-horario">
-                                <p class="text"><c:out value="${notificacao.horario}"/></p>
+                                <p class="text"type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${data}'/></p>
                             </div>
                         </div>
                     </div>

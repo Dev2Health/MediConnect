@@ -1,3 +1,6 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,7 +22,7 @@
         <div class="template-grid">
             <h1 class="title">Alterar dados da consulta</h1>
         </div>
-        <form action="" autocomplete="on" id="content-form" class="template-grid">
+        <form action="atualizar-consulta" method="post" autocomplete="on" id="content-form" class="template-grid">
             <div class="form-left">
                 <div class="form-input">
                     <div class="input-icon">
@@ -27,8 +30,8 @@
                     </div>
                     <div class="input-itens">
                         <label for="time" class="text">Horário</label>
-                        <input class="text-emphasis" type="time" id="time" name="time"
-                            placeholder="(Selecione o Horário)" required>
+                        <input class="text-emphasis" type="time" id="c.horario" name="horario"
+                        value="<c:out value='${consulta.horario}'/>" required>
                     </div>
                 </div>
                 <div class="form-input">
@@ -38,11 +41,11 @@
                     <div class="input-itens">
                         <label for="professional" class="text">Profissional</label>
                         <input list="professionals" class="text-emphasis" type="text" id="professional"
-                            name="professional" placeholder="(Selecione o Profissional)" required>
+                            name="professional" value="<c:out value='${consulta.profissional}'/>" required>
                         <datalist id="professionals">
-                            <option value="Dr. Ricardo Soares"></option>
-                            <option value="Dra. Julia Zimmermann"></option>
-                            <option value="Dr. Alberto dos Santos"></option>
+                            <c:forEach var="profissional" items="${profissionais}">
+                            <option value="<c:out value='${profissional.nome}'/>"></option>
+                            </c:forEach>
                         </datalist>
                     </div>
                 </div>
@@ -62,7 +65,7 @@
                     </div>
                     <div class="input-itens">
                         <label for="date" class="text">Data</label>
-                        <input class="text-emphasis" type="date" id="date" name="date" placeholder="(Selecione a Data)"
+                        <input class="text-emphasis" type="datetime" value="<fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/>" id="p.data" name="data"
                             required>
                     </div>
                 </div>
@@ -75,12 +78,9 @@
                         <input list="status-list" class="text-emphasis" type="text" id="status" name="status"
                             placeholder="(Selecione o Status)" required>
                         <datalist id="status-list"> <!--A listagem deve ser feita para o JSP-->
-                            <option value="Confirmada"></option>
-                            <option value="Agendada"></option>
-                            <option value="Cancelada"></option>
-                            <option value="Aguardando Confirmação"></option>
-                            <option value="Realizada"></option>
-                            <option value="Finalizada"></option>
+                            <c:forEach var="status" items="${statuses}">
+                                <option value="<c:out value='${status}'/>"></option>
+                                </c:forEach>
                         </datalist>
                     </div>
                 </div>
