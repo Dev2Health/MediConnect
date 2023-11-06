@@ -86,35 +86,12 @@ body {
     margin-top: 120px;
 }
 
-.card-especialidade {
-    grid-column: 2 / 12;
-    margin-top: 50px;
-    padding: 25px 8.33vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.card-horizontal {
     background-color: var(--claro);
     border: 3px solid var(--azul);
-    border-radius: 40px;
 }
 
-.card-especialidade .card-informacao {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.card-informacao .informacao-profissional {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.card-informacao .informacao-profissional img {
-    height: 50px;
-}
-
-.card-informacao button {
+.info-direita button {
     color: var(--fundo-instituicao);
     background-color: var(--azul);
 }

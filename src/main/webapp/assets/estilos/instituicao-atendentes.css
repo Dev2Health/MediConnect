@@ -78,45 +78,38 @@ main {
     height: 35px;
 }
 
-/* Notificações */
+/* Atendente - Listagem */
 
-#notificacoes {
-    margin: 50px 0;
-}
-
-.card-notificacao {
+#retornar-atendente {
     grid-column: 2 / 12;
-    margin-top: 50px;
-    border: 3px solid var(--azul);
-    border-radius: 40px;
-    background-color: var(--claro);
-}
-
-.notificacao-superior {
     display: flex;
-    justify-content: space-between;
-    margin: 35px 8.33vw;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 25px;
 }
 
-.informacoes-consulta {
+#retornar-atendente button {
     display: flex;
     align-items: center;
-    gap: 50px;
+    justify-content: space-evenly;
+    color: var(--claro);
+    background-color: var(--azul-escuro);
 }
 
-.informacoes-consulta img {
-    width: 50px;
+#retornar-atendente button img {
+    width: 37px;
 }
 
-.informacoes-consulta [class*="informacao-"] {
-    display: flex;
-    gap: 45px;
+/* Atendente - Conteúdo */
+
+#atendente {
+    margin-bottom: 120px;
 }
 
-.informacao-data img {
-    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
+.card-horizontal {
+    border-color: var(--azul-claro);
 }
 
-.notificacao-inferior {
-    margin: 0 8.33vw 25px 8.33vw;
+.info-direita button {
+    background-color: var(--azul);
 }

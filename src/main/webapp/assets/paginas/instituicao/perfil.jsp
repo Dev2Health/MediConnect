@@ -44,30 +44,30 @@
                 <h2 class="subtitulo">Especialidades Atendidas</h2>
             </div>
             <div id="especialidade" class="template-grid">
-                <div class="card-especialidade">
+                <div class="card-horizontal">
                     <p class="texto-enfase">Clínico Geral</p>
-                    <div class="card-informacao">
-                        <div class="informacao-profissional">
+                    <div class="info-direita">
+                        <div class="info-variavel">
                             <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
                             <p class="texto">4</p>
                         </div>
                         <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
                     </div>
                 </div>
-                <div class="card-especialidade">
+                <div class="card-horizontal">
                     <p class="texto-enfase">Oncologia</p>
-                    <div class="card-informacao">
-                        <div class="informacao-profissional">
+                    <div class="info-direita">
+                        <div class="info-variavel">
                             <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
                             <p class="texto">2</p>
                         </div>
                         <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
                     </div>
                 </div>
-                <div class="card-especialidade">
+                <div class="card-horizontal">
                     <p class="texto-enfase">Odontologia</p>
-                    <div class="card-informacao">
-                        <div class="informacao-profissional">
+                    <div class="info-direita">
+                        <div class="info-variavel">
                             <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
                             <p class="texto">3</p>
                         </div>

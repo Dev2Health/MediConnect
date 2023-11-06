@@ -414,47 +414,40 @@ input[type=checkbox]:checked::before {
     width: 200px;
 }
 
-/* Notificações */
+/* Cards - Consultas, Atendentes e Especialidades */
 
-#notificacoes {
-    margin: 50px 0;
-}
-
-.card-notificacao {
+.card-horizontal {
     grid-column: 2 / 12;
-    margin-top: 50px;
-    border: 3px solid var(--azul);
-    border-radius: 40px;
-    background-color: var(--claro);
-}
-
-.notificacao-superior {
+    height: 130px;
+    margin: 25px 0;
+    padding: 15px 4.16vw 15px 8.33vw;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin: 35px 8.33vw;
+    background-color: var(--claro);
+    border: 3px solid;
+    border-radius: 40px;
 }
 
-.informacoes-consulta {
+.card-horizontal .entidade-nome {
+    width: 16.33vw;
+}
+
+.card-horizontal .info-direita {
     display: flex;
     align-items: center;
     gap: 50px;
 }
 
-.informacoes-consulta img {
-    width: 50px;
-}
-
-.informacoes-consulta [class*="informacao-"] {
+.info-direita .info-variavel {
     display: flex;
-    gap: 45px;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
 }
 
-.informacao-data img {
-    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
-}
-
-.notificacao-inferior {
-    margin: 0 8.33vw 25px 8.33vw;
+.info-direita .info-variavel img {
+    height: 50px;
 }
 
 /* Footer */
