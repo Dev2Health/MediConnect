@@ -1,3 +1,6 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,6 +37,7 @@
             <div><!--agrupamento de tudo-->
                 <div>
                     <div><!--todos os cards-->
+                        <c:forEach var="pacienteHoje" items="${pacientesHoje}">
                         <div><!--card completo-->
                             <div><!--foto-->
                                 <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
@@ -41,8 +45,8 @@
                             <div><!--card-->
                                 <div><!--Header-->
                                     <div><!--Textos-->
-                                        <p class="text">Maria Silva Krauss</p>
-                                        <p class="text-no-emphasis">Contato: (47) 9 3171 9852</p>
+                                        <p class="text"><c:out value='${pacienteHoje.nome}'/></p>
+                                        <p class="text-no-emphasis"><c:out value='${pacienteHoje.telefone}'/></p>
                                     </div>
                                 </div>
                                 <div><!--divisão-->
@@ -52,46 +56,18 @@
                                 <div><!--Conteúdo do card-->
                                     <div><!--Textos-->
                                         <div>
-                                            <p class="text-no-emphasis">Data de nascimento</p>
-                                            <p class="text-no-emphasis">20/08/1999</p>
+                                            <p class="text-no-emphasis">Data de Nascimento</p>
+                                            <p class="text-no-emphasis" type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/></p>
                                         </div>
                                         <div>
                                             <p class="text-no-emphasis">CPF</p>
-                                            <p class="text-no-emphasis">134.317.065-68</p>
+                                            <p class="text-no-emphasis"><c:out value='${pacienteHoje.cpf}'/></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div><!--card completo-->
-                            <div><!--foto-->
-                                <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div><!--card-->
-                                <div><!--Header-->
-                                    <div><!--Textos-->
-                                        <p class="text">Velma dos Santos</p>
-                                        <p class="text-no-emphasis">Contato: (47) 9 2322 9362</p>
-                                    </div>
-                                </div>
-                                <div><!--divisão-->
-                                    <img src="../../images/icone-informacoes.svg" alt="icone-informações">
-                                    <p class="text">Informações Gerais</p>
-                                </div>
-                                <div><!--Conteúdo do card-->
-                                    <div><!--Textos-->
-                                        <div>
-                                            <p class="text-no-emphasis">Data de nascimento</p>
-                                            <p class="text-no-emphasis">01/12/1989</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-no-emphasis">CPF</p>
-                                            <p class="text-no-emphasis">348.352.032-59</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -103,6 +79,7 @@
             <div><!--agrupamento de tudo-->
                 <div>
                     <div><!--todos os cards-->
+                        <c:forEach var="paciente" items="${pacientes}">
                         <div><!--card completo-->
                             <div><!--foto-->
                                 <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
@@ -110,8 +87,8 @@
                             <div><!--card-->
                                 <div><!--Header-->
                                     <div><!--Textos-->
-                                        <p class="text">Joana Silva Castela</p>
-                                        <p class="text-no-emphasis">Contato: (47) 9 9721 2859</p>
+                                        <p class="text"><c:out value='${paciente.nome}'/></p>
+                                        <p class="text-no-emphasis"><c:out value='${paciente.telefone}'/></p>
                                     </div>
                                 </div>
                                 <div><!--divisão-->
@@ -121,75 +98,18 @@
                                 <div><!--Conteúdo do card-->
                                     <div><!--Textos-->
                                         <div>
-                                            <p class="text-no-emphasis">Data de nascimento</p>
-                                            <p class="text-no-emphasis">19/04/2000</p>
+                                            <p class="text-no-emphasis">Data de Nascimento</p>
+                                            <p class="text-no-emphasis" type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/></p>
                                         </div>
                                         <div>
                                             <p class="text-no-emphasis">CPF</p>
-                                            <p class="text-no-emphasis">779.315.578-59</p>
+                                            <p class="text-no-emphasis"><c:out value='${paciente.cpf}'/></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div><!--card completo-->
-                            <div><!--foto-->
-                                <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div><!--card-->
-                                <div><!--Header-->
-                                    <div><!--Textos-->
-                                        <p class="text">Mario de Oliveira</p>
-                                        <p class="text-no-emphasis">Contato: (47) 9 9924 2359</p>
-                                    </div>
-                                </div>
-                                <div><!--divisão-->
-                                    <img src="../../images/icone-informacoes.svg" alt="icone-informações">
-                                    <p class="text">Informações Gerais</p>
-                                </div>
-                                <div><!--Conteúdo do card-->
-                                    <div><!--Textos-->
-                                        <div>
-                                            <p class="text-no-emphasis">Data de nascimento</p>
-                                            <p class="text-no-emphasis">09/09/1984</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-no-emphasis">CPF</p>
-                                            <p class="text-no-emphasis">457.755.760-63</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div><!--card completo-->
-                            <div><!--foto-->
-                                <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div><!--card-->
-                                <div><!--Header-->
-                                    <div><!--Textos-->
-                                        <p class="text">Janaina de Mouro</p>
-                                        <p class="text-no-emphasis">Contato: (47) 9 9831 8816</p>
-                                    </div>
-                                </div>
-                                <div><!--divisão-->
-                                    <img src="../../images/icone-informacoes.svg" alt="icone-informações">
-                                    <p class="text">Informações Gerais</p>
-                                </div>
-                                <div><!--Conteúdo do card-->
-                                    <div><!--Textos-->
-                                        <div>
-                                            <p class="text-no-emphasis">Data de nascimento</p>
-                                            <p class="text-no-emphasis">05/02/2000</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-no-emphasis">CPF</p>
-                                            <p class="text-no-emphasis">101.390.426-52</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
