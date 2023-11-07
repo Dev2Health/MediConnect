@@ -42,22 +42,26 @@ main {
 
 .titulo {
     grid-column: 2 / 10;
-    color: var(--roxo);
+    color: var(--azul);
     margin-bottom: 40px;
 }
 
 /* Formulário */
 
 .formulario-input {
-    border-color: var(--roxo);
+    border-color: var(--azul);
+}
+
+.formulario-input .input-icone {
+    filter: var(--filtro-azul);
 }
 
 .input-item input {
-    color: var(--roxo);
+    color: var(--azul);
 }
 
 ::placeholder {
-    color: var(--roxo-claro);
+    color: var(--azul-claro);
 }
 
 .formulario-rodape {
@@ -68,10 +72,10 @@ main {
 }
 
 .formulario-rodape .botao-circular-p:first-child {
-    background-color: var(--roxo);
+    background-color: var(--azul);
 }
 
 .formulario-rodape .botao-circular-p:nth-child(2) {
     background-color: var(--fundo-claro);
-    border: 3px solid var(--roxo);
+    border: 3px solid var(--azul);
 }

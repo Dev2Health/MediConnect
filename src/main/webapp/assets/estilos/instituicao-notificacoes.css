@@ -114,7 +114,11 @@ main {
 }
 
 .informacao-data img {
-    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
+    filter: var(--filtro-azul-escuro);
+}
+
+.informacao-horario img {
+    filter: var(--filtro-azul);
 }
 
 .notificacao-inferior {
