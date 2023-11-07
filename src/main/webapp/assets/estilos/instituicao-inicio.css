@@ -1,0 +1,124 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-instituicao);
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.barra-navegacao img {
+    width: 50px;
+}
+
+/* Configurações Gerais */
+
+.titulo-sessao h2 {
+    grid-column: 2 / 12;
+    color: var(--azul-escuro);
+}
+
+.titulo-sessao h2 span {
+    color: var(--azul-claro);
+}
+
+.titulo-sessao h3 {
+    grid-column: 2 / 12;
+    color: var(--azul);
+}
+
+section {
+    align-items: flex-start;
+    margin: 100px 0;
+}
+
+/* Inicio */
+
+.conteudo-direita h1 {
+    color: var(--azul-escuro);
+}
+
+.conteudo-direita .botao-circular-g {
+    background-color: var(--azul);
+}
+
+.botao-inferior {
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+/* Cards Atendentes */
+
+.card-entidade {
+    border-color: var(--azul);
+}
+
+.card-superior .entidade-imagem {
+    border-color: var(--azul);
+}
+
+.card-meio {
+    color: var(--fundo-instituicao);
+    background-color: var(--azul);
+}
+
+/* Especialidades */
+
+.label-agrupamento {
+    grid-column: 2 / 12;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 65px;
+    margin-top: 100px;
+}
+
+.label-especialidade {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 21vw;
+    height: 165px;
+    padding: 0px 15px 20px 15px;
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--azul);
+    border-radius: 15px;
+}
+
+.label-titulo {
+    color: var(--azul);
+}
+
+.label-profissionais {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+.label-profissionais img {
+    filter: var(--filtro-azul-escuro);
+}
+
+.label-profissionais .quantidade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    color: var(--claro);
+    background-color: var(--azul);
+}
