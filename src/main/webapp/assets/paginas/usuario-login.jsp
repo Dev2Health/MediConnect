@@ -21,7 +21,7 @@
     </header>
     <main class="template-grid">
         <div class="conteudo-esquerda">
-            <img src="./assets/imagens/login-ilustracao.svg" alt="ilustracao-login" class="ilustracao">
+            <img src="./assets/imagens/ilustracao-login.svg" alt="ilustracao-login" class="ilustracao">
         </div>
         <div class="conteudo-direita">
             <h1 class="titulo-especial">Olá! É bom ter você de volta!</h1>

@@ -20,7 +20,7 @@
     </header>
     <main class="template-grid">
         <div class="conteudo-esquerda">
-            <img src="./assets/imagens/cadastro-ilustracao.svg" alt="ilustracao-cadastro" class="ilustracao">
+            <img src="./assets/imagens/ilustracao-cadastro.svg" alt="ilustracao-cadastro" class="ilustracao">
         </div>
         <div class="conteudo-direita">
             <h1 class="titulo-especial">Deseja criar o seu cadastro?</h1>
