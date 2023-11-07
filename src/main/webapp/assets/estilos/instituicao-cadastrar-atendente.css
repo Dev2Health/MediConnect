@@ -2,7 +2,7 @@ body {
     width: 100vw;
     height: 100vh;
     color: var(--escuro);
-    background-color: var(--fundo-claro);
+    background-color: var(--fundo-instituicao);
 }
 
 main {
