@@ -26,6 +26,9 @@
     /* Fontes */
     --fonte-geral: 'Noto Sans Symbols', sans-serif;
     --fonte-especial: 'Fredoka', sans-serif;
+    /* Filtros */
+    --filtro-azul: invert(61%) sepia(65%) saturate(270%) hue-rotate(175deg) brightness(90%) contrast(90%);
+    --filtro-azul-escuro: filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
 }
 
 html {
@@ -299,7 +302,7 @@ input[type=checkbox]:checked::before {
     align-items: center;
     width: 200px;
     height: 200px;
-    border: 5px solid;
+    border: 3px solid;
     border-radius: 50%;
     background-color: var(--claro);
 }

@@ -91,6 +91,10 @@ body {
     border: 3px solid var(--azul);
 }
 
+.info-direita .info-variavel img {
+    filter: var(--filtro-azul-escuro);
+}
+
 .info-direita button {
     color: var(--fundo-instituicao);
     background-color: var(--azul);

@@ -53,7 +53,7 @@ body {
 }
 
 .input-icone img {
-    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
+    filter: var(--filtro-azul-escuro);
 }
 
 .validar-conteudo {
@@ -182,7 +182,7 @@ body {
 
 .input-senhas [id*="senha-"] img {
     width: 35px;
-    filter: invert(62%) sepia(65%) saturate(289%) hue-rotate(174deg) brightness(87%) contrast(89%);
+    filter: var(--filtro-azul);
 }
 
 /* Checkbox */

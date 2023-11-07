@@ -1,0 +1,86 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    align-items: center;
+    margin: 50px 0 25px 0;
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.barra-navegacao img {
+    width: 50px;
+}
+
+/* Formulário */
+
+.formulario-input {
+    border-color: var(--azul);
+}
+
+.formulario-input .input-icone {
+    filter: var(--filtro-azul);
+}
+
+.input-item input {
+    color: var(--azul);
+}
+
+::placeholder {
+    color: var(--azul-claro);
+}
+
+.formulario-rodape {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    width: 37vw;
+    gap: 50px;
+}
+
+.formulario-rodape .botao-circular-p:first-child {
+    background-color: var(--azul);
+}
+
+.formulario-rodape .botao-circular-p:nth-child(2) {
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--azul);
+}
+
+/* Foto */
+
+#posicao-foto {
+    width: 37.485vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 265px;
+}
+
+.perfil-foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border: 3px solid var(--azul);
+    border-radius: 50%;
+    background-color: var(--claro);
+}
