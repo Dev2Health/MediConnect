@@ -6,83 +6,83 @@
     <title>Atendentes | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/atendentes-instituicao.css">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/pagina-inicial.css"%></style>
 </head>
 <body>
-    <header id="content-header" class="template-grid">
-        <nav class="nav-bar">
-            <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="icone-mediconnect">
+    <header id="cabecalho" class="template-grid">
+        <nav class="navegacao-barra">
+            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
+            <img src="./assets/imagens/logo.svg" alt="icone-mediconnect">
         </nav>
-        <nav class="nav-filter">
-            <div class="filter-box">
-                <div class="input-itens">
-                    <input class="text-emphasis" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
+        <nav class="navegacao-filtro">
+            <div class="filtro">
+                <div class="input-item">
+                    <input class="texto-enfase" type="texto" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
                 </div>
-                <div class="filter-icon">
-                    <img src="../../images/icone-lupa.svg" alt="icone-pesquisar">
+                <div class="filtro-icone">
+                    <img src="./assets/imagens/icone-lupa.svg" alt="icone-pesquisar">
                 </div>
             </div>
-            <button class="btn-square-la text">Filtrar <img src="../../images/icone-filtro.svg"> </button>
+            <button class="botao-quadrado-g texto">Filtrar <img src="./assets/imagens/icone-filtro.svg"></button>
         </nav>
     </header>
     <main>
         <div id="pesquisa-retornar" class="template-grid">
             <div id="retornar-atendente">
-                <p class="text">Atendentes da instituição</p>
-                <button class="btn-square-sm text-emphasis">Adicionar <img src="../../images/icone-adicionar.svg"></button>
+                <p class="subtitulo texto-azul">Atendentes da instituição</p>
+                <button class="botao-quadrado-p texto-enfase">Adicionar <img src="./assets/imagens/icone-adicionar.svg"></button>
             </div>
         </div>
+
         <div id="atendente" class="template-grid">
-            <c:forEach var="atendente" items="${atendentes}">
-            <div class="card-atendente">
-                <p class="text-emphasis atendente-name"><c:out value='${atendente.id}' /> <c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
-                <div class="card-info">
-                    <div class="info-atendente">
-                        <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                        <p class="text-emphasis">Contratação: <c:out value="${atendente.data}" /></p>
+
+            <div class="card-horizontal">
+                <p class="texto-enfase"> AQUI <c:out value='${atendente.id}' /> <c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
+                <div class="info-direita">
+                    <div class="info-variavel">
+                        <img src="./assets/imagens/icone-deletar.svg" alt="icone-deletar">
+                        <img src="./assets/imagens/icone-editar-dados.svg" alt="icone-editar">
                     </div>
-                    <button class="btn-square-sm text-emphasis">Ver detalhes</button>
+                    <button class="botao-quadrado-p texto-enfase texto-claro">Ver detalhes</button>
                 </div>
-            </div><!--fim do card-->
-            </c:forEach>
+            </div>
         </div>
     </main>
     <footer>
-        <div class="template-grid" id="footer-links">
-            <div class="footer-mediconnect">
-                <p class="text">MediConnect</p>
-                <a href="../sobre-nos.html" class="text-no-emphasis link-light">Sobre nós</a>
-                <a href="../../../index.html" class="text-no-emphasis link-light">Página inicial</a>
+        <div class="template-grid" id="rodape-links">
+            <div class="rodape-mediconnect">
+                <p class="texto">MediConnect</p>
+                <a href="./assets/paginas/sobre-nos.html" class="texto-sem-enfase texto-claro">Sobre nós</a>
+                <a href="#sessao-principal" class="texto-sem-enfase texto-claro">Página inicial</a>
             </div>
-            <div class="footer-contact">
-                <p class="text">Atendimento</p>
-                <a href="#" class="text-no-emphasis link-light">Contato</a>
-                <a href="#" class="text-no-emphasis link-light">Termos de Uso</a>
+            <div class="rodape-contato">
+                <p class="texto">Atendimento</p>
+                <a href="#" class="texto-sem-enfase texto-claro">Contato</a>
+                <a href="#" class="texto-sem-enfase texto-claro">Termos de Uso</a>
             </div>
-            <div class="footer-social">
-                <p class="text">Redes Sociais</p>
+            <div class="rodape-social">
+                <p class="texto">Redes Sociais</p>
                 <div class="social-whatsapp">
-                    <img src="../../images/logo-whatsapp.svg">
-                    <a href="#" class="text-no-emphasis link-light">WhatsApp</a>
+                    <img src="./assets/imagens/logo-whatsapp.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
                 </div>
                 <div class="social-github">
-                    <img src="../../images/logo-github.svg">
-                    <a href="#" class="text-no-emphasis link-light">GitHub</a>
+                    <img src="./assets/imagens/logo-github.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
                 </div>
                 <div class="social-instagram">
-                    <img src="../../images/logo-instagram.svg">
-                    <a href="#" class="text-no-emphasis link-light">Instagram</a>
+                    <img src="./assets/imagens/logo-instagram.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
                 </div>
             </div>
         </div>
-        <div class="template-grid" id="footer-commercial">
+        <div class="template-grid" id="rodape-comercial">
             <hr><br>
-            <div class="commercial-content">
-                <img src="../../images/logo-rodape.svg" alt="logo-mediconnect">
-                <p class="text-small">2023 &copy Todos os direitos reservados</p>
+            <div class="comercial-conteudo">
+                <img src="./assets/imagens/logo-rodape.svg" alt="logo-mediconnect">
+                <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
             </div>
         </div>
     </footer>

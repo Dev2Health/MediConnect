@@ -80,51 +80,43 @@ main {
 
 /* Notificações */
 
-#notification {
-    margin-bottom: 50px;
+#notificacoes {
+    margin: 50px 0;
 }
 
-.card-notification {
+.card-notificacao {
     grid-column: 2 / 12;
     margin-top: 50px;
-    border: 3px solid var(--purple);
+    border: 3px solid var(--azul);
     border-radius: 40px;
-    background-color: var(--light);
+    background-color: var(--claro);
 }
 
-.notification-top {
+.notificacao-superior {
     display: flex;
     justify-content: space-between;
     margin: 35px 8.33vw;
 }
 
-.consult-info {
+.informacoes-consulta {
     display: flex;
     align-items: center;
     gap: 50px;
 }
 
-.consult-info img {
+.informacoes-consulta img {
     width: 50px;
 }
 
-.consult-info [class*="consult-"] {
+.informacoes-consulta [class*="informacao-"] {
     display: flex;
     gap: 45px;
 }
 
-.consult-date img {
-    filter: brightness(78%) contrast(110%);
+.informacao-data img {
+    filter: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
 }
 
-.consult-time img {
-    filter: invert(47%) sepia(40%) saturate(965%) hue-rotate(200deg) brightness(80%) contrast(90%);
-}
-
-.notification-bottom {
+.notificacao-inferior {
     margin: 0 8.33vw 25px 8.33vw;
-}
-
-.notification-bottom .text-emphasis {
-    font-size: 1em;
 }
