@@ -307,6 +307,11 @@ input[type=checkbox]:checked::before {
     background-color: var(--claro);
 }
 
+.perfil-apresentacao .perfil-foto img {
+    width: 100%;
+    border-radius: 50%;
+}
+
 .perfil-apresentacao .perfil-editar button {
     display: flex;
     justify-content: center;
@@ -415,7 +420,7 @@ input[type=checkbox]:checked::before {
 }
 
 .card-inferior .inferior-informacao {
-    width: 200px;
+    width: 235px;
 }
 
 /* Cards - Consultas, Atendentes e Especialidades */

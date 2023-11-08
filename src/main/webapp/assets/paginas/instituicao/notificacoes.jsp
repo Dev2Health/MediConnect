@@ -29,8 +29,8 @@
         </nav>
     </header>
     <main>
-        <div id="notificacoes" class="template-grid">
-            <c:forEach var="notificacao" items="${notificacoes}">
+        <div id="notificacoes">
+            <c:forEach var="notificacao" items="${notificacoes}" class="template-grid">
                 <div class="card-notificacao">
                     <div class="notificacao-superior">
                         <h2 class="subtitulo">Notificação</h2>

@@ -1,0 +1,120 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.barra-navegacao img {
+    width: 50px;
+}
+
+/* Configurações Gerais */
+
+.sessao-subtitulo h2 {
+    color: var(--roxo-escuro);
+}
+
+.ver-tudo button {
+    color: var(--claro);
+    background-color: var(--roxo-escuro);
+}
+
+.ver-tudo button:hover {
+    background-color: var(--roxo);
+}
+
+/* Perfil */
+
+.perfil-apresentacao .perfil-foto {
+    border-color: var(--roxo);
+}
+
+.perfil-apresentacao .perfil-editar button {
+    background-color: var(--roxo-escuro);
+}
+
+#informacoes-atendente {
+    margin: 85px 0;
+}
+
+#informacoes-atendente .perfil-informacao:first-child {
+    background-color: var(--roxo);
+    border-radius: 40px 40px 0 0;
+}
+
+#informacoes-atendente .perfil-informacao:last-child {
+    background-color: var(--roxo-escuro);
+    border-radius: 0 0 40px 40px;
+}
+
+.perfil-informacao {
+    grid-column: 2 / 12;
+    display: flex;
+    color: var(--claro);
+    height: 160px;
+}
+
+.perfil-informacao .perfil-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.5vw;
+}
+
+.perfil-informacao .perfil-detalhes {
+    width: 65vw;
+}
+
+.perfil-informacao .perfil-detalhes .instituicao-dados {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Consultas */
+
+#consultas .sessao-subtitulo {
+    margin-bottom: 55px;
+}
+
+.card-horizontal {
+    border-color: var(--roxo);
+}
+
+.info-direita button {
+    color: var(--claro);
+    background-color: var(--roxo);
+}
+
+.info-variavel [class*="info-"] {
+    display: flex;
+    gap: 25px;
+}
+
+/* Cards Pacientes */
+
+.card-entidade {
+    border-color: var(--roxo);
+}
+
+.card-superior .entidade-imagem {
+    border-color: var(--roxo);
+}
+
+.card-meio {
+    color: var(--fundo-claro);
+    background-color: var(--roxo);  
+}
