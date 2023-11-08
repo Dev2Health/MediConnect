@@ -36,6 +36,9 @@ public class EspecialidadeProfissional implements Serializable {
 	@Column(name = "nome_especialidade_profissional", length = 60, nullable = false)
 	private String nome;
 	
+	@Column(name = "eh_ativo_usuario", nullable = false)
+	private boolean ehAtivo;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "especialidade_profissional", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ProfissionalDeSaude> profissionalDeSaude = new ArrayList<ProfissionalDeSaude>();
 	/* Uma Especialidade contém vários Profissionais | Um Profissional terá uma Especialidade */
@@ -76,6 +79,15 @@ public class EspecialidadeProfissional implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	// ehAtivo
+	public boolean getEhAtivo() {
+		return ehAtivo;
+	}
+
+	public void setEhAtivo(boolean ehAtivo) {
+		this.ehAtivo = ehAtivo;
 	}
 
 	// Profissionais De Saúde

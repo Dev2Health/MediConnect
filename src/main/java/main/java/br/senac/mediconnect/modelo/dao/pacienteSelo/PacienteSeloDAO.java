@@ -9,4 +9,5 @@ public interface PacienteSeloDAO {
 	void deletarPacienteSelo(PacienteSelo paciente_selo);
 	void atualizarPacienteSelo(PacienteSelo paciente_selo);
 	List<PacienteSelo> recuperarPacienteSelo();
+	PacienteSelo recuperarPacienteSeloPorId(Integer id);
 }

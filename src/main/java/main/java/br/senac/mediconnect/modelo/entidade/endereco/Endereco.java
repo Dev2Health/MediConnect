@@ -28,6 +28,9 @@ public class Endereco implements Serializable {
 	@Column(name = "cep_endereco", length = 9, nullable = false, unique = false)
 	private String cep;
 	
+	@Column(name = "eh_ativo_usuario", nullable = false)
+	private boolean ehAtivo;
+	
 	@Column(name = "numero_endereco", nullable = false, unique = false)
 	private int numero;
 	
@@ -83,11 +86,22 @@ public class Endereco implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	// ehAtivo
+	public boolean isEhAtivo() {
+		return ehAtivo;
+	}
+
+	public void setEhAtivo(boolean ehAtivo) {
+		this.ehAtivo = ehAtivo;
+	}
 
 	// CEP
 	public String getCep() {
 		return cep;
 	}
+
+
 	public void setCep(String cep) {
 		this.cep = cep;
 	}

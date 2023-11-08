@@ -229,7 +229,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return usuario;
 	}
 	
-	public boolean deletarUsuario(Integer id) {
+	public Usuario recuperarUsuarioPorId(Integer id) {
 		
 		Session sessao = null;
 		Usuario usuario = null;
@@ -267,8 +267,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			}
 		}
 		
-		return true;	
-			
+		return usuario;
 	}
 	
 }
