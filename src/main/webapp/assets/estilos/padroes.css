@@ -265,7 +265,7 @@ input[type=checkbox] {
     color: inherit;
     width: 3.15em;
     height: 3.15em;
-    border: 0.25em solid var(--azul);
+    border: 0.25em solid;
     border-radius: 0.65em;
     display: grid;
     place-content: center;
@@ -280,7 +280,6 @@ input[type=checkbox]::before {
     transform: scale(0);
     transform-origin: bottom left;
     background-color: CanvasText;
-    background-color: var(--azul);
 }
   
 input[type=checkbox]:checked::before {
