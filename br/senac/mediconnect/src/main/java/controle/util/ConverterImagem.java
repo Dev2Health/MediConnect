@@ -7,5 +7,6 @@ import javax.servlet.http.Part;
 public interface ConverterImagem {
 	
 	byte[] obterBytesImagem(Part parteFoto) throws IOException;
+	String urlFoto(byte[] foto, String extensao);
 
 }

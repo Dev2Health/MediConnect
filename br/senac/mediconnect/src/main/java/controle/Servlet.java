@@ -501,9 +501,12 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
-		parteFoto = request.getPart("foto-perfil");
-		fotoPerfil = converterImagem.obterBytesImagem(parteFoto);
 		
+		parteFoto = request.getPart("foto-perfil");
+		String extensao = parteFoto.getContentType();
+		byte[] binarioFoto = ConversorImagem.obterBytesImagem(parteFoto);
+		Foto fotoPerfil = new Foto(binarioFoto, extensao);
+		fotoDAO.inserirFoto(fotoPerfil);		
 
 		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, fotoPerfil);
 
