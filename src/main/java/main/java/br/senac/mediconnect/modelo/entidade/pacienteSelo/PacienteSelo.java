@@ -32,6 +32,9 @@ public class PacienteSelo implements Serializable{
 	@ManyToOne
 	@MapsId("id_selo")
 	private Selo selo;
+	
+	@Column(name = "eh_ativo_usuario", nullable = false)
+	private boolean ehAtivo;
 
 	@Column(name = "status_selo", length = 5, nullable = false, unique = false)
 	@Enumerated(EnumType.STRING)
@@ -56,10 +59,21 @@ public class PacienteSelo implements Serializable{
 	public void setPaciente(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	//	ehAtivo
+	public boolean isEhAtivo() {
+		return ehAtivo;
+	}
+
+	public void setEhAtivo(boolean ehAtivo) {
+		this.ehAtivo = ehAtivo;
+	}
 
 	public Selo getSelo() {
 		return selo;
 	}
+
+
 
 	public void setSelo(Selo Selo) {
 		this.selo = Selo;

@@ -36,6 +36,9 @@ public class PacienteConquista implements Serializable{
 	@ManyToOne
 	@MapsId("id_conquista")
 	private Conquista conquista;
+	
+	@Column(name = "eh_ativo_usuario", nullable = false)
+	private boolean ehAtivo;
 
 	@Column(name = "nivel_conquista", length = 30, nullable = false, unique = false)
 	private byte nivel;
@@ -64,6 +67,15 @@ public class PacienteConquista implements Serializable{
 
 	public void setPaciente(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	//ehAtivo
+	public boolean isEhAtivo() {
+		return ehAtivo;
+	}
+
+	public void setEhAtivo(boolean ehAtivo) {
+		this.ehAtivo = ehAtivo;
 	}
 
 	public Conquista getConquista() {
