@@ -6,7 +6,6 @@
 		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../menu.jsp"%>
 		<div>
 			<div>
 				<h1>
@@ -24,8 +23,7 @@
 						<input type="hidden" name="id" value="<c:out value='${especialidade.id}' />" />
 					</c:if>
 					<label>Nome:</label>
-					<input type="text" value="<c:out value='${especialidade.nome}' />" id="e.nome" name="nome" placeholder="Informe o nome da especialidade..."> 
-
+					<input type="text" value="<c:out value='${especialidade.nome}' />" id="e.nome" name="nome" placeholder="Informe o nome da especialidade...">
 					<button type="submit">Salvar</button>
 					<button type="reset">Limpar Formulário</button>
 				</form>
