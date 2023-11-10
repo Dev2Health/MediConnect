@@ -16,8 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import main.java.br.senac.mediconnect.controle.util.ConverterImagem;
-import main.java.br.senac.mediconnect.controle.util.ConverterImagemImpl;
+import main.java.br.senac.mediconnect.controle.util.ConversorImagem;
 import main.java.br.senac.mediconnect.modelo.dao.atendente.AtendenteDAO;
 import main.java.br.senac.mediconnect.modelo.dao.atendente.AtendenteDAOImpl;
 import main.java.br.senac.mediconnect.modelo.dao.conquista.ConquistaDAO;
@@ -71,10 +70,10 @@ public class Servlet extends HttpServlet {
 	private ConquistaDAO conquistaDAO;
 	private PacienteConquistaDAO pacienteConquistaDAO;
 	private UsuarioDAO usuarioDAO;
+	private ConversorImagem conversorImagem;
+	private byte [] fotoPerfil = null;
 	private PacienteSeloDAO pacienteSeloDAO;
 	private NotificacaoDAO notificacaoDAO;
-	private ConverterImagem converterImagem;
-	private byte[] fotoPerfil = null;
 
 	public void init() {
 
@@ -88,7 +87,7 @@ public class Servlet extends HttpServlet {
 		consultaDAO = new ConsultaDAOImpl();
 		pacienteConquistaDAO = new PacienteConquistaDAOImpl();
 		usuarioDAO = new UsuarioDAOImpl();
-		converterImagem = new ConverterImagemImpl();
+		conversorImagem = new ConversorImagem();
 		notificacaoDAO = new NotificacaoDAOImpl();
 		pacienteSeloDAO = new PacienteSeloDAOImpl();
 	}
@@ -787,7 +786,7 @@ public class Servlet extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
 		parteFoto = request.getPart("foto-perfil");
-		fotoPerfil = converterImagem.obterBytesImagem(parteFoto);
+		fotoPerfil = ConversorImagem.obterBytesImagem(parteFoto);
 
 		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, fotoPerfil);
 

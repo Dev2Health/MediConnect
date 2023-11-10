@@ -1,0 +1,121 @@
+body {
+    width: 100vw;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Menu */
+
+#cabecalho {
+    width: 100vw;
+    align-items: center;
+    height: 140px;
+}
+
+[class*="navegacao-"], .filtro, .filtro-icone {
+    display: flex;
+    align-items: center;
+}
+
+.navegacao-barra {
+    grid-column: 2 / 4;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.navegacao-barra img {
+    width: 50px;
+}
+
+.navegacao-filtro {
+    grid-column: 5 / 12;
+    justify-content: space-between;
+}
+
+.filtro {
+    justify-content: space-between;
+    border: 3px solid var(--roxo);
+    border-radius: 15px;
+    width: 30vw;
+    height: 55px;
+}
+
+.input-item input {
+    color: var(--roxo);
+    padding-left: 1.4vw;
+}
+
+.input-item input::placeholder {
+    color: var(--roxo-claro);
+}
+
+.filtro-icone {
+    height: 100%;
+    background-color: var(--roxo);
+    border-radius: 0 10px 10px 0;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.filtro-icone img {
+    height: 35px;
+}
+
+.navegacao-filtro button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    color: var(--fundo-instituicao);
+    background-color: var(--roxo);
+}
+
+.navegacao-filtro button img {
+    height: 35px;
+}
+
+/* Retorno */
+
+#botoes-selecao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+#botoes-selecao button {
+    color: var(--roxo);
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--roxo);
+    transition: background-color 200ms ease;
+}
+
+#botoes-selecao button:focus {
+    color: var(--fundo-claro);
+    background-color: var(--roxo);
+}
+
+/* Consultas */
+
+#consultas {
+    margin: 50px 0;
+}
+
+.card-horizontal {
+    border-color: var(--roxo);
+}
+
+.info-direita button {
+    color: var(--claro);
+    background-color: var(--roxo);
+}
+
+.info-variavel [class*="info-"] {
+    display: flex;
+    gap: 25px;
+}

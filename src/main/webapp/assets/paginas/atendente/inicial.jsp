@@ -3,61 +3,66 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Consultas | MediConnect</title>
+    <title>Início | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
-    <style><%@include file="../../estilos/atendente-consultas.css"%></style>
-
+    <style><%@include file="../../estilos/atendente-inicial.css"%></style>
 </head>
 <body>
     <header id="cabecalho" class="template-grid">
-        <nav class="navegacao-barra">
+        <nav class="barra-navegacao">
             <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
-            <img src="./assets/imagens/logo.svg" alt="icone-mediconnect">
-        </nav>
-        <nav class="navegacao-filtro">
-            <div class="filtro">
-                <div class="input-item">
-                    <input class="texto-enfase" type="texto" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
-                </div>
-                <div class="filtro-icone">
-                    <img src="./assets/imagens/icone-lupa.svg" alt="icone-pesquisar">
-                </div>
-            </div>
-            <button class="botao-quadrado-g texto">Filtrar <img src="./assets/imagens/icone-filtro.svg"></button>
+            <img src="./assets/imagens/logo.svg" alt="logo-mediconnect">
         </nav>
     </header>
     <main>
-        <section id="consultas">
-            <div class="template-grid">
-                <div id="botoes-selecao">
-                    <button class="botao-quadrado-p texto-enfase" autofocus>Recentes</button>
-                    <button class="botao-quadrado-p texto-enfase">Todas</button>
-                </div>
+        <section id="inicio" class="template-grid">
+            <div class="conteudo-esquerda">
+                <img src="./assets/imagens/ilustracao-atendente.svg" alt="ilustracao-atendente" class="ilustracao">
+                <button class="botao-circular-g"><a href="./pacientes.jsp" class="texto texto-claro">Ver pacientes</a></button>
             </div>
-            <div id="consulta">
-                <c:forEach var="consulta" items="${consultas}" class="template-grid">
+            <div class="conteudo-direita">
+                <h1 class="titulo-especial">Boas-vindas!</h1>
+                <h2 class="subtitulo-especial texto-roxo">Joana Castela</h2>
+                <h2 class="subtitulo-especial texto-azul">Hospital Fritz Müller</h2>
+            </div>
+        </section>
+        <section id="pacientes">
+            <div class="template-grid titulo-sessao">
+                <h1 class="titulo-especial texto-roxo">Pacientes de Hoje</h1>
+            </div>
 
-                    <div class="card-horizontal">
-                        <p class="texto-enfase">Título da consulta</p>
-                        <div class="info-direita">
-                            <div class="info-variavel">
-                                <div class="info-data">
-                                    <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
-                                    <p class="texto" type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${data}'/></p>
-                                </div>
-                                <div class="info-horario">
-                                    <img src="./assets/imagens/icone-horario.svg" alt="icone-calendario">
-                                    <p class="texto"><c:out value='${consulta.horario}'/></p>
+            <div id="paciente" class="template-grid">
+                <div class="cards-agrupamento">
+
+                    <div class="card-entidade">
+                        <div class="card-superior">
+                            <div class="entidade-imagem">
+                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                            </div>
+                            <div class="entidade-informacao">
+                                <p class="texto">Mario de Oliveira</p>
+                                <p class="texto-sem-enfase">(47) 9 9143 1234</p>
+                            </div>
+                        </div>
+                        <div class="card-inferior">
+                            <div class="inferior-informacoes">
+                                <p class="texto-sem-enfase"><span class="texto-enfase">Horário:</span> 12h39</p>
+                                <p class="texto-sem-enfase"><span class="texto-enfase">CPF:</span> 123.456.745-25</p>
+                                <p class="texto-sem-enfase"><span class="texto-enfase">Profissional:</span> Dr. Cláudia</p>
+                                <p class="texto-sem-enfase"><span class="texto-enfase">Especialidade:</span> Clínico Geral</p>
+                            </div>
+                            <div class="inferior-status">
+                                <div class="status">
+                                    <p class="texto-enfase texto-claro">Agendada</p>
                                 </div>
                             </div>
-                            <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
                         </div>
                     </div>
 
-                </c:forEach>
+                </div>
             </div>
         </section>
     </main>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
-    <style><%@include file="../../estilos/instituicao-inicio.css"%></style>
+    <style><%@include file="../../estilos/instituicao-inicial.css"%></style>
 </head>
 <body>
     <header id="cabecalho" class="template-grid">

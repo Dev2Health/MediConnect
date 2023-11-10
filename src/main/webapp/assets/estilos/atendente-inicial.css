@@ -1,0 +1,91 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.barra-navegacao img {
+    width: 50px;
+}
+
+/* Configurações Gerais */
+
+section {
+    width: 100vw;
+    margin: 100px 0;
+}
+
+/* Conteúdo */
+
+#inicio {
+    align-items: center;
+}
+
+.conteudo-esquerda {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.conteudo-esquerda button {
+    background-color: var(--roxo);
+}
+
+.conteudo-direita {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.conteudo-direita h1 {
+    color: var(--roxo-escuro);
+}
+
+/* Pacientes */
+
+.titulo-sessao h1 {
+    grid-column: 2 / 12;
+}
+
+.card-entidade {
+    border-color: var(--roxo);
+}
+
+.card-superior .entidade-imagem {
+    border-color: var(--roxo);
+}
+
+.card-inferior span {
+    font-size: 1em;
+}
+
+.inferior-status {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 35px;
+}
+
+.inferior-status .status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 185px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: var(--azul);
+}

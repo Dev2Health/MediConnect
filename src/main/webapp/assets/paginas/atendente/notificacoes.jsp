@@ -59,7 +59,6 @@
                 <div class="card-notificacao">
                     <div class="notificacao-superior">
                         <h2 class="subtitulo">Notificação</h2>
-                        <!-- Adicionar o título da notificação com o JSP -->
                         <div class="informacoes-consulta">
                             <div class="informacao-data">
                                 <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
@@ -89,7 +88,7 @@
             <div class="rodape-mediconnect">
                 <p class="texto">MediConnect</p>
                 <a href="../sobre-nos.jsp" class="texto-sem-enfase texto-claro">Sobre nós</a>
-                <a href="./inicial.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
+                <a href="../../inicial.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
             </div>
             <div class="rodape-contato">
                 <p class="texto">Atendimento</p>
