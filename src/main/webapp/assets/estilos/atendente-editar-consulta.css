@@ -1,0 +1,142 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    align-items: center;
+    margin: 50px 0;
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 4;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.barra-navegacao img {
+    width: 55px;
+    height: 100%;
+}
+
+.logo  {
+    grid-column: 11 / 12;
+    width: 140px;
+    height: 100%;
+}
+
+/* Conteúdo */
+
+#retorno-pesquisa button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    background-color: var(--roxo-escuro);
+    transition: background-color 200ms ease;
+}
+
+#retorno-pesquisa button:hover {
+    background-color: var(--roxo);
+}
+
+/* Formulários */
+
+.formulario-esquerda, .formulario-direita {
+    background-color: var(--claro);
+    border: 3px solid var(--roxo);
+    border-radius: 15px;
+}
+
+/* Formulário Esquerda */
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 8.33vw;
+}
+
+input[type=checkbox] {
+    border-color: var(--roxo);
+}
+
+input[type=checkbox]::before {
+    background-color: var(--roxo-escuro);
+}
+
+
+
+
+
+/* Formulário Direita */
+
+.formulario-direita {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.formulario-direita .input-data {
+    display: flex;
+    align-items: center;
+}
+
+.formulario-direita .input-data label {
+    width: 18vw;
+}
+
+.formulario-direita .input-data .formulario-data {
+    display: flex;
+    border: 3px solid var(--roxo);
+    border-radius: 15px;
+    width: 16.33vw;
+}
+
+.formulario-direita .input-data .formulario-data .icone-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    background-color: var(--roxo);
+    border-radius: 10px 0 0 10px;
+}
+
+.formulario-direita .input-data .formulario-data .icone-data img {
+    width: 35px;
+}
+
+.formulario-direita .input-data .formulario-data input {
+    width: 100%;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+
+
+
+
+#formulario-rodape {
+    grid-column: 2 / 12;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#formulario-rodape button:first-child {
+    background-color: var(--roxo);
+}
+
+#formulario-rodape button:last-child {
+    border: 3px solid var(--roxo);
+    background-color: var(--claro);
+}

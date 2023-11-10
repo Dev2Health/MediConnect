@@ -1,0 +1,77 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-light);
+}
+
+main {
+    align-items: center;
+    margin: 15px 0 25px 0;
+}
+
+/* Menu */
+
+#content-header {
+    align-items: center;
+    height: 140px;
+}
+
+.nav-bar {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.nav-bar img {
+    width: 50px;
+}
+
+/* Conteúdo Principal */
+
+.title {
+    grid-column: 2 / 12;
+    color: var(--purple);
+    margin-bottom: 40px;
+}
+
+/* Formulário */
+
+.form-input {
+    border-color: var(--purple);
+}
+
+.input-itens input {
+    color: var(--purple);
+}
+
+.input-itens input[type="date"] {
+    text-transform: uppercase;
+}
+
+::placeholder {
+    color: var(--purple-light);
+}
+
+.form-footer {
+    display: flex;
+    justify-content: flex-start;
+    width: 37vw;
+    gap: 50px;
+}
+
+.form-footer .btn-round-sm:first-child {
+    background-color: var(--purple);
+}
+
+.form-footer .btn-round-sm:nth-child(2) {
+    background-color: var(--background-light);
+    border: 3px solid var(--purple);
+}
+
+/* Colorações */
+
+#icon-time, #icon-professional {
+    filter: invert(47%) sepia(40%) saturate(965%) hue-rotate(200deg) brightness(80%) contrast(90%);
+}
