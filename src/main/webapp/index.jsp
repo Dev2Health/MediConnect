@@ -12,14 +12,7 @@
     <style><%@include file="/assets/estilos/pagina-inicial.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <img src="assets/imagens/logo-legendado.svg" alt="logo-mediconnect" id="logo">
-        <nav class="barra-navegacao">
-            <a href="./assets/paginas/sobre-nos.html" class="texto texto-escuro">Sobre o MediConnect</a>
-            <a href="./login" class="texto texto-escuro">Entrar</a>
-            <a href="./cadastro" class="botao-circular-m texto texto-claro">Cadastrar</a>
-        </nav>
-    </header>
+    <%@include file="/assets/componentes/cabecalhos/deslogado.jsp"%>
     <main>
         <section id="sessao-principal" class="template-grid">
             <div class="conteudo-esquerda caixa-textual">
