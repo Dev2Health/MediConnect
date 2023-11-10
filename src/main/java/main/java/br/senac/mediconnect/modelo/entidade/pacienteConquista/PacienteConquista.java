@@ -46,7 +46,7 @@ public class PacienteConquista implements Serializable{
 
 	@Column(name = "status_conquista", length = 70, nullable = false, unique = false)
 	@Enumerated(EnumType.STRING)
-	private StatusConquista status;
+	private StatusConquista status = StatusConquista.EM_PROGRESSO;
 
 	// CONSTRUTOR
 
@@ -54,6 +54,11 @@ public class PacienteConquista implements Serializable{
 	}
 
 	public PacienteConquista(Integer idPaciente, Integer idConquista) {
+		setNivel(nivel);
+		setStatus(status);
+	}
+	
+	public PacienteConquista(Integer idPaciente, Integer idConquista, byte nivel, StatusConquista status) {
 		setNivel(nivel);
 		setStatus(status);
 	}

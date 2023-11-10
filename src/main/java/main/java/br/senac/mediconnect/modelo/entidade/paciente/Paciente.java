@@ -9,6 +9,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,10 +26,10 @@ public class Paciente extends Pessoa implements Serializable {
 	private static final long serialVersionUID = 1290946171577071803L;
 
 	// ATRIBUTOS
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "id_paciente")
-//	private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_paciente")
+	private Integer id;
 
 	@Column(name = "data_nascimento_paciente", nullable = false)
 	private LocalDate dataNascimento;
@@ -35,10 +38,6 @@ public class Paciente extends Pessoa implements Serializable {
 	private List<Consulta> consultas = new ArrayList<Consulta>();
 	/* Um paciente terá várias consultas | Uma consulta terá um paciente */
 
-//	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-//	@JoinTable(name = "paciente_conquista", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_conquista"))
-//	private List<Conquista> conquistas = new ArrayList<Conquista>();
-	/* Um paciente terá várias conquistas | Uma conquista terá vários pacientes */
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Selo> selos = new ArrayList<Selo>();
