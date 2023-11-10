@@ -194,6 +194,14 @@ body {
     margin-left: 8.33vw;
 }
 
+input[type=checkbox] {
+    border-color: var(--azul);
+}
+
+input[type=checkbox]::before {
+    background-color: var(--azul);
+}
+
 .checkbox a {
     font-size: 1em;
 }

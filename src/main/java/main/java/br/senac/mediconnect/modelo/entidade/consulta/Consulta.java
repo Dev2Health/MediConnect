@@ -40,6 +40,9 @@ public class Consulta implements Serializable {
 	private EspecialidadeProfissional especialidade_profissional;
 	/* Uma consulta poderá ter uma Especialidade | Uma especialidade poderá estar em várias consultas */
 	
+	@Column(name = "eh_ativo_usuario", nullable = false)
+	private boolean ehAtivo;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_instituicao")
 	private Instituicao instituicao;
@@ -119,6 +122,15 @@ public class Consulta implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	// ehAtivo
+	public boolean getEhAtivo() {
+		return ehAtivo;
+	}
+
+	public void setEhAtivo(boolean ehAtivo) {
+		this.ehAtivo = ehAtivo;
 	}
 
 	// Especialidade Profissional

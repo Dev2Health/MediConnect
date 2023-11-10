@@ -32,10 +32,14 @@ import main.java.br.senac.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
 import main.java.br.senac.mediconnect.modelo.dao.instituicao.InstituicaoDAOImpl;
 import main.java.br.senac.mediconnect.modelo.dao.paciente.PacienteDAO;
 import main.java.br.senac.mediconnect.modelo.dao.paciente.PacienteDAOImpl;
+import main.java.br.senac.mediconnect.modelo.dao.pacienteSelo.PacienteSeloDAO;
+import main.java.br.senac.mediconnect.modelo.dao.pacienteSelo.PacienteSeloDAOImpl;
 import main.java.br.senac.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAO;
 import main.java.br.senac.mediconnect.modelo.dao.pacienteConquista.PacienteConquistaDAOImpl;
 import main.java.br.senac.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAO;
 import main.java.br.senac.mediconnect.modelo.dao.profissionalDeSaude.ProfissionalDeSaudeDAOImpl;
+import main.java.br.senac.mediconnect.modelo.dao.notificacao.NotificacaoDAO;
+import main.java.br.senac.mediconnect.modelo.dao.notificacao.NotificacaoDAOImpl;
 import main.java.br.senac.mediconnect.modelo.dao.usuario.UsuarioDAO;
 import main.java.br.senac.mediconnect.modelo.dao.usuario.UsuarioDAOImpl;
 import main.java.br.senac.mediconnect.modelo.entidade.atendente.Atendente;
@@ -63,7 +67,10 @@ public class Servlet extends HttpServlet {
 	private PacienteDAO pacienteDAO;
 	private ConquistaDAO conquistaDAO;
 	private PacienteConquistaDAO pacienteConquistaDAO;
+	private PacienteSeloDAO pacienteSeloDAO;
 	private UsuarioDAO usuarioDAO;
+	private NotificacaoDAO notificadaoDAO;
+
 	private ConverterImagem converterImagem;
 	private byte [] fotoPerfil = null;
 
@@ -314,7 +321,11 @@ public class Servlet extends HttpServlet {
 				
 			case "/modal-notificacao":
 				mostrarModalNotificacao(request, response);
-				break;	
+				break;
+				
+			case "/deletar-usuario":
+				deletarUsuario(request, response);
+				break;
 				
 			default:
 				mostrarTelaInicialDeslogado(request, response);
@@ -347,6 +358,18 @@ public class Servlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/usuario-login.jsp");
 		dispatcher.forward(request, response);
+	}
+	
+	private void deletarUsuario(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		HttpSession sessao = request.getSession();
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/usuario-login.jsp");
+		dispatcher.forward(request, response);	 //para onde dispatch quando "deletar" usuario
 	}
 
 	private void mostrarTelaInicial(HttpServletRequest request, HttpServletResponse response)

@@ -1,98 +1,123 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <title>Notificações | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/notificacoes-paciente.css"> <!--Está utilizando o Style do paciente, os estilos do paciente e atendente para a pagina de notificação são identicas.-->
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/notificacoes.css"%></style>
 </head>
 <body>
-    <header id="content-header" class="template-grid">
-        <nav class="nav-bar">
-            <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="icone-mediconnect">
+    <header id="cabecalho" class="template-grid">
+        <nav class="navegacao-barra">
+            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
+            <img src="./assets/imagens/logo.svg" alt="icone-mediconnect">
         </nav>
-        <nav class="nav-filter">
-            <div class="filter-box">
-                <div class="input-itens">
-                    <input class="text-emphasis" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
+        <nav class="navegacao-filtro">
+            <div class="filtro">
+                <div class="input-item">
+                    <input class="texto-enfase" type="texto" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
                 </div>
-                <div class="filter-icon">
-                    <img src="../../images/icone-lupa.svg" alt="icone-pesquisar">
+                <div class="filtro-icone">
+                    <img src="./assets/imagens/icone-lupa.svg" alt="icone-pesquisar">
                 </div>
             </div>
-            <button class="btn-square-la text">Filtrar <img src="../../images/icone-filtro.svg"> </button>
+            <button class="botao-quadrado-g texto">Filtrar <img src="./assets/imagens/icone-filtro.svg"></button>
         </nav>
     </header>
     <main>
-        <div id="search-return" class="template-grid">
-            <p class="text">Notificações recebidas</p>
-        </div>
-        <c:forEach var="notificacao" items="${notificacoes}">
-            <div id="notificacao" class="template-grid">                 
+        <div id="notificacoes">
+            <c:forEach var="notificacao" items="${notificacoes}" class="template-grid">
                 <div class="card-notificacao">
-                    <div class="notificacao-top">
-                        <h2 class="subtitle">Notificação</h2>
-                        <div class="consulta-info">
-                            <div class="consulta-data">
-                                <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                                <p class="text"><c:out value="${notificacao.data}"/></p>
+                    <div class="notificacao-superior">
+                        <h2 class="subtitulo">Notificação</h2>
+                        <!-- Adicionar o título da notificação com o JSP -->
+                        <div class="informacoes-consulta">
+                            <div class="informacao-data">
+                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
+                                <p class="texto">
+                                    <c:out value="${notificacao.data}" />
+                                </p>
                             </div>
-                            <div class="consulta-horario">
-                                <img src="../../images/icone-horario.svg" alt="icone-horario">
-                                <p class="text"type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${data}'/></p>
+                            <div class="informacao-horario">
+                                <img src="./assets/imagens/icone-horario.svg" alt="icone-horario">
+                                <p class="texto"> 
+                                    <c:out value="${notificacao.horario}"/>
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="notificacao-bottom"> <!--Inferior-->
-                        <p class="text-no-emphasis"><c:out value="${notificacao.descricao}"/></p>
-                        <!-- <p class="text-no-emphasis">Descrição da notificação estará disposta nesse espaço quando toda a mensagem couber em sua totalidade. Horário da mensagem foi às <span class="text-emphasis">13:59</span> da data <span class="text-emphasis">20/08/2000.</span></p> -->
+                    <div class="notificacao-inferior">
+                        <p class="texto-sem-enfase">
+                            <c:out value="${notificacao.descricao}"/>
+                        </p>
                     </div>
-                </div><!--fim do card-->
-            </c:forEach>   
-
+                </div>
+                <div class="card-notificacao">
+                    <div class="notificacao-superior">
+                        <h2 class="subtitulo">Notificação</h2>
+                        <div class="informacoes-consulta">
+                            <div class="informacao-data">
+                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
+                                <p class="texto">
+                                    <c:out value="${notificacao.data}" />
+                                </p>
+                            </div>
+                            <div class="informacao-horario">
+                                <img src="./assets/imagens/icone-horario.svg" alt="icone-horario">
+                                <p class="texto"> 
+                                    <c:out value="${notificacao.horario}"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notificacao-inferior">
+                        <p class="texto-sem-enfase">
+                            <c:out value="${notificacao.descricao}"/>
+                        </p>
+                    </div>
+                </div>
+            </c:forEach>
         </div>
     </main>
-        <footer>
-            <div class="template-grid" id="footer-links">
-                <div class="footer-mediconnect">
-                    <p class="text">MediConnect</p>
-                    <a href="../sobre-nos.html" class="text-no-emphasis link-light">Sobre nós</a>
-                    <a href="../../../index.html" class="text-no-emphasis link-light">Página inicial</a>
+    <footer>
+        <div class="template-grid" id="rodape-links">
+            <div class="rodape-mediconnect">
+                <p class="texto">MediConnect</p>
+                <a href="../sobre-nos.jsp" class="texto-sem-enfase texto-claro">Sobre nós</a>
+                <a href="../../inicial.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
+            </div>
+            <div class="rodape-contato">
+                <p class="texto">Atendimento</p>
+                <a href="#" class="texto-sem-enfase texto-claro">Contato</a>
+                <a href="#" class="texto-sem-enfase texto-claro">Termos de Uso</a>
+            </div>
+            <div class="rodape-social">
+                <p class="texto">Redes Sociais</p>
+                <div class="social-whatsapp">
+                    <img src="./assets/imagens/logo-whatsapp.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
                 </div>
-                <div class="footer-contact">
-                    <p class="text">Atendimento</p>
-                    <a href="#" class="text-no-emphasis link-light">Contato</a>
-                    <a href="#" class="text-no-emphasis link-light">Termos de Uso</a>
+                <div class="social-github">
+                    <img src="./assets/imagens/logo-github.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
                 </div>
-                <div class="footer-social">
-                    <p class="text">Redes Sociais</p>
-                    <div class="social-whatsapp">
-                        <img src="../../images/logo-whatsapp.svg">
-                        <a href="#" class="text-no-emphasis link-light">WhatsApp</a>
-                    </div>
-                    <div class="social-github">
-                        <img src="../../images/logo-github.svg">
-                        <a href="#" class="text-no-emphasis link-light">GitHub</a>
-                    </div>
-                    <div class="social-instagram">
-                        <img src="../../images/logo-instagram.svg">
-                        <a href="#" class="text-no-emphasis link-light">Instagram</a>
-                    </div>
+                <div class="social-instagram">
+                    <img src="./assets/imagens/logo-instagram.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
                 </div>
             </div>
-            <div class="template-grid" id="footer-commercial">
-                <hr><br>
-                <div class="commercial-content">
-                    <img src="../../images/logo-rodape.svg" alt="logo-mediconnect">
-                    <p class="text-small">2023 &copy Todos os direitos reservados</p>
-                </div>
+        </div>
+        <div class="template-grid" id="rodape-comercial">
+            <hr><br>
+            <div class="comercial-conteudo">
+                <img src="./assets/imagens/logo-rodape.svg" alt="logo-mediconnect">
+                <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 </body>
 </html>

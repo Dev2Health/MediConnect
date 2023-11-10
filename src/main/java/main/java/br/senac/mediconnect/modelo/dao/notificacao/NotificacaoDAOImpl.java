@@ -839,5 +839,50 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacao;
 
 	}
+	
+	public	Notificacao recuperarNotificacaoPorId(Integer id) {
+
+		Session sessao = null;
+		Notificacao notificacao = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Notificacao> criteria = construtor.createQuery(Notificacao.class);
+			Root<Notificacao> raizNotificacao = criteria.from(Notificacao.class);
+
+			criteria.select(raizNotificacao);
+
+			criteria.where(construtor.equal(raizNotificacao.get(Notificacao_.ID), id));
+
+			notificacao = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return notificacao;
+
+	}
 
 }

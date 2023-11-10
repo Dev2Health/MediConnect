@@ -152,9 +152,9 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 		return endereco;
 
 	}
-	
-public Endereco recuperarEnderecoPorInstituicao(Integer idInstituicao) {
-		
+
+	public Endereco recuperarEnderecoPorInstituicao(Integer idInstituicao) {
+
 		Session sessao = null;
 		Endereco endereco = null;
 
@@ -169,7 +169,7 @@ public Endereco recuperarEnderecoPorInstituicao(Integer idInstituicao) {
 			Root<Endereco> raizEndereco = criteria.from(Endereco.class);
 
 			criteria.select(raizEndereco);
-			
+
 			criteria.where(construtor.equal(raizEndereco.get(Endereco_.INSTITUICAO), idInstituicao));
 
 			endereco = sessao.createQuery(criteria).getSingleResult();
@@ -230,6 +230,48 @@ public Endereco recuperarEnderecoPorInstituicao(Integer idInstituicao) {
 			}
 		}
 		return enderecos;
+	}
+	
+	public Endereco recuperarEnderecoPorId(Integer id) {
+
+		Session sessao = null;
+		Endereco endereco = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Endereco> criteria = construtor.createQuery(Endereco.class);
+			Root<Endereco> raizEndereco = criteria.from(Endereco.class);
+
+			criteria.select(raizEndereco);
+
+			criteria.where(construtor.equal(raizEndereco.get(Endereco_.ID), id));
+
+			endereco = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return endereco;
+
 	}
 
 }

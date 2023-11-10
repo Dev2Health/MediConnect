@@ -1,156 +1,187 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <title>Pacientes | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
+    <link rel="icon" type="image/x-icon" href="../../imagens/favicon.ico">
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/atendente-pacientes.css"%></style>
 </head>
-
 <body>
-    <header id="content-header" class="template-grid">
-        <nav class="nav-bar">
-            <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="icone-mediconnect">
+    <header id="cabecalho" class="template-grid">
+        <nav class="navegacao-barra">
+            <img src="../../imagens/icone-menu.svg" alt="icone-menu">
+            <img src="../../imagens/logo.svg" alt="icone-mediconnect">
         </nav>
-        <nav class="nav-filter">
-            <div class="filter-box">
-                <div class="input-itens">
-                    <input class="text-emphasis" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
+        <nav class="navegacao-filtro">
+            <div class="filtro">
+                <div class="input-item">
+                    <input class="texto-enfase" type="texto" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
                 </div>
-                <div class="filter-icon">
-                    <img src="../../images/icone-lupa.svg" alt="icone-pesquisar">
+                <div class="filtro-icone">
+                    <img src="../../imagens/icone-lupa.svg" alt="icone-pesquisar">
                 </div>
             </div>
-            <button class="btn-square-la text">Filtrar <img src="../../images/icone-filtro.svg"> </button>
         </nav>
     </header>
     <main>
-
         <section>
-            <p class="text">Pacientes com consulta hoje</p>
-            <div><!--agrupamento de tudo-->
-                <div>
-                    <div><!--todos os cards-->
-                        <c:forEach var="pacienteHoje" items="${pacientesHoje}">
-                        <div><!--card completo-->
-                            <div><!--foto-->
-                                <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
+            <div class="template-grid">
+                <h2 class="subtitulo">Pacientes com consulta hoje</h2>
+            </div>
+            <div class="pacientes template-grid">
+                <div class="cards-agrupamento">
+                    <div class="card-entidade">
+                        <div class="card-superior">
+                            <div class="entidade-imagem">
+                                <img src="../../imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
-                            <div><!--card-->
-                                <div><!--Header-->
-                                    <div><!--Textos-->
-                                        <p class="text"><c:out value='${pacienteHoje.nome}'/></p>
-                                        <p class="text-no-emphasis"><c:out value='${pacienteHoje.telefone}'/></p>
-                                    </div>
-                                </div>
-                                <div><!--divisão-->
-                                    <img src="../../images/icone-informacoes.svg" alt="icone-informações">
-                                    <p class="text">Informações Gerais</p>
-                                </div>
-                                <div><!--Conteúdo do card-->
-                                    <div><!--Textos-->
-                                        <div>
-                                            <p class="text-no-emphasis">Data de Nascimento</p>
-                                            <p class="text-no-emphasis" type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/></p>
-                                        </div>
-                                        <div>
-                                            <p class="text-no-emphasis">CPF</p>
-                                            <p class="text-no-emphasis"><c:out value='${pacienteHoje.cpf}'/></p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="entidade-informacao">
+                                <p class="texto">Mario de Oliveira</p>
+                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
                             </div>
                         </div>
-                        </c:forEach>
+                        <div class="card-meio">
+                            <img src="../../imagens/icone-informacoes.svg" alt="icone-informações">
+                            <p class="texto">Informações Gerais</p>
+                        </div>
+                        <div class="card-inferior">
+                            <div class="inferior-informacao">
+                                <p class="texto-sem-enfase">Data de nascimento</p>
+                                <p class="texto-sem-enfase">09/09/1984</p>
+                            </div>
+                            <div class="inferior-informacao">
+                                <p class="texto-sem-enfase">CPF</p>
+                                <p class="texto-sem-enfase">123.456.789-10</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-
         <section>
-            <p class="text">Pacientes com consultas agendadas</p>
-            <div><!--agrupamento de tudo-->
-                <div>
-                    <div><!--todos os cards-->
-                        <c:forEach var="pacienteAgendado" items="${pacientesAgendados}">
-                        <div><!--card completo-->
-                            <div><!--foto-->
-                                <img src="../../images/perfil-exemplo.jpg" alt="foto-de-perfil">
+            <div class="template-grid">
+                <h2 class="subtitulo">Pacientes com consultas agendadas</h2>
+            </div>
+            <div class="pacientes template-grid">
+                <div class="cards-agrupamento">
+                    <div class="card-entidade">
+                        <div class="card-superior">
+                            <div class="entidade-imagem">
+                                <img src="../../imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
-                            <div><!--card-->
-                                <div><!--Header-->
-                                    <div><!--Textos-->
-                                        <p class="text"><c:out value='${pacienteAgendado.nome}'/></p>
-                                        <p class="text-no-emphasis"><c:out value='${pacienteAgendado.telefone}'/></p>
-                                    </div>
-                                </div>
-                                <div><!--divisão-->
-                                    <img src="../../images/icone-informacoes.svg" alt="icone-informações">
-                                    <p class="text">Informações Gerais</p>
-                                </div>
-                                <div><!--Conteúdo do card-->
-                                    <div><!--Textos-->
-                                        <div>
-                                            <p class="text-no-emphasis">Data de Nascimento</p>
-                                            <p class="text-no-emphasis" type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/></p>
-                                        </div>
-                                        <div>
-                                            <p class="text-no-emphasis">CPF</p>
-                                            <p class="text-no-emphasis"><c:out value='${pacienteAgendado.cpf}'/></p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="entidade-informacao">
+                                <p class="texto">Mario de Oliveira</p>
+                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
                             </div>
                         </div>
-                        </c:forEach>
+                        <div class="card-meio">
+                            <img src="../../imagens/icone-informacoes.svg" alt="icone-informações">
+                            <p class="texto">Informações Gerais</p>
+                        </div>
+                        <div class="card-inferior">
+                            <div class="inferior-informacao">
+                                <p class="texto-sem-enfase">Data de nascimento</p>
+                                <p class="texto-sem-enfase">09/09/1984</p>
+                            </div>
+                            <div class="inferior-informacao">
+                                <p class="texto-sem-enfase">CPF</p>
+                                <p class="texto-sem-enfase">123.456.789-10</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-entidade">
+                        <div class="card-superior">
+                            <div class="entidade-imagem">
+                                <img src="../../imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                            </div>
+                            <div class="entidade-informacao">
+                                <p class="texto">Mario de Oliveira</p>
+                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
+                            </div>
+                        </div>
+                        <div class="card-meio">
+                            <img src="../../imagens/icone-informacoes.svg" alt="icone-informações">
+                            <p class="texto">Informações Gerais</p>
+                        </div>
+                        <div class="card-inferior">
+                            <div class="inferior-informacao">
+                                <p class="texto-sem-enfase">Data de nascimento</p>
+                                <p class="texto-sem-enfase">09/09/1984</p>
+                            </div>
+                            <div class="inferior-informacao">
+                                <p class="texto-sem-enfase">CPF</p>
+                                <p class="texto-sem-enfase">123.456.789-10</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-entidade">
+                        <div class="card-superior">
+                            <div class="entidade-imagem">
+                                <img src="../../imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                            </div>
+                            <div class="entidade-informacao">
+                                <p class="texto">Mario de Oliveira</p>
+                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
+                            </div>
+                        </div>
+                        <div class="card-meio">
+                            <img src="../../imagens/icone-informacoes.svg" alt="icone-informações">
+                            <p class="texto">Informações Gerais</p>
+                        </div>
+                        <div class="card-inferior">
+                            <div class="inferior-informacao">
+                                <p class="texto-sem-enfase">Data de nascimento</p>
+                                <p class="texto-sem-enfase">09/09/1984</p>
+                            </div>
+                            <div class="inferior-informacao">
+                                <p class="texto-sem-enfase">CPF</p>
+                                <p class="texto-sem-enfase">123.456.789-10</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <footer>
-            <div class="template-grid" id="footer-links">
-                <div class="footer-mediconnect">
-                    <p class="text">MediConnect</p>
-                    <a href="../sobre-nos.html" class="text-no-emphasis link-light">Sobre nós</a>
-                    <a href="../../../index.html" class="text-no-emphasis link-light">Página inicial</a>
-                </div>
-                <div class="footer-contact">
-                    <p class="text">Atendimento</p>
-                    <a href="#" class="text-no-emphasis link-light">Contato</a>
-                    <a href="#" class="text-no-emphasis link-light">Termos de Uso</a>
-                </div>
-                <div class="footer-social">
-                    <p class="text">Redes Sociais</p>
-                    <div class="social-whatsapp">
-                        <img src="../../images/logo-whatsapp.svg">
-                        <a href="#" class="text-no-emphasis link-light">WhatsApp</a>
-                    </div>
-                    <div class="social-github">
-                        <img src="../../images/logo-github.svg">
-                        <a href="#" class="text-no-emphasis link-light">GitHub</a>
-                    </div>
-                    <div class="social-instagram">
-                        <img src="../../images/logo-instagram.svg">
-                        <a href="#" class="text-no-emphasis link-light">Instagram</a>
-                    </div>
-                </div>
-            </div>
-            <div class="template-grid" id="footer-commercial">
-                <hr><br>
-                <div class="commercial-content">
-                    <img src="../../images/logo-rodape.svg" alt="logo-mediconnect">
-                    <p class="text-small">2023 &copy Todos os direitos reservados</p>
-                </div>
-            </div>
-        </footer>
     </main>
+    <footer>
+        <div class="template-grid" id="rodape-links">
+            <div class="rodape-mediconnect">
+                <p class="texto">MediConnect</p>
+                <a href="../sobre-nos.jsp" class="texto-sem-enfase texto-claro">Sobre nós</a>
+                <a href="../../inicial.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
+            </div>
+            <div class="rodape-contato">
+                <p class="texto">Atendimento</p>
+                <a href="#" class="texto-sem-enfase texto-claro">Contato</a>
+                <a href="#" class="texto-sem-enfase texto-claro">Termos de Uso</a>
+            </div>
+            <div class="rodape-social">
+                <p class="texto">Redes Sociais</p>
+                <div class="social-whatsapp">
+                    <img src="../../imagens/logo-whatsapp.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
+                </div>
+                <div class="social-github">
+                    <img src="../../imagens/logo-github.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
+                </div>
+                <div class="social-instagram">
+                    <img src="../../imagens/logo-instagram.svg">
+                    <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="template-grid" id="rodape-comercial">
+            <hr><br>
+            <div class="comercial-conteudo">
+                <img src="../../imagens/logo-rodape.svg" alt="logo-mediconnect">
+                <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>

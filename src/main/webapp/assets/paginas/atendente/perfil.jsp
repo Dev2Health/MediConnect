@@ -33,8 +33,8 @@
                         <img class="icone-claro" src="./assets/imagens/icone-paciente.svg" alt="icone-atendente">
                     </div>
                     <div class="perfil-detalhes">
-                        <h2 class="subtitulo">Joana Silva Castela</h2>
-                        <p class="texto">endereço.email@gmal.com</p>
+                        <h2 class="subtitulo"><c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></h2>
+                        <p class="texto"><c:out value="${atendente.email}"/></p>
                     </div>
                 </div>
                 <div class="perfil-informacao">
@@ -42,11 +42,13 @@
                         <img class="icone-claro" src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
                     </div>
                     <div class="perfil-detalhes">
-                        <h2 class="subtitulo">Intendencia Distrital do Garcia</h2>
-                        <div class="instituicao-dados">
-                            <p class="texto">Rua Progresso, 167</p>
-                            <p class="texto">CEP 89026-201</p>
-                        </div>
+                        <c:if test="${atendente.instituicao != null}"/>
+                            <h2 class="subtitulo"><c:out value="${instituicao.nomeFantasia}"/></h2>
+                            <div class="instituicao-dados">
+                                <p class="texto"><c:out value="${endereco.logradouro}"/></p>
+                                <p class="texto">CEP <c:out value="${endereco.cep}"/></p>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </div>
@@ -155,7 +157,7 @@
             <div class="rodape-mediconnect">
                 <p class="texto">MediConnect</p>
                 <a href="../sobre-nos.jsp" class="texto-sem-enfase texto-claro">Sobre nós</a>
-                <a href="./inicial.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
+                <a href="../../inicial.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
             </div>
             <div class="rodape-contato">
                 <p class="texto">Atendimento</p>
