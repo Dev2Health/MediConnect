@@ -57,7 +57,8 @@ public class EspecialidadeProfissional implements Serializable {
 		setNome(nome);
 	}
 	
-	public EspecialidadeProfissional(String nome) {
+	public EspecialidadeProfissional(String nome, boolean ehAtivo) {
+		setEhAtivo(ehAtivo);
 		setNome(nome);
 	}
 

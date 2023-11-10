@@ -210,12 +210,12 @@ public class Servlet extends HttpServlet {
 				mostrarTelaAgendarConsultas(request, response);
 				break;
 			
-			case "/atualizar-consulta":
+			case "/editar-consulta":
 				mostrarTelaEditarConsultas(request, response);
 				break;
 				
-			case "/editar-consulta":
-				editarConsulta(request, response);
+			case "/atualizar-consulta":
+				atualizarConsulta(request, response);
 				break;
 
 			case "/inserir-consulta":
@@ -225,17 +225,21 @@ public class Servlet extends HttpServlet {
 			case "/pacientes-atendente":
 				mostrarTelaVerPacientesCadastrados(request, response);
 				break;
+				
+			case "/editar-atendente":
+				mostrarTelaEditarAtendente(request, response);
+				break;
 
 			// TELA EDITAR PERFIL ATENDENTE
 
 			case "/atualizar-atendente":
-				editarAtendente(request, response);
+				atualizarAtendente(request, response);
 				break;
 
 			// TELA EDITAR PERFIL INSTITUICAO
 
 			case "/atualizar-instituicao":
-				editarInstituicao(request, response);
+				atualizarInstituicao(request, response);
 				break;
 
 			// TELA CADASTRAR ATENDENTE
@@ -258,6 +262,14 @@ public class Servlet extends HttpServlet {
 
 			case "/cadastrar-especialidade":
 				mostrarTelaCadastrarEspecialidade(request, response);
+				break;
+				
+			case "/editar-especialidade":
+				mostrarTelaEditarEspecialidade(request, response);
+				break;
+				
+			case "/atualizar-especialidade":
+				atualizarEspecialidade(request, response);
 				break;
 
 			case "/inserir-especialidade":
@@ -1021,7 +1033,7 @@ public class Servlet extends HttpServlet {
 
 	}
 	
-	private void editarConsulta(HttpServletRequest request, HttpServletResponse response)
+	private void atualizarConsulta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		Integer idConsulta = Integer.parseInt(request.getParameter("idConsulta")); 
@@ -1100,8 +1112,16 @@ public class Servlet extends HttpServlet {
 		response.sendRedirect("consultas");
 
 	}
+	
+	private void mostrarTelaEditarAtendente(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	private void editarAtendente(HttpServletRequest request, HttpServletResponse response)
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/editar-atendente.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+	private void atualizarAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -1142,8 +1162,8 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
-
-	private void editarInstituicao(HttpServletRequest request, HttpServletResponse response)
+	
+	private void atualizarInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -1262,6 +1282,33 @@ public class Servlet extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);
+
+	}
+	
+	private void mostrarTelaEditarEspecialidade(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-especialidade.jsp");
+
+		dispatcher.forward(request, response);
+
+	}
+	
+	private void atualizarEspecialidade(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Integer id = Integer.parseInt(request.getParameter("id"));
+
+		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(id);
+		
+		String nome = request.getParameter("nome");
+		boolean ehAtivo = Boolean.parseBoolean("ehAtivo");
+
+		especialidade.setNome(nome);
+		especialidade.setEhAtivo(ehAtivo);
+
+		especialidadeDAO.atualizarEspecialidadeProfissionalDaInstituicao(especialidade);
+		response.sendRedirect("eswpecialidades");
 
 	}
 
