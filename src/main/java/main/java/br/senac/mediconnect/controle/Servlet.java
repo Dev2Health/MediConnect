@@ -210,6 +210,14 @@ public class Servlet extends HttpServlet {
 			case "/agendar-consulta":
 				mostrarTelaAgendarConsultas(request, response);
 				break;
+			
+			case "/atualizar-consulta":
+				mostrarTelaEditarConsultas(request, response);
+				break;
+				
+			case "/editar-consulta":
+				editarConsulta(request, response);
+				break;
 
 			case "/inserir-consulta":
 				inserirConsulta(request, response);
@@ -1005,7 +1013,55 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
+	
+	private void mostrarTelaEditarConsultas(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-consulta.jsp");
+		dispatcher.forward(request, response);
+
+	}
+	
+	private void editarConsulta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		Integer idConsulta = Integer.parseInt(request.getParameter("idConsulta")); 
+		
+		Consulta consulta = consultaDAO.recuperarConsultaPorId(idConsulta);
+
+		Integer idEspecialidade = Integer.parseInt(request.getParameter("idEspecialidade"));
+		EspecialidadeProfissional especialidadeProfissional = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
+		
+		Integer idInstituicao = Integer.parseInt(request.getParameter("idEspecialidade"));
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+		
+		Integer idPaciente = Integer.parseInt(request.getParameter("idPaciente"));
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(idPaciente);
+			
+		Integer idProfissional = Integer.parseInt(request.getParameter("idProfissional"));
+		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
+		
+		StatusConsulta status = StatusConsulta.valueOf(request.getParameter("status"));
+		
+		LocalDate data = LocalDate.parse("data");
+		LocalTime horario = LocalTime.parse("horario");
+		String descricao = request.getParameter("descricao");
+
+		
+		consulta.setEspecialidadeProfissional(especialidadeProfissional);
+		consulta.setInstituicao(instituicao);
+		consulta.setPaciente(paciente);
+		consulta.setProfissionalDeSaude(profissional);
+		consulta.setStatus(status);
+		consulta.setData(data);
+		consulta.setHorario(horario);
+		consulta.setDescricao(descricao);
+
+		consultaDAO.atualizarConsulta(consulta);
+		response.sendRedirect("consultas");
+		
+	}
+	
 	private void inserirConsulta(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
@@ -1258,8 +1314,6 @@ public class Servlet extends HttpServlet {
 
 	private void inserirProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
-		Integer id = Integer.parseInt(request.getParameter("id"));
 
 		ProfissionalDeSaude profissional = null;
 
