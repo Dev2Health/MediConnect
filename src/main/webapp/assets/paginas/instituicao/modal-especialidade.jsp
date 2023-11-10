@@ -6,7 +6,6 @@
 		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../menu.jsp"%>
 <div>
         <p>Especialidade - <c:out value="${especialidade.id}" /></p>
         <div>

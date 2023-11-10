@@ -3,10 +3,8 @@
 <html>
 	<head>
 		<title>Perfil de Atendente</title>
-		<style><%@include file="../../estilos/perfil-instituicao.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../menu.jsp"%>
 <div>
         <input type="hidden" name="id" value="<c:out value='${atendente.id}' />" />
         <div>

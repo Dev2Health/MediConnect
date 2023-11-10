@@ -7,7 +7,6 @@
 		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../menu.jsp"%>
 <div>
         <form action="atualizar" method="post">
         <input type="hidden" name="id" value="<c:out value='${atendente.id}' />" />
