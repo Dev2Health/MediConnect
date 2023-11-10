@@ -1,13 +1,14 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <title>Perfil | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../imagens/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
+    <style><%@include file="../../estilos/padroes.css"%></style>
 </head>
 
 <body>
@@ -27,6 +28,7 @@
                     <div class="profile-edit">
                         <button class="btn-square-me text">Editar Perfil <img src="../../imagens/icone-editar.svg"
                                 alt="icone-editar"></button>
+                        <a href="./editar-perfil">Editar Perfil</a>
                         <a href="./deslogar" class="btn-square-me text">Deslogar</a>
                     </div>
                 </div>
@@ -109,7 +111,11 @@
                         <div>
                             <div>
                                 <div>
-                                    <p class="text-emphasis"><c:out value='${consulta.data}' /></p>
+                                    <fmt:parseDate value="${consulta.data}" type="date"
+								    pattern="yyyy-MM-dd" var="parsedDate" />
+							        <fmt:formatDate value="${parsedDate}" type="date"
+								    pattern="dd/MM/yyyy" var="data" />
+                                    <p class="text-emphasis" type="date"><c:out value="${data}" /></p>
                                 </div>
                                 <div>
                                     <p class="text emphasis"><c:out value='${consulta.horario}' /></p>

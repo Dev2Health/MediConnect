@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -364,14 +365,18 @@ public class Servlet extends HttpServlet {
 			
 			request.setAttribute("paciente", paciente);
 			
+			List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
+			request.setAttribute("consultas", consultas);
+			
+//			Date dataConsulta = java.sql.Date.valueOf(paciente.getDataNasciento());
+//			request.setAttribute("dataConsulta", dataConsulta);
+			List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistasPacientePorId(id);
+			request.setAttribute("conquistas", conquistas);
+			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
+			request.setAttribute("instituicoes", instituicoes);
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
 			dispatcher.forward(request, response);
-			
-			List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
-			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
-			
-			request.setAttribute("consultas", consultas);
-			request.setAttribute("instituicoes", instituicoes);
 			
 		}
 		
@@ -567,35 +572,18 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaEditarPerfil(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-//		boolean concluido = false;
-//		int id = 1;
-//		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
-//		while (!concluido) {
-//			paciente = pacienteDAO.recuperarPacientePorId(id);
-//			if (paciente == null)
-//				id++;
-//			else
-//				concluido = true;
-//		}
-//		
-//		Date dataNascimento = java.sql.Date.valueOf(paciente.getDataNasciento());
-//		request.setAttribute("paciente", paciente);
-//		request.setAttribute("dataNascimento", dataNascimento);
-//		request.setAttribute("dataNascimento", paciente.getDataNasciento());
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-perfil.jsp");
-//		dispatcher.forward(request, response);
-//
-//	}
 		
 		HttpSession sessao = request.getSession();
 		
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 			
+			LocalDate dataNascimento = paciente.getDataNasciento();
 			request.setAttribute("paciente", paciente);
+			request.setAttribute("dataNascimento", dataNascimento);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-perfil.jsp");
 			dispatcher.forward(request, response);	
@@ -603,7 +591,8 @@ public class Servlet extends HttpServlet {
 		
 		if (sessao.getAttribute("usuario") instanceof Instituicao) {
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 			
 			request.setAttribute("instituicao", instituicao);
@@ -614,7 +603,8 @@ public class Servlet extends HttpServlet {
 		
 		if (sessao.getAttribute("usuario") instanceof Atendente) {
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 			
 			request.setAttribute("atendente", atendente);
@@ -1065,7 +1055,17 @@ public class Servlet extends HttpServlet {
 	private void mostrarModalConsulta(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException, ServletException {
 		
-		
+		Consulta consulta = consultaDAO.filtrarConsultaViaPacientePorIdDaConsulta(1,1);
+		request.setAttribute("consulta", consulta);
+		Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
+		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
+		request.setAttribute("especialidade", especialidade);
+		Integer idProfissional = consulta.getProfissionalDeSaude().getId();
+		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
+		request.setAttribute("profissional", profissional);
+		Integer idInstituicao = consulta.getInstituicao().getId();
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+		request.setAttribute("instituicao", instituicao);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/modal-consulta.jsp");
 		dispatcher.forward(request, response);
 		

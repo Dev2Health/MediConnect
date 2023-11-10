@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,8 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/consultas-paciente.css">
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/consultas-paciente.css"%></style>
 </head>
 <body>
     <header id="content-header" class="template-grid">
@@ -48,13 +49,17 @@
                 <p class="text-emphasis">Consulta - <c:out value="${consulta.id}" /></p>
                 <div>
                     <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                    <p class="text"><c:out value="${consulta.data}" /></p>
+                    <fmt:parseDate value="${consulta.data}" type="date"
+                    pattern="yyyy-MM-dd" var="parsedDate" />
+                    <fmt:formatDate value="${parsedDate}" type="date"
+                    pattern="dd/MM/yyyy" var="data" />
+                    <p class="text" type="date"><c:out value="${data}" /></p>
                 </div>
                 <div>
                     <img src="../../images/icone-horario.svg" alt="icone-horario">
                     <p class="text"><c:out value="${consulta.horario}" /></p>
                 </div>
-                <button class="btn-square-la">Ver detalhes</button>
+                <a href="./modal-consulta-paciente"class="btn-square-la">Ver detalhes</a>
             </div>
             </c:forEach>
 
