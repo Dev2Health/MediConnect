@@ -61,6 +61,10 @@ public class EspecialidadeProfissional implements Serializable {
 		setEhAtivo(ehAtivo);
 		setNome(nome);
 	}
+	
+	public EspecialidadeProfissional(String nome) {
+		setNome(nome);
+	}
 
 	// MÉTODOS DE ACESSO
 
