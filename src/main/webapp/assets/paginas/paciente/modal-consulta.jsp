@@ -26,7 +26,7 @@
 			<p><c:out value="${especialidade.nome}" /></p>
         </div>
             <img src="././images/icone-instituicao.svg" alt="icone-instituicao">
-			<p><c:out value="${instituicao.razaoSocial}" /></p>
+			<p><c:out value="${instituicao.nomeFantasia}" /></p>
         <div>
             <img src="././images/icone-profissional.svg" alt="icone-profissional">
 			<p><c:out value="${profissional.nome}" /> <c:out value="${profissional.sobrenome}" /></p>

@@ -712,8 +712,13 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastrar-consulta.jsp");
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadeProfissionalDaInstituicao();
+		request.setAttribute("especialidades", especialidades);
+		List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaude();
+		request.setAttribute("profissionais", profissionais);
+		List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicao();
+		request.setAttribute("instituicoes", instituicoes);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/agendar-consulta.jsp");
 		dispatcher.forward(request, response);
 
 	}

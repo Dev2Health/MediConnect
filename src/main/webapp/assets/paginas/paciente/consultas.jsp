@@ -36,7 +36,7 @@
                     <button class="btn-square-sm text-emphasis" autofocus>Pendentes</button>
                     <button class="btn-square-sm text-emphasis">Todas</button>
                 </div>
-                <button class="btn-square-sm text-emphasis link-light">Agendar <img src="../../images/icone-adicionar.svg"></button>
+                <button class="btn-square-sm text-emphasis link-light"><a href="./agendar-consulta">Agendar <img src="../../images/icone-adicionar.svg"></a></button>
             </div>
             <button class="btn-square-sm text">Agendar <img src="../../images/icone-adicionar.svg"
                     alt="icone-adicionar"></button>
