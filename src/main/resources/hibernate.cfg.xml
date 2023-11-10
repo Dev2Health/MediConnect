@@ -34,6 +34,7 @@
 		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicaoId"/>
 		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.notificacaoConsulta.NotificacaoConsulta"/>
 		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.notificacaoConsulta.NotificacaoConsultaId"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.foto.Foto"/>
 		
 		
 		
