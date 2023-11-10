@@ -400,8 +400,10 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 
 		if (sessao.getAttribute("usuario") instanceof Usuario) {
+			
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
+			
 			usuario = usuarioDAO.recuperarUsuarioPorId(id);
 
 			usuario.setEhAtivo(false);
@@ -639,8 +641,10 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
+			
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
+			
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 
 			request.setAttribute("paciente", paciente);
@@ -661,7 +665,8 @@ public class Servlet extends HttpServlet {
 		}
 
 		if (sessao.getAttribute("usuario") instanceof Instituicao) {
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
@@ -674,7 +679,8 @@ public class Servlet extends HttpServlet {
 		}
 
 		if (sessao.getAttribute("usuario") instanceof Atendente) {
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
@@ -824,8 +830,10 @@ public class Servlet extends HttpServlet {
 		}
 
 		if (sessao.getAttribute("usuario") instanceof Instituicao) {
+			
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 
-			Integer id = Integer.parseInt(request.getParameter("id"));
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
@@ -836,7 +844,9 @@ public class Servlet extends HttpServlet {
 
 		if (sessao.getAttribute("usuario") instanceof Atendente) {
 
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
+			
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
 			request.setAttribute("atendente", atendente);
@@ -874,7 +884,9 @@ public class Servlet extends HttpServlet {
 
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
 
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
+			
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 
 			request.setAttribute("paciente", paciente);
@@ -885,7 +897,9 @@ public class Servlet extends HttpServlet {
 
 		if (sessao.getAttribute("usuario") instanceof Instituicao) {
 
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
+			
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
@@ -896,7 +910,9 @@ public class Servlet extends HttpServlet {
 
 		if (sessao.getAttribute("usuario") instanceof Atendente) {
 
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
+			
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
 			request.setAttribute("atendente", atendente);
