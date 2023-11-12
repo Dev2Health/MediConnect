@@ -6,15 +6,15 @@
     <title>Pacientes | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../imagens/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/atendente-pacientes.css"%></style>
 </head>
 <body>
     <header id="cabecalho" class="template-grid">
         <nav class="navegacao-barra">
-            <img src="../../imagens/icone-menu.svg" alt="icone-menu">
-            <img src="../../imagens/logo.svg" alt="icone-mediconnect">
+            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
+            <img src="./assets/imagens/logo.svg" alt="icone-mediconnect">
         </nav>
         <nav class="navegacao-filtro">
             <div class="filtro">
@@ -22,7 +22,7 @@
                     <input class="texto-enfase" type="texto" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
                 </div>
                 <div class="filtro-icone">
-                    <img src="../../imagens/icone-lupa.svg" alt="icone-pesquisar">
+                    <img src="./assets/imagens/icone-lupa.svg" alt="icone-pesquisar">
                 </div>
             </div>
         </nav>
@@ -37,7 +37,7 @@
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
-                                <img src="../../imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
                             <div class="entidade-informacao">
                                 <p class="texto">Mario de Oliveira</p>
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="card-meio">
-                            <img src="../../imagens/icone-informacoes.svg" alt="icone-informações">
+                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
                             <p class="texto">Informações Gerais</p>
                         </div>
                         <div class="card-inferior">
@@ -71,7 +71,7 @@
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
-                                <img src="../../imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
                             <div class="entidade-informacao">
                                 <p class="texto">Mario de Oliveira</p>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="card-meio">
-                            <img src="../../imagens/icone-informacoes.svg" alt="icone-informações">
+                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
                             <p class="texto">Informações Gerais</p>
                         </div>
                         <div class="card-inferior">
@@ -96,7 +96,7 @@
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
-                                <img src="../../imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
                             <div class="entidade-informacao">
                                 <p class="texto">Mario de Oliveira</p>
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="card-meio">
-                            <img src="../../imagens/icone-informacoes.svg" alt="icone-informações">
+                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
                             <p class="texto">Informações Gerais</p>
                         </div>
                         <div class="card-inferior">
@@ -121,7 +121,7 @@
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
-                                <img src="../../imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
                             </div>
                             <div class="entidade-informacao">
                                 <p class="texto">Mario de Oliveira</p>
@@ -129,7 +129,7 @@
                             </div>
                         </div>
                         <div class="card-meio">
-                            <img src="../../imagens/icone-informacoes.svg" alt="icone-informações">
+                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
                             <p class="texto">Informações Gerais</p>
                         </div>
                         <div class="card-inferior">
@@ -162,15 +162,15 @@
             <div class="rodape-social">
                 <p class="texto">Redes Sociais</p>
                 <div class="social-whatsapp">
-                    <img src="../../imagens/logo-whatsapp.svg">
+                    <img src="./assets/imagens/logo-whatsapp.svg">
                     <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
                 </div>
                 <div class="social-github">
-                    <img src="../../imagens/logo-github.svg">
+                    <img src="./assets/imagens/logo-github.svg">
                     <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
                 </div>
                 <div class="social-instagram">
-                    <img src="../../imagens/logo-instagram.svg">
+                    <img src="./assets/imagens/logo-instagram.svg">
                     <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
                 </div>
             </div>
@@ -178,7 +178,7 @@
         <div class="template-grid" id="rodape-comercial">
             <hr><br>
             <div class="comercial-conteudo">
-                <img src="../../imagens/logo-rodape.svg" alt="logo-mediconnect">
+                <img src="./assets/imagens/logo-rodape.svg" alt="logo-mediconnect">
                 <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
             </div>
         </div>

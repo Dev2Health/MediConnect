@@ -64,6 +64,7 @@
                     </div>
                     <div class="input-item">
                         <label for="estado" class="texto">Estado</label>
+                        <%-- Deve ser verificado esse input de lista --%>
                         <input class="texto-enfase" list="estado" id="i.estado" name="estado" placeholder="Selecione o Estado" maxlength="35" required>
                         <datalist id="estado">
                             <option value="Pegar estado do CEP">
