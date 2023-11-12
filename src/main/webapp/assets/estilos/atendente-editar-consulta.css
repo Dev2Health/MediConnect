@@ -53,13 +53,82 @@ main {
 
 /* Formulários */
 
+input {
+    background: none;
+    color: var(--roxo);
+}
+
+input::placeholder {
+    color: var(--roxo-claro);
+}
+
 .formulario-esquerda, .formulario-direita {
     background-color: var(--claro);
     border: 3px solid var(--roxo);
     border-radius: 15px;
 }
 
+.input-presenca, .input-comparecimento {
+    display: flex;
+}
+
+.formulario-esquerda [class*="input-"] [class*="icone-"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8.33vw;
+}
+
+.formulario-esquerda [class*="input-"] [class*="icone-"] img {
+    width: 50px;
+}
+
 /* Formulário Esquerda */
+
+.formulario-esquerda {
+    margin-right: 35px;
+}
+
+#presenca {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-presenca .input-informacoes {
+    width: 25vw;
+}
+
+.input-comparecimento .input-informacoes .informacoes-horarios {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-comparecimento .input-informacoes .informacoes-horarios div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-comparecimento .input-informacoes .informacoes-horarios div:first-child .texto-enfase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 135px;
+    height: 50px;
+    background-color: var(--roxo);
+    border-radius: 15px;
+}
+
+.input-comparecimento .input-informacoes .informacoes-horarios div:last-child input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 135px;
+    height: 50px;
+    border: 3px solid var(--roxo);
+    border-radius: 15px;
+}
 
 .checkbox {
     display: flex;
@@ -76,35 +145,34 @@ input[type=checkbox]::before {
     background-color: var(--roxo-escuro);
 }
 
-
-
-
-
 /* Formulário Direita */
 
 .formulario-direita {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    height: 425px;
 }
 
-.formulario-direita .input-data {
+.formulario-direita [class*="input-"] {
     display: flex;
     align-items: center;
 }
 
-.formulario-direita .input-data label {
-    width: 18vw;
+.formulario-direita [class*="input-"] label {
+    width: 21vw;
+
 }
 
-.formulario-direita .input-data .formulario-data {
+.formulario-direita [class*="input-"] [class*="formulario-"] {
     display: flex;
     border: 3px solid var(--roxo);
     border-radius: 15px;
-    width: 16.33vw;
+    width: 18vw;
 }
 
-.formulario-direita .input-data .formulario-data .icone-data {
+.formulario-direita [class*="input-"] [class*="formulario-"] .icone-data, .icone-profissional, .icone-horario {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,23 +181,27 @@ input[type=checkbox]::before {
     border-radius: 10px 0 0 10px;
 }
 
-.formulario-direita .input-data .formulario-data .icone-data img {
+.formulario-direita [class*="input-"] [class*="formulario-"] [class*="icone-"] img {
     width: 35px;
 }
 
-.formulario-direita .input-data .formulario-data input {
+.formulario-direita [class*="input-"] [class*="formulario-"] input {
     width: 100%;
-    margin-left: 20px;
+    margin: 0 5px 0 10px;
+}
+
+.formulario-direita .input-data .formulario-data input {
     text-transform: uppercase;
 }
 
-
-
+/* Formulário Botões */
 
 #formulario-rodape {
     grid-column: 2 / 12;
     display: flex;
     justify-content: flex-end;
+    gap: 35px;
+    margin-top: 50px;
 }
 
 #formulario-rodape button:first-child {
