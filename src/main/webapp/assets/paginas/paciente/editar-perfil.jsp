@@ -79,8 +79,11 @@
                         </div>
                         <div class="input-itens">
                             <label for="date" class="text">Data de nascimento</label>
-                            
-                            <input class="text-emphasis" type="datetime" value="<fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/>" id="p.data" name="data" disabled/>
+                            <fmt:parseDate value="${dataNascimento}" type="date"
+                            pattern="yyyy-MM-dd" var="parsedDate" />
+                            <fmt:formatDate value="${parsedDate}" type="date"
+                            pattern="dd/MM/yyyy" var="data" />
+                            <input class="text-emphasis" type="datetime" value="${data}" id="p.data" name="data" disabled/>
                         </div>
                     </div>
 

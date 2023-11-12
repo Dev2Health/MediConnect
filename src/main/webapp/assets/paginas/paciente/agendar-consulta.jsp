@@ -60,7 +60,7 @@
                         <input list="professionals" class="text-emphasis" type="text" id="c.profissional" name="profissional" placeholder="(Selecione o Profissional)" required>
                         <datalist id="professionals">
                             <c:forEach var="profissional" items="${profissionais}">
-                                <option value="<c:out value='${profissional.nome}'/>"></option>
+                                <option value="<c:out value='${profissional.nome}'/> <c:out value='${profissional.sobrenome}'/>"></option>
                                 </c:forEach>
                         </datalist>
                     </div>
@@ -91,7 +91,7 @@
                             name="institution" placeholder="(Selecione a Instituição)" required>
                         <datalist id="institutions">
                             <c:forEach var="instituicao" items="${instituicoes}">
-                            <option value="<c:out value='${instituicao.nome}'/>"></option>
+                            <option value="<c:out value='${instituicao.nomeFantasia}'/>"></option>
                             </c:forEach>
                         </datalist>
                     </div>
