@@ -12,13 +12,7 @@
 
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect">
-        <nav class="barra-navegacao">
-            <a href="../cadastro-usuario.html" class="texto texto-escuro">Voltar ao Cadastro</a>
-            <a href="#" class="botao-circular-m texto texto-claro">Nos contacte</a>
-        </nav>
-    </header>
+     <%@include file="/assets/componentes/cabecalhos/deslogado.jsp"%>
     <main>
         <div class="template-grid">
             <h1 class="titulo">Informe seus dados</h1>

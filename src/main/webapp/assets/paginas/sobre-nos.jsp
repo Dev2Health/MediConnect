@@ -12,14 +12,7 @@
     <style><%@include file="../estilos/sobre-nos.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <img src="./assets/imagens/logo.svg" alt="logo-mediconnect" id="logo">
-        <nav class="barra-navegacao">
-            <a href="../../index.jsp" class="texto texto-escuro">Página Inicial</a>
-            <a href="./login-usuario.html" class="texto texto-escuro">Entrar</a>
-            <a href="./cadastro-usuario.html" class="botao-circular-m texto texto-claro">Cadastrar</a>
-        </nav>
-    </header>
+    <%@include file="../componentes/cabecalhos/voltar.jsp"%>
     <main>
         <section id="sessao-propositos" class="template-grid">
             <div id="propositos-titulo">

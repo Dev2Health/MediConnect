@@ -12,12 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../../styles/editar-consulta-paciente.css">
 </head>
 <body>
-    <header id="content-header" class="template-grid">
-        <nav class="nav-bar">
-            <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="logo-mediconnect">
-        </nav>
-    </header>
+    <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
     <main>
         <div class="template-grid">
             <h1 class="title">Alterar dados da consulta</h1>

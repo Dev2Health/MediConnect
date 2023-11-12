@@ -11,13 +11,7 @@
     <style><%@include file="../estilos/usuario-cadastro.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
-            <a href="./index" class="texto texto-escuro">Voltar</a>
-        </nav>
-        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
-    </header>
+    <%@include file="../componentes/cabecalhos/voltar.jsp"%>
     <main class="template-grid">
         <div class="conteudo-esquerda">
             <img src="./assets/imagens/ilustracao-cadastro.svg" alt="ilustracao-cadastro" class="ilustracao">
