@@ -6,7 +6,6 @@
 		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../menu.jsp"%>
 		<div>
 			<div>
 				<h1>
@@ -44,3 +43,5 @@
 		</div>
 	</body>
 </html>
+
+<!-- NÃO REFEITO / ESTILIZADO -->

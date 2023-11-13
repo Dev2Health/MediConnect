@@ -1,22 +1,23 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <title>Editar Perfil | Mediconnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../imagens/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/atendente-editar-perfil.css"%></style>
 </head>
 <body>
     <header class="template-grid" id="cabecalho">
         <nav class="barra-navegacao">
-            <img src="../../imagens/icone-voltar.svg" alt="icone-voltar">
+            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
             <a href="../../../index.jsp" class="texto texto-escuro">Voltar</a>
         </nav>
-        <img class="perfil-foto" src="../../imagens/exemplo-foto-atendente.png" alt="logo-mediconnect">
+        <img class="perfil-foto" src="./assets/imagens/exemplo-foto-atendente.png" alt="logo-mediconnect">
     </header>
     <main>
         <form action="atualizar" method="post">
@@ -28,7 +29,7 @@
                     <!-- LEMBRETE: os placeholders são, literalmente, placeholders - essas informações advém do banco de dados -->
                     <div class="formulario-input">
                         <div class="input-icone">
-                            <img src="../../imagens/icone-paciente.svg" alt="icone-paciente">
+                            <img src="./assets/imagens/icone-paciente.svg" alt="icone-paciente">
                         </div>
                         <div class="input-item">
                             <label for="nome" class="texto">Nome</label>
@@ -37,7 +38,7 @@
                     </div>
                     <div class="formulario-input">
                         <div class="input-icone">
-                            <img src="../../imagens/icone-ctps.svg" alt="icone-ctps">
+                            <img src="./assets/imagens/icone-ctps.svg" alt="icone-ctps">
                         </div>
                         <div class="input-item">
                             <label for="ctps" class="texto">CTPS</label>
@@ -46,7 +47,7 @@
                     </div>
                     <div class="formulario-input">
                         <div class="input-icone">
-                            <img src="../../imagens/icone-numeros.svg" alt="icone-numeros">
+                            <img src="./assets/imagens/icone-numeros.svg" alt="icone-numeros">
                         </div>
                         <div class="input-item">
                             <label for="cadastro" class="texto">Número de Cadastro</label>
@@ -57,7 +58,7 @@
                 <div class="formulario-direita">
                     <div class="formulario-input">
                         <div class="input-icone">
-                            <img src="../../imagens/icone-paciente.svg" alt="icone-paciente">
+                            <img src="./assets/imagens/icone-paciente.svg" alt="icone-paciente">
                         </div>
                         <div class="input-item">
                             <label for="sobrenome" class="texto">Sobrenome</label>
@@ -66,7 +67,7 @@
                     </div>
                     <div class="formulario-input">
                         <div class="input-icone">
-                            <img src="../../imagens/icone-calendario.svg" alt="icone-calendario">
+                            <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
                         </div>
                         <div class="input-item">
                             <label for="data" class="texto">Data de Cadastro</label>
@@ -79,12 +80,12 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados sensíveis</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="../../imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
                     </div>
                 </div>
                 <div id="confirmar-email" class="template-grid">
                     <div class="email-superior">
-                        <img class="icone-claro" src="../../imagens/icone-email.svg" alt="icone-email">
+                        <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
                         <p class="texto">E-mail Atual: value="<c:out value='${instituicao.email}'/>"</p>
                     </div>
                     <div class="email-conteudo">
@@ -92,19 +93,19 @@
                             <label for="email" class="texto">Alterar E-mail</label>
                             <div class="formulario-email">
                                 <div class="formulario-icone">
-                                    <img class="icone-claro" src="../../imagens/icone-email.svg" alt="icone-email">
+                                    <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
                                 </div>
                                 <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100" required>
                             </div>
                         </div>
                         <div class="email-validar">
                             <div class="validar-conteudo">
-                                <img src="../../imagens/icone-atencao.svg" alt="icone-atencao">
+                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
                                 <p class="texto-sem-enfase">Enviar o token de verificação para este e-mail</p>
                             </div>
                             <div class="validar-conteudo">
                                 <a class="texto-enfase">Enviar confirmação</a>
-                                <img src="../../imagens/icone-redirecionar.svg">
+                                <img src="./assets/imagens/icone-redirecionar.svg">
                             </div>
                         </div>
                     </div>
@@ -116,25 +117,25 @@
                                 <label for="senha" class="texto">Nova Senha</label>
                                 <div class="input-senha">
                                     <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" required>
-                                    <img src="../../imagens/icone-olho-fechado.svg" id="botao-senha">
+                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha">
                                 </div>
                             </div>
                             <div id="senha-nova">
                                 <label for="novasenha" class="texto">Confirmar Senha</label>
                                 <div class="input-senha">
                                     <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" required>
-                                    <img src="../../imagens/icone-olho-fechado.svg" id="botao-novasenha">
+                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
                                 </div>
                             </div>
                         </div>
                         <div class="senha-validacao">
                             <div class="validar-conteudo">
-                                <img src="../../imagens/icone-atencao.svg" alt="icone-atencao">
+                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
                                 <p class="texto-sem-enfase">Enviar confirmação para o e-mail cadastrado</p>
                             </div>
                             <div class="validar-conteudo">
                                 <a href="#" class="texto-enfase texto-escuro">Enviar confirmação</a>
-                                <img src="../../imagens/icone-redirecionar.svg" alt="icone-redirecionar">
+                                <img src="./assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
                             </div>
                         </div>
                     </div>
