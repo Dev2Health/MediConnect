@@ -1399,8 +1399,8 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarModalConsulta(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
-		Consulta consulta = consultaDAO.filtrarConsultaViaPacientePorIdDaConsulta(1,1);
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		Consulta consulta = consultaDAO.recuperarConsultaPorId(id);
 		request.setAttribute("consulta", consulta);
 		Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
 		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
