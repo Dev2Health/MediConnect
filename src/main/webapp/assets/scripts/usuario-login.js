@@ -13,15 +13,21 @@ function mostrarSenha() {
 }
 
 function mascaraEmail() {
+   var inputConteudo = document.getElementById("email").value;
+   var botao = document.getElementById("botao").disabled = true
 
-   var formulario = document.getElementById("formulario");
-   var campo = document.getElementById(email);
+   var regexEmail = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
 
-   formulario.addEventListener("submit", pararEvento);
-   function pararEvento(evento) {
-      if (campo.innerHTML == "")
-         event.preventDefault(); 
+   if(regexEmail.test(inputConteudo)){
+      
+      document.getElementById("formulario").submit();
+
+
+   }else{
+      console.log("O email não está no padrão");
    }
+   
+   
 
-
+   
 }
