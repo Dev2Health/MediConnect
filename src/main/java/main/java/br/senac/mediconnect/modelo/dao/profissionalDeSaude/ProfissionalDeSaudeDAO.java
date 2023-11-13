@@ -2,6 +2,7 @@ package main.java.br.senac.mediconnect.modelo.dao.profissionalDeSaude;
 
 import java.util.List;
 
+import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.br.senac.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
 
 public interface ProfissionalDeSaudeDAO {
@@ -11,4 +12,5 @@ public interface ProfissionalDeSaudeDAO {
 	List<ProfissionalDeSaude> recuperarProfissionaisDeSaude();
 	ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer idInstituicao);
 	ProfissionalDeSaude recuperarProfissionalPorId(Integer id);
+	List<ProfissionalDeSaude> recuperarProfissionaisDeSaudePorEspecialidade(EspecialidadeProfissional especialidade);
 }

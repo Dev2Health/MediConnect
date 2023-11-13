@@ -1015,7 +1015,10 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadeProfissionalDaInstituicao();
+		
+		Integer id = Integer.parseInt("id");
+		
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionaisDaInstituicaoPorId(id);
 		request.setAttribute("especialidades", especialidades);
 		List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaude();
 		request.setAttribute("profissionais", profissionais);
@@ -1147,8 +1150,10 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
-		List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(id);
+		List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(atendente);
 
 		request.setAttribute("pacientes", pacientes);
 
@@ -1271,11 +1276,6 @@ public class Servlet extends HttpServlet {
 			System.out.println(especialidade.getNome());
 		}
 
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadeProfissionalDaInstituicao();
-
-		request.setAttribute("especialidades", especialidades);
-
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);
 
@@ -1304,7 +1304,7 @@ public class Servlet extends HttpServlet {
 		especialidade.setEhAtivo(ehAtivo);
 
 		especialidadeDAO.atualizarEspecialidadeProfissionalDaInstituicao(especialidade);
-		response.sendRedirect("eswpecialidades");
+		response.sendRedirect("especialidades");
 
 	}
 

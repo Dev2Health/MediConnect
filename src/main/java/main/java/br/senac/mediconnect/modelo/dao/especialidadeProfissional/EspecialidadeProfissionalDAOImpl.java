@@ -10,6 +10,8 @@ import org.hibernate.Session;
 
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional_;
+import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao;
+import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.br.senac.mediconnect.modelo.factory.BuildFactory;
 
 public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfissionalDAO{
@@ -110,7 +112,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 	}
 
 	@Override
-	public List<EspecialidadeProfissional> recuperarEspecialidadeProfissionalDaInstituicao() {
+	public List<EspecialidadeProfissional> recuperarEspecialidadesProfissionais() {
 		
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;
@@ -202,10 +204,11 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 
 			CriteriaQuery<EspecialidadeProfissional> criteria = construtor.createQuery(EspecialidadeProfissional.class);
 			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
+			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 			
 			criteria.select(raizEspecialidadeProfissional);
 			
-			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(EspecialidadeProfissional_.ID), id));
+			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), id));
 			
 			especialidadesProfissionais = sessao.createQuery(criteria).getResultList();	
 
