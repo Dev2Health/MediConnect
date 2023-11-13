@@ -655,7 +655,8 @@ public class Servlet extends HttpServlet {
 			
 //			Date dataConsulta = java.sql.Date.valueOf(paciente.getDataNasciento());
 //			request.setAttribute("dataConsulta", dataConsulta);
-			List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistasPacientePorId(id);
+//			List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistasPacientePorId(id);
+			List<Conquista> conquistas = conquistaDAO.recuperarListaDeConquistas(); // fazer filtrado depois
 			request.setAttribute("conquistas", conquistas);
 			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
 			request.setAttribute("instituicoes", instituicoes);
@@ -1351,6 +1352,11 @@ public class Servlet extends HttpServlet {
 	private void mostrarModalEspecialidade(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
+		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(1);
+		request.setAttribute("especialidade", especialidade);
+		List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaude();
+		// Fazer filtro por especialidade depois
+		request.setAttribute("profissionais", profissionais);
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("assets/paginas/instituicao/modal-especialidade.jsp");
 		dispatcher.forward(request, response);

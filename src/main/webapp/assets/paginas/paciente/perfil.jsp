@@ -66,22 +66,23 @@
                     <input type="hidden" value="<c:out value='${conquista.id}'/>" />
                     <div><!--caixa-->
                         <div><!--icone-->
-                            <img src="../../imagens/icone-<c:out value='${conquista.titulo}' />.svg" alt="icone-<c:out value='${conquista.titulo}' />">
+                            <img src="../../imagens/icone-nosso-presente.svg" alt="icone-nosso-presente">
                     </div>
                     <div><!--texto-->
-                        <h2 class="subtitle"><c:out value='${conquista.titulo}' /></h2>
+                        <h2 class="subtitle"><c:out value='${conquista.nome}' /></h2>
                         <p class="text-no-emphasis"><c:out value='${conquista.descricao}' /></p>
                     </div>
                     <div><!--nível-->
                         <div>
-                            <p class="text-emphasis"><c:out value='${paciente-conquista.nível}' /></p>
+                            <c:if test="${pacienteConquista != null}">
+                            <p class="text-emphasis"><c:out value='${pacienteConquista.nível}' /></p>
+					        </c:if>
                         </div>
                         <div>
                             <p class="text-emphasis">--/--</p>
                         </div>
                     </div>
                 </div>
-                <input type="range">
             </c:forEach>
 
         </section>

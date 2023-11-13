@@ -10,11 +10,14 @@
         <p>Especialidade - <c:out value="${especialidade.id}" /></p>
         <div>
             <img src="././images/icone-calendario.svg" alt="icone-calendario">
-            <p><c:out value="${especialidade.nome}" /></p> // Ou ao invés da tag p usar um input de date, mas acho melhor texto
+            <p><c:out value="${especialidade.nome}" /></p>
         </div>
         <div>
+            <p>profissionais Cadastrados</p>
             <img src="././images/icone-profissional.svg" alt="icone-profissional">
-			<p><c:out value="${especialidade.profissionais}" /></p>
+            <c:forEach var="profissional" items="${profissionais}">
+			<p><c:out value="${profissional.nome} ${profissional.sobrenome}" /></p>
+            </c:forEach>
         </div>
     </div>
 			</div>
