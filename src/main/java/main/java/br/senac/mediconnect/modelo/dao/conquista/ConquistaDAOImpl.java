@@ -150,7 +150,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 	}
 		
 	
-	public List<Conquista> filtrarConquistaViaPacienteDoPacientePorStatus(StatusConsulta status, Paciente paciente) {
+	public List<Conquista> filtrarConquistasViaPacienteDoPacientePorStatus(StatusConsulta status, Paciente paciente) {
 
 		Session sessao = null;
 		List<Conquista> conquistas = null;
@@ -191,7 +191,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 		return conquistas;
 	}
 
-	public List<Conquista> filtrarConquistaViaPacienteDoPacientePorStatus(StatusConsulta status, Integer idPaciente) {
+	public List<Conquista> filtrarConquistasViaPacienteDoPacientePorStatus(StatusConsulta status, Integer idPaciente) {
 
 		Session sessao = null;
 		List<Conquista> conquistas = null;

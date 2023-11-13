@@ -229,7 +229,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return usuario;
 	}
 	
-	public Usuario recuperarUsuarioPorId(Integer id) {
+	public Usuario recuperarUsuarioPorId(Integer idUsuario) {
 		
 		Session sessao = null;
 		Usuario usuario = null;
@@ -246,7 +246,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			
 			criteria.select(raizUsuario);
 			
-			criteria.where(construtor.equal(raizUsuario.get(Usuario_.ID), id));
+			criteria.where(construtor.equal(raizUsuario.get(Usuario_.ID), idUsuario));
 			
 			usuario = sessao.createQuery(criteria).getSingleResult();
 			

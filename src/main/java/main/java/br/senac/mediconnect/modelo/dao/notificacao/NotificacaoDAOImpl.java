@@ -157,7 +157,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	@Override
-	public List<Notificacao> filtrarNotificacaoViaAtendentePorIdConsulta(Integer id, Instituicao instituicao) {
+	public List<Notificacao> filtrarNotificacoesViaAtendentePorIdConsulta(Integer id, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
@@ -205,7 +205,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacoes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaAtendentePorIdConsulta(Integer id, Integer idInstituicao) {
+	public List<Notificacao> filtrarNotificacoesViaAtendentePorIdConsulta(Integer id, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
@@ -254,7 +254,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	@Override
-	public List<Notificacao> filtrarNotificacaoViaAtendentePorCPFPaciente(String cpf, Instituicao instituicao) {
+	public List<Notificacao> filtrarNotificacoesViaAtendentePorCPFPaciente(String cpf, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
@@ -302,7 +302,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaAtendentePorCPFPaciente(String cpf, Integer idInstituicao) {
+	public List<Notificacao> filtrarNotificacoesViaAtendentePorCPFPaciente(String cpf, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
@@ -351,7 +351,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	@Override
-	public List<Notificacao> filtrarNotificacaoViaAtendentePorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Notificacao> filtrarNotificacoesViaAtendentePorData(LocalDate dataInicial, LocalDate dataFinal,
 			Instituicao instituicao) {
 
 		Session sessao = null;
@@ -399,7 +399,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacoes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaAtendentePorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Notificacao> filtrarNotificacoesViaAtendentePorData(LocalDate dataInicial, LocalDate dataFinal,
 			Integer idInstituicao) {
 
 		Session sessao = null;
@@ -447,7 +447,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 	}
 
 	@Override
-	public List<Notificacao> filtrarNotificacaoViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Notificacao> filtrarNotificacoesViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
 			Paciente paciente) {
 
 		Session sessao = null;
@@ -491,7 +491,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return Atendentes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Notificacao> filtrarNotificacoesViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
 			Integer idPaciente) {
 
 		Session sessao = null;
@@ -535,7 +535,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return Atendentes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaPacientePorInstituicao(Instituicao instituicao, Paciente paciente) {
+	public List<Notificacao> filtrarNotificacoesViaPacientePorInstituicao(Instituicao instituicao, Paciente paciente) {
 
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
@@ -580,7 +580,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacoes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaPacientePorInstituicao(Instituicao instituicao, Integer idPaciente) {
+	public List<Notificacao> filtrarNotificacoesViaPacientePorInstituicao(Instituicao instituicao, Integer idPaciente) {
 
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
@@ -625,7 +625,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacoes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaPacientePorIdConsulta(Consulta consulta, Paciente paciente) {
+	public List<Notificacao> filtrarNotificacoesViaPacientePorIdConsulta(Consulta consulta, Paciente paciente) {
 
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
@@ -667,7 +667,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacoes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaPacientePorIdConsulta(Integer idConsulta, Integer idPaciente) {
+	public List<Notificacao> filtrarNotificacoesViaPacientePorIdConsulta(Integer idConsulta, Integer idPaciente) {
 
 		Session sessao = null;
 		List<Notificacao> notificacoes = null;
@@ -709,7 +709,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacoes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Notificacao> filtrarNotificacoesViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
 			Paciente paciente) {
 
 		Session sessao = null;
@@ -750,7 +750,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacoes;
 	}
 
-	public List<Notificacao> filtrarNotificacaoViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Notificacao> filtrarNotificacoesViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
 			Integer idPaciente) {
 
 		Session sessao = null;
@@ -811,8 +811,9 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 			criteria.select(raizNotificacao);
 
 			criteria.where(construtor.equal(raizNotificacao.get(Notificacao_.ID), idNotificacao),
-						   construtor.equal(raizAtendente.get(Atendente_.ID), idAtendente),
-						   construtor.equal(raizAtendente.get(Atendente_.ID).get(Instituicao_.ID).get(Instituicao_.ID),raizInstituicao.get(Instituicao_.ID)));
+					construtor.equal(raizAtendente.get(Atendente_.ID), idAtendente),
+					construtor.equal(raizAtendente.get(Atendente_.ID).get(Instituicao_.ID).get(Instituicao_.ID),
+							raizInstituicao.get(Instituicao_.ID)));
 
 			notificacao = sessao.createQuery(criteria).getSingleResult();
 
@@ -839,8 +840,8 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 		return notificacao;
 
 	}
-	
-	public	Notificacao recuperarNotificacaoPorId(Integer id) {
+
+	public Notificacao recuperarNotificacaoPorId(Integer idNotificao) {
 
 		Session sessao = null;
 		Notificacao notificacao = null;
@@ -857,7 +858,7 @@ public class NotificacaoDAOImpl implements NotificacaoDAO {
 
 			criteria.select(raizNotificacao);
 
-			criteria.where(construtor.equal(raizNotificacao.get(Notificacao_.ID), id));
+			criteria.where(construtor.equal(raizNotificacao.get(Notificacao_.ID), idNotificao));
 
 			notificacao = sessao.createQuery(criteria).getSingleResult();
 
