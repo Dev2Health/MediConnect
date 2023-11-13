@@ -145,42 +145,7 @@
 
     </main>
 
-    <footer>
-        <div class="template-grid" id="footer-links">
-            <div class="footer-mediconnect">
-                <p class="text">MediConnect</p>
-                <a href="../sobre-nos.html" class="text-no-emphasis link-light">Sobre nós</a>
-                <a href="../../../index.html" class="text-no-emphasis link-light">Página inicial</a>
-            </div>
-            <div class="footer-contact">
-                <p class="text">Atendimento</p>
-                <a href="#" class="text-no-emphasis link-light">Contato</a>
-                <a href="#" class="text-no-emphasis link-light">Termos de Uso</a>
-            </div>
-            <div class="footer-social">
-                <p class="text">Redes Sociais</p>
-                <div class="social-whatsapp">
-                    <img src="assets/imagens/logo-whatsapp.svg">
-                    <a href="#" class="text-no-emphasis link-light">WhatsApp</a>
-                </div>
-                <div class="social-github">
-                    <img src="../../imagens/logo-github.svg">
-                    <a href="#" class="text-no-emphasis link-light">GitHub</a>
-                </div>
-                <div class="social-instagram">
-                    <img src="../../imagens/logo-instagram.svg">
-                    <a href="#" class="text-no-emphasis link-light">Instagram</a>
-                </div>
-            </div>
-        </div>
-        <div class="template-grid" id="footer-commercial">
-            <hr><br>
-            <div class="commercial-content">
-                <img src="../../imagens/logo-rodape.svg" alt="logo-mediconnect">
-                <p class="text-small">2023 &copy Todos os direitos reservados</p>
-            </div>
-        </div>
-    </footer>
+    <%@include file="../../componentes/rodape/rodape.jsp"%>
 
 
 </body>
