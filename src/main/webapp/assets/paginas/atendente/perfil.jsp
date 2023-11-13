@@ -48,7 +48,6 @@
                                 <p class="texto"><c:out value="${endereco.logradouro}"/></p>
                                 <p class="texto">CEP <c:out value="${endereco.cep}"/></p>
                             </div>
-                        </c:if>
                     </div>
                 </div>
             </div>

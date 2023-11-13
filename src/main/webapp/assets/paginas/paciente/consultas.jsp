@@ -21,7 +21,7 @@
         <nav class="navegacao-filtro">
             <div class="filtro">
                 <div class="input-item">
-                    <input class="texto-enfase" type="texto" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
+                    <input class="texto-enfase" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
                 </div>
                 <div class="filtro-icone">
                     <img src="../../imagens/icone-lupa.svg" alt="icone-pesquisar">
@@ -38,59 +38,40 @@
                         <button class="botao-quadrado-p texto-enfase" autofocus>Pendentes</button>
                         <button class="botao-quadrado-p texto-enfase">Todas</button>
                     </div>
-                    <button id="agendar" class="botao-quadrado-p texto-enfase">Agendar <img src="../../imagens/icone-adicionar.svg"></button>
+                    <form action="agendar-consulta" method="post">
+                    <button type="submit" id="agendar" class="botao-quadrado-p texto-enfase">Agendar <img src="../../imagens/icone-adicionar.svg"></button>
+                   	</form>
                 </div>
-<<<<<<< HEAD
-=======
-                <button class="btn-square-sm text-emphasis link-light"><a href="./agendar-consulta">Agendar <img src="../../images/icone-adicionar.svg"></a></button>
->>>>>>> 2a3e943b90e6045968e2cba7e38960381c6194c8
             </div>
             <div id="consulta">
-                <c:forEach var="consulta" items="${consultas}" class="template-grid">
+                <c:forEach var="consulta" items="${consultas}">
 
                     <div class="card-horizontal">
-                        <p class="texto-enfase">Título da consulta</p>
+                        <p class="texto-enfase">Consulta - <c:out value="${consulta.id}" /></p>
                         <div class="info-direita">
                             <div class="info-variavel">
                                 <div class="info-data">
                                     <img src="../../imagens/icone-calendario.svg" alt="icone-calendario">
-                                    <p class="texto" type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${data}'/></p>
+                                    <fmt:parseDate value="${consulta.data}" type="date"
+					                    pattern="yyyy-MM-dd" var="parsedDate" />
+					                    <fmt:formatDate value="${parsedDate}" type="date"
+                    					pattern="dd/MM/yyyy" var="data" />
+                                        <p class="texto" type="date"><c:out value="${data}" /></p>
                                 </div>
                                 <div class="info-horario">
                                     <img src="../../imagens/icone-horario.svg" alt="icone-calendario">
                                     <p class="texto"><c:out value='${consulta.horario}'/></p>
                                 </div>
                             </div>
-                            <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
+                            <form action="modal-consulta-paciente" method="post">
+			                <input type="hidden" name="id" value="${consulta.id}"/>
+			                <button type="submit" class="btn-square-sm text-emphasis link-light">Ver detalhes <img src="../../images/icone-adicionar.svg"></button>
+                            </form>
                         </div>
                     </div>
-
-<<<<<<< HEAD
-                </c:forEach>
-            </div>
-        </section>
-=======
-                <p class="text-emphasis">Consulta - <c:out value="${consulta.id}" /></p>
-                <div>
-                    <img src="../../images/icone-calendario.svg" alt="icone-calendario">
-                    <fmt:parseDate value="${consulta.data}" type="date"
-                    pattern="yyyy-MM-dd" var="parsedDate" />
-                    <fmt:formatDate value="${parsedDate}" type="date"
-                    pattern="dd/MM/yyyy" var="data" />
-                    <p class="text" type="date"><c:out value="${data}" /></p>
-                </div>
-                <div>
-                    <img src="../../images/icone-horario.svg" alt="icone-horario">
-                    <p class="text"><c:out value="${consulta.horario}" /></p>
-                </div>
-                <a href="./modal-consulta-paciente"class="btn-square-la">Ver detalhes</a>
-            </div>
-            </c:forEach>
-
-        </div>
-
-        </div>
->>>>>>> 2a3e943b90e6045968e2cba7e38960381c6194c8
+                 </c:forEach>
+        	</div>
+        	</section>
     </main>
     <footer>
         <div class="template-grid" id="rodape-links">

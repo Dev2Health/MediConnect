@@ -365,8 +365,8 @@ public class Servlet extends HttpServlet {
 		
 		HttpSession sessao = request.getSession();
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/usuario-login.jsp");
 		dispatcher.forward(request, response);	 //para onde dispatch quando "deletar" usuario
@@ -378,7 +378,9 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
+			
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 			
 			request.setAttribute("paciente", paciente);
@@ -399,7 +401,8 @@ public class Servlet extends HttpServlet {
 		}
 		
 		if (sessao.getAttribute("usuario") instanceof Instituicao) {
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);	
 			
@@ -412,7 +415,8 @@ public class Servlet extends HttpServlet {
 		}
 		
 		if (sessao.getAttribute("usuario") instanceof Atendente) {
-			Integer id = Integer.parseInt(request.getParameter("id"));
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 			
@@ -479,6 +483,8 @@ public class Servlet extends HttpServlet {
 
 	private void inserirEndereco(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
 
 		Endereco endereco = null;
 
@@ -492,16 +498,12 @@ public class Servlet extends HttpServlet {
 		endereco = new Endereco(cep, numero, logradouro, cidade, estado, bairro);
 
 		enderecoDAO.inserirEndereco(endereco);
-		boolean concluido = false;
-		int id = 1;
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
-		while (!concluido) {
-			instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-			if (instituicao == null)
-				id++;
-			else
-				concluido = true;
-		}
+		
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+		
 		instituicao.setEndereco(endereco);
 		instituicaoDAO.atualizarInstituicao(instituicao);
 		response.sendRedirect("perfil-instituicao");
@@ -514,7 +516,6 @@ public class Servlet extends HttpServlet {
 
 		Paciente paciente = null;
 		Part parteFoto = null;
-		
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
@@ -556,8 +557,9 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 			
 			request.setAttribute("paciente", paciente);
@@ -567,8 +569,9 @@ public class Servlet extends HttpServlet {
 		}
 		
 		if (sessao.getAttribute("usuario") instanceof Instituicao) {
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 			
 			request.setAttribute("instituicao", instituicao);
@@ -578,8 +581,9 @@ public class Servlet extends HttpServlet {
 		}
 		
 		if (sessao.getAttribute("usuario") instanceof Atendente ) {
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 			
 			request.setAttribute("atendente", atendente);
@@ -616,8 +620,9 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 			
 			request.setAttribute("paciente", paciente);
@@ -627,8 +632,9 @@ public class Servlet extends HttpServlet {
 		}
 		
 		if (sessao.getAttribute("usuario") instanceof Instituicao) {
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 			
 			request.setAttribute("instituicao", instituicao);
@@ -638,8 +644,9 @@ public class Servlet extends HttpServlet {
 		}
 		
 		if (sessao.getAttribute("usuario") instanceof Atendente) {
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			
-			Integer id = Integer.parseInt(request.getParameter("id"));
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 			
 			request.setAttribute("atendente", atendente);
@@ -651,18 +658,13 @@ public class Servlet extends HttpServlet {
 
 	private void editarPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession sessao = request.getSession();
 
-		boolean concluido = false;
-		int id = 1;
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
-		while (!concluido) {
-			paciente = pacienteDAO.recuperarPacientePorId(id);
-			if (paciente == null)
-				id++;
-			else
-				concluido = true;
-
-		}
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
@@ -684,8 +686,11 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaConquistasPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession sessao = request.getSession();
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 		
 		List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistasPacientePorId(id);
 
@@ -699,8 +704,12 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaConsultasPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession sessao = request.getSession();
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		
 		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
 
 		if (consultas != null) {
@@ -716,16 +725,13 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaConsulta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		boolean concluido = false;
-		int id = 1;
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
-		while(!concluido) {
-			paciente = pacienteDAO.recuperarPacientePorId(id);
-			if (paciente == null) 
-				id++;
-			else 
-				concluido = true;
-		}
+		HttpSession sessao = request.getSession();
+		
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
+		
 		boolean concluido2 = false;
 		int idConsulta = 1;
 		Consulta consulta = consultaDAO.filtrarConsultaViaPacientePorIdDaConsulta(1, paciente.getId());
@@ -757,6 +763,8 @@ public class Servlet extends HttpServlet {
 
 	private void inserirConsulta(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
 
 		Consulta consulta = null;
 
@@ -766,16 +774,12 @@ public class Servlet extends HttpServlet {
 		Integer idInstituicao = Integer.parseInt(request.getParameter("instituicao"));
 		Integer idProfissional = Integer.parseInt(request.getParameter("profissional"));
 		String descricao = request.getParameter("descricao");
-		boolean concluido = false;
-		int id = 1;
-		Paciente paciente = pacienteDAO.recuperarPacientePorId(1);
-		while(!concluido) {
-		paciente = pacienteDAO.recuperarPacientePorId(id);
-		if (paciente == null) 
-			id++;
-		 else 
-			concluido = true;
-		}
+		
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		
+		Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
+		
 //		String descricao = request.getParameter("descricao");
 
 		StatusConsulta status = StatusConsulta.AGENDADA;
@@ -796,8 +800,11 @@ public class Servlet extends HttpServlet {
 
 	private void editarAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession sessao = request.getSession();
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
@@ -823,7 +830,10 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaVerPacientesCadastrados(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		HttpSession sessao = request.getSession();
+
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(id);
 
@@ -839,7 +849,10 @@ public class Servlet extends HttpServlet {
 	private void editarInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		HttpSession sessao = request.getSession();
+
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		//recuperar a entidade e setar informa��es novas nela ou atualizar com new Entidade?
@@ -877,7 +890,10 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAtendentesInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		HttpSession sessao = request.getSession();
+
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentes(id);
 
@@ -902,16 +918,13 @@ public class Servlet extends HttpServlet {
 	private void inserirAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		boolean concluido = false;
-		int id = 1;
+		HttpSession sessao = request.getSession();
+
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+	
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
-		while (!concluido) {
-			instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-			if (instituicao == null)
-				id++;
-			else
-				concluido = true;
-		}
+
 		Atendente atendente = null;
 
 		String nome = request.getParameter("nome");
@@ -934,18 +947,12 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEspecialidadesInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		boolean concluido = false;
-		int id = 1;
+		HttpSession sessao = request.getSession();
+
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		
 		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(1);
-		while (!concluido) {
-			especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(id);
-			if (especialidade == null)
-				id++;
-			else
-				concluido = true;
-			System.out.println(especialidade.getId());
-			System.out.println(especialidade.getNome());
-		}
 
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadeProfissionalDaInstituicao();
 
@@ -959,7 +966,10 @@ public class Servlet extends HttpServlet {
 	private void inserirEspecialidade(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		HttpSession sessao = request.getSession();
+
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorIdInstituicao(id);
@@ -1005,7 +1015,10 @@ public class Servlet extends HttpServlet {
 	private void inserirProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		HttpSession sessao = request.getSession();
+
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		ProfissionalDeSaude profissional = null;
 

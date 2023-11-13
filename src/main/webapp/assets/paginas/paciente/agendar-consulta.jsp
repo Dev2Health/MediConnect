@@ -21,7 +21,7 @@
         <div class="template-grid">
             <h1 class="titulo texto-roxo">Agendar Consulta</h1>
         </div>
-        <form action="inserir-consulta" method="post" class="template-grid">
+        <form action="inserir-consulta" method="post" class="template-grid" autocomplete="off">
             <!-- <input type="hidden" name="id" value="<c:out value='${consulta.id}' />" /> -->
 
             <div class="formulario-esquerda">
