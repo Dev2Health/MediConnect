@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,6 +40,10 @@
                     </div>
                     <button id="agendar" class="botao-quadrado-p texto-enfase">Agendar <img src="../../imagens/icone-adicionar.svg"></button>
                 </div>
+<<<<<<< HEAD
+=======
+                <button class="btn-square-sm text-emphasis link-light"><a href="./agendar-consulta">Agendar <img src="../../images/icone-adicionar.svg"></a></button>
+>>>>>>> 2a3e943b90e6045968e2cba7e38960381c6194c8
             </div>
             <div id="consulta">
                 <c:forEach var="consulta" items="${consultas}" class="template-grid">
@@ -60,9 +65,32 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
                 </c:forEach>
             </div>
         </section>
+=======
+                <p class="text-emphasis">Consulta - <c:out value="${consulta.id}" /></p>
+                <div>
+                    <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+                    <fmt:parseDate value="${consulta.data}" type="date"
+                    pattern="yyyy-MM-dd" var="parsedDate" />
+                    <fmt:formatDate value="${parsedDate}" type="date"
+                    pattern="dd/MM/yyyy" var="data" />
+                    <p class="text" type="date"><c:out value="${data}" /></p>
+                </div>
+                <div>
+                    <img src="../../images/icone-horario.svg" alt="icone-horario">
+                    <p class="text"><c:out value="${consulta.horario}" /></p>
+                </div>
+                <a href="./modal-consulta-paciente"class="btn-square-la">Ver detalhes</a>
+            </div>
+            </c:forEach>
+
+        </div>
+
+        </div>
+>>>>>>> 2a3e943b90e6045968e2cba7e38960381c6194c8
     </main>
     <footer>
         <div class="template-grid" id="rodape-links">

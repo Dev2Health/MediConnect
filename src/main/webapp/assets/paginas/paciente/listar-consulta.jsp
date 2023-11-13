@@ -6,7 +6,6 @@
 		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../menu.jsp"%>
 <div>
         <c:forEach var="consulta" items="${consultas}">
         <p>Consulta - <c:out value="${consulta.id}" /></p>

@@ -5,7 +5,6 @@
 		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
-		<%@ include file="../../../menu.jsp"%>
 <div>
     </button>
         <input type="hidden" name="id" value="<c:out value='${paciente.id}' />" />

@@ -26,10 +26,10 @@ public class Paciente extends Pessoa implements Serializable {
 	private static final long serialVersionUID = 1290946171577071803L;
 
 	// ATRIBUTOS
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_paciente")
-	private Integer id;
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "id_paciente")
+//	private Integer id;
 
 	@Column(name = "data_nascimento_paciente", nullable = false)
 	private LocalDate dataNascimento;
