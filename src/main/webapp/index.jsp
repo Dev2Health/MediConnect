@@ -20,7 +20,9 @@
                 <p class="texto">Utilizar nosso sistema traz vários <span class="texto-roxo">benefícios</span>. Além da <span class="texto-roxo">praticidade</span>, auxiliamos você com a <span class="texto-roxo">pontualidade</span> nas suas consultas. <span class="texto-roxo">Venha conferir!</span></p>
             </div>
             <div class="conteudo-direita">
-                <img src="./assets/imagens/ilustracao-medica.svg" alt="ilustracao-medica" class="ilustracao">
+				<img src="data:image/svg+xml;charset=UTF-8,<%@ include file='/assets/imagens/ilustracao-medica.svg' %>" alt="Medical Illustration">
+            	<p class="ilustracao"><%@include file="/assets/imagens/ilustracao-medica.svg"%></p>
+            	<img src="./assets/imagens/ilustracao-medica.svg" alt="ilustracao-medica" class="ilustracao">
             </div>
         </section>
         <section id="sessao-gamificacao" class="template-grid">
