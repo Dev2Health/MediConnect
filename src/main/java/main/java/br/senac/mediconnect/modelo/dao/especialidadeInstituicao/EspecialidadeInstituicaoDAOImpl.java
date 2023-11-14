@@ -108,7 +108,7 @@ public BuildFactory fac;
 	}
 
 	@Override
-	public List<EspecialidadeInstituicao> recuperarEspecialidadeInstituicao() {
+	public List<EspecialidadeInstituicao> recuperarEspecialidadesInstituicao() {
 		
 		Session sessao = null;
 		List<EspecialidadeInstituicao> conquistas = null;

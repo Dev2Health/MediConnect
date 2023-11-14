@@ -188,7 +188,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 	}	
 	
 	@Override
-	public ProfissionalDeSaude recuperarProfissionalPorId(Integer id) {
+	public ProfissionalDeSaude recuperarProfissionalPorId(Integer idProfissional) {
 		
 		Session sessao = null;
 		ProfissionalDeSaude profissionalDeSaude = null;
@@ -205,7 +205,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 			
 			criteria.select(raizProfissionalDeSaude);
 			
-			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.ID), id));
+			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.ID), idProfissional));
 					 
 			profissionalDeSaude = sessao.createQuery(criteria).getSingleResult();
 			

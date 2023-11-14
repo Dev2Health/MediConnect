@@ -114,7 +114,7 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 	}
 	
 	@Override
-	public List<Instituicao> recuperarInstituicoesRecentesPorIdPaciente(Integer id)  {
+	public List<Instituicao> recuperarInstituicoesRecentesPorIdPaciente(Integer idPaciente)  {
 
 		
 		Session sessao = null;
@@ -133,7 +133,7 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 			
 			criteria.select(raizInstituicao);
 			
-			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id),
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente),
 						   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), raizInstituicao.get(Instituicao_.ID)));
 			
 			instituicoes = sessao.createQuery(criteria).getResultList();
@@ -197,7 +197,7 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 	}
 	
 	
-	public Instituicao recuperarInstituicaoPorId(Integer id) {
+	public Instituicao recuperarInstituicaoPorId(Integer idInstituicao) {
 		
 		Session sessao = null;
 		Instituicao instituicao = null;
@@ -214,7 +214,7 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 			
 			criteria.select(raizInstituicao);
 			
-			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), id));
+			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
 			
 			instituicao = sessao.createQuery(criteria).getSingleResult();
 

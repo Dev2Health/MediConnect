@@ -1007,7 +1007,7 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadeProfissionalDaInstituicao();
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionalDaInstituicao();
 		request.setAttribute("especialidades", especialidades);
 		List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaude();
 		request.setAttribute("profissionais", profissionais);
@@ -1186,7 +1186,7 @@ public class Servlet extends HttpServlet {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
 
-		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentes(id);
+		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 
 		request.setAttribute("atendentes", atendentes);
 
@@ -1256,7 +1256,7 @@ public class Servlet extends HttpServlet {
 		}
 
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadeProfissionalDaInstituicao();
+				.recuperarEspecialidadesProfissionalDaInstituicao();
 
 		request.setAttribute("especialidades", especialidades);
 
