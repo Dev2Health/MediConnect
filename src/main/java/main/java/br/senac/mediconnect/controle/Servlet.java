@@ -662,7 +662,7 @@ public class Servlet extends HttpServlet {
 			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
 			request.setAttribute("instituicoes", instituicoes);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
 			dispatcher.forward(request, response);
 			
 		}
@@ -678,7 +678,7 @@ public class Servlet extends HttpServlet {
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
 			dispatcher.forward(request, response);
 		}
 		
@@ -691,7 +691,7 @@ public class Servlet extends HttpServlet {
 
 			request.setAttribute("atendente", atendente);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("index");
