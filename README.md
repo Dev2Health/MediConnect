@@ -1,4 +1,7 @@
-<h1 align = "center"> 🩺 Projeto MediConnect </h1>
+<div> 
+    <img align="left" src="./src/main/webapp/assets/imagens/logo.svg" style="width: 50px">
+    <h1> Projeto MediConnect </h1>
+</div>
 
 <br>
 
@@ -34,7 +37,7 @@ Incentivo à saúde, ética, inovação e foco nas necessidades do público são
 
 ---
 
-## ⚙ Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 
 O sistema MediConnect foi desenvolvido na linguagem de programação Java, dispondo da utilização do Jakarta Servlet, um componente do Java usado para estender as funcionalidades de um servidor. Para trabalhar com banco de dados, utilizamos o Criteria API do Java, que nos permite trabalhar com queries sem manipular diretamente o SQl (Structured Query Language).
 <br><br>
@@ -54,7 +57,7 @@ Para o front-end, utilizamos das tecnologias básicas de HTML, CSS e Javascript,
 
 ---
 
-## 💻 Desenvolvedores:
+## ☕ Desenvolvedores:
 
 > Antônio Lima - [Linkedin](#)
 >
@@ -64,7 +67,7 @@ Para o front-end, utilizamos das tecnologias básicas de HTML, CSS e Javascript,
 >
 > Richard Domingues Nathan - [Linkedin](https://www.linkedin.com/in/richard-nathan-dev-full-stack/)
 > 
-> Robert Emanoel Young - [Linkedin](#)
+> Robert Emanoel Young - [Linkedin](https://www.linkedin.com/in/robert-young-dev/)
 > 
-> Vitor Gabriel de Souza Delabenetta - [Linkedin](https://www.linkedin.com/in/gabriel-d-444a06181)
+> Vitor Gabriel de Souza Delabenetta - [Linkedin](https://www.linkedin.com/in/gabriel-delabenetta/)
 > 
