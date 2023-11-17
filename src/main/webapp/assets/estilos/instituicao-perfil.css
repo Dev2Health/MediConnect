@@ -24,11 +24,6 @@ body {
 
 /* Definições Gerais */
 
-.institution-icon {
-    /* Isso está sendo usado? */
-    height: 50px;
-}
-
 .ver-tudo button {
     color: var(--fundo-instituicao);
     background-color: var(--azul-escuro);
@@ -78,7 +73,6 @@ body {
 .perfil-informacao .perfil-imagem img {
     width: 50px;
 }
-
 
 /* Cards Especialidades */
 
