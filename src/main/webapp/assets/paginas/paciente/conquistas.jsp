@@ -10,13 +10,7 @@
 </head>
 
 <body>
-    <header class="template-grid" id="content-header">
-        <nav class="nav-bar">
-            <img src="../../images/icone-voltar.svg" alt="icone-voltar">
-            <a href="#" class="text link-dark">Voltar</a>
-        </nav>
-        <img src="../../images/logo-legendado.svg" alt="logo-mediconnect" class="header-logo">
-    </header>
+    <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
 
     <main>
         <section>
