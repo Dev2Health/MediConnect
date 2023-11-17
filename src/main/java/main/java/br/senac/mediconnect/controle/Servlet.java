@@ -726,7 +726,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastrar-paciente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastro.jsp");
 		dispatcher.forward(request, response);
 	}
 
