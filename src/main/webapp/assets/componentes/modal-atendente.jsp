@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Modal de Atendente</title>
-		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
+		<style><%@include file="../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
 <div>

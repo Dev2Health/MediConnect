@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<head>
 		<title>Card de Paciente</title>
-		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
+		<style><%@include file="../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
 <div>

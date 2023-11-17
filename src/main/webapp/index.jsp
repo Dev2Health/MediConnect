@@ -20,14 +20,12 @@
                 <p class="texto">Utilizar nosso sistema traz vários <span class="texto-roxo">benefícios</span>. Além da <span class="texto-roxo">praticidade</span>, auxiliamos você com a <span class="texto-roxo">pontualidade</span> nas suas consultas. <span class="texto-roxo">Venha conferir!</span></p>
             </div>
             <div class="conteudo-direita">
-				<img src="data:image/svg+xml;charset=UTF-8,<%@ include file='/assets/imagens/ilustracao-medica.svg' %>" alt="Medical Illustration">
             	<p class="ilustracao"><%@include file="/assets/imagens/ilustracao-medica.svg"%></p>
-            	<img src="./assets/imagens/ilustracao-medica.svg" alt="ilustracao-medica" class="ilustracao">
             </div>
         </section>
         <section id="sessao-gamificacao" class="template-grid">
             <div class="conteudo-esquerda">
-                <img src="./assets/imagens/ilustracao-gamificacao.svg" alt="ilustracao-gamificacao" class="ilustracao">
+                <p class="ilustracao"><%@include file="/assets/imagens/ilustracao-gamificacao.svg"%></p>
             </div>
             <div class="conteudo-direita caixa-textual">
                 <h1 class="titulo-especial">Gamificação</h1>
@@ -40,7 +38,7 @@
                 <p class="texto">Trabalhamos para que sua consulta não seja esquecida. Com base no seu histórico de comparecimento, montamos um plano de notificações exclusivos para você!</p>
             </div>
             <div class="conteudo-direita">
-                <img src="./assets/imagens/ilustracao-notificacao.svg" alt="ilustracao-notificacao" class="ilustracao">
+                <p class="ilustracao"><%@include file="/assets/imagens/ilustracao-notificacao.svg"%></p>
             </div>
         </section>
     </main>

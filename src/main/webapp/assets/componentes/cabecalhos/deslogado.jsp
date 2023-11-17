@@ -31,8 +31,7 @@
   </c:when>
   <c:otherwise>
     <header class="template-grid" id="cabecalho">
-	<img src="assets/imagens/logo-legendado.svg" alt="logo-mediconnect"
-		id="logo">
+	<p id="logo"><%@include file="/assets/imagens/logo-legendado.svg"%></p>
 	<nav class="barra-navegacao">
 		<a href="./sobre" class="texto texto-escuro">Sobre o MediConnect</a> <a
 			href="./login" class="texto texto-escuro">Entrar</a> <a
