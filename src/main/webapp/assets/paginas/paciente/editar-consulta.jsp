@@ -7,75 +7,72 @@
     <title>Editar Consulta | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../styles/padroes.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/editar-consulta-paciente.css">
+    <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">    
+    <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/paciente-editar-consulta.css"%></style>
 </head>
 <body>
     <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
     <main>
         <div class="template-grid">
-            <h1 class="title">Alterar dados da consulta</h1>
+            <h1 class="titulo texto-roxo">Alterar dados da consulta</h1>
         </div>
-        <form action="atualizar-consulta" method="post" autocomplete="on" id="content-form" class="template-grid">
-            <div class="form-left">
-                <div class="form-input">
-                    <div class="input-icon">
-                        <img src="../../images/icone-horario.svg" alt="icone-horario" id="icon-time">
+        <form action="atualizar-consulta" method="post" class="template-grid" autocomplete="off">
+            <div class="formulario-esquerda">
+
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <img src="./assets/imagens/icone-horario.svg" alt="icone-horario">
                     </div>
-                    <div class="input-itens">
-                        <label for="time" class="text">Horário</label>
-                        <input class="text-emphasis" type="time" id="c.horario" name="horario"
-                        value="<c:out value='${consulta.horario}'/>" required>
+                    <div class="input-item">
+                        <label for="horario" class="texto">Horário</label>
+                        <input class="texto-enfase" type="time" id="i.horario" name="horario" value="<c:out value='${consulta.horario}'/>">
                     </div>
                 </div>
-                <div class="form-input">
-                    <div class="input-icon">
-                        <img src="../../images/icone-profissional.svg" alt="icone-profissional" id="icon-professional">
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
                     </div>
-                    <div class="input-itens">
-                        <label for="professional" class="text">Profissional</label>
-                        <input list="professionals" class="text-emphasis" type="text" id="professional"
-                            name="professional" value="<c:out value='${consulta.profissional}'/>" required>
-                        <datalist id="professionals">
+                    <div class="input-item">
+                        <label for="profissional" class="texto">Profissional</label>
+                        <input class="texto-enfase" list="lista-profissional" type="text" id="i.profissional" name="profissional" value="<c:out value='${consulta.profissional}'/>">
+                        <datalist id="lista-profissional">
                             <c:forEach var="profissional" items="${profissionais}">
-                            <option value="<c:out value='${profissional.nome}'/>"></option>
+                                <option value="<c:out value='${profissional.nome}'/>"></option>
                             </c:forEach>
                         </datalist>
                     </div>
                 </div>
                 <div class="checkbox">
                     <input type="checkbox">
-                    <p class="text-no-emphasis">Li e estou de acordo com o <a href="#" class="text-emphasis link-purple">Termo de Uso e Política de Privacidade</a></p>
+                    <p class="texto-sem-enfase">Li e estou de acordo com o <a href="#" class="texto-enfase texto-roxo">Termo de Uso e Política de Privacidade</a></p>
                 </div>
-                <div class="form-footer">
-                    <button class="btn-round-sm text-emphasis link-light" type="submit">Salvar Alterações</button>
-                    <button class="btn-round-sm text-emphasis link-purple" type="reset">Descartar Alterações</button>
+                <div class="botoes">
+                    <button class="botao-circular-m texto-enfase texto-claro" type="submit">Salvar alterações</button>
+                    <button class="botao-circular-m texto-enfase texto-roxo" type="reset">Descartar alterações</button>
                 </div>
             </div>
-            <div class="form-right">
-                <div class="form-input">
-                    <div class="input-icon">
-                        <img src="../../images/icone-calendario.svg" alt="icone-calendario">
+            <div class="formulario-direita">
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
                     </div>
-                    <div class="input-itens">
-                        <label for="date" class="text">Data</label>
-                        <input class="text-emphasis" type="datetime" value="<fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/>" id="p.data" name="data"
-                            required>
+                    <div class="input-item">
+                        <label for="data" class="texto">Data de Cadastro</label>
+                        <input class="texto-enfase" type="datetime" id="i.data" name="data" value="<fmt:formatDate pattern = 'dd/MM/yyyy' value = '${dataNascimento}'/>">
                     </div>
                 </div>
-                <div class="form-input">
-                    <div class="input-icon">
-                        <img src="../../images/icone-consulta.svg" alt="icone-consulta">
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <img src="./assets/imagens/icone-consulta.svg" alt="icone-status">
                     </div>
-                    <div class="input-itens">
-                        <label for="status" class="text">Status da Consulta</label>
-                        <input list="status-list" class="text-emphasis" type="text" id="status" name="status"
-                            placeholder="(Selecione o Status)" required>
-                        <datalist id="status-list"> <!--A listagem deve ser feita para o JSP-->
+                    <div class="input-item">
+                        <label for="status" class="texto">Status da Consulta</label>
+                        <input class="texto-enfase" list="lista-status" type="text" id="i.status" name="status" placeholder="(Alterar Status)">
+                        <datalist id="lista-status">
                             <c:forEach var="status" items="${statuses}">
                                 <option value="<c:out value='${status}'/>"></option>
-                                </c:forEach>
+                            </c:forEach>
                         </datalist>
                     </div>
                 </div>
