@@ -11,13 +11,8 @@
     <style><%@include file="../../estilos/instituicao-perfil.css"%></style>
 </head>
 <body>
-    <header id="cabecalho" class="template-grid">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
-            <img src="./assets/imagens/logo.svg" alt="logo-mediconnect">
-        </nav>
-    </header>
-    <main>
+    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
+<main>
         <section id="perfil">
             <div class="perfil-apresentacao">
                 <div class="perfil-foto">

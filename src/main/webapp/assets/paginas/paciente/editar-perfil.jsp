@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <!-- <%@include file="../../componentes/cabecalhos/"%> Falta fazer ainda-->
+   <%@include file="../../componentes/cabecalhos/editar-perfil.jsp"%>
 
     <main>
         <form action="atualizar-paciente" method="post">
