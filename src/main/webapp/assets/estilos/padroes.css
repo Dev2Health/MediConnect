@@ -347,7 +347,7 @@ input[type=checkbox]:checked::before {
     width: 20px;
 }
 
-/* Cards - Atendentes & Pacientes Cadastrados */
+/* Cards - Configurações Gerais */
 
 .cards-agrupamento {
     grid-column: 2 / 12;
@@ -355,6 +355,9 @@ input[type=checkbox]:checked::before {
     flex-wrap: wrap;
     gap: 45px;
 }
+
+/* Cards - Atendentes & Pacientes Cadastrados */
+
 
 .card-entidade {
     border: 3px solid;

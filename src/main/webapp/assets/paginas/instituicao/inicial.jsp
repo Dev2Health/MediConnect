@@ -11,20 +11,17 @@
     <style><%@include file="../../estilos/instituicao-inicial.css"%></style>
 </head>
 <body>
-    <header id="cabecalho" class="template-grid">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
-            <img src="./assets/imagens/logo.svg" alt="logo-mediconnect">
-        </nav>
-    </header>
+    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
     <main>
         <section id="inicio" class="template-grid">
             <div class="conteudo-esquerda">
                 <img src="./assets/imagens/ilustracao-instituicao.svg" alt="ilustracao-instituicao" class="ilustracao">
             </div>
             <div class="conteudo-direita">
-                <h1 class="titulo-especial">Boas-vindas!</h1>
-                <h2 class="subtitulo-especial texto-azul">Hospital Santo Antônio </h2>
+                <div class="inicial-textos">
+                    <h1 class="titulo-especial">Boas-vindas!</h1>
+                    <h2 class="subtitulo-especial texto-azul">Hospital Santo Antônio </h2>
+                </div>
                 <div class="botao-inferior">
                     <button class="botao-circular-g texto"><a href="../../paginas/instituicao/atendentes.jsp" class="texto-claro">Ver Atendentes</a></button>
                 </div>
