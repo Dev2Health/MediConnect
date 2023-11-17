@@ -1,31 +1,12 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-color: var(--background-light);
+    background-color: var(--fundo-claro);
 }
 
 main {
     align-items: center;
     margin: 50px 0 25px 0;
-}
-
-/* Menu */
-
-#content-header {
-    align-items: center;
-    height: 140px;
-}
-
-.nav-bar {
-    grid-column: 2 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 80px;
-}
-
-.nav-bar img {
-    width: 50px;
 }
 
 /* Conteúdo Principal */
@@ -37,20 +18,16 @@ h1 {
 
 /* Formulário */
 
-.form-input {
-    border-color: var(--purple);
+.formulario-input {
+    border-color: var(--roxo);
 }
 
-.input-itens input {
-    color: var(--purple);
-}
-
-.input-itens input[type="date"] {
-    text-transform: uppercase;
+.input-item input {
+    color: var(--roxo);
 }
 
 ::placeholder {
-    color: var(--purple-light);
+    color: var(--roxo-claro);
 }
 
 .checkbox {
@@ -61,28 +38,31 @@ h1 {
     margin-top: 85px;
 }
 
+input[type=checkbox] {
+    border-color: var(--roxo);
+}
+
+input[type=checkbox]::before {
+    background-color: var(--roxo);
+}
+
 .checkbox a {
     font-size: 1em;
 }
 
-.form-footer {
+/* Botões Rodapé */
+
+.botoes {
+    grid-column: 2 / 12;
     display: flex;
-    justify-content: flex-start;
-    width: 37vw;
-    gap: 50px;
+    gap: 4.15vw;
 }
 
-.form-footer .btn-round-sm:first-child {
-    background-color: var(--purple);
+.botoes .botao-circular-m:first-child {
+    background-color: var(--roxo);
 }
 
-.form-footer .btn-round-sm:nth-child(2) {
-    background-color: var(--background-light);
-    border: 3px solid var(--purple);
-}
-
-/* Colorações */
-
-#icon-time, #icon-professional {
-    filter: invert(47%) sepia(40%) saturate(965%) hue-rotate(200deg) brightness(80%) contrast(90%);
+.botoes .botao-circular-m:last-child {
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--roxo);
 }
