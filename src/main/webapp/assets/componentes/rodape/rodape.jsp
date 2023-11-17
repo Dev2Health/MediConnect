@@ -15,7 +15,7 @@
             <div class="rodape-social">
                 <p class="texto">Redes Sociais</p>
                 <div class="social-whatsapp">
-                	<p class="ilustracao"><%@include file="/assets/imagens/whatsapp-icon-seeklogo.com(1).svg"%></p>
+                	<p class="ilustracao"><%@include file="/assets/imagens/logo-whatsapp.svg"%></p>
                     <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
                 </div>
                 <div class="social-github">
