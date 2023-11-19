@@ -674,7 +674,7 @@ public class Servlet extends HttpServlet {
 			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
 			request.setAttribute("instituicoes", instituicoes);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/inicial.jsp");
 			dispatcher.forward(request, response);
 			
 		}
@@ -690,7 +690,7 @@ public class Servlet extends HttpServlet {
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/inicial.jsp");
 			dispatcher.forward(request, response);
 		}
 		
@@ -703,7 +703,7 @@ public class Servlet extends HttpServlet {
 
 			request.setAttribute("atendente", atendente);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/inicial.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("index");
@@ -1201,7 +1201,7 @@ public class Servlet extends HttpServlet {
 		// atualizar endereco antes de inserir na instituicao sendo editada??
 
 		instituicaoDAO.atualizarInstituicao(new Instituicao(endereco, razaoSocial, nomeFantasia, email, senha));
-		response.sendRedirect("perfil-instituicao");
+		response.sendRedirect("perfil");
 		// nomenclatura do jsp dos perfils ta certo?
 
 	}
@@ -1382,8 +1382,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarEditarProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("assets/paginas/instituicao/cadastrar-editar-profissional.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastrar-editar-profissional.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -1454,18 +1453,23 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarModalConsulta(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		Consulta consulta = consultaDAO.recuperarConsultaPorId(id);
 		request.setAttribute("consulta", consulta);
+		
 		Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
 		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
 		request.setAttribute("especialidade", especialidade);
+		
 		Integer idProfissional = consulta.getProfissionalDeSaude().getId();
 		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
 		request.setAttribute("profissional", profissional);
+		
 		Integer idInstituicao = consulta.getInstituicao().getId();
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
 		request.setAttribute("instituicao", instituicao);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/modal-consulta.jsp");
 		dispatcher.forward(request, response);
 
