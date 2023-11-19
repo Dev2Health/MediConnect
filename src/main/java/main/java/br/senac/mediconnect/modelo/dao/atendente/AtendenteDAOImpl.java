@@ -254,7 +254,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			criteria.select(raizAtendente);
 
-			criteria.where(construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), id));
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id));
 
 			Atendentes = sessao.createQuery(criteria).getSingleResult();
 
