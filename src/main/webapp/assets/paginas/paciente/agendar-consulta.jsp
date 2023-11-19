@@ -11,12 +11,7 @@
     <style><%@include file="../../estilos/paciente-agendar-consulta.css"%></style>
 </head>
 <body>
-    <header id="cabecalho" class="template-grid">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
-            <img src="./assets/imagens/logo.svg" alt="logo-mediconnect">
-        </nav>
-    </header>
+    <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
     <main>
         <div class="template-grid">
             <h1 class="titulo texto-roxo">Agendar Consulta</h1>

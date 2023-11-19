@@ -231,8 +231,8 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 		}
 		return enderecos;
 	}
-	
-	public Endereco recuperarEnderecoPorId(Integer id) {
+
+	public Endereco recuperarEnderecoPorId(Integer idEndereco) {
 
 		Session sessao = null;
 		Endereco endereco = null;
@@ -249,7 +249,7 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 
 			criteria.select(raizEndereco);
 
-			criteria.where(construtor.equal(raizEndereco.get(Endereco_.ID), id));
+			criteria.where(construtor.equal(raizEndereco.get(Endereco_.ID), idEndereco));
 
 			endereco = sessao.createQuery(criteria).getSingleResult();
 

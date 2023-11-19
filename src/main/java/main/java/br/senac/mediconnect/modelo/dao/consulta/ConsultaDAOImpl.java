@@ -161,7 +161,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorPaciente(Paciente paciente, Instituicao instituicao) {
+	public List<Consulta> filtrarConsultasViaInstituicaoPorPaciente(Paciente paciente, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -209,7 +209,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorPaciente(Integer idPaciente, Integer idInstituicao) {
+	public List<Consulta> filtrarConsultasViaInstituicaoPorPaciente(Integer idPaciente, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -250,7 +250,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude,
+	public List<Consulta> filtrarConsultasViaInstituicaoPorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude,
 			Instituicao instituicao) {
 
 		Session sessao = null;
@@ -296,7 +296,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorProfissionalDeSaude(Integer idProfissionalDeSaude,
+	public List<Consulta> filtrarConsultasViaInstituicaoPorProfissionalDeSaude(Integer idProfissionalDeSaude,
 			Integer idInstituicao) {
 
 		Session sessao = null;
@@ -340,7 +340,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorEspecialidadeProfissional(
+	public List<Consulta> filtrarConsultasViaInstituicaoPorEspecialidadeProfissional(
 			EspecialidadeProfissional especialidade, Instituicao instituicao) {
 
 		Session sessao = null;
@@ -387,7 +387,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorEspecialidadeProfissional(Integer idEspecialidade,
+	public List<Consulta> filtrarConsultasViaInstituicaoPorEspecialidadeProfissional(Integer idEspecialidade,
 			Integer idInstituicao) {
 
 		Session sessao = null;
@@ -432,7 +432,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorStatus(StatusConsulta status, Instituicao instituicao) {
+	public List<Consulta> filtrarConsultasViaInstituicaoPorStatus(StatusConsulta status, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -478,7 +478,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorStatus(StatusConsulta status, Integer idInstituicao) {
+	public List<Consulta> filtrarConsultasViaInstituicaoPorStatus(StatusConsulta status, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -525,7 +525,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 	}
 
 	@Override
-	public List<Consulta> filtrarConsultaViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Consulta> filtrarConsultasViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
 			Instituicao instituicao) {
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -570,7 +570,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Consulta> filtrarConsultasViaInstituicaoPorData(LocalDate dataInicial, LocalDate dataFinal,
 			Integer idInstituicao) {
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -709,7 +709,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 	 * }
 	 */
 
-	public List<Consulta> filtrarConsultasViaAtendentePorIdDoPaciente(Integer id, Integer idInstituicao) {
+	public List<Consulta> filtrarConsultasViaAtendentePorInstituicao(Integer id, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -750,7 +750,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude,
+	public List<Consulta> filtrarConsultasViaPacientePorProfissionalDeSaude(ProfissionalDeSaude profissionalDeSaude,
 			Paciente paciente) {
 
 		Session sessao = null;
@@ -797,7 +797,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorProfissionalDeSaude(Integer idProfissionalDeSaude,
+	public List<Consulta> filtrarConsultasViaPacientePorProfissionalDeSaude(Integer idProfissionalDeSaude,
 			Integer idPaciente) {
 
 		Session sessao = null;
@@ -840,7 +840,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(
+	public List<Consulta> filtrarConsultasViaPacientePorEspecialidade(
 			EspecialidadeProfissional especialidadeProfissional, Paciente paciente) {
 
 		Session sessao = null;
@@ -886,7 +886,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorEspecialidade(Integer idEspecialidadeProfissional,
+	public List<Consulta> filtrarConsultasViaPacientePorEspecialidade(Integer idEspecialidadeProfissional,
 			Integer idPaciente) {
 
 		Session sessao = null;
@@ -931,7 +931,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorInstituicao(Integer id, Integer idInstituicao) {
+	public List<Consulta> filtrarConsultasViaPacientePorInstituicao(Integer id, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -1013,7 +1013,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
+	public List<Consulta> filtrarConsultasViaPacientePorData(LocalDate dataInicial, LocalDate dataFinal,
 			Integer idPaciente) {
 
 		Session sessao = null;
@@ -1094,7 +1094,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consultas;
 	}
 
-	public List<Consulta> filtrarConsultaViaPacientePorStatus(StatusConsulta status, Integer idPaciente) {
+	public List<Consulta> filtrarConsultasViaPacientePorStatus(StatusConsulta status, Integer idPaciente) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -1170,7 +1170,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 	}
 
 	@Override
-	public List<Consulta> recuperarConsultasAgendadasViaPacientePorId(Integer id) {
+	public List<Consulta> recuperarConsultasAgendadasViaPacientePorId(Integer idPaciente) {
 
 		Session sessao = null;
 		List<Consulta> consultas = null;
@@ -1185,7 +1185,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			criteria.select(raizConsulta);
 
-			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id),
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente),
 					construtor.equal(raizConsulta.get(Consulta_.STATUS), StatusConsulta.AGENDADA));
 
 			consultas = sessao.createQuery(criteria).getResultList();
@@ -1250,7 +1250,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 		return consulta;
 	}
 	
-	public Consulta recuperarConsultaPorId(Integer id) {
+	public Consulta recuperarConsultaPorId(Integer idConsulta) {
 
 		Session sessao = null;
 		Consulta consulta = null;
@@ -1265,7 +1265,7 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 
 			criteria.select(raizConsulta);
 
-			criteria.where(construtor.equal(raizConsulta.get(Consulta_.ID), id));
+			criteria.where(construtor.equal(raizConsulta.get(Consulta_.ID), idConsulta));
 
 			consulta = sessao.createQuery(criteria).getSingleResult();
 

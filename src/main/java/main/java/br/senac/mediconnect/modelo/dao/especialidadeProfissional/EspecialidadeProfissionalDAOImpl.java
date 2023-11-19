@@ -112,7 +112,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 	}
 
 	@Override
-	public List<EspecialidadeProfissional> recuperarEspecialidadesProfissionais() {
+	public List<EspecialidadeProfissional> recuperarEspecialidadesProfissionalDaInstituicao() {
 		
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;
@@ -150,7 +150,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 		return especialidadesProfissionais;
 	}
 	
-	public 	EspecialidadeProfissional recuperarEspecialidadeDaInstituicaoPorId(Integer id) {
+	public 	EspecialidadeProfissional recuperarEspecialidadeDaInstituicaoPorId(Integer idEspecialidade) {
 		
 		Session sessao = null;
 		EspecialidadeProfissional especialidadeProfissionai = null;
@@ -167,7 +167,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 			
 			criteria.select(raizEspecialidadeProfissional);
 			
-			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(EspecialidadeProfissional_.ID), id));
+			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(EspecialidadeProfissional_.ID), idEspecialidade));
 			
 			especialidadeProfissionai = sessao.createQuery(criteria).getSingleResult();
 
@@ -190,7 +190,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 		return especialidadeProfissionai;
 	}
 	
-	public 	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisDaInstituicaoPorId(Integer id) {
+	public 	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisDaInstituicaoPorId(Integer idEspecialidade) {
 		
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;
@@ -204,11 +204,10 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 
 			CriteriaQuery<EspecialidadeProfissional> criteria = construtor.createQuery(EspecialidadeProfissional.class);
 			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 			
 			criteria.select(raizEspecialidadeProfissional);
 			
-			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), id));
+			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(EspecialidadeProfissional_.ID), idEspecialidade));
 			
 			especialidadesProfissionais = sessao.createQuery(criteria).getResultList();	
 

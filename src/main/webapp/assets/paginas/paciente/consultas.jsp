@@ -13,23 +13,7 @@
 
 </head>
 <body>
-    <header id="cabecalho" class="template-grid">
-        <nav class="navegacao-barra">
-            <img src="../../imagens/icone-menu.svg" alt="icone-menu">
-            <img src="../../imagens/logo.svg" alt="icone-mediconnect">
-        </nav>
-        <nav class="navegacao-filtro">
-            <div class="filtro">
-                <div class="input-item">
-                    <input class="texto-enfase" type="text" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
-                </div>
-                <div class="filtro-icone">
-                    <img src="../../imagens/icone-lupa.svg" alt="icone-pesquisar">
-                </div>
-            </div>
-            <button class="botao-quadrado-g texto">Filtrar <img src="../../imagens/icone-filtro.svg"></button>
-        </nav>
-    </header>
+    <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
     <main>
         <section id="consultas">
             <div class="template-grid">
@@ -73,41 +57,6 @@
         	</div>
         	</section>
     </main>
-    <footer>
-        <div class="template-grid" id="rodape-links">
-            <div class="rodape-mediconnect">
-                <p class="texto">MediConnect</p>
-                <a href="../sobre-nos.jsp" class="texto-sem-enfase texto-claro">Sobre nós</a>
-                <a href="../../inicial.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
-            </div>
-            <div class="rodape-contato">
-                <p class="texto">Atendimento</p>
-                <a href="#" class="texto-sem-enfase texto-claro">Contato</a>
-                <a href="#" class="texto-sem-enfase texto-claro">Termos de Uso</a>
-            </div>
-            <div class="rodape-social">
-                <p class="texto">Redes Sociais</p>
-                <div class="social-whatsapp">
-                    <img src="../../imagens/logo-whatsapp.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
-                </div>
-                <div class="social-github">
-                    <img src="../../imagens/logo-github.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
-                </div>
-                <div class="social-instagram">
-                    <img src="../../imagens/logo-instagram.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
-                </div>
-            </div>
-        </div>
-        <div class="template-grid" id="rodape-comercial">
-            <hr><br>
-            <div class="comercial-conteudo">
-                <img src="../../imagens/logo-rodape.svg" alt="logo-mediconnect">
-                <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
-            </div>
-        </div>
-    </footer>
+<%@include file="../../componentes/rodape/rodape.jsp"%>
 </body>
 </html>

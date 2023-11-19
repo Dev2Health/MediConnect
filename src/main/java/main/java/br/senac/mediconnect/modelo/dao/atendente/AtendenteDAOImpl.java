@@ -195,7 +195,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		return atendentes;
 	}
 	
-	public List<Atendente> recuperarListaDeAtendentes(Integer idInstituicao) {
+	public List<Atendente> recuperarListaDeAtendentesViaInstituicao(Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> atendentes = null;
@@ -282,7 +282,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -329,7 +329,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Integer idInstituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorNomeCompleto(String nomeCompleto, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -377,7 +377,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCpf(String cpf, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -423,7 +423,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Integer idInstituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCpf(String cpf, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -470,7 +470,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCtps(String ctps, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -515,7 +515,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		return Atendentes;
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Integer idInstituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCtps(String ctps, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -561,7 +561,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
 			Instituicao instituicao) {
 
 		Session sessao = null;
@@ -607,7 +607,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		return Atendentes;
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
 			Integer idInstituicao) {
 
 		Session sessao = null;
@@ -654,7 +654,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(Integer cadastro, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCadastro(Integer cadastro, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -696,7 +696,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		return Atendentes;
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(Integer cadastro, Integer idInstituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCadastro(Integer cadastro, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;

@@ -6,4 +6,4 @@
             <a href="javascript:history.back()" class="texto texto-escuro">Voltar</a>
         </nav>
         <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
-    </header>
+</header>

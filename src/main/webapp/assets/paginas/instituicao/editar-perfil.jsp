@@ -11,13 +11,7 @@
     <style><%@include file="../../estilos/instituicao-editar-perfil.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
-            <a href="../../../index.jsp" class="texto texto-escuro">Voltar</a>
-        </nav>
-        <img class="perfil-foto" src="./assets/imagens/perfil-instituicao.png" alt="logo-mediconnect">
-    </header>
+    <%@include file="../../componentes/cabecalhos/editar-perfil.jsp"%>
     <main>
         <form action="atualizar-instituicao" method="post">
             <section id="informacoes">

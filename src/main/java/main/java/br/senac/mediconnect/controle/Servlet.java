@@ -654,7 +654,8 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
-			
+			String tipoUsuario = "1";
+			request.setAttribute("tipoUsuario", tipoUsuario);
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
 			
@@ -679,6 +680,8 @@ public class Servlet extends HttpServlet {
 		}
 		
 		else if (sessao.getAttribute("usuario") instanceof Instituicao) {
+			String tipoUsuario = "2";
+			request.setAttribute("tipoUsuario", tipoUsuario);
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);	
@@ -692,6 +695,8 @@ public class Servlet extends HttpServlet {
 		}
 		
 		else if (sessao.getAttribute("usuario") instanceof Atendente) {
+			String tipoUsuario = "3";
+			request.setAttribute("tipoUsuario", tipoUsuario);
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
@@ -701,7 +706,6 @@ public class Servlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
 			dispatcher.forward(request, response);
 		} else {
-			
 			response.sendRedirect("index");
 		}
 		
@@ -1207,7 +1211,7 @@ public class Servlet extends HttpServlet {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
 
-		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentes(id);
+		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 
 		request.setAttribute("atendentes", atendentes);
 
@@ -1275,6 +1279,10 @@ public class Servlet extends HttpServlet {
 			System.out.println(especialidade.getId());
 			System.out.println(especialidade.getNome());
 		}
+
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionalDaInstituicao();
+		
+		request.setAttribute("especialidades", especialidades);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);

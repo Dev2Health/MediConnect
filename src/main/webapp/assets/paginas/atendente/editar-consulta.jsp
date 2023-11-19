@@ -11,13 +11,7 @@
     <style><%@include file="../../estilos/atendente-editar-consulta.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
-            <a href="./index" class="texto texto-escuro">Voltar</a>
-        </nav>
-        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
-    </header>
+    <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
     <main>
         <div class="template-grid">
             <div id="retorno-pesquisa">

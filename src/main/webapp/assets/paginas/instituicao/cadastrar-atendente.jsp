@@ -11,12 +11,7 @@
     <style><%@include file="../../estilos/instituicao-cadastrar-atendente.css"%></style>
 </head>
 <body>
-    <header id="cabecalho" class="template-grid">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
-            <img src="./assets/imagens/logo.svg" alt="logo-mediconnect">
-        </nav>
-    </header>
+    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
     <main>
         <form class="template-grid" action="inserir-atendente" method="post">
             <div class="formulario-esquerda">

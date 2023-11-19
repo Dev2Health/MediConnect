@@ -12,7 +12,7 @@
 
 </head>
 <body>
-     <%@include file="/assets/componentes/cabecalhos/deslogado.jsp"%>
+     <%@include file="../../componentes/cabecalhos/cadastro.jsp"%>
     <main>
         <div class="template-grid">
             <h1 class="titulo">Informe seus dados</h1>
