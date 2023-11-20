@@ -11,7 +11,7 @@
     <style><%@include file="../../estilos/instituicao-cadastrar-atendente.css"%></style>
 </head>
 <body>
-    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
+   <%-- <%@include file="../../componentes/cabecalhos/logado.jsp"%> --%> 
     <main>
         <form class="template-grid" action="inserir-atendente" method="post">
             <div class="formulario-esquerda">

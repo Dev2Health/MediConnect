@@ -22,9 +22,9 @@
                         <button class="botao-quadrado-p texto-enfase" autofocus>Pendentes</button>
                         <button class="botao-quadrado-p texto-enfase">Todas</button>
                     </div>
-                    <form action="agendar-consulta" method="post">
-                    <button type="submit" id="agendar" class="botao-quadrado-p texto-enfase">Agendar <img src="../../imagens/icone-adicionar.svg"></button>
-                   	</form>
+             
+                    <button id="agendar" class="botao-quadrado-p texto-enfase"><a href="./agendar-consulta"> Agendar <img src="../../imagens/icone-adicionar.svg"></a></button>
+            
                 </div>
             </div>
             <div id="consulta">

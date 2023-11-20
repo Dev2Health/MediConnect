@@ -151,7 +151,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 		return pacientes;
 	}
 	
-	public List<Paciente> recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(Integer id) {
+	public List<Paciente> recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(Atendente atendente) {
 		
 		Session sessao = null;
 		List<Paciente> pacientes = null;
@@ -170,8 +170,8 @@ public class PacienteDAOImpl implements PacienteDAO {
 
 			criteria.select(raizPaciente);
 			
-			criteria.where(construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), id),
-						   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), id));
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), atendente.getId()), 
+						   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), atendente.getInstituicao().getId()));
 
 			pacientes = sessao.createQuery(criteria).getResultList();
 
