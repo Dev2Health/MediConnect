@@ -298,6 +298,10 @@ public class Servlet extends HttpServlet {
 			case "/notificacoes-instituicao":
 				mostrarTelaNotificacoesDaInstituicao(request, response);
 				break;
+				
+			case "/notificacoes-atendente":
+				mostrarTelaNotificacoesDoAtendente(request, response);
+				break;
 
 			case "/cadastro-paciente":
 				mostrarTelaCadastroDoPaciente(request, response);
@@ -1371,6 +1375,14 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/notificacoes.jsp");
+		dispatcher.forward(request, response);
+
+	}
+	
+	private void mostrarTelaNotificacoesDoAtendente(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/notificacoes.jsp");
 		dispatcher.forward(request, response);
 
 	}
