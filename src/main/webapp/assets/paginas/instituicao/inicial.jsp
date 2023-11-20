@@ -11,7 +11,7 @@
     <style><%@include file="../../estilos/instituicao-inicial.css"%></style>
 </head>
 <body>
-    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
+     <%--<%@include file="../../componentes/cabecalhos/logado.jsp"%>--%>
     <main>
         <section id="inicio" class="template-grid">
             <div class="conteudo-esquerda">
@@ -23,7 +23,7 @@
                     <h2 class="subtitulo-especial texto-azul">Hospital Santo Antônio </h2>
                 </div>
                 <div class="botao-inferior">
-                    <button class="botao-circular-g texto"><a href="../../paginas/instituicao/atendentes.jsp" class="texto-claro">Ver Atendentes</a></button>
+                    <button class="botao-circular-g texto"><a href="./atendentes-instituicao" class="texto-claro">Ver Atendentes</a></button>
                 </div>
             </div>
         </section>

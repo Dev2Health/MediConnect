@@ -17,7 +17,7 @@
         <div class="template-grid">
             <h1 class="titulo">Informe seus dados</h1>
         </div>
-        <form action="" autocomplete="on" id="conteudo-formulario" class="template-grid">
+        <form action="inserir-paciente"  method="post" autocomplete="on" id="conteudo-formulario" class="template-grid">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">

@@ -130,7 +130,15 @@ public class Servlet extends HttpServlet {
 			case "/home":
 				mostrarTelaInicial(request, response);
 				break;
-
+				
+			case "/inicial-instituicao":
+				mostrarTelaInicialInstituicao(request, response);
+				break;
+				
+			case "/inicial-paciente":
+				mostrarTelaInicialPaciente(request, response);
+				break;
+				
 			case "/confirmar-login":
 				confirmarLogin(request, response);
 				break;
@@ -674,7 +682,7 @@ public class Servlet extends HttpServlet {
 			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
 			request.setAttribute("instituicoes", instituicoes);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/inicial.jsp");
 			dispatcher.forward(request, response);
 			
 		}
@@ -682,15 +690,17 @@ public class Servlet extends HttpServlet {
 		else if (sessao.getAttribute("usuario") instanceof Instituicao) {
 			String tipoUsuario = "2";
 			request.setAttribute("tipoUsuario", tipoUsuario);
-			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Usuario usuario = (Instituicao) sessao.getAttribute("usuario");
+			
 			Integer id = usuario.getId();
+			
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);	
 			
 			request.setAttribute("instituicao", instituicao);
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/inicial.jsp");
 			dispatcher.forward(request, response);
 		}
 		
@@ -703,13 +713,27 @@ public class Servlet extends HttpServlet {
 
 			request.setAttribute("atendente", atendente);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/inicial.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("index");
 		}
 		
 					
+	}
+	
+	private void mostrarTelaInicialInstituicao (HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/inicial.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarTelaInicialPaciente (HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/inicial.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	private void mostrarTelaCadastro(HttpServletRequest request, HttpServletResponse response)
@@ -778,8 +802,8 @@ public class Servlet extends HttpServlet {
 
 		enderecoDAO.inserirEndereco(endereco);
 		boolean concluido = false;
-		int id = 1;
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
+		int id = 2;
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(2);
 		while (!concluido) {
 			instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 			if (instituicao == null)
@@ -789,7 +813,7 @@ public class Servlet extends HttpServlet {
 		}
 		instituicao.setEndereco(endereco);
 		instituicaoDAO.atualizarInstituicao(instituicao);
-		response.sendRedirect("perfil-instituicao");
+		response.sendRedirect("inicial-instituicao");
 	}
 
 	// TELA CADASTRO PACIENTE
@@ -798,7 +822,6 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		Paciente paciente = null;
-		Part parteFoto = null;
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
@@ -808,13 +831,12 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
-		parteFoto = request.getPart("foto-perfil");
-		fotoPerfil = ConversorImagem.obterBytesImagem(parteFoto);
 
-		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, fotoPerfil);
+
+		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone);
 
 		pacienteDAO.inserirPaciente(paciente);
-		response.sendRedirect("home");
+		response.sendRedirect("inicial-paciente");
 		
 	}
 
@@ -972,8 +994,11 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession sessao = request.getSession();
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		Integer id = usuario.getId();
+		
+		//Usuario usuario = (Paciente) sessao.getAttribute("usuario");
+		
+		Integer id = 1;
+		
 		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
 
 		request.setAttribute("consultas", consultas);
@@ -1020,7 +1045,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Integer id = Integer.parseInt("id");
+		Integer id = 1;
 		
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionaisDaInstituicaoPorId(id);
 		request.setAttribute("especialidades", especialidades);
@@ -1209,7 +1234,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAtendentesInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		Integer id = 3;
 
 		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 
@@ -1235,8 +1260,8 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		boolean concluido = false;
-		int id = 1;
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
+		int id = 4;
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(4);
 		while (!concluido) {
 			instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 			if (instituicao == null)
@@ -1514,7 +1539,9 @@ public class Servlet extends HttpServlet {
 			Usuario usuario = usuarioDAO.recuperarUsuarioPorEmail(emailUsuario);
 			sessao.setAttribute("usuario", usuario);
 			response.sendRedirect("home");
+			
 		} else {
+			
 			usuarioInvalido = "invalido";
 
 			request.setAttribute("usuarioInvalido", usuarioInvalido);
