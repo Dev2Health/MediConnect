@@ -65,7 +65,7 @@ Para o front-end, utilizamos das tecnologias básicas de HTML, CSS e Javascript,
 >
 > Maicon Siebert - [Linkedin](https://www.linkedin.com/in/maicon-siebert-b16343281)
 >
-> Richard Domingues Nathan - [Linkedin](https://www.linkedin.com/in/richard-nathan-dev-full-stack/)
+> Richard Nathan Domingos - [Linkedin](https://www.linkedin.com/in/richard-nathan-dev-full-stack/)
 > 
 > Robert Emanoel Young - [Linkedin](https://www.linkedin.com/in/robert-young-dev/)
 > 
