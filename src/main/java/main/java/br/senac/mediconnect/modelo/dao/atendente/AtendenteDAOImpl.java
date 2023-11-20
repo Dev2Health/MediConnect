@@ -254,7 +254,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			criteria.select(raizAtendente);
 
-			criteria.where(construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), id));
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id));
 
 			Atendentes = sessao.createQuery(criteria).getSingleResult();
 
@@ -296,13 +296,13 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> nomeCompletoExpression = construtor.concat(raizAtendente.get(Atendente_.NOME),
 					" " + raizAtendente.get(Atendente_.SOBRENOME));
 			criteria.where(construtor.like(nomeCompletoExpression, "%" + nomeCompleto + "%"),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -343,13 +343,13 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> nomeCompletoExpression = construtor.concat(raizAtendente.get(Atendente_.NOME),
 					" " + raizAtendente.get(Atendente_.SOBRENOME));
 			criteria.where(construtor.like(nomeCompletoExpression, "%" + nomeCompleto + "%"),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), idInstituicao));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -391,12 +391,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> cpfExpression = raizAtendente.get(Atendente_.CPF);
 			criteria.where(construtor.equal(cpfExpression, cpf),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -437,12 +437,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> cpfExpression = raizAtendente.get(Atendente_.CPF);
 			criteria.where(construtor.equal(cpfExpression, cpf),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), idInstituicao));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -484,12 +484,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> ctpsExpression = raizAtendente.get(Atendente_.CTPS);
 			criteria.where(construtor.equal(ctpsExpression, ctps),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -529,12 +529,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> ctpsExpression = raizAtendente.get(Atendente_.CTPS);
 			criteria.where(construtor.equal(ctpsExpression, ctps),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), idInstituicao));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -576,12 +576,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> dataCadastroExpression = raizAtendente.get(Atendente_.DATA_CADASTRO);
 			criteria.where(construtor.equal(dataCadastroExpression, dataCadastro),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -622,12 +622,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> dataCadastroExpression = raizAtendente.get(Atendente_.DATA_CADASTRO);
 			criteria.where(construtor.equal(dataCadastroExpression, dataCadastro),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), idInstituicao));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
