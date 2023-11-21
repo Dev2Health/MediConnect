@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Modal de Especialidade</title>
-		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
+		<style><%@include file="../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
 <div>
