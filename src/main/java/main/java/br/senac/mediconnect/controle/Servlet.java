@@ -664,7 +664,9 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
+			
 			String tipoUsuario = "1";
+			
 			request.setAttribute("tipoUsuario", tipoUsuario);
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
@@ -690,9 +692,9 @@ public class Servlet extends HttpServlet {
 		}
 		
 		else if (sessao.getAttribute("usuario") instanceof Instituicao) {
-			String tipoUsuario = "2";
-			request.setAttribute("tipoUsuario", tipoUsuario);
+	
 			Usuario usuario = (Instituicao) sessao.getAttribute("usuario");
+			
 			
 			Integer id = usuario.getId();
 			
@@ -1135,8 +1137,7 @@ public class Servlet extends HttpServlet {
 
 		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
 
-		consulta = new Consulta(especialidade, instituicao, profissional, dataConsulta, horarioConsulta, paciente,
-				status, descricao);
+		consulta = new Consulta(especialidade, instituicao, profissional, dataConsulta, horarioConsulta, paciente, status, descricao);
 
 		consultaDAO.inserirConsulta(consulta);
 		response.sendRedirect("consultas");
