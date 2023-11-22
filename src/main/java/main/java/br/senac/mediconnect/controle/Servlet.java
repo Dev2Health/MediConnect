@@ -988,7 +988,7 @@ public class Servlet extends HttpServlet {
 
 		request.setAttribute("conquistas", conquistas);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/tela-conquistas.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/conquistas.jsp");
 
 		dispatcher.forward(request, response);
 

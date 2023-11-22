@@ -5,7 +5,7 @@
             <div class="rodape-mediconnect">
                 <p class="texto">MediConnect</p>
                 <a href="./sobre" class="texto-sem-enfase texto-claro">Sobre nós</a>
-                <a href="./index" class="texto-sem-enfase texto-claro">Página inicial</a>
+                <a href="./home" class="texto-sem-enfase texto-claro">Página inicial</a>
             </div>
             <div class="rodape-contato">
                 <p class="texto">Atendimento</p>
