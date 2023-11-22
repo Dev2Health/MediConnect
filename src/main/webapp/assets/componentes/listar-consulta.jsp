@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>Cadastro de Consulta</title>
-		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
+		<style><%@include file="../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
 <div>

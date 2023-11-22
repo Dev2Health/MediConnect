@@ -10,6 +10,8 @@ import org.hibernate.Session;
 
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional_;
+import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao;
+import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.br.senac.mediconnect.modelo.factory.BuildFactory;
 
 public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfissionalDAO{

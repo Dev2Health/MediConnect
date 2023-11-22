@@ -17,7 +17,8 @@
         <div class="template-grid">
             <h1 class="titulo">Informe seus dados</h1>
         </div>
-        <form action="" id="conteudo-formulario" class="template-grid">
+      
+        <form action="inserir-paciente"  method="post" autocomplete="on" id="conteudo-formulario" class="template-grid">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
@@ -90,7 +91,7 @@
                     </div>
                     <div class="input-item">
                         <label for="telefone" class="texto">Telefone</label>
-                        <input class="texto-enfase" type="tel" id="i.telefone" name="telefone" oninput="mascaraTelefone()" placeholder="(00) 9 9999-9999" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
+                        <input class="texto-enfase" type="text" id="i.telefone" name="telefone" oninput="mascaraTelefone()" placeholder="(00) 9 9999-9999" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
                     </div>
                     <div class="input-elemento">
                         <img src="./assets/imagens/icone-nao-verificado.svg">
@@ -107,6 +108,10 @@
                     <div class="input-elemento">
                         <img src="./assets/imagens/icone-olho-fechado.svg" id="btn-password" onclick="showPassword()">
                     </div>
+                    <div class="input-item">
+	                    <label>Foto Perfil</label> 
+						<input type="file" id="foto-perfil" name="foto-perfil">
+					</div>
                 </div>
                 <div class="formulario-rodape">
                     <button type="submit" class="botao-circular-p texto-enfase texto-claro">Confirmar</button>

@@ -2,6 +2,7 @@ package main.java.br.senac.mediconnect.modelo.dao.paciente;
 
 import java.util.List;
 
+import main.java.br.senac.mediconnect.modelo.entidade.atendente.Atendente;
 import main.java.br.senac.mediconnect.modelo.entidade.paciente.Paciente;
 
 public interface PacienteDAO {
@@ -9,6 +10,7 @@ public interface PacienteDAO {
 	void deletarPaciente(Paciente paciente);
 	void atualizarPaciente(Paciente paciente);
 	List<Paciente> recuperarPacientes();
-	List<Paciente> recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(Integer id);
+	List<Paciente> recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(Atendente atendente);
 	Paciente recuperarPacientePorId(Integer idPaciente);
+
 }

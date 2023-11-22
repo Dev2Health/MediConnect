@@ -130,7 +130,15 @@ public class Servlet extends HttpServlet {
 			case "/home":
 				mostrarTelaInicial(request, response);
 				break;
-
+				
+			case "/inicial-instituicao":
+				mostrarTelaInicialInstituicao(request, response);
+				break;
+				
+			case "/inicial-paciente":
+				mostrarTelaInicialPaciente(request, response);
+				break;
+				
 			case "/confirmar-login":
 				confirmarLogin(request, response);
 				break;
@@ -211,12 +219,12 @@ public class Servlet extends HttpServlet {
 				mostrarTelaAgendarConsultas(request, response);
 				break;
 			
-			case "/atualizar-consulta":
+			case "/editar-consulta":
 				mostrarTelaEditarConsultas(request, response);
 				break;
 				
-			case "/editar-consulta":
-				editarConsulta(request, response);
+			case "/atualizar-consulta":
+				atualizarConsulta(request, response);
 				break;
 
 			case "/inserir-consulta":
@@ -226,17 +234,21 @@ public class Servlet extends HttpServlet {
 			case "/pacientes-atendente":
 				mostrarTelaVerPacientesCadastrados(request, response);
 				break;
+				
+			case "/editar-atendente":
+				mostrarTelaEditarAtendente(request, response);
+				break;
 
 			// TELA EDITAR PERFIL ATENDENTE
 
 			case "/atualizar-atendente":
-				editarAtendente(request, response);
+				atualizarAtendente(request, response);
 				break;
 
 			// TELA EDITAR PERFIL INSTITUICAO
 
 			case "/atualizar-instituicao":
-				editarInstituicao(request, response);
+				atualizarInstituicao(request, response);
 				break;
 
 			// TELA CADASTRAR ATENDENTE
@@ -259,6 +271,14 @@ public class Servlet extends HttpServlet {
 
 			case "/cadastrar-especialidade":
 				mostrarTelaCadastrarEspecialidade(request, response);
+				break;
+				
+			case "/editar-especialidade":
+				mostrarTelaEditarEspecialidade(request, response);
+				break;
+				
+			case "/atualizar-especialidade":
+				atualizarEspecialidade(request, response);
 				break;
 
 			case "/inserir-especialidade":
@@ -297,6 +317,10 @@ public class Servlet extends HttpServlet {
 
 			case "/notificacoes-instituicao":
 				mostrarTelaNotificacoesDaInstituicao(request, response);
+				break;
+				
+			case "/notificacoes-atendente":
+				mostrarTelaNotificacoesDoAtendente(request, response);
 				break;
 
 			case "/cadastro-paciente":
@@ -662,7 +686,7 @@ public class Servlet extends HttpServlet {
 			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
 			request.setAttribute("instituicoes", instituicoes);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/inicial.jsp");
 			dispatcher.forward(request, response);
 			
 		}
@@ -670,15 +694,17 @@ public class Servlet extends HttpServlet {
 		else if (sessao.getAttribute("usuario") instanceof Instituicao) {
 			String tipoUsuario = "2";
 			request.setAttribute("tipoUsuario", tipoUsuario);
-			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Usuario usuario = (Instituicao) sessao.getAttribute("usuario");
+			
 			Integer id = usuario.getId();
+			
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);	
 			
 			request.setAttribute("instituicao", instituicao);
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/inicial.jsp");
 			dispatcher.forward(request, response);
 		}
 		
@@ -691,13 +717,27 @@ public class Servlet extends HttpServlet {
 
 			request.setAttribute("atendente", atendente);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/inicial.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("index");
 		}
 		
 					
+	}
+	
+	private void mostrarTelaInicialInstituicao (HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/inicial.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarTelaInicialPaciente (HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/inicial.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	private void mostrarTelaCadastro(HttpServletRequest request, HttpServletResponse response)
@@ -726,7 +766,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastrar-paciente.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastro.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -766,8 +806,8 @@ public class Servlet extends HttpServlet {
 
 		enderecoDAO.inserirEndereco(endereco);
 		boolean concluido = false;
-		int id = 1;
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
+		int id = 2;
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(2);
 		while (!concluido) {
 			instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 			if (instituicao == null)
@@ -777,7 +817,7 @@ public class Servlet extends HttpServlet {
 		}
 		instituicao.setEndereco(endereco);
 		instituicaoDAO.atualizarInstituicao(instituicao);
-		response.sendRedirect("perfil-instituicao");
+		response.sendRedirect("inicial-instituicao");
 	}
 
 	// TELA CADASTRO PACIENTE
@@ -786,7 +826,6 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		Paciente paciente = null;
-		Part parteFoto = null;
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
@@ -796,13 +835,12 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
-		parteFoto = request.getPart("foto-perfil");
-		fotoPerfil = ConversorImagem.obterBytesImagem(parteFoto);
 
-		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, fotoPerfil);
+
+		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone);
 
 		pacienteDAO.inserirPaciente(paciente);
-		response.sendRedirect("index");
+		response.sendRedirect("inicial-paciente");
 		
 	}
 
@@ -960,8 +998,11 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession sessao = request.getSession();
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		Integer id = usuario.getId();
+		
+		//Usuario usuario = (Paciente) sessao.getAttribute("usuario");
+		
+		Integer id = 1;
+		
 		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
 
 		request.setAttribute("consultas", consultas);
@@ -1007,7 +1048,10 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionalDaInstituicao();
+		
+		Integer id = 1;
+		
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionaisDaInstituicaoPorId(id);
 		request.setAttribute("especialidades", especialidades);
 		List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaude();
 		request.setAttribute("profissionais", profissionais);
@@ -1026,7 +1070,7 @@ public class Servlet extends HttpServlet {
 
 	}
 	
-	private void editarConsulta(HttpServletRequest request, HttpServletResponse response)
+	private void atualizarConsulta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		Integer idConsulta = Integer.parseInt(request.getParameter("idConsulta")); 
@@ -1100,8 +1144,16 @@ public class Servlet extends HttpServlet {
 		response.sendRedirect("consultas");
 
 	}
+	
+	private void mostrarTelaEditarAtendente(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	private void editarAtendente(HttpServletRequest request, HttpServletResponse response)
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/editar-atendente.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+	private void atualizarAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -1131,8 +1183,10 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
-		List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(id);
+		List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(atendente);
 
 		request.setAttribute("pacientes", pacientes);
 
@@ -1142,8 +1196,8 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
-
-	private void editarInstituicao(HttpServletRequest request, HttpServletResponse response)
+	
+	private void atualizarInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -1176,7 +1230,7 @@ public class Servlet extends HttpServlet {
 		// atualizar endereco antes de inserir na instituicao sendo editada??
 
 		instituicaoDAO.atualizarInstituicao(new Instituicao(endereco, razaoSocial, nomeFantasia, email, senha));
-		response.sendRedirect("perfil-instituicao");
+		response.sendRedirect("perfil");
 		// nomenclatura do jsp dos perfils ta certo?
 
 	}
@@ -1184,7 +1238,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAtendentesInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		Integer id = 3;
 
 		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 
@@ -1210,8 +1264,8 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		boolean concluido = false;
-		int id = 1;
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(1);
+		int id = 4;
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(4);
 		while (!concluido) {
 			instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 			if (instituicao == null)
@@ -1255,13 +1309,39 @@ public class Servlet extends HttpServlet {
 			System.out.println(especialidade.getNome());
 		}
 
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadesProfissionalDaInstituicao();
-
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionalDaInstituicao();
+		
 		request.setAttribute("especialidades", especialidades);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);
+
+	}
+	
+	private void mostrarTelaEditarEspecialidade(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/editar-especialidade.jsp");
+
+		dispatcher.forward(request, response);
+
+	}
+	
+	private void atualizarEspecialidade(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Integer id = Integer.parseInt(request.getParameter("id"));
+
+		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(id);
+		
+		String nome = request.getParameter("nome");
+		boolean ehAtivo = Boolean.parseBoolean("ehAtivo");
+
+		especialidade.setNome(nome);
+		especialidade.setEhAtivo(ehAtivo);
+
+		especialidadeDAO.atualizarEspecialidadeProfissionalDaInstituicao(especialidade);
+		response.sendRedirect("especialidades");
 
 	}
 
@@ -1331,8 +1411,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarEditarProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("assets/paginas/instituicao/cadastrar-editar-profissional.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastrar-editar-profissional.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -1374,6 +1453,14 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
+	
+	private void mostrarTelaNotificacoesDoAtendente(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/notificacoes.jsp");
+		dispatcher.forward(request, response);
+
+	}
 
 	// PACIENTE
 
@@ -1403,18 +1490,23 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarModalConsulta(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		Consulta consulta = consultaDAO.recuperarConsultaPorId(id);
 		request.setAttribute("consulta", consulta);
+		
 		Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
 		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
 		request.setAttribute("especialidade", especialidade);
+		
 		Integer idProfissional = consulta.getProfissionalDeSaude().getId();
 		ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
 		request.setAttribute("profissional", profissional);
+		
 		Integer idInstituicao = consulta.getInstituicao().getId();
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
 		request.setAttribute("instituicao", instituicao);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/modal-consulta.jsp");
 		dispatcher.forward(request, response);
 
@@ -1463,7 +1555,9 @@ public class Servlet extends HttpServlet {
 			Usuario usuario = usuarioDAO.recuperarUsuarioPorEmail(emailUsuario);
 			sessao.setAttribute("usuario", usuario);
 			response.sendRedirect("home");
+			
 		} else {
+			
 			usuarioInvalido = "invalido";
 
 			request.setAttribute("usuarioInvalido", usuarioInvalido);
