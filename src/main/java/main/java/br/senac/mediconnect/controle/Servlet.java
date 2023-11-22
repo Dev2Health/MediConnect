@@ -1263,16 +1263,10 @@ public class Servlet extends HttpServlet {
 	private void inserirAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
-		boolean concluido = false;
-		int id = 4;
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(4);
-		while (!concluido) {
-			instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-			if (instituicao == null)
-				id++;
-			else
-				concluido = true;
-		}
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(usuario.getId());
+		
 		Atendente atendente = null;
 
 		String nome = request.getParameter("nome");
