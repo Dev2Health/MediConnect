@@ -44,11 +44,11 @@ public class Instituicao extends Usuario implements Serializable {
 	@Column(name = "nome_fantasia_instituicao", length = 150, nullable = false, unique = true)
 	private String nomeFantasia;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "especialidade_profissional_instituicao", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_especialidade_profissional"))
-	private List<EspecialidadeProfissional> especialidades = new ArrayList<EspecialidadeProfissional>();
-	/* Uma instituição possuirá diversas Especialidades | Uma especialidade pode estar presente em diversas Instituições */
-	
+//	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+//	@JoinTable(name = "especialidade_profissional_instituicao", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_especialidade_profissional"))
+//	private List<EspecialidadeProfissional> especialidades = new ArrayList<EspecialidadeProfissional>();
+//	/* Uma instituição possuirá diversas Especialidades | Uma especialidade pode estar presente em diversas Instituições */
+//	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instituicao", cascade = CascadeType.ALL)
 	private List<Consulta> consultas = new ArrayList<Consulta>();
 	/* Uma Instituição possuirá várias Consultas | Uma Consulta estará em uma Instituição */
@@ -147,13 +147,13 @@ public class Instituicao extends Usuario implements Serializable {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	// Especialidade Profissional
-	public List<EspecialidadeProfissional> getEspecialidades() {
-		return especialidades;
-	}
-	public void adicionarEspecialidadeProfissional(EspecialidadeProfissional especialidade) {
-		this.especialidades.add(especialidade);
-	}
+//	// Especialidade Profissional
+//	public List<EspecialidadeProfissional> getEspecialidades() {
+//		return especialidades;
+//	}
+//	public void adicionarEspecialidadeProfissional(EspecialidadeProfissional especialidade) {
+//		this.especialidades.add(especialidade);
+//	}
 
 	// Consultas
 	public List<Consulta> getConsultas() {

@@ -9,6 +9,7 @@ import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
+import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.br.senac.mediconnect.modelo.entidade.usuario.Usuario;
 
 @Entity
@@ -35,7 +36,9 @@ public class EspecialidadeInstituicao implements Serializable{
 	
 	// CONSTRUTOR
 
-	public EspecialidadeInstituicao() {
+	public EspecialidadeInstituicao(EspecialidadeProfissional especialidade, Instituicao instituicao) {
+		setEspecialidadeProfissional(especialidade);
+		setInstituicao(instituicao);
 	}
 
 	// MÉTODOS DE ACESSO
