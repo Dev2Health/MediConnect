@@ -689,13 +689,15 @@ public class Servlet extends HttpServlet {
 		}
 
 		else if (sessao.getAttribute("usuario") instanceof Instituicao) {
-	
-			Usuario usuario = (Instituicao) sessao.getAttribute("usuario");
+			
+			String tipoUsuario = "2";
+			
+			request.setAttribute("tipoUsuario", tipoUsuario);
+			
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-			Integer id = usuario.getId();
-
-			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-
+			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(usuario.getId());
+			
 			request.setAttribute("instituicao", instituicao);
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
@@ -705,6 +707,7 @@ public class Servlet extends HttpServlet {
 		}
 
 		else if (sessao.getAttribute("usuario") instanceof Atendente) {
+			
 			String tipoUsuario = "3";
 			request.setAttribute("tipoUsuario", tipoUsuario);
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
