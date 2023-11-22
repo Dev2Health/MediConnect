@@ -15,19 +15,19 @@
                             </div>
                             <div>
                                 <div>
-                                    <a href="#" class="text">Perfil</a>
+                                    <a href="./home" class="text">Perfil</a>
                                     <img src="../../imagens/icone-perfil.svg" alt="icone-perfil">
                                 </div>
                                 <div>
-                                    <a href="#" class="text">Consultas</a>
+                                    <a href="./consultas" class="text">Consultas</a>
                                     <img src="../../imagens/icone-consulta.svg" alt="icone-consulta">
                                 </div>
                                 <div>
-                                    <p class="text">Conquistas</a>
+                                    <a href="./conquistas-paciente" class="text">Conquistas</a>
                                     <img src="../../imagens/icone-conquista.svg" alt="icone-conquista">
                                 </div>
                                 <div>
-                                    <a href="#" class="text">Notificações</a> 
+                                    <a href="./notificacoes-paciente" class="text">Notificações</a> 
                                     <img src="../../imagens/icone-notificacao.svg" alt="icone-notificacao">
                                 </div>
                             </div>
@@ -41,8 +41,8 @@
                             </div>
                         </nav>
 
-                        <div>
-                            <img src="../../imagens/logo.svg" alt="logo-mediconnect">
+                    </div>
+                            <a href="./home"> <img src="../../imagens/logo.svg" alt="logo-mediconnect"> </a>
                 </header>
   </c:when>
   <c:when test="${tipoUsuario == 2}">
@@ -62,15 +62,15 @@
 						<img src="../../imagens/icone-perfil.svg" alt="icone-perfil">
 					</div>
 					<div>
-						<a href="#" class="text">Especialidades</a>
+						<a href="./especialidades-instituicao" class="text">Especialidades</a>
 						<img src="../../imagens/icone-especialidade.svg" alt="icone-especialidade">
 					</div>
 					<div>
-						<p class="text">Atendentes</a>
+						<a href="./atendentes-instituicao" class="text">Atendentes</a>
 						<img src="../../imagens/icone-atendente.svg" alt="icone-atendente">
 					</div>
 					<div>
-						<a href="#" class="text">Notificações</a> 
+						<a href="./notificacoes-instituicao" class="text">Notificações</a> 
 						<img src="../../imagens/icone-notificacao.svg" alt="icone-notificacao">
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 				</div>
 			</nav>
 
-			<div>
+			</div>
 				<img src="../../imagens/logo.svg" alt="logo-mediconnect">
 	</header>
   </c:when>
@@ -105,7 +105,7 @@
                         <img src="../../imagens/icone-perfil.svg" alt="icone-perfil">
                     </div>
                     <div>
-                        <a href="#" class="text">Consultas</a>
+                        <a href="./consultas-atendente" class="text">Consultas</a>
                         <img src="../../imagens/icone-consulta.svg" alt="icone-consulta">
                     </div>
                     <div>
@@ -123,7 +123,7 @@
                 </div>
             </nav>
 
-            <div>
+            </div>
                 <img src="../../imagens/logo.svg" alt="logo-mediconnect">
     </header>
   </c:when>

@@ -19,7 +19,7 @@
                     <img src="./assets/imagens/icone-camera.svg" alt="icone-camera">
                 </div>
                 <div class="perfil-editar">
-                    <button class="botao-quadrado-m texto-enfase">Editar Perfil <img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
+                    <button class="botao-quadrado-m texto-enfase"><a href="./atualizar-instituicao"></a>Editar Perfil <img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
                 </div>
             </div>
             <div class="template-grid">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="ver-tudo">
-                <button href="./especialidades.jsp" class="botao-quadrado-p texto-enfase"> Ver todas <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button class="botao-quadrado-p texto-enfase"><a href="./especialidades.jsp">Ver todas </a><img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
             </div>
         </section>
         <section id="atendentes">
@@ -158,7 +158,7 @@
                 </div>
             </div>
             <div class="ver-tudo">
-                <button href="./especialidades.jsp" class="botao-quadrado-p texto-enfase"> Ver todas <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button class="botao-quadrado-p texto-enfase"><a href="./especialidades.jsp"> Ver todas</a> <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
             </div>
         </section>
     </main>
