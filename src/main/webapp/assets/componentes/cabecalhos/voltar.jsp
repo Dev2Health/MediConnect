@@ -5,5 +5,5 @@
             <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
             <a href="javascript:history.back()" class="texto texto-escuro">Voltar</a>
         </nav>
-        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
+        <a href="./home"> <img src="../../imagens/logo.svg" alt="logo-mediconnect"></a>
 </header>

@@ -15,7 +15,7 @@
                             </div>
                             <div>
                                 <div>
-                                    <a href="./home" class="text">Perfil</a>
+                                    <a href="./perfil" class="text">Perfil</a>
                                     <img src="../../imagens/icone-perfil.svg" alt="icone-perfil">
                                 </div>
                                 <div>
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="botao=circular-m">Terminar sessão</button>
+                                <a href="./deslogar"><button class="botao=circular-m">Terminar sessão</button></a>
                                 <img src="../../imagens/configuracoes.svg" alt="">
                             </div>
                             <div>
@@ -58,7 +58,7 @@
 				</div>
 				<div>
 					<div>
-						<a href="#" class="text">Perfil</a>
+						<a href="./perfil" class="text">Perfil</a>
 						<img src="../../imagens/icone-perfil.svg" alt="icone-perfil">
 					</div>
 					<div>
@@ -75,7 +75,7 @@
 					</div>
 				</div>
 				<div>
-					<button class="botao=circular-m">Terminar sessão</button>
+					<a href="./deslogar"><button class="botao=circular-m">Terminar sessão</button></a>
 					<img src="../../imagens/configuracoes.svg" alt="">
 				</div>
 				<div>
@@ -85,7 +85,7 @@
 			</nav>
 
 			</div>
-				<img src="../../imagens/logo.svg" alt="logo-mediconnect">
+				<a href="./home"> <img src="../../imagens/logo.svg" alt="logo-mediconnect"> </a>
 	</header>
   </c:when>
   <c:when test="${tipoUsuario == 3}">
@@ -101,7 +101,7 @@
                 </div>
                 <div>
                     <div>
-                        <a href="#" class="text">Perfil</a>
+                        <a href="./perfil" class="text">Perfil</a>
                         <img src="../../imagens/icone-perfil.svg" alt="icone-perfil">
                     </div>
                     <div>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <div>
-                    <button class="botao=circular-m">Terminar sessão</button>
+                    <a href="./deslogar"><button class="botao=circular-m">Terminar sessão</button></a>
                     <img src="../../imagens/configuracoes.svg" alt="">
                 </div>
                 <div>
@@ -124,7 +124,7 @@
             </nav>
 
             </div>
-                <img src="../../imagens/logo.svg" alt="logo-mediconnect">
+                <a href="./home"> <img src="../../imagens/logo.svg" alt="logo-mediconnect"> </a>
     </header>
   </c:when>
   </c:choose>
