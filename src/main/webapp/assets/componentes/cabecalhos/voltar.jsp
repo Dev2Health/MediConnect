@@ -2,8 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <header class="template-grid" id="cabecalho">
         <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
+        	<p><%@include file="/assets/imagens/icone-voltar.svg"%></p>
             <a href="javascript:history.back()" class="texto texto-escuro">Voltar</a>
         </nav>
-        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
+        <p class="logo"><%@include file="/assets/imagens/logo-legendado.svg"%></p>
 </header>

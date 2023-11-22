@@ -12,7 +12,7 @@
     <style><%@include file="../../estilos/paciente-perfil.css"%></style>
 </head>
 <body>
-    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
+    <%@include file="../../componentes/cabecalhos/logado.html"%>
     <main>
         <section id="perfil">
             <div class="perfil-apresentacao">
