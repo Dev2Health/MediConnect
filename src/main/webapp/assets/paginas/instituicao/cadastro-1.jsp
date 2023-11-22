@@ -17,7 +17,7 @@
             <h1 class="titulo">Informe os dados da instituição</h1>
             <!-- Faltou fazer os ícones de navegação entre páginas -->
         </div>
-        <form action="inserir-instituicao" method="post" autocomplete="on" id="conteudo-formulario" class="template-grid">
+        <form action="inserir-instituicao" method="post" id="conteudo-formulario" class="template-grid">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
