@@ -13,6 +13,9 @@ import main.java.br.senac.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.br.senac.mediconnect.modelo.entidade.consulta.Consulta_;
 import main.java.br.senac.mediconnect.modelo.entidade.paciente.Paciente;
 import main.java.br.senac.mediconnect.modelo.entidade.paciente.Paciente_;
+import main.java.br.senac.mediconnect.modelo.entidade.pacienteConquista.PacienteConquista;
+import main.java.br.senac.mediconnect.modelo.entidade.pacienteConquista.PacienteConquista_;
+import main.java.br.senac.mediconnect.modelo.enumeracao.conquista.StatusConquista;
 import main.java.br.senac.mediconnect.modelo.enumeracao.consulta.StatusConsulta;
 import main.java.br.senac.mediconnect.modelo.factory.BuildFactory;
 
@@ -209,6 +212,48 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 			criteria.where(construtor.equal(raizConsulta.get(Consulta_.STATUS), status),
 					construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), idPaciente));
+
+			conquistas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+			
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return conquistas;
+	}
+	
+	public List<Conquista> recuperarConquistasCompletasOuEmProgressoDoPaciente(Integer idPaciente) {
+
+		Session sessao = null;
+		List<Conquista> conquistas = null;
+
+		try {
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
+			Root<Conquista> raizConquista = criteria.from(Conquista.class);
+			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
+			Root<PacienteConquista> raizPacienteConquista = criteria.from(PacienteConquista.class);
+
+			criteria.select(raizConquista);
+
+			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), idPaciente),
+						   construtor.equal(raizPacienteConquista.get(PacienteConquista_.STATUS), StatusConquista.EM_PROGRESSO));
 
 			conquistas = sessao.createQuery(criteria).getResultList();
 
