@@ -158,7 +158,7 @@
                 </div>
             </div>
             <div class="ver-tudo">
-                <button class="botao-quadrado-p texto-enfase"><a href="./atendentes-instituicao"> Ver todas</a> <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button class="botao-quadrado-p texto-enfase"><a href="./atendentes-instituicao"> Ver todas <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"> </a></button>
             </div>
         </section>
     </main>
