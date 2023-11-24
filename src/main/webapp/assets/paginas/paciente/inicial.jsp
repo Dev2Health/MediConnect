@@ -17,10 +17,12 @@
             <div class="conteudo-esquerda">
                 <div class="inicial-textos">
                     <h1 class="titulo-especial">Boas-vindas!</h1>
-                    <h2 class="subtitulo-especial texto-roxo">Joana Castela</h2>
+                    <h2 class="subtitulo-especial texto-roxo"><c:out value="${paciente.nome}"/> <c:out value="${paciente.sobrenome}"/></h2>
                 </div>
                 <div class="botao-inferior">
-                    <button class="botao-circular-g texto"> <a href="./consultas" class="texto-claro">Ver Consultas</a> </button>
+                	<form action="consultas" method="post">
+                    <button type="submit" class="botao-circular-g texto">Ver Consultas</button>
+                    </form>
                 </div>
             </div>
             <div class="conteudo-direita">
