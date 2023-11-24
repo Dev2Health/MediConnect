@@ -15,38 +15,38 @@
     <%@include file="../componentes/cabecalhos/voltar.jsp"%>
     <main class="template-grid">
         <div class="conteudo-esquerda">
-            <img src="./assets/imagens/ilustracao-login.svg" alt="ilustracao-login" class="ilustracao">
+           	<p class="ilustracao"><%@include file="/assets/imagens/ilustracao-login.svg"%></p>
         </div>
         <div class="conteudo-direita">
             <h1 class="titulo-especial">Olá! É bom ter você de volta!</h1>
             <form action="confirmar-login" autocomplete="on" id="formulario">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
+                    	<p><%@include file="/assets/imagens/icone-email.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">E-mail</label>
                         <input class="texto-enfase" type="email" id="email" name="email" placeholder="seu.email@gmail.com" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                    	<p><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-senha.svg" alt="icone-senha">
+                    	<p><%@include file="/assets/imagens/icone-senha.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="senha" class="texto">Senha</label>
-                        <input class="texto-enfase" type="senha" id="senha" name="senha" placeholder="*********" maxlength="100" required>
+                        <input class="texto-enfase" type="password" id="senha" name="senha" placeholder="*********" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha" onclick="mostrarSenha()">
+                        <p id="botao-senha" onclick="mostrarSenha()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-rodape">
                     <button type="submit" class="botao-circular-p texto-enfase texto-claro">Entrar</button>
-                    <a href="./esqueceu-sua-senha.html" class="texto-enfase texto-roxo">Esqueceu sua senha?</a>
+                    <a href="./esqueceu-sua-senha" class="texto-enfase texto-roxo">Esqueceu sua senha?</a>
                 </div>
             </form>
         </div>

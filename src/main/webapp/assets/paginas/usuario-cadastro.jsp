@@ -14,17 +14,17 @@
     <%@include file="../componentes/cabecalhos/voltar.jsp"%>
     <main class="template-grid">
         <div class="conteudo-esquerda">
-            <img src="./assets/imagens/ilustracao-cadastro.svg" alt="ilustracao-cadastro" class="ilustracao">
+        	<p class="ilustracao"><%@include file="/assets/imagens/ilustracao-cadastro.svg"%></p>
         </div>
         <div class="conteudo-direita">
             <h1 class="titulo-especial">Deseja criar o seu cadastro?</h1>
             <div class="botoes">
                 <button class="botao-circular-g">
-                    <img class="icone-claro" src="./assets/imagens/icone-instituicao.svg" alt="icone-cadastro">
+                	<p class="icone-claro"><%@include file="/assets/imagens/icone-instituicao.svg"%></p>
                     <a href="./cadastrar-instituicao" class="texto texto-claro">Cadastrar Instituição</a>
                 </button>
                 <button class="botao-circular-g">
-                    <img class="icone-claro" src="./assets/imagens/icone-paciente.svg" alt="icone-paciente">
+                	<p class="icone-claro"><%@include file="/assets/imagens/icone-paciente.svg"%></p>
                     <a href="./cadastrar-paciente" class="texto texto-claro">Cadastrar Paciente</a>
                 </button>
             </div>

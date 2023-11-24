@@ -13,10 +13,8 @@ public class EspecialidadeInstituicaoId implements Serializable {
 	
 	// ATRIBUTOS
 	
-	@Column(name = "id_especialidade")
 	private Integer id_especialidade;
 	
-	@Column(name = "id_instituicao")
 	private Integer id_instituicao;
 
 	// CONSTRUTOR

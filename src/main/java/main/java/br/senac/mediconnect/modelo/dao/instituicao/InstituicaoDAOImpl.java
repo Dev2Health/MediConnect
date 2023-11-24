@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -212,7 +213,7 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 			CriteriaQuery<Instituicao> criteria = construtor.createQuery(Instituicao.class);
 			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 			
-			criteria.select(raizInstituicao);
+			raizInstituicao.fetch(Instituicao_.especialidades, JoinType.LEFT);
 			
 			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
 			

@@ -75,6 +75,42 @@
                         <img src="./assets/imagens/icone-nao-verificado.svg">
                     </div>
                 </div>
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
+                    </div>
+                    <div class="input-item">
+                        <label for="email" class="texto">CPF</label>
+                        <input class="texto-enfase" type="text" name="cpf" id="a.cpf" required></input>
+                    </div>
+                    <div class="input-elemento">
+                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                    </div>
+                </div>
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
+                    </div>
+                    <div class="input-item">
+                        <label for="email" class="texto">Senha</label>
+                        <input class="texto-enfase" type="password" name="senha" id="a.senha" required></input>
+                    </div>
+                    <div class="input-elemento">
+                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                    </div>
+                </div>
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
+                    </div>
+                    <div class="input-item">
+                        <label for="email" class="texto">Data</label>
+                        <input class="texto-enfase" type="date" name="data" id="a.data" required></input>
+                    </div>
+                    <div class="input-elemento">
+                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                    </div>
+                </div>
                 <div class="formulario-rodape">
                     <button type="submit" class="botao-circular-p texto-enfase texto-claro">Confirmar</button>
                     <button type="reset" class="botao-circular-p texto-enfase texto-azul">Descartar</button>

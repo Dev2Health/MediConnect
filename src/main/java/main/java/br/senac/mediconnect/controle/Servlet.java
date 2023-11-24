@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
 import main.java.br.senac.mediconnect.controle.util.ConversorImagem;
 import main.java.br.senac.mediconnect.modelo.dao.atendente.AtendenteDAO;
@@ -26,6 +24,8 @@ import main.java.br.senac.mediconnect.modelo.dao.consulta.ConsultaDAO;
 import main.java.br.senac.mediconnect.modelo.dao.consulta.ConsultaDAOImpl;
 import main.java.br.senac.mediconnect.modelo.dao.endereco.EnderecoDAO;
 import main.java.br.senac.mediconnect.modelo.dao.endereco.EnderecoDAOImpl;
+import main.java.br.senac.mediconnect.modelo.dao.especialidadeInstituicao.EspecialidadeInstituicaoDAO;
+import main.java.br.senac.mediconnect.modelo.dao.especialidadeInstituicao.EspecialidadeInstituicaoDAOImpl;
 import main.java.br.senac.mediconnect.modelo.dao.especialidadeProfissional.EspecialidadeProfissionalDAO;
 import main.java.br.senac.mediconnect.modelo.dao.especialidadeProfissional.EspecialidadeProfissionalDAOImpl;
 import main.java.br.senac.mediconnect.modelo.dao.instituicao.InstituicaoDAO;
@@ -46,6 +46,7 @@ import main.java.br.senac.mediconnect.modelo.entidade.atendente.Atendente;
 import main.java.br.senac.mediconnect.modelo.entidade.conquista.Conquista;
 import main.java.br.senac.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.br.senac.mediconnect.modelo.entidade.endereco.Endereco;
+import main.java.br.senac.mediconnect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicao;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.br.senac.mediconnect.modelo.entidade.notificacao.Notificacao;
@@ -75,6 +76,7 @@ public class Servlet extends HttpServlet {
 	private byte[] fotoPerfil = null;
 	private PacienteSeloDAO pacienteSeloDAO;
 	private NotificacaoDAO notificacaoDAO;
+	private EspecialidadeInstituicaoDAO especialidadeInstituicaoDAO;
 
 	public void init() {
 
@@ -91,6 +93,7 @@ public class Servlet extends HttpServlet {
 		conversorImagem = new ConversorImagem();
 		notificacaoDAO = new NotificacaoDAOImpl();
 		pacienteSeloDAO = new PacienteSeloDAOImpl();
+		especialidadeInstituicaoDAO = new EspecialidadeInstituicaoDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -714,6 +717,11 @@ public class Servlet extends HttpServlet {
 
 			request.setAttribute("atendente", atendente);
 
+			List<Paciente> pacientes = pacienteDAO.recuperarPacientes();
+			List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
+			request.setAttribute("pacientes", pacientes);
+			request.setAttribute("consultas", consultas);
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/inicial.jsp");
 			dispatcher.forward(request, response);
 		} else {
@@ -1246,12 +1254,10 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		HttpSession sessao = request.getSession();
-
 		Usuario usuario = (Paciente) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
 		
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-
 		Atendente atendente = null;
 
 		String nome = request.getParameter("nome");
@@ -1277,7 +1283,7 @@ public class Servlet extends HttpServlet {
 		
 		HttpSession sessao = request.getSession();
 
-		Usuario usuario = (Paciente) sessao.getAttribute("usuario");
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
 		
 		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(id);
@@ -1338,7 +1344,11 @@ public class Servlet extends HttpServlet {
 		instituicao.adicionarEspecialidadeProfissional(especialidade);
 
 		instituicaoDAO.atualizarInstituicao(instituicao);
+		
+		EspecialidadeInstituicao especialidadeInstituicao = new EspecialidadeInstituicao(especialidade, instituicao);
 
+		especialidadeInstituicaoDAO.inserirEspecialidadeInstituicao(especialidadeInstituicao);
+		
 		response.sendRedirect("especialidades-instituicao");
 
 	}
