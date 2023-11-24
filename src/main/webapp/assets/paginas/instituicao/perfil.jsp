@@ -11,7 +11,7 @@
     <style><%@include file="../../estilos/instituicao-perfil.css"%></style>
 </head>
 <body>
-    <%@include file="../../componentes/cabecalhos/logado.html"%>
+    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
 <main>
         <section id="perfil">
             <div class="perfil-apresentacao">

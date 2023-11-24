@@ -1283,7 +1283,7 @@ public class Servlet extends HttpServlet {
 		
 		HttpSession sessao = request.getSession();
 
-		Usuario usuario = (Paciente) sessao.getAttribute("usuario");
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
 		
 		EspecialidadeProfissional especialidade = especialidadeDAO.recuperarEspecialidadeDaInstituicaoPorId(id);
@@ -1341,10 +1341,14 @@ public class Servlet extends HttpServlet {
 
 		especialidadeDAO.inserirEspecialidadeProfissionalDaInstituicao(especialidade);
 
+		instituicao.adicionarEspecialidadeProfissional(especialidade);
+
+		instituicaoDAO.atualizarInstituicao(instituicao);
+		
 		EspecialidadeInstituicao especialidadeInstituicao = new EspecialidadeInstituicao(especialidade, instituicao);
 
 		especialidadeInstituicaoDAO.inserirEspecialidadeInstituicao(especialidadeInstituicao);
-
+		
 		response.sendRedirect("especialidades-instituicao");
 
 	}

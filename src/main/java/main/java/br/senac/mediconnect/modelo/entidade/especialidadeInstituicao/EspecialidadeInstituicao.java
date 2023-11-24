@@ -36,9 +36,9 @@ public class EspecialidadeInstituicao implements Serializable{
 	
 	// CONSTRUTOR
 
-	public EspecialidadeInstituicao(EspecialidadeProfissional especialidade, Instituicao instituicao) {
+	public EspecialidadeInstituicao(EspecialidadeProfissional especialidade, Usuario usuario) {
 		setEspecialidadeProfissional(especialidade);
-		setInstituicao(instituicao);
+		setInstituicao(usuario);
 	}
 
 	// MÉTODOS DE ACESSO

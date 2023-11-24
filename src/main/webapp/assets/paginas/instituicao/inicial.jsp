@@ -11,7 +11,7 @@
     <style><%@include file="../../estilos/instituicao-inicial.css"%></style>
 </head>
 <body>
-     <%--<%@include file="../../componentes/cabecalhos/logado.jsp"%>--%>
+     <%@include file="../../componentes/cabecalhos/logado.jsp"%>
     <main>
         <section id="inicio" class="template-grid">
             <div class="conteudo-esquerda">
@@ -33,7 +33,7 @@
             </div>
             <div id="atendente" class="template-grid">
                 <div class="cards-agrupamento">
-                    <c:forEach var="atendente" items="${atendentes}" class="template-grid">
+                    <c:forEach var="atendente" items="${atendentes}">
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <c:forEach>
+                    </c:forEach>
                 </div>
             </div>
         </section>
