@@ -15,7 +15,7 @@
                             </div>
                             <div>
                                 <div>
-                                    <a href="./home" class="text">Perfil</a>
+                                    <a href="./perfil" class="text">Perfil</a>
                                     <img src="../../imagens/icone-perfil.svg" alt="icone-perfil">
                                 </div>
                                 <div>

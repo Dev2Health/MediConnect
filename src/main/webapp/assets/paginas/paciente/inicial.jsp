@@ -11,7 +11,7 @@
     <style><%@include file="../../estilos/paciente-inicial.css"%></style>
 </head>
 <body>
-    <%-- <%@include file="../../componentes/cabecalhos/logado.jsp"--%>
+    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
     <main>
         <section id="inicio" class="template-grid">
             <div class="conteudo-esquerda">
@@ -34,7 +34,7 @@
             <div id="consulta" class="template-grid">
                 <div class="cards-agrupamento">
 
-                    <!-- Adicionar JSP para loop (for-each) -->
+                    <c:forEach var="consulta" items="${consultas}">
                     <div class="card-consulta">
                         <div class="dados-superior">
                             <div>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                     </div>
-
+					</c:forEach>
                 </div>
             </div>
         </section>

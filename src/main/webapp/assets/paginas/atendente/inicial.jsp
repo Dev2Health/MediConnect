@@ -36,7 +36,7 @@
 
             <div id="paciente" class="template-grid">
                 <div class="cards-agrupamento">
-                    <c:forEach var="paciente" items="${pacientes}" class="template-grid">
+                    <c:forEach var="paciente" items="${pacientes}">
                     <div class="card-entidade">
                         <div class="card-superior">
                             <div class="entidade-imagem">
