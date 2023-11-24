@@ -188,12 +188,12 @@ html {
     grid-column: 7 / 12;
 }
 
-#retorno-pesquisa {      /* ANTES RECEBIA O NOME DE SEARCH-RETURN */
+#retorno-pesquisa {
     grid-column: 2 / 12;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 85px;
+    margin-top: 65px;
     margin-bottom: 65px;
 }
 
@@ -347,7 +347,7 @@ input[type=checkbox]:checked::before {
     width: 20px;
 }
 
-/* Cards - Atendentes & Pacientes Cadastrados */
+/* Cards - Configurações Gerais */
 
 .cards-agrupamento {
     grid-column: 2 / 12;
@@ -355,6 +355,9 @@ input[type=checkbox]:checked::before {
     flex-wrap: wrap;
     gap: 45px;
 }
+
+/* Cards - Atendentes & Pacientes Cadastrados */
+
 
 .card-entidade {
     border: 3px solid;

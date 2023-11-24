@@ -12,14 +12,7 @@
     <style><%@include file="/assets/estilos/pagina-inicial.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <img src="assets/imagens/logo-legendado.svg" alt="logo-mediconnect" id="logo">
-        <nav class="barra-navegacao">
-            <a href="./assets/paginas/sobre-nos.html" class="texto texto-escuro">Sobre o MediConnect</a>
-            <a href="./login" class="texto texto-escuro">Entrar</a>
-            <a href="./cadastro" class="botao-circular-m texto texto-claro">Cadastrar</a>
-        </nav>
-    </header>
+    <%@include file="/assets/componentes/cabecalhos/deslogado.jsp"%>
     <main>
         <section id="sessao-principal" class="template-grid">
             <div class="conteudo-esquerda caixa-textual">
@@ -27,12 +20,12 @@
                 <p class="texto">Utilizar nosso sistema traz vários <span class="texto-roxo">benefícios</span>. Além da <span class="texto-roxo">praticidade</span>, auxiliamos você com a <span class="texto-roxo">pontualidade</span> nas suas consultas. <span class="texto-roxo">Venha conferir!</span></p>
             </div>
             <div class="conteudo-direita">
-                <img src="./assets/imagens/ilustracao-medica.svg" alt="ilustracao-medica" class="ilustracao">
+            	<p class="ilustracao"><%@include file="/assets/imagens/ilustracao-medica.svg"%></p>
             </div>
         </section>
         <section id="sessao-gamificacao" class="template-grid">
             <div class="conteudo-esquerda">
-                <img src="./assets/imagens/ilustracao-gamificacao.svg" alt="ilustracao-gamificacao" class="ilustracao">
+                <p class="ilustracao"><%@include file="/assets/imagens/ilustracao-gamificacao.svg"%></p>
             </div>
             <div class="conteudo-direita caixa-textual">
                 <h1 class="titulo-especial">Gamificação</h1>
@@ -45,45 +38,10 @@
                 <p class="texto">Trabalhamos para que sua consulta não seja esquecida. Com base no seu histórico de comparecimento, montamos um plano de notificações exclusivos para você!</p>
             </div>
             <div class="conteudo-direita">
-                <img src="./assets/imagens/ilustracao-notificacao.svg" alt="ilustracao-notificacao" class="ilustracao">
+                <p class="ilustracao"><%@include file="/assets/imagens/ilustracao-notificacao.svg"%></p>
             </div>
         </section>
     </main>
-    <footer>
-        <div class="template-grid" id="rodape-links">
-            <div class="rodape-mediconnect">
-                <p class="texto">MediConnect</p>
-                <a href="./assets/paginas/sobre-nos.html" class="texto-sem-enfase texto-claro">Sobre nós</a>
-                <a href="#sessao-principal" class="texto-sem-enfase texto-claro">Página inicial</a>
-            </div>
-            <div class="rodape-contato">
-                <p class="texto">Atendimento</p>
-                <a href="#" class="texto-sem-enfase texto-claro">Contato</a>
-                <a href="#" class="texto-sem-enfase texto-claro">Termos de Uso</a>
-            </div>
-            <div class="rodape-social">
-                <p class="texto">Redes Sociais</p>
-                <div class="social-whatsapp">
-                    <img src="./assets/imagens/logo-whatsapp.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
-                </div>
-                <div class="social-github">
-                    <img src="./assets/imagens/logo-github.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
-                </div>
-                <div class="social-instagram">
-                    <img src="./assets/imagens/logo-instagram.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
-                </div>
-            </div>
-        </div>
-        <div class="template-grid" id="rodape-comercial">
-            <hr><br>
-            <div class="comercial-conteudo">
-                <img src="./assets/imagens/logo-rodape.svg" alt="logo-mediconnect">
-                <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
-            </div>
-        </div>
-    </footer>
+<%@include file="./assets/componentes/rodape/rodape.jsp"%>
 </body>
 </html>

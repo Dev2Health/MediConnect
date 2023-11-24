@@ -11,5 +11,5 @@ public interface UsuarioDAO {
 	List<Usuario> recupearUsuarios();
 	boolean verificarUsuario(String email, String senha);
 	Usuario recuperarUsuarioPorEmail(String email);
-	Usuario recuperarUsuarioPorId(Integer id);
+	Usuario recuperarUsuarioPorId(Integer idUsuario);
 }

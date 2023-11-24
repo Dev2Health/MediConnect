@@ -9,6 +9,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,10 +38,6 @@ public class Paciente extends Pessoa implements Serializable {
 	private List<Consulta> consultas = new ArrayList<Consulta>();
 	/* Um paciente terá várias consultas | Uma consulta terá um paciente */
 
-//	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-//	@JoinTable(name = "paciente_conquista", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_conquista"))
-//	private List<Conquista> conquistas = new ArrayList<Conquista>();
-	/* Um paciente terá várias conquistas | Uma conquista terá vários pacientes */
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Selo> selos = new ArrayList<Selo>();
@@ -62,8 +61,8 @@ public class Paciente extends Pessoa implements Serializable {
 	}
 	
 	public Paciente(String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			LocalDate dataNascimento, String telefone, byte[] fotoPerfil) {
-		super(email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
+			LocalDate dataNascimento, String telefone) {
+		super(email, senha, ehAtivo, nome, sobrenome, cpf);
 		setDataNascimento(dataNascimento);
 		setTelefone(telefone);
 

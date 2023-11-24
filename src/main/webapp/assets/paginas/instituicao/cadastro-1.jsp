@@ -11,19 +11,13 @@
     <style><%@include file="../../estilos/instituicao-cadastro-1.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect">
-        <nav class="barra-navegacao">
-            <a href="../cadastro-usuario.html" class="texto texto-escuro">Voltar ao cadastro</a>
-            <a href="#" class="botao-circular-m texto texto-claro">Nos contacte</a>
-        </nav>
-    </header>
+    <%@include file="../../componentes/cabecalhos/cadastro.jsp"%>
     <main>
         <div class="template-grid">
             <h1 class="titulo">Informe os dados da instituição</h1>
             <!-- Faltou fazer os ícones de navegação entre páginas -->
         </div>
-        <form action="inserir-instituicao" method="post" autocomplete="on" id="conteudo-formulario" class="template-grid">
+        <form action="inserir-instituicao" method="post" id="conteudo-formulario" class="template-grid">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">

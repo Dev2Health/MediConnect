@@ -11,7 +11,7 @@ public interface ConquistaDAO {
 	void deletarConquista(Conquista conquista);
 	void atualizarConquista(Conquista conquista);
 	List<Conquista> recuperarListaDeConquistas();
-	List<Conquista> filtrarConquistaViaPacienteDoPacientePorStatus(StatusConsulta status, Paciente paciente);
-	List<Conquista> filtrarConquistaViaPacienteDoPacientePorStatus(StatusConsulta status, Integer idPaciente);
+	List<Conquista> filtrarConquistasViaPacienteDoPacientePorStatus(StatusConsulta status, Paciente paciente);
+	List<Conquista> filtrarConquistasViaPacienteDoPacientePorStatus(StatusConsulta status, Integer idPaciente);
 }
 	

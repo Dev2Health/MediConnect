@@ -11,19 +11,13 @@
     <style><%@include file="../../estilos/instituicao-cadastro-2.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect">
-        <nav class="barra-navegacao">
-            <a href="../cadastro-usuario.html" class="texto texto-escuro">Voltar ao cadastro</a>
-            <a href="#" class="botao-circular-m texto texto-claro">Nos contacte</a>
-        </nav>
-    </header>
+<%@include file="../../componentes/cabecalhos/cadastro.jsp"%>
     <main>
         <div class="template-grid">
             <h1 class="titulo">Informe os dados da instituição</h1>
         </div>
 
-        <form action="inserir-endereco" method="post" autocomplete="on" id="conteudo-formulario" class="template-grid">
+        <form action="inserir-endereco" method="post" id="conteudo-formulario" class="template-grid">
         <input type="hidden" name="instituicao" value=1 />
             <div class="formulario-esquerda">
                 <div class="formulario-input">
@@ -64,6 +58,7 @@
                     </div>
                     <div class="input-item">
                         <label for="estado" class="texto">Estado</label>
+                        <%-- Deve ser verificado esse input de lista --%>
                         <input class="texto-enfase" list="estado" id="i.estado" name="estado" placeholder="Selecione o Estado" maxlength="35" required>
                         <datalist id="estado">
                             <option value="Pegar estado do CEP">

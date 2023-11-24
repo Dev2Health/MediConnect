@@ -1,0 +1,87 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    align-items: center;
+    margin: 50px 0 25px 0;
+}
+
+/* Menu */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+}
+
+.barra-navegacao img {
+    width: 50px;
+}
+
+/* Conteúdo */
+
+h1 {
+    grid-column: 2 / 12;
+    margin-bottom: 25px;
+}
+
+/* Dados Formulário */
+
+.formulario-input {
+    border-color: var(--roxo);
+}
+
+.input-item input {
+    color: var(--roxo);
+}
+
+::placeholder {
+    color: var(--roxo-claro);
+}
+
+/* Checkbox */
+
+.checkbox {
+    width: 75vw;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+input[type=checkbox] {
+    border-color: var(--roxo);
+}
+
+input[type=checkbox]::before {
+    background-color: var(--roxo);
+}
+
+.checkbox a {
+    font-size: 1em;
+}
+
+.botoes {
+    grid-column: 2 / 12;
+    display: flex;
+    gap: 50px;
+}
+
+.botoes .botao-circular-m:first-child {
+    background-color: var(--roxo);
+}
+
+.botoes .botao-circular-m:last-child {
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--roxo);
+}

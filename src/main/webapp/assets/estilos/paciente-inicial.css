@@ -1,0 +1,105 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Configurações Gerais */
+
+.titulo-sessao {
+    margin-bottom: 80px;
+}
+
+.titulo-sessao h2 {
+    grid-column: 2 / 12;
+    color: var(--roxo-escuro);
+}
+
+.titulo-sessao h2 span {
+    color: var(--roxo-claro);
+}
+
+section {
+    align-items: flex-start;
+    margin: 100px 0;
+}
+
+/* Pagina Inicial */
+
+.conteudo-esquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.conteudo-esquerda h1 {
+    color: var(--roxo-escuro);
+}
+
+.conteudo-esquerda .botao-circular-g {
+    background-color: var(--roxo);
+}
+
+.botao-inferior {
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+/* Cards Consulta */
+
+.cards-agrupamento {
+    justify-content: space-between;
+}
+
+.card-consulta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    width: 37.485vw;
+    border: 3px solid var(--roxo);
+    border-radius: 25px;
+    padding: 10px 25px;
+}
+
+.dados-superior, .dados-inferior {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dados-inferior {
+    align-items: center;
+}
+
+.dados-inferior .status-consulta {
+    background-color: var(--azul);
+    border-radius: 15px;
+    padding: 0 10px;
+}
+
+/* Cards Instituição */
+
+.card-instituicao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 80px;
+    width: 25vw;
+    border-radius: 25px;
+    padding: 30px 25px 60px 25px;
+    background-color: var(--roxo-escuro);
+}
+
+.card-instituicao .card-foto {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: var(--claro);
+}
+
+.card-instituicao .card-foto img {
+    height: 100%;
+    border-radius: 50%;
+}

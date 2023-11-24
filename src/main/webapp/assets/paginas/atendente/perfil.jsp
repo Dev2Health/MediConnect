@@ -11,12 +11,7 @@
     <style><%@include file="../../estilos/atendente-perfil.css"%></style>
 </head>
 <body>
-    <header id="cabecalho" class="template-grid">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-menu.svg" alt="icone-menu">
-            <img src="./assets/imagens/logo.svg" alt="logo-mediconnect">
-        </nav>
-    </header>
+    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
     <main>
         <section id="perfil">
             <div class="perfil-apresentacao">
@@ -24,7 +19,7 @@
                     <img src="./assets/imagens/exemplo-foto-atendente.png" alt="icone-camera">
                 </div>
                 <div class="perfil-editar">
-                    <button class="botao-quadrado-m texto-enfase">Editar Perfil <img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
+                    <button class="botao-quadrado-m texto-enfase"><a href="./atualizar-atendente">Editar Perfil</a><img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
                 </div>
             </div>
             <div id="informacoes-atendente" class="template-grid">
@@ -48,7 +43,6 @@
                                 <p class="texto"><c:out value="${endereco.logradouro}"/></p>
                                 <p class="texto">CEP <c:out value="${endereco.cep}"/></p>
                             </div>
-                        </c:if>
                     </div>
                 </div>
             </div>
@@ -111,7 +105,7 @@
 
             </div>
             <div class="ver-tudo">
-                <button href="#" class="botao-quadrado-p texto-enfase"> Ver todas <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button class="botao-quadrado-p texto-enfase"><a href="./consultas-atendente"> Ver todas </a><img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
             </div>
         </section>
         <section id="pacientes">
@@ -148,45 +142,10 @@
                 </div>
             </div>
             <div class="ver-tudo">
-                <button href="#" class="botao-quadrado-p texto-enfase"> Ver todas <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button  class="botao-quadrado-p texto-enfase"><a href="./pacientes-atendente"> Ver todas </a><img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
             </div>
         </section>
     </main>
-    <footer>
-        <div class="template-grid" id="rodape-links">
-            <div class="rodape-mediconnect">
-                <p class="texto">MediConnect</p>
-                <a href="../sobre-nos.jsp" class="texto-sem-enfase texto-claro">Sobre nós</a>
-                <a href="../../inicial.jsp" class="texto-sem-enfase texto-claro">Página inicial</a>
-            </div>
-            <div class="rodape-contato">
-                <p class="texto">Atendimento</p>
-                <a href="#" class="texto-sem-enfase texto-claro">Contato</a>
-                <a href="#" class="texto-sem-enfase texto-claro">Termos de Uso</a>
-            </div>
-            <div class="rodape-social">
-                <p class="texto">Redes Sociais</p>
-                <div class="social-whatsapp">
-                    <img src="./assets/imagens/logo-whatsapp.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">WhatsApp</a>
-                </div>
-                <div class="social-github">
-                    <img src="./assets/imagens/logo-github.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">GitHub</a>
-                </div>
-                <div class="social-instagram">
-                    <img src="./assets/imagens/logo-instagram.svg">
-                    <a href="#" class="texto-sem-enfase texto-claro">Instagram</a>
-                </div>
-            </div>
-        </div>
-        <div class="template-grid" id="rodape-comercial">
-            <hr><br>
-            <div class="comercial-conteudo">
-                <img src="./assets/imagens/logo-rodape.svg" alt="logo-mediconnect">
-                <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
-            </div>
-        </div>
-    </footer>
+    <%@include file="../../componentes/rodape/rodape.jsp"%>
 </body>
 </html>

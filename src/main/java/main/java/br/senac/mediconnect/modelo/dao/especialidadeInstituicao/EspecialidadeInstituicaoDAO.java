@@ -8,5 +8,5 @@ public interface EspecialidadeInstituicaoDAO {
 	void inserirEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao);
 	void deletarEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao);
 	void atualizarEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao);
-	List<EspecialidadeInstituicao> recuperarEspecialidadeInstituicao();
+	List<EspecialidadeInstituicao> recuperarEspecialidadesInstituicao();
 }

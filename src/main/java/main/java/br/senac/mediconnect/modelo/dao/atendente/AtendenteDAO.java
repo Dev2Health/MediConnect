@@ -12,16 +12,16 @@ public interface AtendenteDAO {
 	void atualizarAtendente(Atendente atendente);
 	Atendente recuperarAtendentePorId(Integer id);
 	List<Atendente> recuperarListaDeAtendentes();
-	List<Atendente> recuperarListaDeAtendentes(Integer id);
-	Atendente filtrarAtendenteViaInstituicaoPorId(Integer id);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Integer idInstituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Instituicao instituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Integer idInstituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Instituicao instituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Integer idInstituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Instituicao instituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Integer idInstituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(Integer cadastro, Instituicao instituicao);
-	List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(Integer cadastro, Integer idInstituicao);
+	List<Atendente> recuperarListaDeAtendentesViaInstituicao(Integer idInstituicao);
+	Atendente filtrarAtendenteViaInstituicaoPorId(Integer idInstituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorNomeCompleto(String nomeCompleto, Integer idInstituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorCpf(String cpf, Instituicao instituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorCpf(String cpf, Integer idInstituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorCtps(String ctps, Instituicao instituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorCtps(String ctps, Integer idInstituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Instituicao instituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorDataCadastro(LocalDate dataCadastro, Integer idInstituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorCadastro(Integer cadastro, Instituicao instituicao);
+	List<Atendente> filtrarAtendentesViaInstituicaoPorCadastro(Integer cadastro, Integer idInstituicao);
 }

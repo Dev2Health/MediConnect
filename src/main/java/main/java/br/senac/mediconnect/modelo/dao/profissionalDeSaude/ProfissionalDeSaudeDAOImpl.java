@@ -8,6 +8,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.br.senac.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude;
 import main.java.br.senac.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude_;
@@ -188,7 +189,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 	}	
 	
 	@Override
-	public ProfissionalDeSaude recuperarProfissionalPorId(Integer id) {
+	public ProfissionalDeSaude recuperarProfissionalPorId(Integer idProfissional) {
 		
 		Session sessao = null;
 		ProfissionalDeSaude profissionalDeSaude = null;
@@ -205,7 +206,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 			
 			criteria.select(raizProfissionalDeSaude);
 			
-			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.ID), id));
+			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.ID), idProfissional));
 					 
 			profissionalDeSaude = sessao.createQuery(criteria).getSingleResult();
 			
@@ -228,5 +229,47 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 		
 		return profissionalDeSaude;
 	}	
+	
+	public 	List<ProfissionalDeSaude> recuperarProfissionaisDeSaudePorEspecialidade(EspecialidadeProfissional especialidade) {
+		
+		Session sessao = null;
+		List<ProfissionalDeSaude> profissionaisDeSaude = null;
+		
+		try {
+			
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+			
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			
+			CriteriaQuery<ProfissionalDeSaude> criteria = construtor.createQuery(ProfissionalDeSaude.class);
+			Root<ProfissionalDeSaude> raizProfissionalDeSaude = criteria.from(ProfissionalDeSaude.class);
+			
+			criteria.select(raizProfissionalDeSaude);
+			
+			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.ESPECIALIDADE_PROFISSIONAL), especialidade));
+			 
+			
+			profissionaisDeSaude = sessao.createQuery(criteria).getResultList();
+			
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+			
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		
+		return profissionaisDeSaude;
+	}
 
 }

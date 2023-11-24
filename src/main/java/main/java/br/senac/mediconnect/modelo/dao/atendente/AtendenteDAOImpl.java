@@ -195,7 +195,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		return atendentes;
 	}
 	
-	public List<Atendente> recuperarListaDeAtendentes(Integer idInstituicao) {
+	public List<Atendente> recuperarListaDeAtendentesViaInstituicao(Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> atendentes = null;
@@ -254,7 +254,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			criteria.select(raizAtendente);
 
-			criteria.where(construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), id));
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), id));
 
 			Atendentes = sessao.createQuery(criteria).getSingleResult();
 
@@ -282,7 +282,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorNomeCompleto(String nomeCompleto, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -296,13 +296,13 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> nomeCompletoExpression = construtor.concat(raizAtendente.get(Atendente_.NOME),
 					" " + raizAtendente.get(Atendente_.SOBRENOME));
 			criteria.where(construtor.like(nomeCompletoExpression, "%" + nomeCompleto + "%"),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -329,7 +329,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorNomeCompleto(String nomeCompleto, Integer idInstituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorNomeCompleto(String nomeCompleto, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -343,13 +343,13 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> nomeCompletoExpression = construtor.concat(raizAtendente.get(Atendente_.NOME),
 					" " + raizAtendente.get(Atendente_.SOBRENOME));
 			criteria.where(construtor.like(nomeCompletoExpression, "%" + nomeCompleto + "%"),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), idInstituicao));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -377,7 +377,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCpf(String cpf, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -391,12 +391,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> cpfExpression = raizAtendente.get(Atendente_.CPF);
 			criteria.where(construtor.equal(cpfExpression, cpf),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -423,7 +423,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCpf(String cpf, Integer idInstituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCpf(String cpf, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -437,12 +437,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> cpfExpression = raizAtendente.get(Atendente_.CPF);
 			criteria.where(construtor.equal(cpfExpression, cpf),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), idInstituicao));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -470,7 +470,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCtps(String ctps, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -484,12 +484,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> ctpsExpression = raizAtendente.get(Atendente_.CTPS);
 			criteria.where(construtor.equal(ctpsExpression, ctps),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -515,7 +515,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		return Atendentes;
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCtps(String ctps, Integer idInstituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCtps(String ctps, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -529,12 +529,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> ctpsExpression = raizAtendente.get(Atendente_.CTPS);
 			criteria.where(construtor.equal(ctpsExpression, ctps),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), idInstituicao));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -561,7 +561,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
 			Instituicao instituicao) {
 
 		Session sessao = null;
@@ -576,12 +576,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> dataCadastroExpression = raizAtendente.get(Atendente_.DATA_CADASTRO);
 			criteria.where(construtor.equal(dataCadastroExpression, dataCadastro),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), instituicao.getId()));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), instituicao.getId()));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -607,7 +607,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		return Atendentes;
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorDataCadastro(LocalDate dataCadastro,
 			Integer idInstituicao) {
 
 		Session sessao = null;
@@ -622,12 +622,12 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 
 			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
 			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
 
 			criteria.select(raizAtendente);
+			
 			Expression<String> dataCadastroExpression = raizAtendente.get(Atendente_.DATA_CADASTRO);
 			criteria.where(construtor.equal(dataCadastroExpression, dataCadastro),
-					construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+					construtor.equal(raizAtendente.get(Atendente_.instituicao).get(Instituicao_.ID), idInstituicao));
 			Atendentes = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -654,7 +654,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 	}
 
 	@Override
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(Integer cadastro, Instituicao instituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCadastro(Integer cadastro, Instituicao instituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
@@ -696,7 +696,7 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 		return Atendentes;
 	}
 
-	public List<Atendente> filtrarAtendenteViaInstituicaoPorCadastro(Integer cadastro, Integer idInstituicao) {
+	public List<Atendente> filtrarAtendentesViaInstituicaoPorCadastro(Integer cadastro, Integer idInstituicao) {
 
 		Session sessao = null;
 		List<Atendente> Atendentes = null;
