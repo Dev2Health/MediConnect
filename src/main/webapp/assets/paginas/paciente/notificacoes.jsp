@@ -13,8 +13,8 @@
 <body>
     <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
     <main>
-        <div id="notificacoes">
-            <c:forEach var="notificacao" items="${notificacoes}" class="template-grid">
+        <div class="template-grid" id="notificacoes">
+            <c:forEach var="notificacao" items="${notificacoes}">
                 <div class="card-notificacao">
                     <div class="notificacao-superior">
                         <h2 class="subtitulo">Notificação</h2>
