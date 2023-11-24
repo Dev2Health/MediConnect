@@ -13,21 +13,22 @@ function mostrarSenha() {
 }
 
 function mascaraEmail() {
+   document.getElementById("botao").disabled = true;
    var inputConteudo = document.getElementById("email").value;
-   var botao = document.getElementById("botao").disabled = true
-
-   var regexEmail = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
-
-   if(regexEmail.test(inputConteudo)){
-      
-      document.getElementById("formulario").submit();
-
-
-   }else{
-      console.log("O email não está no padrão");
-   }
-   
    
 
+   var regexEmail = new RegExp ('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}');
+
+   regexEmail.test(inputConteudo);
    
+      if(inputConteudo == true){
+         document.getElementById("botao").disabled = false;
+         
+      }else{
+         document.getElementById("botao").disabled = true;
+
+      }
+   
+
+
 }
