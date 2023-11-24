@@ -1498,8 +1498,9 @@ public class Servlet extends HttpServlet {
 		Integer idInstituicao = consulta.getInstituicao().getId();
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
 		request.setAttribute("instituicao", instituicao);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/componentes/modais/consulta.jsp");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/modal-consulta.jsp");
 		dispatcher.forward(request, response);
 
 	}
