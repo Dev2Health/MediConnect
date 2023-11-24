@@ -15,6 +15,7 @@ import main.java.br.senac.mediconnect.modelo.entidade.consulta.Consulta_;
 import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.br.senac.mediconnect.modelo.entidade.paciente.Paciente;
 import main.java.br.senac.mediconnect.modelo.entidade.paciente.Paciente_;
+import main.java.br.senac.mediconnect.modelo.enumeracao.consulta.StatusConsulta;
 import main.java.br.senac.mediconnect.modelo.factory.BuildFactory;
 
 public class PacienteDAOImpl implements PacienteDAO {
@@ -25,7 +26,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void inserirPaciente(Paciente Paciente) {
-		
+
 		Session sessao = null;
 
 		try {
@@ -55,7 +56,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void deletarPaciente(Paciente Paciente) {
-		
+
 		Session sessao = null;
 
 		try {
@@ -84,7 +85,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public void atualizarPaciente(Paciente Paciente) {
-		
+
 		Session sessao = null;
 
 		try {
@@ -113,7 +114,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 	}
 
 	public List<Paciente> recuperarPacientes() {
-		
+
 		Session sessao = null;
 		List<Paciente> pacientes = null;
 
@@ -150,9 +151,9 @@ public class PacienteDAOImpl implements PacienteDAO {
 
 		return pacientes;
 	}
-	
+
 	public List<Paciente> recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(Atendente atendente) {
-		
+
 		Session sessao = null;
 		List<Paciente> pacientes = null;
 
@@ -169,9 +170,9 @@ public class PacienteDAOImpl implements PacienteDAO {
 			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
 
 			criteria.select(raizPaciente);
-			
-			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), atendente.getId()), 
-						   construtor.equal(raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), atendente.getInstituicao().getId()));
+
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), atendente.getId()), construtor.equal(
+					raizConsulta.get(Consulta_.instituicao).get(Instituicao_.ID), atendente.getInstituicao().getId()));
 
 			pacientes = sessao.createQuery(criteria).getResultList();
 
@@ -198,7 +199,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 
 	@Override
 	public Paciente recuperarPacientePorId(Integer idPaciente) {
-		
+
 		Session sessao = null;
 		Paciente paciente = null;
 
@@ -213,7 +214,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
 
 			criteria.select(raizPaciente);
-			
+
 			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), idPaciente));
 
 			paciente = sessao.createQuery(criteria).getSingleResult();
@@ -236,6 +237,51 @@ public class PacienteDAOImpl implements PacienteDAO {
 		}
 
 		return paciente;
+
+	}
+
+	public List<Paciente> recuperarPacientesComConsultaNaInstituicaoDoAtendente(Integer idAtendente) {
+
+		Session sessao = null;
+		List<Paciente> pacientes = null;
+
+		try {
+
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Paciente> criteria = construtor.createQuery(Paciente.class);
+			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
+
+			criteria.select(raizPaciente);
+
+			criteria.where(construtor.equal(raizAtendente.get(Atendente_.ID), idAtendente), 
+					construtor.equal(raizConsulta.get(Consulta_.STATUS), StatusConsulta.AGENDADA));
+
+			pacientes = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return pacientes;
 
 	}
 }
