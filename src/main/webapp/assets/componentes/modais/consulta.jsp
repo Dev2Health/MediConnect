@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<title>Cadastro de Consulta</title>
-		<style><%@include file="../estilos/pagina-inicial.css"%></style>
+		<style><%@include file="../../estilos/pagina-inicial.css"%></style>
 	</head>
 	<body>
 <div>
@@ -32,9 +32,6 @@
 			<p><c:out value="${profissional.nome}" /> <c:out value="${profissional.sobrenome}" /></p>
         </div>
     </div>
-			</div>
-		</div>
+
 	</body>
 </html>
-    
-<!-- NÃO REFEITO / ESTILIZADO -->

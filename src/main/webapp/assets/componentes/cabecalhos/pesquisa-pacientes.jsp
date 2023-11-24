@@ -3,7 +3,7 @@
 <header id="cabecalho" class="template-grid">
         <nav class="navegacao-barra">
             <img src="../../imagens/icone-menu.svg" alt="icone-menu">
-            <img src="../../imagens/logo.svg" alt="icone-mediconnect">
+            <a href="./home"> <img src="../../imagens/logo.svg" alt="logo-mediconnect"> </a>
         </nav>
         <nav class="navegacao-filtro">
             <div class="filtro">
