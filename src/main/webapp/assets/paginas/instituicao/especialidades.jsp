@@ -33,8 +33,9 @@
                         <img src="../../images/icone-profissional.svg" alt="icone-profissional">
                         <p class="text">Mostrar profissionais</p>
                     <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
-                </div>
-            </div>
+                	</div>
+        	    </div>
+	        </div>
             </c:forEach>
         </div>
     </main>

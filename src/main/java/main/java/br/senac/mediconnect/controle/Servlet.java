@@ -863,7 +863,9 @@ public class Servlet extends HttpServlet {
 
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
 
-			Integer id = Integer.parseInt(request.getParameter("id"));
+
+			Usuario usuario = (Paciente) sessao.getAttribute("usuario");
+			Integer id = usuario.getId();
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 
 			request.setAttribute("paciente", paciente);
@@ -974,7 +976,10 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaConquistasPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		HttpSession sessao = request.getSession();
+
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistasPacientePorId(id);
 
