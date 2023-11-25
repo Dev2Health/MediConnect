@@ -20,17 +20,17 @@
             </div>
             <div id="container-propositos">
                 <div class="container-missao">
-                	<p><%@include file="/assets/imagens/icone-missao.svg"%></p>
+                	<p class="icone-grande"><%@include file="/assets/imagens/icone-missao.svg"%></p>
                     <h2 class="subtitulo">Missão</h2>
                     <p class="texto-sem-enfase">Transformar a relação das pessoas com consultas, trazendo mais praticidade e engajamento</p>
                 </div>
                 <div class="container-visao">
-                	<p><%@include file="/assets/imagens/icone-visao.svg"%></p>
+                	<p class="icone-grande"><%@include file="/assets/imagens/icone-visao.svg"%></p>
                     <h2 class="subtitulo">Visão</h2>
                     <p class="texto-sem-enfase">Ser um sistema auxiliar para pessoas e instituições, reduzindo os índices de absenteísmo</p>
                 </div>
                 <div class="container-valores">
-                	<p><%@include file="/assets/imagens/icone-valores.svg"%></p>
+                	<p class="icone-grande"><%@include file="/assets/imagens/icone-valores.svg"%></p>
                     <h2 class="subtitulo">Valores</h2>
                     <p class="texto-sem-enfase">Incentivo a saúde, ética, inovação e foco nas necessidades do público são nossos valores</p>
                 </div>
@@ -47,9 +47,9 @@
                         <p class="texto-sem-enfase">integrante.email@gmail.com</p>
                     </div>
                     <div class="card-social">
-                    	<p><%@include file="/assets/imagens/logo-github.svg"%></p>
-                    	<p><%@include file="/assets/imagens/logo-linkedin.svg"%></p>
-                    	<p><%@include file="/assets/imagens/logo-whatsapp.svg"%></p>
+                    	<p class="icone-grande"><%@include file="/assets/imagens/logo-github.svg"%></p>
+                    	<p class="icone-grande"><%@include file="/assets/imagens/logo-linkedin.svg"%></p>
+                    	<p class="icone-grande"><%@include file="/assets/imagens/logo-whatsapp.svg"%></p>
                     </div>
                 </div>
             </div>

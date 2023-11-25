@@ -22,7 +22,7 @@
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-paciente.svg" alt="icone-nome">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-paciente.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="nome" class="texto">Nome</label>
@@ -31,45 +31,45 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-cpf.svg" alt="icone-cpf">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-cpf.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="cpf" class="texto">CPF</label>
                         <input class="texto-enfase" type="text" id="i.cpf" name="cpf" oninput="mascaraCpf()" placeholder="XXX.XXX.XXX-XX" maxlength="14" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-email.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">E-mail</label>
                         <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="seu.email@gmail.com" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-senha.svg" alt="icone-senha">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-senha.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="senha" class="texto">Senha</label>
                         <input class="texto-enfase" type="password" id="p.senha" name="senha" placeholder="*********" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha" onclick="showPassword()">
+                        <p class="icone-imagem" id="botao-senha" onclick="showPassword()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
                 </div>
             </div>
             <div class="formulario-direita">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-paciente.svg" alt="icone-sobrenome">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-paciente.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="sobrenome" class="texto">Sobrenome</label>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="data" class="texto">Data de Nascimento</label>
@@ -87,31 +87,27 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-telefone.svg" alt="icone-telefone">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-telefone.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="telefone" class="texto">Telefone</label>
-                        <input class="texto-enfase" type="text" id="i.telefone" name="telefone" oninput="mascaraTelefone()" placeholder="(00) 9 9999-9999" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" required>
+                        <input class="texto-enfase" type="text" id="i.telefone" name="telefone" oninput="mascaraTelefone()" placeholder="(00) 9 9999-9999" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})\s([0-9]{4})-([0-9]{4})" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-senha.svg" alt="icone-senha">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-senha.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="confirmar-senha" class="texto">Confirmar Senha</label>
                         <input class="texto-enfase" type="password" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" placeholder="*********" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-olho-fechado.svg" id="btn-password" onclick="showPassword()">
+                        <p class="icone-imagem" id="btn-password" onclick="showPassword()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
-                    <div class="input-item">
-	                    <label>Foto Perfil</label> 
-						<input type="file" id="foto-perfil" name="foto-perfil">
-					</div>
                 </div>
                 <div class="formulario-rodape">
                     <button type="submit" class="botao-circular-p texto-enfase texto-claro">Confirmar</button>
