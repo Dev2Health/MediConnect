@@ -181,7 +181,7 @@ public class Servlet extends HttpServlet {
 
 			// TELA LOGIN
 
-			case "/esqueci-senha":
+			case "/esqueceu-senha":
 				mostrarTelaEsqueciSenha(request, response);
 				break;
 
@@ -849,7 +849,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEsqueciSenha(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/esqueceu-sua-senha.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/esqueceu-senha.jsp");
 		dispatcher.forward(request, response);
 
 	}

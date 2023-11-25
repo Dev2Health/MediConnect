@@ -162,10 +162,28 @@ html {
     width: 465px;
 }
 
-/* Ilustrações */
+/* Imagens */
+
+.ilustracao, .icone-pequeno, .icone-grande, .logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 .ilustracao {
     width: 33.33vw;
+}
+
+.icone-pequeno {
+	width: 35px;
+}
+
+.icone-grande {
+	width: 50px;
+}
+
+.logo {
+	width: 140px;
 }
 
 .icone-claro {
@@ -232,11 +250,11 @@ html {
     width: 8vw;
 }
 
-.input-icone img {
+.input-icone .input-imagem {
     width: 2.77vw;
 }
 
-.input-elemento img {
+.input-elemento .input-imagem {
     width: 2.55vw;
     cursor: pointer;
 }
@@ -307,6 +325,7 @@ input[type=checkbox]:checked::before {
 }
 
 .perfil-apresentacao .perfil-foto img {
+	/* ALTERAR A CLASSE DA IMAGEM PARA ESSE CASO*/
     width: 100%;
     border-radius: 50%;
 }
@@ -320,10 +339,6 @@ input[type=checkbox]:checked::before {
 
     transition: 300ms background-color ease;
     /* quando em :hover, o fundo do botão será claro - especificar isso nas telas */
-}
-
-.perfil-apresentacao .perfil-editar img {
-    width: 30px;
 }
 
 .ver-tudo {
@@ -341,10 +356,6 @@ input[type=checkbox]:checked::before {
 
     transition: 300ms background-color ease;
     /* quando em :hover, o fundo do botão será claro - especificar isso nas telas */
-}
-
-.ver-tudo button img {
-    width: 20px;
 }
 
 /* Cards - Configurações Gerais */
@@ -409,9 +420,11 @@ input[type=checkbox]:checked::before {
     gap: 25px;
 }
 
+/*
 .card-meio img {
     width: 30px;
 }
+*/
 
 .card-inferior {
     display: flex;
@@ -457,11 +470,50 @@ input[type=checkbox]:checked::before {
     gap: 40px;
 }
 
+/*
 .info-direita .info-variavel img {
     height: 50px;
 }
+*/
 
-/* Footer */
+/* Cabeçalho - Geral */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.barra-navegacao .navegacao-links {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+}
+
+.navegacao-links .botao-circular-m {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+    background-color: var(--roxo);
+}
+
+#botao-escuro {
+	background-color: var(--escuro);
+}
+
+.navegacao-voltar {
+	display: flex;
+	gap: 30px;
+}
+
+/* Rodapé */
 
 footer {
     width: 100vw;
@@ -494,11 +546,6 @@ footer {
     display: flex;
     align-items: center;
     gap: 25px;
-}
-
-.rodape-social img {
-    width: 30px;
-    height: 30px;
 }
 
 #rodape-comercial {

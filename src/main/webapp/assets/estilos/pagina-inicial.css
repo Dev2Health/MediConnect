@@ -3,33 +3,6 @@ body {
     background-color: var(--fundo-claro);
 }
 
-/* Menu */
-
-#cabecalho {
-    align-items: center;
-    height: 140px;
-}
-
-.barra-navegacao {
-    grid-column: 4 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 80px;
-}
-
-#cabecalho img {
-    grid-column: 2 / 3;
-}
-
-.barra-navegacao .botao-circular-m {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8em;
-    background-color: var(--roxo);
-}
-
 /* Definições Gerais */
 
 .caixa-textual {

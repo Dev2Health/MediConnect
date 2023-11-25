@@ -11,7 +11,7 @@
     <style><%@include file="../../estilos/instituicao-cadastro-2.css"%></style>
 </head>
 <body>
-<%@include file="../../componentes/cabecalhos/cadastro.jsp"%>
+	<%@include file="../../componentes/cabecalhos/cadastro.jsp"%>
     <main>
         <div class="template-grid">
             <h1 class="titulo">Informe os dados da instituição</h1>
@@ -22,19 +22,19 @@
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-cep.svg" alt="icone-cep">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-cep.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="cep" class="texto">CEP</label>
                         <input class="texto-enfase" type="text" id="i.cep" name="cep" oninput="mascaraCep()" placeholder="XXXXX-XXX" maxlength="9" required>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                    	<p class="icone-imagem"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-mapa.svg" alt="icone-mapa">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-mapa.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="cidade" class="texto">Cidade</label>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-logradouro.svg" alt="icone-logradouro">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-logradouro.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="logradouro" class="texto">Logradouro</label>
@@ -54,20 +54,46 @@
             <div class="formulario-direita">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-mapa.svg" alt="icone-mapa">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-mapa.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="estado" class="texto">Estado</label>
-                        <%-- Deve ser verificado esse input de lista --%>
-                        <input class="texto-enfase" list="estado" id="i.estado" name="estado" placeholder="Selecione o Estado" maxlength="35" required>
-                        <datalist id="estado">
-                            <option value="Pegar estado do CEP">
+                        <input class="texto-enfase" list="lista-estados" id="i.estado" name="estado" placeholder="Selecione o Estado" maxlength="35" required>
+                        <datalist id="lista-estados">
+                        	<%-- Pegar o Estado a partir do CEP --%>
+                            <option value="Acre">
+                            <option value="Alagoas">
+                            <option value="Amapá">
+                            <option value="Amazonas">
+                            <option value="Bahia">
+                            <option value="Ceará">
+                            <option value="Espírito Santo">
+                            <option value="Goiás">
+                            <option value="Maranhão">
+                            <option value="Mato Grosso">
+                            <option value="Mato Grosso do Sul">
+                            <option value="Minas Gerais">
+                            <option value="Pará">
+                            <option value="Paraíba">
+                            <option value="Paraná">
+                            <option value="Pernambuco">
+                            <option value="Piauí">
+                            <option value="Rio de Janeiro">
+                            <option value="Rio Grande do Norte">
+                            <option value="Rio Grande do Sul">
+                            <option value="Rondônia">
+                            <option value="Roraima">
+                            <option value="Santa Catarina">
+                            <option value="São Paulo">
+                            <option value="Sergipe">
+                            <option value="Tocantins">
+                            <option value="Distrito Federal">
                         </datalist>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-logradouro.svg" alt="icone-bairro">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-logradouro.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="bairro" class="texto">Bairro</label>
@@ -76,11 +102,11 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-numeros.svg" alt="icone-numero">
+                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-numeros.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="numero" class="texto">Número</label>
-                        <input class="texto-enfase" type="number" id="i.numero" name="numero" placeholder="XXXX">
+                        <input class="texto-enfase" type="number" id="i.numero" name="numero" placeholder="XXXX" min="1">
                     </div>
                 </div>
                 <div class="formulario-rodape">

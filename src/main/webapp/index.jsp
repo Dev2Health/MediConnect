@@ -42,6 +42,6 @@
             </div>
         </section>
     </main>
-<%@include file="./assets/componentes/rodape/rodape.jsp"%>
+	<%@include file="./assets/componentes/rodape/rodape.jsp"%>
 </body>
 </html>

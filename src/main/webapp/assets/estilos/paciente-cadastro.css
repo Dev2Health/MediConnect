@@ -9,34 +9,6 @@ main {
     margin: 50px 0 25px 0;
 }
 
-/* Menu */
-
-#cabecalho {
-    align-items: center;
-    height: 140px;
-}
-
-#cabecalho img {
-    grid-column: 2 / 3;
-    width: 140px;
-    height: 100%;
-}
-
-.barra-navegacao {
-    grid-column: 7 / 12;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.barra-navegacao .botao-circular-m {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8em;
-    background-color: var(--escuro);
-}
-
 /* Conteúdo Principal */
 
 .titulo {

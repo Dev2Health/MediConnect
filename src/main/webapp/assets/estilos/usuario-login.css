@@ -11,31 +11,6 @@ main {
     margin: 50px 0;
 }
 
-/* Menu */
-
-#cabecalho {
-    align-items: center;
-    height: 140px;
-}
-
-.barra-navegacao {
-    grid-column: 2 / 4;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.barra-navegacao img {
-    width: 55px;
-    height: 100%;
-}
-
-.logo  {
-    grid-column: 11 / 12;
-    width: 140px;
-    height: 100%;
-}
-
 /* Conteúdo - Direita */
 
 .conteudo-direita {

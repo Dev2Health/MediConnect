@@ -3,33 +3,6 @@ body {
     background-color: var(--fundo-claro);
 }
 
-/* Menu */
-
-#cabecalho {
-    align-items: center;
-    height: 140px;
-}
-
-.barra-navegacao {
-    grid-column: 4 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 80px;
-}
-
-#cabecalho img {
-    grid-column: 2 / 3;
-}
-
-#cabecalho .botao-circular-m {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8em;
-    background-color: var(--roxo);
-}
-
 /* Sessões */
 
 [id*="sessao-"] {
@@ -73,8 +46,7 @@ body {
     background-color: var(--roxo-escuro);
 }
 
-#container-propositos [class*="container-"] img {
-    width: 65px;
+#container-propositos [class*="container-"] .icone-grande {
     filter: invert(39%) sepia(46%) saturate(588%) hue-rotate(205deg) brightness(100%) contrast(90%);
 }
 
@@ -82,16 +54,12 @@ body {
     color: var(--fundo-claro);
     background-color: var(--roxo);
     transition: 150ms ease;
-
-    img {
-        transition: filter 150ms ease;
-        filter: none;
-    }
+    filter: none;
 }
 
 /* Sessão - Integrantes */
 
-/* esquerda */
+/* Esquerda */
 
 #sessao-membros .conteudo-esquerda {
     grid-column: 2 / 7;
@@ -140,10 +108,6 @@ body {
     height: 150px;
     border-radius: 0 0 40px 40px;
     background-color: var(--roxo);
-}
-
-#card-membro .card-social img {
-    width: 85px;
 }
 
 /* direita */
