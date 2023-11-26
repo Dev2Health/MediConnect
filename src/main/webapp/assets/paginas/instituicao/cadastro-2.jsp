@@ -18,7 +18,7 @@
         </div>
 
         <form action="inserir-endereco" method="post" id="conteudo-formulario" class="template-grid">
-        <input type="hidden" name="instituicao" value=1 />
+        <input type="hidden" name="id" value="<c:out value='${instituicao.id}'/>" />
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
