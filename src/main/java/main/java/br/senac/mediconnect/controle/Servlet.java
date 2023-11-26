@@ -181,7 +181,7 @@ public class Servlet extends HttpServlet {
 
 			// TELA LOGIN
 
-			case "/esqueci-senha":
+			case "/esqueceu-senha":
 				mostrarTelaEsqueciSenha(request, response);
 				break;
 
@@ -790,7 +790,9 @@ public class Servlet extends HttpServlet {
 		instituicao = new Instituicao(cnpj, razaoSocial, nomeFantasia, email, senha, ehAtivo);
 
 		instituicaoDAO.inserirInstituicao(instituicao);
-		response.sendRedirect("cadastrar-instituicao-2");
+		request.setAttribute("instituicao", instituicao);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastro-2.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	private void inserirEndereco(HttpServletRequest request, HttpServletResponse response)
@@ -811,13 +813,13 @@ public class Servlet extends HttpServlet {
 
 		enderecoDAO.inserirEndereco(endereco);
 
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		Integer id = usuario.getId();
+		Integer id = Integer.parseInt(request.getParameter("id"));
 
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 		instituicao.setEndereco(endereco);
 		instituicaoDAO.atualizarInstituicao(instituicao);
+		
 		response.sendRedirect("inicial-instituicao");
 	}
 
@@ -849,7 +851,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaEsqueciSenha(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/esqueceu-sua-senha.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/esqueceu-senha.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -1502,8 +1504,8 @@ public class Servlet extends HttpServlet {
 		Integer idInstituicao = consulta.getInstituicao().getId();
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
 		request.setAttribute("instituicao", instituicao);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/componentes/modal-consulta.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/componentes/modais/consulta.jsp");
 		dispatcher.forward(request, response);
 
 	}

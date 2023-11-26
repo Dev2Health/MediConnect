@@ -22,31 +22,31 @@
             <form action="confirmar-login" autocomplete="on" id="formulario">
                 <div class="formulario-input">
                     <div class="input-icone">
-                    	<p><%@include file="/assets/imagens/icone-email.svg"%></p>
+                    	<p class="input-imagem"><%@include file="/assets/imagens/icone-email.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">E-mail</label>
                         <input class="texto-enfase" type="email" id="email" name="email" placeholder="seu.email@gmail.com" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                    	<p><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
+                    	<p class="input-imagem"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                    	<p><%@include file="/assets/imagens/icone-senha.svg"%></p>
+                    	<p class="input-imagem"><%@include file="/assets/imagens/icone-senha.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="senha" class="texto">Senha</label>
                         <input class="texto-enfase" type="password" id="senha" name="senha" placeholder="*********" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <p id="botao-senha" onclick="mostrarSenha()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
+                        <p class="input-imagem" id="botao-senha" onclick="mostrarSenha()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-rodape">
                     <button type="submit" class="botao-circular-p texto-enfase texto-claro">Entrar</button>
-                    <a href="./esqueceu-sua-senha" class="texto-enfase texto-roxo">Esqueceu sua senha?</a>
+                    <a href="./esqueceu-senha" class="texto-enfase texto-roxo">Esqueceu sua senha?</a>
                 </div>
             </form>
         </div>

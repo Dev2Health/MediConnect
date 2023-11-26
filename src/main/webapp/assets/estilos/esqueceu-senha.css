@@ -11,36 +11,6 @@ main {
     margin: 50px 0;
 }
 
-/* Menu */
-
-#cabecalho {
-    align-items: center;
-    height: 140px;
-}
-
-.barra-navegacao {
-    grid-column: 2 / 4;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.barra-navegacao img {
-    width: 55px;
-    height: 100%;
-}
-
-.titulo {
-    grid-column: 4 / 10;
-    display: flex;
-    justify-content: center;
-}
-
-.logo  {
-    grid-column: 11 / 12;
-    width: 140px;
-    height: 100%;
-}
 
 /* Definições Gerais */
 
@@ -55,7 +25,7 @@ form {
     gap: 25px;
 }
 
-.validar-conteudo img {
+.validar-conteudo .icone-pequeno {
     width: 25px;
 }
 
@@ -89,10 +59,6 @@ form {
     border-radius: 40px 40px 0 0;
 }
 
-.email-superior img {
-    width: 35px;
-}
-
 .email-conteudo {
     padding: 0 8.33vw 0 8.33vw;
     border: 3px solid var(--roxo);
@@ -122,10 +88,6 @@ form {
     height: 100%;
     background-color: var(--roxo);
     border-radius: 10px 0 0 10px;
-}
-
-#formulario-icone img {
-    width: 35px;
 }
 
 #formulario-email input {
@@ -173,10 +135,6 @@ form {
     background: none;
 }
 
-.input-senhas [id*="senha-"] img {
-    width: 35px;
-}
-
 #senha-validacao {
     gap: 8.33vw;
 }
@@ -193,7 +151,7 @@ form {
     background-color: var(--roxo);
 }
 
-.botoes button:nth(2)-child {
+.botoes button:last-child {
     border: 3px solid var(--roxo);
-    background-color: var(--fundo-claro);
+    background-color: var(--claro);
 }

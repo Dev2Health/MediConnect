@@ -11,19 +11,12 @@
     <style><%@include file="../estilos/esqueceu-senha.css"%></style>
 </head>
 <body>
-    <header class="template-grid" id="cabecalho">
-        <nav class="barra-navegacao">
-            <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
-            <a href="../../index.jsp" class="texto texto-escuro">Voltar</a>
-        </nav>
-        <h1 class="titulo">Esqueceu sua senha?</h1>
-        <img src="./assets/imagens/logo-legendado.svg" alt="logo-mediconnect" class="logo">
-    </header>
+    <%@include file="../componentes/cabecalhos/voltar.jsp"%>
     <main>
         <form action="">
             <div id="confirmar-email" class="template-grid">
                 <div class="email-superior">
-                    <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
+                	<p class="icone-pequeno icone-claro"><%@include file="/assets/imagens/icone-email.svg"%></p>
                     <p class="texto">Antes de prosseguir, informe seu endereço de e-mail abaixo</p>
                 </div>
                 <div class="email-conteudo">
@@ -31,14 +24,14 @@
                         <label for="email" class="texto">E-mail atual</label>
                         <div id="formulario-email"> 
                             <div id="formulario-icone">
-                                <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
+                            	<p class="icone-pequeno icone-claro"><%@include file="/assets/imagens/icone-email.svg"%></p>
                             </div>
                             <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="seu.email@gmail.com" maxlength="100" required>
                         </div>
                     </div>
                     <div id="email-validar">
                         <div class="validar-conteudo">
-                            <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
+                        	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-atencao.svg"%></p>
                             <p class="texto-sem-enfase">Enviar o token de verificação para este e-mail</p>
                         </div>
                     </div>
@@ -51,25 +44,25 @@
                             <label for="senha" class="texto">Nova Senha</label>
                             <div class="input-senha">
                                 <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" required>
-                                <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha">
+                                <p class="icone-pequeno" id="botao-senha"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                             </div>
                         </div>
                         <div id="senha-nova">
                             <label for="novasenha" class="texto">Confirmar Senha</label>
                             <div class="input-senha">
                                 <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" required>
-                                <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
+                                <p class="icone-pequeno" id="botao-novasenha"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                             </div>
                         </div>
                     </div>
                     <div id="senha-validacao">
                         <div class="validar-conteudo">
-                            <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
-                            <p class="texto-sem-enfase">Enviar confirmação para o e-mail cadastrado</p>
+                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-atencao.svg"%></p>
+                            <p class="texto-sem-enfase">Enviar confirmação para o e-mail cadastrado:</p>
                         </div>
                         <div class="validar-conteudo">
                             <a href="#" class="texto-enfase texto-escuro">Enviar confirmação</a>
-                            <img src="./assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
+                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-redirecionar.svg"%></p>
                         </div>
                     </div>
                 </div>
