@@ -514,7 +514,7 @@ public class Servlet extends HttpServlet {
 
 			Integer id = instituicao.getId();
 
-			instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
+			instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			instituicao.setEhAtivo(false);
 
@@ -698,7 +698,7 @@ public class Servlet extends HttpServlet {
 
 			Integer id = usuario.getId();
 
-			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
+			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
 
@@ -818,7 +818,7 @@ public class Servlet extends HttpServlet {
 		instituicao.setEndereco(endereco);
 		instituicaoDAO.atualizarInstituicao(instituicao);
 
-		response.sendRedirect("inicial-instituicao");
+		response.sendRedirect("login");
 	}
 
 	// TELA CADASTRO PACIENTE
@@ -840,7 +840,7 @@ public class Servlet extends HttpServlet {
 		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone);
 
 		pacienteDAO.inserirPaciente(paciente);
-		response.sendRedirect("inicial-paciente");
+		response.sendRedirect("login");
 
 	}
 
@@ -878,7 +878,7 @@ public class Servlet extends HttpServlet {
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
 
-			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
+			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
 
@@ -925,7 +925,7 @@ public class Servlet extends HttpServlet {
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
 
-			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
+			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
 
@@ -1069,12 +1069,12 @@ public class Servlet extends HttpServlet {
 
 		Consulta consulta = consultaDAO.recuperarConsultaPorId(idConsulta);
 
+		Integer idInstituicao = Integer.parseInt(request.getParameter("idEspecialidade"));
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+
 		Integer idEspecialidade = Integer.parseInt(request.getParameter("idEspecialidade"));
 		EspecialidadeProfissional especialidadeProfissional = especialidadeDAO
 				.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
-
-		Integer idInstituicao = Integer.parseInt(request.getParameter("idEspecialidade"));
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(idInstituicao);
 
 		Integer idPaciente = Integer.parseInt(request.getParameter("idPaciente"));
 		Paciente paciente = pacienteDAO.recuperarPacientePorId(idPaciente);
@@ -1200,7 +1200,7 @@ public class Servlet extends HttpServlet {
 
 		Integer id = Integer.parseInt(request.getParameter("id"));
 
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		// recuperar a entidade e setar informa��es novas nela ou atualizar com new
 		// Entidade?
 
@@ -1265,7 +1265,7 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Paciente) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
 
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		Atendente atendente = null;
 
 		String nome = request.getParameter("nome");
@@ -1389,7 +1389,7 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComProfissionais(id);
 
 		ProfissionalDeSaude profissional = null;
 
@@ -1509,7 +1509,7 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("profissional", profissional);
 
 		Integer idInstituicao = consulta.getInstituicao().getId();
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(idInstituicao);
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
 		request.setAttribute("instituicao", instituicao);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/componentes/modais/consulta.jsp");

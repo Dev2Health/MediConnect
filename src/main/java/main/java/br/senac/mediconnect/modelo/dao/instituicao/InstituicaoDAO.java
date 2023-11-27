@@ -11,6 +11,7 @@ public interface InstituicaoDAO {
 	List<Instituicao> recuperarInstituicao();
 	List<Instituicao> recuperarInstituicoesRecentesPorIdPaciente(Integer idPaciente);
 	Instituicao recuperarInstituicaoPorIdComEspecialidades(Integer idInstituicao);
+	Instituicao recuperarInstituicaoPorIdComProfissionais(Integer idInstituicao);
 	Instituicao recuperarInstituicaoComConsultasPorId(Integer idInstituicao);
 	Instituicao recuperarInstituicaoPorId(Integer idInstituicao);
 	

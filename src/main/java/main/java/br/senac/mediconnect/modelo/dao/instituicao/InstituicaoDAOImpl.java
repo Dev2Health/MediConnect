@@ -238,6 +238,46 @@ public class InstituicaoDAOImpl implements InstituicaoDAO {
 		
 		return instituicao;
 	}
+	public Instituicao recuperarInstituicaoPorIdComProfissionais(Integer idInstituicao) {
+		
+		Session sessao = null;
+		Instituicao instituicao = null;
+		
+		try {
+			
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+			
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			
+			CriteriaQuery<Instituicao> criteria = construtor.createQuery(Instituicao.class);
+			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
+			
+			raizInstituicao.fetch(Instituicao_.profissionaisDeSaude, JoinType.LEFT);
+			
+			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+			
+			instituicao = sessao.createQuery(criteria).getSingleResult();
+			
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+			
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		
+		return instituicao;
+	}
 	public Instituicao recuperarInstituicaoPorId(Integer idInstituicao) {
 		
 		Session sessao = null;

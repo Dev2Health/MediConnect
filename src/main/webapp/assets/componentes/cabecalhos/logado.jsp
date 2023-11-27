@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="botao-circular-m">a href="./deslogar">Terminar sessão</a></button>
+                                <button class="botao-circular-m"><a href="./deslogar">Terminar sessão</a></button>
                                 <img src="../../imagens/configuracoes.svg">
                             </div>
                             <div>
