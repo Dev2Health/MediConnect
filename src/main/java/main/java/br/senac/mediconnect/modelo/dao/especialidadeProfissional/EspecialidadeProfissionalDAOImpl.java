@@ -112,7 +112,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 	}
 
 	@Override
-	public List<EspecialidadeProfissional> recuperarEspecialidadesProfissionalDaInstituicao() {
+	public List<EspecialidadeProfissional> recuperarEspecialidadesProfissionalDaInstituicao(Integer idInstituicao) {
 		
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;
@@ -128,6 +128,8 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
 			
 			criteria.select(raizEspecialidadeProfissional);
+			
+			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(Instituicao_.ID), idInstituicao));
 			
 			especialidadesProfissionais = sessao.createQuery(criteria).getResultList();
 
@@ -190,7 +192,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 		return especialidadeProfissionai;
 	}
 	
-	public 	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionaisDaInstituicaoPorId(Integer idEspecialidade) {
+	public 	List<EspecialidadeProfissional> recuperarEspecialidadesProfissionais() {
 		
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;
@@ -206,8 +208,6 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
 			
 			criteria.select(raizEspecialidadeProfissional);
-			
-			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(EspecialidadeProfissional_.ID), idEspecialidade));
 			
 			especialidadesProfissionais = sessao.createQuery(criteria).getResultList();	
 
