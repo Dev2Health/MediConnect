@@ -20,7 +20,9 @@
         <div id="pesquisa-retornar" class="template-grid">
             <div id="retornar-especialidade">
                 <p class="text">Especialidades atendidas pela instituição</p>
-                <button class="botao-quadrado-p texto-enfase">Adicionar <img src="../../images/icone-adicionar.svg"></button>
+                <form action="cadastrar-especialidade" method="post">
+                <button type="submit" class="botao-quadrado-p texto-enfase">Adicionar <img src="../../images/icone-adicionar.svg"></button>
+                </form>
             </div>
         </div>
         <div id="especialidade" class="template-grid">

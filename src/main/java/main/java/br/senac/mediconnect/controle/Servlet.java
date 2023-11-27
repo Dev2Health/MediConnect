@@ -1136,6 +1136,12 @@ public class Servlet extends HttpServlet {
 				status, descricao);
 
 		consultaDAO.inserirConsulta(consulta);
+		
+		instituicao.adicionarConsulta(consulta);
+		instituicaoDAO.atualizarInstituicao(instituicao);		
+		paciente.adicionarConsulta(consulta);
+		pacienteDAO.atualizarPaciente(paciente);
+		
 		response.sendRedirect("consultas");
 
 	}
@@ -1334,9 +1340,9 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		HttpSession sessao = request.getSession();
-		
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(usuario.getId());
+		Integer id = usuario.getId();
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 		EspecialidadeProfissional especialidade = null;
 
@@ -1397,6 +1403,9 @@ public class Servlet extends HttpServlet {
 		profissional = new ProfissionalDeSaude(nome, sobrenome, especialidade, instituicao);
 
 		profissionalDAO.inserirProfissionalDeSaude(profissional);
+		
+		instituicao.adicionarProfissionalDeSaude(profissional);
+		instituicaoDAO.atualizarInstituicao(instituicao);
 
 		response.sendRedirect("home");
 

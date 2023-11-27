@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -213,7 +214,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 			CriteriaQuery<Paciente> criteria = construtor.createQuery(Paciente.class);
 			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
 
-			criteria.select(raizPaciente);
+			raizPaciente.fetch(Paciente_.consultas, JoinType.LEFT);
 
 			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), idPaciente));
 
