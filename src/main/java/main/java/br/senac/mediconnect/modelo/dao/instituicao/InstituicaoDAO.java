@@ -10,6 +10,8 @@ public interface InstituicaoDAO {
 	void atualizarInstituicao(Instituicao instituicao);
 	List<Instituicao> recuperarInstituicao();
 	List<Instituicao> recuperarInstituicoesRecentesPorIdPaciente(Integer idPaciente);
+	Instituicao recuperarInstituicaoPorIdComEspecialidades(Integer idInstituicao);
+	Instituicao recuperarInstituicaoComConsultasPorId(Integer idInstituicao);
 	Instituicao recuperarInstituicaoPorId(Integer idInstituicao);
 	
 }
