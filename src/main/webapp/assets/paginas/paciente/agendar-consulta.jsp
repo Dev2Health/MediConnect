@@ -35,12 +35,12 @@
                     </div>
                     <div class="input-item">
                         <label for="especialidade" class="texto">Especialidade</label>
-                        <input class="texto-enfase" list="lista-especialidade" type="text" id="i.especialidade" name="especialidade" placeholder="(Selecione a Especialidade)" required>
-                        <datalist id="lista-especialidade">
+                        <select class="texto-enfase" id="i.especialidade" name="especialidade" required>
+                        		<option value="" disabled selected hidden="true">(Selecione a especialidade)</option>
                             <c:forEach var="especialidade" items="${especialidades}">
-                                <option value="<c:out value='${especialidade.nome}'/>"></option>
+                                <option value="<c:out value='${especialidade.id}'/>"><c:out value='${especialidade.nome}'/></option>
                             </c:forEach>
-                        </datalist>
+                        </select>
                     </div>
                 </div>
                 <div class="formulario-input">
@@ -49,12 +49,12 @@
                     </div>
                     <div class="input-item">
                         <label for="profissional" class="texto">Profissional</label>
-                        <input class="texto-enfase" list="lista-profissional" type="text" id="i.profissional" name="profissional" placeholder="(Selecione o Profissional)" required>
-                        <datalist id="lista-profissional">
+                        <select class="texto-enfase" id="i.profissional" name="profissional" required>
+                        		<option value="" disabled selected hidden="true">(Selecione o profissional)</option>
                             <c:forEach var="profissional" items="${profissionais}">
-                                <option value="<c:out value='${profissional.nome}'/> <c:out value='${profissional.sobrenome}'/>"></option>
+                                <option value="<c:out value='${profissional.id}'/>"><c:out value='${profissional.nome}'/> <c:out value='${profissional.sobrenome}'/></option>
                                 </c:forEach>
-                        </datalist>
+                        </select>
                     </div>
                 </div>
                 <div class="checkbox">
@@ -82,12 +82,12 @@
                     </div>
                     <div class="input-item">
                         <label for="instituicao" class="texto">Instituição</label>
-                        <input class="texto-enfase" list="lista-instituicao" type="text" id="i.instituicao" name="instituicao" placeholder="(Selecione a Instituicao)" required>
-                        <datalist id="lista-instituicao">
+                        <select class="texto-enfase" id="i.instituicao" name="instituicao" required>
+                        	<option value="" disabled selected hidden="true">(Selecione a instituição)</option>
                             <c:forEach var="instituicao" items="${instituicoes}">
-                            <option value="<c:out value='${instituicao.nomeFantasia}'/>"></option>
+                            <option value="<c:out value='${instituicao.id}'/>"><c:out value='${instituicao.nomeFantasia}'/></option>
                             </c:forEach>
-                        </datalist>
+                        </select>
                     </div>
                 </div>
             </div>

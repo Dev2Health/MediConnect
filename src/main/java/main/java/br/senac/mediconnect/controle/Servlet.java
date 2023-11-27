@@ -1045,10 +1045,8 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = 1;
-
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadesProfissionaisDaInstituicaoPorId(id);
+				.recuperarEspecialidadesProfissionalDaInstituicao();
 		request.setAttribute("especialidades", especialidades);
 		List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaude();
 		request.setAttribute("profissionais", profissionais);
@@ -1138,6 +1136,12 @@ public class Servlet extends HttpServlet {
 				status, descricao);
 
 		consultaDAO.inserirConsulta(consulta);
+		
+		instituicao.adicionarConsulta(consulta);
+		instituicaoDAO.atualizarInstituicao(instituicao);		
+		paciente.adicionarConsulta(consulta);
+		pacienteDAO.atualizarPaciente(paciente);
+		
 		response.sendRedirect("consultas");
 
 	}
@@ -1336,9 +1340,9 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		HttpSession sessao = request.getSession();
-		
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(usuario.getId());
+		Integer id = usuario.getId();
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 		EspecialidadeProfissional especialidade = null;
 
@@ -1363,6 +1367,9 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaCadastrarProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO
+				.recuperarEspecialidadesProfissionalDaInstituicao();
+		request.setAttribute("especialidades", especialidades);
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("assets/paginas/instituicao/cadastrar-profissional.jsp");
 		dispatcher.forward(request, response);
@@ -1381,20 +1388,26 @@ public class Servlet extends HttpServlet {
 	private void inserirProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+
 		ProfissionalDeSaude profissional = null;
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		Integer idEspecialidade = Integer.parseInt(request.getParameter("especialidade"));
-		Integer idInstituicao = Integer.parseInt(request.getParameter("instituicao"));
-		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
 		EspecialidadeProfissional especialidade = especialidadeDAO
 				.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
 		profissional = new ProfissionalDeSaude(nome, sobrenome, especialidade, instituicao);
 
 		profissionalDAO.inserirProfissionalDeSaude(profissional);
+		
+		instituicao.adicionarProfissionalDeSaude(profissional);
+		instituicaoDAO.atualizarInstituicao(instituicao);
 
-		response.sendRedirect("perfil-instituicao");
+		response.sendRedirect("home");
 
 	}
 
@@ -1502,7 +1515,6 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("instituicao", instituicao);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/componentes/modais/consulta.jsp");
-
 		dispatcher.forward(request, response);
 
 	}
