@@ -12,5 +12,6 @@ public interface PacienteDAO {
 	List<Paciente> recuperarPacientes();
 	List<Paciente> recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(Atendente atendente);
 	Paciente recuperarPacientePorId(Integer idPaciente);
+	Paciente recuperarPacientePorIdComConsultas(Integer idPaciente);
 
 }

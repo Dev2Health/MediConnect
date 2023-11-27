@@ -10,6 +10,30 @@
     <link rel="icon" type="image/x-icon" href="../../imagens/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/paciente-consultas.css"%></style>
+    <style>
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal-conteudo {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #close-btn {
+            cursor: pointer;
+        }
+    </style>
 
 </head>
 <body>
@@ -27,8 +51,8 @@
             
                 </div>
             </div>
-            <div id="consulta">
-                <c:forEach var="consulta" items="${consultas}">
+            <c:forEach var="consulta" items="${consultas}">
+            <div id="consulta-${consulta.id}">
 
                     <div class="card-horizontal">
                         <p class="texto-enfase">Consulta - <c:out value="${consulta.id}" /></p>
@@ -47,16 +71,23 @@
                                     <p class="texto"><c:out value='${consulta.horario}'/></p>
                                 </div>
                             </div>
-                            <form action="modal-consulta-paciente" method="post">
-			                <input type="hidden" name="id" value="${consulta.id}"/>
-			                <button type="submit" class="btn-square-sm text-emphasis link-light">Ver detalhes <img src="../../images/icone-adicionar.svg"></button>
+			                <button onclick="abrirModal('${consulta.id}')" class="btn-square-sm text-emphasis link-light">Ver detalhes <img src="../../images/icone-adicionar.svg"></button>
                             </form>
                         </div>
+
                     </div>
-                 </c:forEach>
-        	</div>
+            </div>
+            </c:forEach>
+            <c:forEach var="consulta" items="${consultas}">
+                    <div id="modal-${consulta.id}" class="modal">
+                    <div id="modal-conteudo-${consulta.id}" class="modal-conteudo">
+                        
+                    </div>
+            </c:forEach>
+                    
         	</section>
     </main>
 <%@include file="../../componentes/rodape/rodape.jsp"%>
+<script><%@include file="../../scripts/modal-consulta.js"%></script>
 </body>
 </html>
