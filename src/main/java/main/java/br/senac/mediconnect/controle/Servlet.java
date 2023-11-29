@@ -1314,7 +1314,7 @@ public class Servlet extends HttpServlet {
 		Integer id = usuario.getId();
 
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadesProfissionalDaInstituicao(id);
+				.recuperarEspecialidadesProfissionais();
 
 		request.setAttribute("especialidades", especialidades);
 
