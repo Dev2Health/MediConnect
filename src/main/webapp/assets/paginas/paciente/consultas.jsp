@@ -11,7 +11,7 @@
     <style><%@include file="../../estilos/padroes.css"%></style>
     <style><%@include file="../../estilos/paciente-consultas.css"%></style>
     <style>
-        #modal {
+        .modal {
             display: none;
             position: fixed;
             top: 0;
@@ -23,7 +23,7 @@
             align-items: center;
         }
 
-        #modal-conteudo {
+        .modal-conteudo {
             background: #fff;
             padding: 20px;
             border-radius: 5px;
@@ -71,8 +71,7 @@
                                     <p class="texto"><c:out value='${consulta.horario}'/></p>
                                 </div>
                             </div>
-			                <button onclick="abrirModal('${consulta.id}')" class="btn-square-sm text-emphasis link-light">Ver detalhes <img src="../../images/icone-adicionar.svg"></button>
-                            </form>
+			                <button onclick="abrirModal(${consulta.id})" class="btn-square-sm text-emphasis link-light">Ver detalhes <img src="../../images/icone-adicionar.svg"></button>
                         </div>
 
                     </div>
@@ -81,13 +80,16 @@
             <c:forEach var="consulta" items="${consultas}">
                     <div id="modal-${consulta.id}" class="modal">
                     <div id="modal-conteudo-${consulta.id}" class="modal-conteudo">
-                        
+                        <%@include file="../../componentes/modais/consulta.jsp"%>
+                    </div>
                     </div>
             </c:forEach>
                     
         	</section>
     </main>
 <%@include file="../../componentes/rodape/rodape.jsp"%>
-<script><%@include file="../../scripts/modal-consulta.js"%></script>
+<script>    
+<%@include file="../../scripts/modal-consulta.js"%>
+</script>
 </body>
 </html>

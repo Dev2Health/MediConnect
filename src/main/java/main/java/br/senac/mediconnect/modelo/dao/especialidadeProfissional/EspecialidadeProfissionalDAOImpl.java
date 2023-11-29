@@ -4,14 +4,15 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import main.java.br.senac.mediconnect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicao;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional_;
-import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao;
-import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao_;
 import main.java.br.senac.mediconnect.modelo.factory.BuildFactory;
 
 public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfissionalDAO{
@@ -125,12 +126,16 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
 			CriteriaQuery<EspecialidadeProfissional> criteria = construtor.createQuery(EspecialidadeProfissional.class);
-			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
-			
-			criteria.select(raizEspecialidadeProfissional);
-			
-			criteria.where(construtor.equal(raizEspecialidadeProfissional.get(Instituicao_.ID), idInstituicao));
-			
+	        Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
+
+	        Join<EspecialidadeProfissional, EspecialidadeInstituicao> joinEspecialidadeInstituicao = raizEspecialidadeProfissional.join("especialidade_instituicao", JoinType.INNER);
+
+	        criteria.select(raizEspecialidadeProfissional);
+	        criteria.where(
+	            construtor.and(
+	                construtor.equal(joinEspecialidadeInstituicao.get("usuario_id_usuario"), idInstituicao)
+	            )
+	        );
 			especialidadesProfissionais = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();

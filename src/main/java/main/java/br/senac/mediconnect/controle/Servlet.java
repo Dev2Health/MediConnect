@@ -98,11 +98,15 @@ public class Servlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		doGet(request, response);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 
 		String action = request.getServletPath();
 
@@ -999,8 +1003,23 @@ public class Servlet extends HttpServlet {
 		Integer id = usuario.getId();
 
 		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
-
+		
 		request.setAttribute("consultas", consultas);
+		
+		for (Consulta consulta : consultas) {
+			Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
+			EspecialidadeProfissional especialidade = especialidadeDAO
+					.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
+			request.setAttribute("especialidade", especialidade);
+
+			Integer idProfissional = consulta.getProfissionalDeSaude().getId();
+			ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
+			request.setAttribute("profissional", profissional);
+
+			Integer idInstituicao = consulta.getInstituicao().getId();
+			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+			request.setAttribute("instituicao", instituicao);
+	    }
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/consultas.jsp");
 		dispatcher.forward(request, response);

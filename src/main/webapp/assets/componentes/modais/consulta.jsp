@@ -15,23 +15,23 @@
             pattern="yyyy-MM-dd" var="parsedDate" />
             <fmt:formatDate value="${parsedDate}" type="date"
             pattern="dd/MM/yyyy" var="data" />
-            <p class="text" type="date"><c:out value="${data}" /></p>
+            <p class="text" type="date">Data: <c:out value="${data}" /></p>
         </div>
         <div>
             <p><%@include file="/assets/imagens/icone-horario.svg"%></p>
-            <p><c:out value="${consulta.horario}" /></p>
+            <p>Horário: <c:out value="${consulta.horario}" /></p>
         </div>
         <div>
             <p><%@include file="/assets/imagens/icone-especialidade.svg"%></p>
-			<p><c:out value="${especialidade.nome}" /></p>
+			<p>Especialidade: <c:out value="${especialidade.nome}" /></p>
         </div>
             <p><%@include file="/assets/imagens/icone-instituicao.svg"%></p>
-			<p><c:out value="${instituicao.nomeFantasia}" /></p>
+			<p>Instituição: <c:out value="${instituicao.nomeFantasia}" /></p>
         <div>
             <p><%@include file="/assets/imagens/icone-profissional.svg"%></p>
-			<p><c:out value="${profissional.nome}" /> <c:out value="${profissional.sobrenome}" /></p>
+			<p>Profissional: <c:out value="${profissional.nome}" /> <c:out value="${profissional.sobrenome}" /></p>
         </div>
-        <button id="close-btn" onclick="fecharModal('${consulta.id}')">Fechar</button>
+        <button onclick="fecharModal(${consulta.id})" class="btn-square-sm text-emphasis link-light"><p><%@include file="../../imagens/icone-fechar.svg"%></p></button>
     </div>
 
     <script><%@include file="../../scripts/modal-consulta.js"%></script>
