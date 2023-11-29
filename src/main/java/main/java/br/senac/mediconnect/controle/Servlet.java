@@ -1355,22 +1355,24 @@ public class Servlet extends HttpServlet {
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		
 		Integer id = usuario.getId();
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
 
 		EspecialidadeProfissional especialidade = null;
+		EspecialidadeInstituicao especialidadeInstituicao = null;
 
 		String nome = request.getParameter("nome");
 
 		especialidade = new EspecialidadeProfissional(nome);
 
 		especialidadeDAO.inserirEspecialidadeProfissionalDaInstituicao(especialidade);
+		
+		especialidadeInstituicao = new EspecialidadeInstituicao(especialidade, instituicao);
 
 		instituicao.adicionarEspecialidadeProfissional(especialidade);
 
 		instituicaoDAO.atualizarInstituicao(instituicao);
-
-		EspecialidadeInstituicao especialidadeInstituicao = new EspecialidadeInstituicao(especialidade, instituicao);
 
 		especialidadeInstituicaoDAO.inserirEspecialidadeInstituicao(especialidadeInstituicao);
 

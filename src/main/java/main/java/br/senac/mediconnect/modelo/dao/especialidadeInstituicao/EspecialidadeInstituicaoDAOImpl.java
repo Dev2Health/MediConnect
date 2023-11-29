@@ -19,7 +19,7 @@ public BuildFactory fac;
 	}
 
 	@Override
-	public void inserirEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao) {
+	public void inserirEspecialidadeInstituicao(EspecialidadeInstituicao especialidadeInstituicao) {
 		
 		Session sessao = null;
 		
@@ -28,7 +28,7 @@ public BuildFactory fac;
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
-			sessao.save(especialidade_instituicao);
+			sessao.save(especialidadeInstituicao);
 			sessao.getTransaction().commit();
 			
 		} catch (Exception sqlException) {
@@ -48,7 +48,7 @@ public BuildFactory fac;
 	}
 
 	@Override
-	public void deletarEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao) {
+	public void deletarEspecialidadeInstituicao(EspecialidadeInstituicao especialidadeInstituicao) {
 		
 		Session sessao = null;
 		
@@ -57,7 +57,7 @@ public BuildFactory fac;
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 
-			sessao.delete(especialidade_instituicao);
+			sessao.delete(especialidadeInstituicao);
 			sessao.getTransaction().commit();
 			
 		} catch (Exception sqlException) {
@@ -78,7 +78,7 @@ public BuildFactory fac;
 	}
 
 	@Override
-	public void atualizarEspecialidadeInstituicao(EspecialidadeInstituicao especialidade_instituicao) {
+	public void atualizarEspecialidadeInstituicao(EspecialidadeInstituicao especialidadeInstituicao) {
 		
 		Session sessao = null;
 		
@@ -87,7 +87,7 @@ public BuildFactory fac;
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
 			
-			sessao.update(especialidade_instituicao);
+			sessao.update(especialidadeInstituicao);
 			sessao.getTransaction().commit();
 
 		} catch (Exception sqlException) {
@@ -111,7 +111,7 @@ public BuildFactory fac;
 	public List<EspecialidadeInstituicao> recuperarEspecialidadesInstituicao() {
 		
 		Session sessao = null;
-		List<EspecialidadeInstituicao> conquistas = null;
+		List<EspecialidadeInstituicao> especialidadesInstituicao = null;
 		
 		try {
 			
@@ -121,9 +121,11 @@ public BuildFactory fac;
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
 			CriteriaQuery<EspecialidadeInstituicao> criteria = construtor.createQuery(EspecialidadeInstituicao.class);
-			Root<EspecialidadeInstituicao> raizConquista = criteria.from(EspecialidadeInstituicao.class);
-			criteria.select(raizConquista);
-			conquistas = sessao.createQuery(criteria).getResultList();
+			Root<EspecialidadeInstituicao> raizEspecialidadeInstituicao = criteria.from(EspecialidadeInstituicao.class);
+			
+			criteria.select(raizEspecialidadeInstituicao);
+			
+			especialidadesInstituicao = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
 			
@@ -141,6 +143,6 @@ public BuildFactory fac;
 				sessao.close();
 			}
 		}
-		return conquistas;
+		return especialidadesInstituicao;
 	}
 }
