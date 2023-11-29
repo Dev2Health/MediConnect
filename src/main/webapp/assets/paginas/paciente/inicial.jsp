@@ -62,5 +62,6 @@
 
     <%@include file="../../componentes/rodape/rodape.jsp"%>
 
+<script><%@include file="../../scripts/modal-lateral.js"%></script>
 </body>
 </html>

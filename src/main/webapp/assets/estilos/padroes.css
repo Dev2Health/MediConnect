@@ -484,6 +484,10 @@ input[type=checkbox]:checked::before {
     height: 140px;
 }
 
+.barra-navegacao .icones-logado .logo {
+	cursor: pointer;
+}
+
 .barra-navegacao {
     grid-column: 2 / 12;
     display: flex;
@@ -522,13 +526,13 @@ input[type=checkbox]:checked::before {
 /* Side-Bar */
 
 .barra-lateral {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	justify-content: space-between;
 	position: absolute;
-	top: 0;
+	top: 140px;
 	left: 0;
-	height: 100vh;
+	height: calc(100vh - 140px);
 	width: 33vw;
 	border: 3px solid var(--claro);
 	background-color: var(--claro);
@@ -536,9 +540,9 @@ input[type=checkbox]:checked::before {
 
 .barra-superior {
 	display: flex;
-	justify-content: space-evenly;
-	align-items: flex-start;
-	margin: 20px 0 20px 100px;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0;
 }
 
 .barra-superior .perfil-imagem {
@@ -555,6 +559,10 @@ input[type=checkbox]:checked::before {
 .barra-superior .perfil-imagem img {
 	width: 100%;
 	border-radius: 50%;
+}
+
+.barra-superior .icone-pequeno {
+	cursor: pointer;
 }
 
 .barra-centro {
