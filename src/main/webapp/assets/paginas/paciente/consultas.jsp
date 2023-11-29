@@ -37,7 +37,7 @@
 
 </head>
 <body>
-    <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
+    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
     <main>
         <section id="consultas">
             <div class="template-grid">

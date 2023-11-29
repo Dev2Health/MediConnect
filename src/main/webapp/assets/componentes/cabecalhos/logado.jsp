@@ -4,7 +4,7 @@
 <header class="template-grid" id="cabecalho">
 	<div class="barra-navegacao">
 		<div class="icones-logado">
-			<p class="logo"><%@include file="/assets/imagens/icone-menu.svg"%></p>
+			<p onclick="alternarModal()" class="logo"><%@include file="/assets/imagens/icone-menu.svg"%></p>
 			<p class="logo"><%@include file="/assets/imagens/logo.svg"%></p>
 		</div>
 		<c:choose>
@@ -15,7 +15,6 @@
 						<div class="perfil-imagem">
 							<img> <%-- Imagem em base 64--%>
 						</div>
-						<p class="icone-pequeno"><%@include file="/assets/imagens/icone-fechar.svg"%></p>
 					</div>
 					<div class="barra-centro">
 						<div class="centro-icones"> 
@@ -23,7 +22,7 @@
 							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-perfil.svg"%></p>
 						</div>
 						<div class="centro-icones">
-							<a href="./consultas-paciente" class="texto texto-escuro">Consultas</a>
+							<a href="./consultas" class="texto texto-escuro">Consultas</a>
 							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-consulta.svg"%></p>
 						</div>
 						<div class="centro-icones">
@@ -55,7 +54,6 @@
 						<div class="perfil-imagem">
 							<img> <%-- Imagem em base 64--%>
 						</div>
-						<p class="icone-pequeno"><%@include file="/assets/imagens/icone-fechar.svg"%></p>
 					</div>
 					<div class="barra-centro">
 						<div class="centro-icones"> 
@@ -95,7 +93,6 @@
 						<div class="perfil-imagem">
 							<img> <%-- Imagem em base 64--%>
 						</div>
-						<p class="icone-pequeno"><%@include file="/assets/imagens/icone-fechar.svg"%></p>
 					</div>
 					<div class="barra-centro">
 						<div class="centro-icones"> 
