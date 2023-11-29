@@ -1386,8 +1386,8 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadesProfissionalDaInstituicao(id);
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
+		
 		request.setAttribute("especialidades", especialidades);
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("assets/paginas/instituicao/cadastrar-profissional.jsp");

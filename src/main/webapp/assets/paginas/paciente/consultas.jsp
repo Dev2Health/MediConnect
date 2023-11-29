@@ -47,7 +47,7 @@
                         <button class="botao-quadrado-p texto-enfase">Todas</button>
                     </div>
              
-                    <button id="agendar" class="botao-quadrado-p texto-enfase"><a href="./agendar-consulta"> Agendar <img src="../../imagens/icone-adicionar.svg"></a></button>
+                    <button id="agendar" class="botao-quadrado-p texto-enfase"><a href="./agendar-consulta"> Agendar <p class="icone-grande"><%@include file="/assets/imagens/icone-adicionar.svg"%></p></a></button>
             
                 </div>
             </div>

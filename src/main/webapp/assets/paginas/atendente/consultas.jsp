@@ -29,11 +29,11 @@
                         <div class="info-direita">
                             <div class="info-variavel">
                                 <div class="info-data">
-                                    <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
+                                	<p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
                                     <p class="texto" type="datetime"><fmt:formatDate pattern = 'dd/MM/yyyy' value = '${data}'/></p>
                                 </div>
                                 <div class="info-horario">
-                                    <img src="./assets/imagens/icone-horario.svg" alt="icone-calendario">
+                                	<p class="icone-grande"><%@include file="/assets/imagens/icone-horario.svg"%></p>
                                     <p class="texto"><c:out value='${consulta.horario}'/></p>
                                 </div>
                             </div>
