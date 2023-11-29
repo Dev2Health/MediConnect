@@ -36,29 +36,7 @@
             <div id="consulta" class="template-grid">
                 <div class="cards-agrupamento">
 
-                    <c:forEach var="consulta" items="${consultas}">
-                    <div class="card-consulta">
-                        <div class="dados-superior">
-                            <div>
-                                <p class="texto texto-roxo"> <c:out value="${consulta.especialidade}"/> </p>
-                                <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.endereco}"/> </p>
-                            </div>
-                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.profissional}"/> </p>
-                        </div>
-                        <div class="dados-inferior">
-                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.data}"/> </p> <!-- Fazer o parse da data aqui -->
-                            <div class="status-consulta">
-                                <p class="texto-pequeno texto-claro">Confirmada</p>
-                                <!-- 
-                                    Verificar como será feito esses elementos, já que a cor muda conforme a informação (JSP traz o texto e Javascript modifica o estilo)
-                                    .dados-inferior .status-consulta {
-                                        background-color: var(--);
-                                    }
-                                -->
-                            </div>
-                        </div>
-                    </div>
-					</c:forEach>
+                    
                 </div>
             </div>
         </section>

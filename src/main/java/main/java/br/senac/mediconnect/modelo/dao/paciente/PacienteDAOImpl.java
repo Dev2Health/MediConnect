@@ -214,7 +214,7 @@ public class PacienteDAOImpl implements PacienteDAO {
 			CriteriaQuery<Paciente> criteria = construtor.createQuery(Paciente.class);
 			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
 
-			raizPaciente.fetch(Paciente_.consultas, JoinType.LEFT);
+			criteria.select(raizPaciente);
 
 			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), idPaciente));
 
@@ -239,6 +239,48 @@ public class PacienteDAOImpl implements PacienteDAO {
 
 		return paciente;
 
+	}
+	@Override
+	public Paciente recuperarPacientePorIdComConsultas(Integer idPaciente) {
+		
+		Session sessao = null;
+		Paciente paciente = null;
+		
+		try {
+			
+			sessao = fac.ConectFac().openSession();
+			sessao.beginTransaction();
+			
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			
+			CriteriaQuery<Paciente> criteria = construtor.createQuery(Paciente.class);
+			Root<Paciente> raizPaciente = criteria.from(Paciente.class);
+			
+			raizPaciente.fetch(Paciente_.consultas, JoinType.LEFT);
+			
+			criteria.where(construtor.equal(raizPaciente.get(Paciente_.ID), idPaciente));
+			
+			paciente = sessao.createQuery(criteria).getSingleResult();
+			
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			
+			sqlException.printStackTrace();
+			
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+			
+		} finally {
+			
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		
+		return paciente;
+		
 	}
 
 	public List<Paciente> recuperarPacientesComConsultaNaInstituicaoDoAtendente(Integer idAtendente) {

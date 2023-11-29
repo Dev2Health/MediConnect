@@ -10,28 +10,30 @@
 <div>
         <p>Consulta - <c:out value="${consulta.id}" /></p>
         <div>
-            <img src="././images/icone-calendario.svg" alt="icone-calendario">
+            <p><%@include file="/assets/imagens/icone-calendario.svg"%></p>
             <fmt:parseDate value="${consulta.data}" type="date"
             pattern="yyyy-MM-dd" var="parsedDate" />
             <fmt:formatDate value="${parsedDate}" type="date"
             pattern="dd/MM/yyyy" var="data" />
-            <p class="text" type="date"><c:out value="${data}" /></p>
+            <p class="text" type="date">Data: <c:out value="${data}" /></p>
         </div>
         <div>
-            <img src="././images/icone-relogio.svg" alt="icone-horario">
-            <p><c:out value="${consulta.horario}" /></p>
+            <p><%@include file="/assets/imagens/icone-horario.svg"%></p>
+            <p>Horário: <c:out value="${consulta.horario}" /></p>
         </div>
         <div>
-            <img src="././images/icone-especialidade.svg" alt="icone-especialidade">
-			<p><c:out value="${especialidade.nome}" /></p>
+            <p><%@include file="/assets/imagens/icone-especialidade.svg"%></p>
+			<p>Especialidade: <c:out value="${especialidade.nome}" /></p>
         </div>
-            <img src="././images/icone-instituicao.svg" alt="icone-instituicao">
-			<p><c:out value="${instituicao.nomeFantasia}" /></p>
+            <p><%@include file="/assets/imagens/icone-instituicao.svg"%></p>
+			<p>Instituição: <c:out value="${instituicao.nomeFantasia}" /></p>
         <div>
-            <img src="././images/icone-profissional.svg" alt="icone-profissional">
-			<p><c:out value="${profissional.nome}" /> <c:out value="${profissional.sobrenome}" /></p>
+            <p><%@include file="/assets/imagens/icone-profissional.svg"%></p>
+			<p>Profissional: <c:out value="${profissional.nome}" /> <c:out value="${profissional.sobrenome}" /></p>
         </div>
+        <button onclick="fecharModal(${consulta.id})" class="btn-square-sm text-emphasis link-light"><p><%@include file="../../imagens/icone-fechar.svg"%></p></button>
     </div>
 
+    <script><%@include file="../../scripts/modal-consulta.js"%></script>
 	</body>
 </html>
