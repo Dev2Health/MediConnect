@@ -29,10 +29,13 @@
         </section>
         <section id="atendentes">
             <div class="template-grid titulo-sessao">
-                <h2 class="titulo-especial">Atendentes <span>recentes</span></h2>
+                <h2 class="titulo-especial">Atendentes Recentes</h2>
             </div>
             <div id="atendente" class="template-grid">
                 <div class="cards-agrupamento">
+                	<c:if test = "${empty atendentes}">
+                	<p class="subtitulo-especial">Não há atendentes nessa instituição</p>
+                	</c:if>
                     <c:forEach var="atendente" items="${atendentes}">
                     <div class="card-entidade">
                         <div class="card-superior">
@@ -136,5 +139,6 @@
         </section>
     </main>
     <%@include file="../../componentes/rodape/rodape.jsp"%>
+    <script><%@include file="../../scripts/modal-lateral.js"%></script>
 </body>
 </html>

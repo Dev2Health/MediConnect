@@ -127,6 +127,7 @@
                 <a href="./home"> <img src="../../imagens/logo.svg" alt="logo-mediconnect"> </a>
     
   </c:when>
+    </c:choose>
   
         <nav class="navegacao-filtro">
             <div class="filtro">
@@ -139,6 +140,5 @@
             </div>
             <button class="botao-quadrado-g texto">Filtrar <img src="./assets/imagens/icone-filtro.svg"></button>
         </nav>
-    </c:choose>
     </header>
     
