@@ -10,25 +10,6 @@ main {
     margin: 50px 0 25px 0;
 }
 
-/* Menu */
-
-#cabecalho {
-    align-items: center;
-    height: 140px;
-}
-
-.barra-navegacao {
-    grid-column: 2 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 80px;
-}
-
-.barra-navegacao img {
-    width: 50px;
-}
-
 /* Formulário */
 
 .formulario-input {

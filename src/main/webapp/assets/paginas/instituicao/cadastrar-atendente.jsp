@@ -11,13 +11,13 @@
     <style><%@include file="../../estilos/instituicao-cadastrar-atendente.css"%></style>
 </head>
 <body>
-   <%@include file="../../componentes/cabecalhos/logado.jsp"%> 
+   <%@include file="../../componentes/cabecalhos/voltar.jsp"%> 
     <main>
         <form class="template-grid" action="inserir-atendente" method="post">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-paciente.svg" alt="icone-pessoa">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-paciente.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="nome" class="texto">Nome</label>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-paciente.svg" alt="icone-pessoa">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-paciente.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="sobrenome" class="texto">Sobrenome</label>
@@ -35,80 +35,77 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-ctps.svg" alt="icone-ctps">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-cpf.svg"%></p>
+                    </div>
+                    <div class="input-item">
+                        <label for="email" class="texto">CPF</label>
+                        <input class="texto-enfase" type="text" name="cpf" id="a.cpf" placeholder="XXX.XXX.XXX-XX" maxlength="14" required></input>
+                    </div>
+                    <div class="input-elemento">
+                        <p class="icone-pequeno"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
+                    </div>
+                </div>
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-ctps.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="ctps" class="texto">CTPS</label>
-                        <input class="texto-enfase" type="text" name="ctps" id="i.ctps" placeholder="XXX.XXX.XXX-XX" maxlength="11"></input>
+                        <input class="texto-enfase" type="text" name="ctps" id="i.ctps" placeholder="XXX.XXX.XXX-XX" maxlength="14"></input>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                        <p class="icone-pequeno"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
-
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-calendario.svg" alt="icone-numero-cadastro">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
                     </div>
                     <div class="input-item">
-                        <label for="cadastro" class="texto">Número de Cadastro</label>
-                        <input class="texto-enfase" type="number" name="cadastro" id="i.cadastro" placeholder="XXXXXX">
-                        <!-- Para o JavaScript, colocar o número máximo possível como 50. Talvez, precisará ser advindo do banco e mostrado com 'readonly' -->
+                        <label for="email" class="texto">Data</label>
+                        <input class="texto-enfase" type="date" name="data" id="a.data" required></input>
                     </div>
                 </div>
             </div>
             <div class="formulario-direita">
                 <div id="posicao-foto">
                     <div class="perfil-foto">
-                        <img src="./assets/imagens/icone-camera.svg" alt="icone-camera">
+                        <p class="texto-pequeno texto-azul">Adicionar Foto</p>
+                        <%-- Temos que dar a opção de upload de foto aqui dentro, provavelmente --%>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-numeros.svg"%></p>
+                    </div>
+                    <div class="input-item">
+                        <label for="cadastro" class="texto">Número de Cadastro</label>
+                        <input class="texto-enfase" type="number" name="cadastro" id="i.cadastro" placeholder="XXXXXX">
+                        <!-- Precisará advir do banco e ser mostrado com 'readonly' -->
+                    </div>
+                </div>
+                <div class="formulario-input">
+                    <div class="input-icone">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-email.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">E-mail</label>
                         <input class="texto-enfase" type="email" name="email" id="i.email" placeholder="seu.email@gmail.com" maxlength="100" required></input>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                        <p class="icone-pequeno"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
-                    </div>
-                    <div class="input-item">
-                        <label for="email" class="texto">CPF</label>
-                        <input class="texto-enfase" type="text" name="cpf" id="a.cpf" required></input>
-                    </div>
-                    <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
-                    </div>
-                </div>
-                <div class="formulario-input">
-                    <div class="input-icone">
-                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-senha.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">Senha</label>
-                        <input class="texto-enfase" type="password" name="senha" id="a.senha" required></input>
+                        <input class="texto-enfase" type="password" name="senha" id="a.senha" placeholder="Senha" maxlength="100" required></input>
                     </div>
                     <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
-                    </div>
-                </div>
-                <div class="formulario-input">
-                    <div class="input-icone">
-                        <img src="./assets/imagens/icone-email.svg" alt="icone-email">
-                    </div>
-                    <div class="input-item">
-                        <label for="email" class="texto">Data</label>
-                        <input class="texto-enfase" type="date" name="data" id="a.data" required></input>
-                    </div>
-                    <div class="input-elemento">
-                        <img src="./assets/imagens/icone-nao-verificado.svg">
+                        <p class="icone-pequeno"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-rodape">

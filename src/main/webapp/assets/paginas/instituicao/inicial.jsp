@@ -15,21 +15,19 @@
     <main>
         <section id="inicio" class="template-grid">
             <div class="conteudo-esquerda">
-                <img src="./assets/imagens/ilustracao-instituicao.svg" alt="ilustracao-instituicao" class="ilustracao">
+                <p class="ilustracao"><%@include file="/assets/imagens/ilustracao-instituicao.svg"%></p>
             </div>
             <div class="conteudo-direita">
                 <div class="inicial-textos">
                     <h1 class="titulo-especial">Boas-vindas!</h1>
                     <h2 class="subtitulo-especial texto-azul"><c:out value="${instituicao.nomeFantasia}"/></h2>
                 </div>
-                <div class="botao-inferior">
-                    <button class="botao-circular-g texto"><a href="./atendentes-instituicao" class="texto-claro">Ver Atendentes</a></button>
-                </div>
+                <button class="botao-circular-g texto"><a href="./atendentes-instituicao" class="texto-claro">Ver Atendentes</a></button>
             </div>
         </section>
         <section id="atendentes">
             <div class="template-grid titulo-sessao">
-                <h2 class="titulo-especial">Atendentes <span>recentes</span></h2>
+                <h2 class="titulo-especial">Atendentes</h2>
             </div>
             <div id="atendente" class="template-grid">
                 <div class="cards-agrupamento">
@@ -66,75 +64,30 @@
         <section id="especialidades">
             <div class="template-grid titulo-sessao">
                 <h2 class="titulo-especial">Especialidades</h2>
-                <h3 class="subtitulo-especial">Quantidade de profissionais</h3>
             </div>
             <div id="especialidade" class="template-grid">
                 <div class="label-agrupamento">
+                <c:forEach var="especialidade" items="${especialidades}">
     
                     <div class="label-especialidade">
                         <div class="label-titulo">
-                            <p class="texto">Cardiologia</p>
+                            <p class="texto"><c:out value="${especialidade.nome}"/></p>
                         </div>
                         <div class="label-profissionais">
                             <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
                             <div class="quantidade">
                                 <p class="texto-enfase">8</p>
+                                <%-- Tem que retornar a quantidade de profissionais da especialidade --%>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="label-especialidade">
-                        <div class="label-titulo">
-                            <p class="texto">Dermatologia</p>
-                        </div>
-                        <div class="label-profissionais">
-                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
-                            <div class="quantidade">
-                                <p class="texto-enfase">4</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="label-especialidade">
-                        <div class="label-titulo">
-                            <p class="texto">Ortopedia</p>
-                        </div>
-                        <div class="label-profissionais">
-                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
-                            <div class="quantidade">
-                                <p class="texto-enfase">2</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="label-especialidade">
-                        <div class="label-titulo">
-                            <p class="texto">Oftalmologia</p>
-                        </div>
-                        <div class="label-profissionais">
-                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
-                            <div class="quantidade">
-                                <p class="texto-enfase">6</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="label-especialidade">
-                        <div class="label-titulo">
-                            <p class="texto">Radiologia</p>
-                        </div>
-                        <div class="label-profissionais">
-                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
-                            <div class="quantidade">
-                                <p class="texto-enfase">5</p>
-                            </div>
-                        </div>
-                    </div>
-    
+                </c:forEach>
                 </div>
             </div>
         </section>
     </main>
     <%@include file="../../componentes/rodape/rodape.jsp"%>
+    <script><%@include file="../../scripts/modal-lateral.js"%></script>
 </body>
 </html>

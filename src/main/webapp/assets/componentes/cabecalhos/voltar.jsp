@@ -7,6 +7,6 @@
         	<p class="icone-grande"><%@include file="/assets/imagens/icone-voltar.svg"%></p>
             <a href="javascript:history.back()" class="texto texto-escuro">Voltar</a>
         </nav>
-        <p class="logo"><a href="./home"><%@include file="/assets/imagens/logo-legendado.svg"%></a></p>
+        <a href="./home"><p class="logo"><%@include file="/assets/imagens/logo-legendado.svg"%></p></a>
 	</div>
 </header>
