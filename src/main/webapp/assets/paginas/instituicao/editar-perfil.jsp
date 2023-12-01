@@ -118,7 +118,7 @@
                 <div id="confirmar-email" class="template-grid">
                     <div class="email-superior">
                         <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
-                        <p class="texto">E-mail Atual: value="<c:out value='${instituicao.email}'/>"</p> <!-- Pegar o email atual da instituição com o jsp -->
+                        <p class="texto">E-mail Atual: <c:out value='${instituicao.email}'/></p> <!-- Pegar o email atual da instituição com o jsp -->
                     </div>
                     <div class="email-conteudo">
                         <div class="input-email">
