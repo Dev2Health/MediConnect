@@ -100,6 +100,7 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+
 		doGet(request, response);
 	}
 
@@ -107,7 +108,22 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		HttpSession sessao = request.getSession();
 
+		if (sessao.getAttribute("usuario") instanceof Paciente) {
+			String tipoUsuario = "1";
+			request.setAttribute("tipoUsuario", tipoUsuario);
+		}
+
+		else if (sessao.getAttribute("usuario") instanceof Instituicao) {
+			String tipoUsuario = "2";
+			request.setAttribute("tipoUsuario", tipoUsuario);
+		}
+
+		else if (sessao.getAttribute("usuario") instanceof Atendente) {
+			String tipoUsuario = "3";
+			request.setAttribute("tipoUsuario", tipoUsuario);
+		}
 		String action = request.getServletPath();
 
 		try {
@@ -703,12 +719,11 @@ public class Servlet extends HttpServlet {
 			Integer id = usuario.getId();
 
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-			
+
 			request.setAttribute("instituicao", instituicao);
-			
+
 			List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 			request.setAttribute("atendentes", atendentes);
-
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
@@ -1007,9 +1022,9 @@ public class Servlet extends HttpServlet {
 		Integer id = usuario.getId();
 
 		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
-		
+
 		request.setAttribute("consultas", consultas);
-		
+
 		for (Consulta consulta : consultas) {
 			Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
 			EspecialidadeProfissional especialidade = especialidadeDAO
@@ -1023,7 +1038,7 @@ public class Servlet extends HttpServlet {
 			Integer idInstituicao = consulta.getInstituicao().getId();
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
 			request.setAttribute("instituicao", instituicao);
-	    }
+		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/consultas.jsp");
 		dispatcher.forward(request, response);
@@ -1065,8 +1080,7 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAgendarConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadesProfissionais();
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
 		request.setAttribute("especialidades", especialidades);
 		List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaude();
 		request.setAttribute("profissionais", profissionais);
@@ -1259,7 +1273,9 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaAtendentesInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = 3;
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Instituicao) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 
@@ -1317,8 +1333,7 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
 
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadesProfissionais();
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
 
 		request.setAttribute("especialidades", especialidades);
 
@@ -1359,7 +1374,7 @@ public class Servlet extends HttpServlet {
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		
+
 		Integer id = usuario.getId();
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComEspecialidades(id);
 
@@ -1371,7 +1386,7 @@ public class Servlet extends HttpServlet {
 		especialidade = new EspecialidadeProfissional(nome);
 
 		especialidadeDAO.inserirEspecialidadeProfissionalDaInstituicao(especialidade);
-		
+
 		especialidadeInstituicao = new EspecialidadeInstituicao(especialidade, instituicao);
 
 		instituicao.adicionarEspecialidadeProfissional(especialidade);

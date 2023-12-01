@@ -124,3 +124,4 @@
 		</c:choose>
 	</div>
 </header>
+<script><%@include file="../../scripts/modal-lateral.js"%></script>
