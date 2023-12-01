@@ -23,6 +23,7 @@
             </div>
         </div>
         <div id="atendente" class="template-grid">
+        <c:forEach var="atendente" items="${atendentes}">
 
 			<div class="card-horizontal">
                 <p class="texto-enfase"><c:out value='${atendente.id}' /> <c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
@@ -35,9 +36,9 @@
                 </div>
             </div>
             
+        </c:forEach>
         </div>
     </main>
 	<%@include file="../../componentes/rodape/rodape.jsp"%>
-	<script><%@include file="../../scripts/modal-lateral.js"%></script>
 </body>
 </html>
