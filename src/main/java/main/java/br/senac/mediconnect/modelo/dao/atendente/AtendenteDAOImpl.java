@@ -206,14 +206,11 @@ public class AtendenteDAOImpl implements AtendenteDAO {
 			sessao.beginTransaction();
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+            CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
+            Root<Atendente> raizAtendente = criteria.from(Atendente.class);
 
-			CriteriaQuery<Atendente> criteria = construtor.createQuery(Atendente.class);
-			Root<Atendente> raizAtendente = criteria.from(Atendente.class);
-			Root<Instituicao> raizInstituicao = criteria.from(Instituicao.class);
-
-			criteria.select(raizAtendente);
-			
-			criteria.where(construtor.equal(raizInstituicao.get(Instituicao_.ID), idInstituicao));
+            criteria.select(raizAtendente);
+            criteria.where(construtor.equal(raizAtendente.get("instituicao").get("id"), idInstituicao));
 
 			atendentes = sessao.createQuery(criteria).getResultList();
 

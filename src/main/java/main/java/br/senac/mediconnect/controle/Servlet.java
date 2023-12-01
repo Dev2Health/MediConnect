@@ -703,8 +703,12 @@ public class Servlet extends HttpServlet {
 			Integer id = usuario.getId();
 
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
-
+			
 			request.setAttribute("instituicao", instituicao);
+			
+			List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
+			request.setAttribute("atendentes", atendentes);
+
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
@@ -1281,7 +1285,7 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 
 		HttpSession sessao = request.getSession();
-		Usuario usuario = (Paciente) sessao.getAttribute("usuario");
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
 
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
@@ -1301,7 +1305,7 @@ public class Servlet extends HttpServlet {
 
 		atendenteDAO.inserirAtendente(atendente);
 
-		response.sendRedirect("perfil-atendente");
+		response.sendRedirect("home");
 
 	}
 

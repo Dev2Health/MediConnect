@@ -122,19 +122,21 @@
 				
 			</c:when>
 		</c:choose>
-
-		<nav class="navegacao-filtro">
-           <div class="filtro">
-               <div class="input-item">
-                   <input class="texto-enfase" type="texto" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
-               </div>
-               <div class="filtro-icone">
-                    <p class="icone-pequeno"><%@include file="/assets/imagens/icone-lupa.svg"%></p>
-               </div>
-           </div>
-           <button class="botao-quadrado-m texto texto-claro"> Filtrar <p class="icone-pequeno"><%@include file="/assets/imagens/icone-filtro.svg"%></p></button>
-       	</nav>
-       
-       
-	</div>
+            </div>
+                <a href="./home"> <img src="../../imagens/logo.svg" alt="logo-mediconnect"> </a>
+    
+  </c:when>
+    </c:choose>
+  
+        <nav class="navegacao-filtro">
+            <div class="filtro">
+                <div class="input-item">
+                    <input class="texto-enfase" type="texto" id="pesquisar" name="pesquisar" placeholder="Pesquisar">
+                </div>
+                <div class="filtro-icone">
+                    <img src="./assets/imagens/icone-lupa.svg" alt="icone-pesquisar">
+                </div>
+            </div>
+            <button class="botao-quadrado-g texto">Filtrar <img src="./assets/imagens/icone-filtro.svg"></button>
+        </nav>
 </header>
