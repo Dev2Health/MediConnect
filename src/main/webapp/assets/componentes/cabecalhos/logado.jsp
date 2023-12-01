@@ -5,7 +5,7 @@
 	<div class="barra-navegacao">
 		<div class="icones-logado">
 			<p onclick="alternarModal()" class="logo"><%@include file="/assets/imagens/icone-menu.svg"%></p>
-			<p class="logo"><%@include file="/assets/imagens/logo.svg"%></p>
+			<a href="./home"><p class="logo"><%@include file="/assets/imagens/logo.svg"%></p></a>
 		</div>
 		<c:choose>
 	  		<c:when test="${tipoUsuario == 1}">

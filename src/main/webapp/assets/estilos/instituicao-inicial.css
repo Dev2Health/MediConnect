@@ -3,23 +3,14 @@ body {
     background-color: var(--fundo-instituicao);
 }
 
-/* Menu */
+/* Side-Bar */
 
-#cabecalho {
-    align-items: center;
-    height: 140px;
+.barra-superior .perfil-imagem {
+	border-color: var(--azul);
 }
 
-.barra-navegacao {
-    grid-column: 2 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 80px;
-}
-
-.barra-navegacao img {
-    width: 50px;
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-instituicao);
 }
 
 /* Configurações Gerais */
@@ -29,27 +20,21 @@ body {
     color: var(--azul-escuro);
 }
 
-.titulo-sessao h2 span {
-    color: var(--azul-claro);
-}
-
-.titulo-sessao h3 {
-    grid-column: 2 / 12;
-    color: var(--azul);
-}
-
-section {
-    align-items: flex-start;
+#atendentes, #especialidades {
     margin: 100px 0;
 }
 
 /* Inicio */
 
+#inicio {
+	margin-top: 50px;
+	align-items: center;
+}
+
 .conteudo-direita {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    gap: 100px;
 }
 
 .conteudo-direita h1 {
@@ -58,13 +43,6 @@ section {
 
 .conteudo-direita .botao-circular-g {
     background-color: var(--azul);
-}
-
-.botao-inferior {
-    margin-top: 100px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
 }
 
 /* Cards Atendentes */

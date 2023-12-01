@@ -19,30 +19,43 @@
                     <h1 class="titulo-especial">Boas-vindas!</h1>
                     <h2 class="subtitulo-especial texto-roxo"><c:out value="${paciente.nome}"/> <c:out value="${paciente.sobrenome}"/></h2>
                 </div>
-                <div class="botao-inferior">
-                	<form action="consultas" method="post">
-                    <button type="submit" class="botao-circular-g texto">Ver Consultas</button>
-                    </form>
-                </div>
+				<button class="botao-circular-g texto"><a href="./consultas" class="texto-claro">Ver consultas</a></button>
             </div>
             <div class="conteudo-direita">
-                <img src="../../imagens/ilustracao-paciente.svg" alt="ilustracao-paciente" class="ilustracao">
+                <p class="ilustracao"><%@include file="/assets/imagens/ilustracao-paciente.svg"%></p>
             </div>
         </section>
         <section id="consultas">
             <div class="template-grid titulo-sessao">
-                <h2 class="titulo-especial">Consultas <span>pendentes</span></h2>
+                <h2 class="titulo-especial">Consultas <span class="texto-roxo">Pendentes</span></h2>
             </div>
             <div id="consulta" class="template-grid">
                 <div class="cards-agrupamento">
-
+                <c:forEach var="consulta" items="${consultas}">
+                
+                    <div class="card-consulta">
+                        <div class="dados-superior">
+                            <div>
+                                <p class="texto texto-roxo"> <c:out value="${consulta.especialidade}"/> </p>
+                                <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.endereco}"/> </p>
+                            </div>
+                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.profissional}"/> </p>
+                        </div>
+                        <div class="dados-inferior">
+                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.data}"/> </p>
+                            <div class="status-consulta">
+                                <p class="texto-pequeno texto-claro"><c:out value="${consulta.status}"/></p>
+                            </div>
+                        </div>
+                    </div>
                     
+					</c:forEach>
                 </div>
             </div>
         </section>
-        <section id="Instituicoes">
+        <section id="instituicoes">
             <div class="template-grid titulo-sessao">
-                <h2 class="titulo-especial">Instituições <span>visitadas</span></h2>
+                <h2 class="titulo-especial">Instituições <span class="texto-roxo">Visitadas</span></h2>
             </div>
             <div id="instituicao" class="template-grid">
                 <div class="cards-agrupamento">
@@ -59,9 +72,7 @@
             </div>
         </section>
     </main>
-
     <%@include file="../../componentes/rodape/rodape.jsp"%>
-
-<script><%@include file="../../scripts/modal-lateral.js"%></script>
+	<script><%@include file="../../scripts/modal-lateral.js"%></script>
 </body>
 </html>
