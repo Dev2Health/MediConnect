@@ -41,6 +41,18 @@
                 <p class="ilustracao"><%@include file="/assets/imagens/ilustracao-notificacao.svg"%></p>
             </div>
         </section>
+        <section id="sessao-agendamento" class="template-grid">
+            <div class="conteudo-esquerda">
+                <p class="ilustracao"><%@include file="/assets/imagens/ilustracao-agendamento.svg"%></p>
+            </div>
+            <div class="conteudo-direita caixa-textual">
+            	<div>
+            		<h1 class="titulo-especial">Agendamento</h1>
+                	<h1 class="titulo-especial">Simples e Eficiente</h1>
+            	</div>
+                <p class="texto">Facilitamos o processo de marcação de consultas com nosso sistema intuitivo, permitindo que pacientes agendem suas consultas de forma rápida e eficiente, eliminando a necessidade de procedimentos burocráticos.</p>
+            </div>
+        </section>
     </main>
 	<%@include file="./assets/componentes/rodape/rodape.jsp"%>
 </body>
