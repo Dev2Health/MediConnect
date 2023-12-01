@@ -18,7 +18,7 @@
             <h1 class="titulo">Informe seus dados</h1>
         </div>
       
-        <form action="inserir-paciente"  method="post" autocomplete="on" id="conteudo-formulario" class="template-grid">
+        <form action="inserir-paciente"  method="post" autocomplete="on" id="conteudo-formulario" class="template-grid" enctype="multipart/form-data">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
@@ -38,12 +38,12 @@
                         <input class="texto-enfase" type="text" id="i.cpf" name="cpf" oninput="mascaraCpf()" placeholder="XXX.XXX.XXX-XX" maxlength="14" required>
                     </div>
                     <div class="input-elemento">
-                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
+                        <p class="icone-"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-email.svg"%></p>
+                        <p class="icone-"><%@include file="/assets/imagens/icone-email.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">E-mail</label>
@@ -104,6 +104,10 @@
                     <div class="input-item">
                         <label for="confirmar-senha" class="texto">Confirmar Senha</label>
                         <input class="texto-enfase" type="password" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" placeholder="*********" maxlength="100" required>
+                    </div>
+                    <div class="input-item">
+                        <label for="imagem" class="texto">Foto de Perfil</label>
+                        <input type="file" name="imagem" accept="image/*">
                     </div>
                     <div class="input-elemento">
                         <p class="icone-imagem" id="btn-password" onclick="showPassword()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>

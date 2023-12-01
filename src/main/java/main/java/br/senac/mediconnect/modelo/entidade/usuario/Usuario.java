@@ -48,7 +48,7 @@ public abstract class Usuario implements Serializable {
 	
 	@Lob
 	@Column(name="foto_perfil_usuario", nullable = true, unique = false)
-	private byte[] fotoPerfil;
+	private String urlFoto;
 	
 	// CONSTRUTOR
 	
@@ -75,21 +75,21 @@ public abstract class Usuario implements Serializable {
 		setEhAtivo(ehAtivo);
 	}
 	
-	public Usuario (Integer id, String email, String senha, boolean ehAtivo,  byte[] fotoPerfil) {
+	public Usuario (Integer id, String email, String senha, boolean ehAtivo, String urlFoto) {
 		super();
 		setId(id);
 		setEmail(email);
 		setSenha(senha);
 		setEhAtivo(ehAtivo);
-		setFotoPerfil(fotoPerfil);
+		setFotoPerfil(urlFoto);
 	}
 	
-	public Usuario (String email, String senha, boolean ehAtivo,  byte[] fotoPerfil) {
+	public Usuario (String email, String senha, boolean ehAtivo,  String urlFoto) {
 		super();
 		setEmail(email);
 		setSenha(senha);
 		setEhAtivo(ehAtivo);
-		setFotoPerfil(fotoPerfil);
+		setFotoPerfil(urlFoto);
 	}
 	
 	// MÉTODOS DE ACESSO
@@ -137,20 +137,17 @@ public abstract class Usuario implements Serializable {
 	}
 	
 	// Imagem
-	public byte[] getfotoPerfil() {
-		return getFotoPerfil();
+	
+	public void setFotoPerfil(String urlFoto) {
+		this.urlFoto = urlFoto;
 	}
 	
-	public void setFotoPerfil(byte[] fotoPerfil) {
-		this.fotoPerfil = fotoPerfil;
-	}
-	
-	public String urlFoto() {
-		String urlFoto =("data:image/jpeg;base64," + Base64.getEncoder().encodeToString(this.getFotoPerfil()));
-		return urlFoto;
-	}
+//	public String urlFoto() {
+//		String urlFoto =(Base64.getEncoder().encodeToString(this.getFotoPerfil()));
+//		return urlFoto;
+//	}
 
-	public byte[] getFotoPerfil() {
-		return fotoPerfil;
+	public String urlFoto() {
+		return urlFoto;
 	}
 }

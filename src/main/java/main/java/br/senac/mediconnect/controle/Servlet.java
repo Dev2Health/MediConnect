@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import main.java.br.senac.mediconnect.controle.util.ConversorImagem;
 import main.java.br.senac.mediconnect.modelo.dao.atendente.AtendenteDAO;
@@ -48,6 +49,7 @@ import main.java.br.senac.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.br.senac.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicao;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
+import main.java.br.senac.mediconnect.modelo.entidade.foto.Foto;
 import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.br.senac.mediconnect.modelo.entidade.notificacao.Notificacao;
 import main.java.br.senac.mediconnect.modelo.entidade.paciente.Paciente;
@@ -684,13 +686,14 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession sessao = request.getSession();
-
+		
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
 			String tipoUsuario = "1";
 			request.setAttribute("tipoUsuario", tipoUsuario);
 			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 			Integer id = usuario.getId();
 
+			request.getSession().setAttribute("urlFoto", usuario.urlFoto());
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 
 			request.setAttribute("paciente", paciente);
@@ -705,6 +708,7 @@ public class Servlet extends HttpServlet {
 			request.setAttribute("conquistas", conquistas);
 			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
 			request.setAttribute("instituicoes", instituicoes);
+
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/inicial.jsp");
 			dispatcher.forward(request, response);
@@ -859,8 +863,27 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
+        Part parteImagem = request.getPart("imagem");
 
-		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone);
+        String nomeArquivo = null; 
+        for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+            if (content.trim().startsWith("filename")) {
+            	nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+            }
+        }
+
+        String extensao = null;
+        int pontoIndex = nomeArquivo.lastIndexOf('.');
+        if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+            extensao = nomeArquivo.substring(pontoIndex + 1);
+        }
+
+        byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+
+        String urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+
+
+		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, urlFoto);
 
 		pacienteDAO.inserirPaciente(paciente);
 		response.sendRedirect("login");

@@ -28,17 +28,17 @@ public abstract class Pessoa extends Usuario{
 		super(id, email, senha, ehAtivo);
 	}
 
-	public Pessoa(Integer id, String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf, byte[] fotoPerfil) {
+	public Pessoa(Integer id, String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf, String urlFoto) {
 
-		super(id, email, senha, ehAtivo, fotoPerfil);
+		super(id, email, senha, ehAtivo, urlFoto);
 		setNome(nome);
 		setSobrenome(sobrenome);
 		setCpf(cpf);
 	}
 	
-	public Pessoa(String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf, byte[] fotoPerfil) {
+	public Pessoa(String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf, String urlFoto) {
 
-		super(email, senha, ehAtivo, fotoPerfil);
+		super(email, senha, ehAtivo, urlFoto);
 		setNome(nome);
 		setSobrenome(sobrenome);
 		setCpf(cpf);
