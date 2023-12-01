@@ -48,7 +48,7 @@
                         <input class="texto-enfase" type="password" id="i.senha" name="senha" oninput="mascaraSenha()" placeholder="********" maxlength="100" required>
                     </div>
                     <div class="input-elemento">
-                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
+                        <p class="icone-imagem icone-senha"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
                 </div>
             </div>
@@ -83,11 +83,7 @@
                         <input class="texto-enfase" type="password" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" maxlength="100" placeholder="********">
                     </div>
                     <div class="input-elemento">
-                        <p class="icone-imagem"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
-                    </div>
-                    <div class="input-item">
-                        <label for="imagem" class="texto">Foto de Perfil</label>
-                        <input type="file" name="imagem" accept="image/*">
+                        <p class="icone-imagem icone-senha"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-rodape">

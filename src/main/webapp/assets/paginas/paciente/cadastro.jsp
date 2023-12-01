@@ -108,10 +108,6 @@
                     <div class="input-elemento">
                         <p class="icone-imagem" id="btn-password" onclick="showPassword()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
-                    <div class="input-item">
-                        <label for="imagem" class="texto">Foto de Perfil</label>
-                        <input type="file" name="imagem" accept="image/*">
-                    </div>
                 </div>
                 <div class="formulario-rodape">
                     <button type="submit" class="botao-circular-p texto-enfase texto-claro">Confirmar</button>

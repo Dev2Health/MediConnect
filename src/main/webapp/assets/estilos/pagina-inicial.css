@@ -34,7 +34,7 @@ body {
 
 /* Sessão - Gamificação */
 
-#sessao-gamificacao {
+#sessao-gamificacao, #sessao-agendamento {
     color: var(--fundo-claro);
     background-color: var(--roxo);
 }
