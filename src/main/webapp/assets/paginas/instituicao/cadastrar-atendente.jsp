@@ -21,7 +21,7 @@
                     </div>
                     <div class="input-item">
                         <label for="nome" class="texto">Nome</label>
-                        <input class="texto-enfase" type="text" name="nome" id="i.nome" placeholder="Primeiro Nome" maxlength="60" required>
+                        <input class="texto-enfase" type="text" name="nome" id="i.nome" placeholder="Nome" maxlength="60" required>
                     </div>
                 </div>
                 <div class="formulario-input">

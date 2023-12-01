@@ -1,14 +1,11 @@
-<%@ page isELIgnored="false" language="java"
-	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <header class="template-grid" id="cabecalho">
 	<div class="barra-navegacao">
 		<div class="icones-logado">
-			<p onclick="alternarModal()" class="logo"><%@include
-					file="/assets/imagens/icone-menu.svg"%></p>
-			<a href="./home"><p class="logo"><%@include
-						file="/assets/imagens/logo.svg"%></p></a>
+			<p onclick="alternarModal()" class="logo"><%@include file="/assets/imagens/icone-menu.svg"%></p>
+			<a href="./home"><p class="logo"><%@include file="/assets/imagens/logo.svg"%></p></a>
 		</div>
 		<c:choose>
 			<c:when test="${tipoUsuario == 1}">
@@ -143,23 +140,19 @@
 
 			</c:when>
 		</c:choose>
+		
+		<nav class="navegacao-filtro">
+           <div class="filtro">
+               <div class="input-item">
+                   <input class="texto-enfase" type="text" id="i.pesquisar" name="pesquisar" placeholder="Pesquisar">
+               </div>
+               <div class="filtro-icone">
+                    <p class="icone-pequeno"><%@include file="/assets/imagens/icone-lupa.svg"%></p>
+               </div>
+           </div>
+           <button class="botao-quadrado-m texto texto-claro"> Filtrar <p class="icone-pequeno"><%@include file="/assets/imagens/icone-filtro.svg"%></p></button>
+       	</nav>
+		
 	</div>
-	<a href="./home"> <img src="../../imagens/logo.svg"
-		alt="logo-mediconnect">
-	</a>
-	<nav class="navegacao-filtro">
-		<div class="filtro">
-			<div class="input-item">
-				<input class="texto-enfase" type="texto" id="pesquisar"
-					name="pesquisar" placeholder="Pesquisar">
-			</div>
-			<div class="filtro-icone">
-				<img src="./assets/imagens/icone-lupa.svg" alt="icone-pesquisar">
-			</div>
-		</div>
-		<button class="botao-quadrado-g texto">
-			Filtrar <img src="./assets/imagens/icone-filtro.svg">
-		</button>
-	</nav>
 </header>
 <script><%@include file="../../scripts/modal-lateral.js"%></script>

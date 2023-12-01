@@ -46,9 +46,10 @@
                         <button class="botao-quadrado-p texto-enfase" autofocus>Pendentes</button>
                         <button class="botao-quadrado-p texto-enfase">Todas</button>
                     </div>
-             
-                    <button id="agendar" class="botao-quadrado-p texto-enfase"><a href="./agendar-consulta"> Agendar <img src="../../imagens/icone-adicionar.svg"></a></button>
-            
+                    <button id="agendar" class="botao-quadrado-p texto-enfase">
+                    	<a href="./agendar-consulta" class="texto-claro">Agendar</a>
+                    	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-adicionar.svg"%></p>
+                    </button>
                 </div>
             </div>
             <c:forEach var="consulta" items="${consultas}">
@@ -87,9 +88,6 @@
                     
         	</section>
     </main>
-<%@include file="../../componentes/rodape/rodape.jsp"%>
-<script>    
-<%@include file="../../scripts/modal-consulta.js"%>
-</script>
+	<%@include file="../../componentes/rodape/rodape.jsp"%>
 </body>
 </html>

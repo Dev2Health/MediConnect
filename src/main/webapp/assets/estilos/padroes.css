@@ -259,6 +259,7 @@ html {
 
 .input-item {
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     width: 21vw;
 }
@@ -639,7 +640,7 @@ input[type=checkbox]:checked::before {
     cursor: pointer;
 }
 
-.input-item input {
+.filtro .input-item input {
     padding-left: 1.4vw;
 }
 

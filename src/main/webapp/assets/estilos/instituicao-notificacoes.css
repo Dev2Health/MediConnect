@@ -8,75 +8,38 @@ main {
     margin-top: 50px;
 }
 
-/* Menu */
+/* Side-Bar */
 
-#cabecalho {
-    width: 100vw;
-    align-items: center;
-    height: 140px;
+.barra-superior .perfil-imagem {
+	border-color: var(--azul);
 }
 
-[class*="navegacao-"], .filtro, .filtro-icone {
-    display: flex;
-    align-items: center;
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-instituicao);
 }
 
-.navegacao-barra {
-    grid-column: 2 / 4;
-    justify-content: flex-start;
-    gap: 80px;
-}
-
-.navegacao-barra img {
-    width: 50px;
-}
-
-.navegacao-filtro {
-    grid-column: 5 / 12;
-    justify-content: space-between;
-}
+/* Cabeçalho - Filtro */
 
 .filtro {
-    justify-content: space-between;
-    border: 3px solid var(--azul);
-    border-radius: 15px;
-    width: 30vw;
-    height: 55px;
+	border-color: var(--azul);
+}
+
+.filtro-icone {
+	background-color: var(--azul); 
 }
 
 .input-item input {
-    color: var(--azul);
-    padding-left: 1.4vw;
+	color: var(--azul);
 }
 
 .input-item input::placeholder {
     color: var(--azul-claro);
 }
 
-.filtro-icone {
-    height: 100%;
-    background-color: var(--azul);
-    border-radius: 0 10px 10px 0;
-    padding: 0 15px;
-    cursor: pointer;
-}
-
-.filtro-icone img {
-    height: 35px;
-}
-
 .navegacao-filtro button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    color: var(--fundo-instituicao);
-    background-color: var(--azul);
+	background-color: var(--azul);
 }
 
-.navegacao-filtro button img {
-    height: 35px;
-}
 
 /* Notificações */
 
@@ -104,20 +67,16 @@ main {
     gap: 50px;
 }
 
-.informacoes-consulta img {
-    width: 50px;
-}
-
 .informacoes-consulta [class*="informacao-"] {
     display: flex;
     gap: 45px;
 }
 
-.informacao-data img {
+.informacao-data .icone-grande {
     filter: var(--filtro-azul-escuro);
 }
 
-.informacao-horario img {
+.informacao-horario .icone-grande {
     filter: var(--filtro-azul);
 }
 
