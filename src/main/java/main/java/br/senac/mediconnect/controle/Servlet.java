@@ -812,24 +812,8 @@ public class Servlet extends HttpServlet {
 		boolean ehAtivo = true;
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		Part parteImagem = request.getPart("imagem");
-
-		String nomeArquivo = null;
-		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
-			if (content.trim().startsWith("filename")) {
-				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
-			}
-		}
-
-		String extensao = null;
-		int pontoIndex = nomeArquivo.lastIndexOf('.');
-		if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
-			extensao = nomeArquivo.substring(pontoIndex + 1);
-		}
-
-		byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
-
-		String urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		
+		String urlFoto = null;
 
 		instituicao = new Instituicao(cnpj, razaoSocial, nomeFantasia, email, senha, ehAtivo, urlFoto);
 
@@ -880,24 +864,8 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
-		Part parteImagem = request.getPart("imagem");
 
-		String nomeArquivo = null;
-		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
-			if (content.trim().startsWith("filename")) {
-				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
-			}
-		}
-
-		String extensao = null;
-		int pontoIndex = nomeArquivo.lastIndexOf('.');
-		if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
-			extensao = nomeArquivo.substring(pontoIndex + 1);
-		}
-
-		byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
-
-		String urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		String urlFoto = null;
 
 		paciente = new Paciente(email, senha, ehAtivo, nome, sobrenome, cpf, dataNascimento, telefone, urlFoto);
 
@@ -989,8 +957,10 @@ public class Servlet extends HttpServlet {
 
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
+			Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
 			request.setAttribute("instituicao", instituicao);
-
+			request.setAttribute("endereco", endereco);
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/editar-perfil.jsp");
 			dispatcher.forward(request, response);
 		}
@@ -1354,24 +1324,8 @@ public class Servlet extends HttpServlet {
 		String senha = request.getParameter("senha");
 		LocalDate dataCadastro = LocalDate.parse(request.getParameter("data"));
 		boolean ehAtivo = true;
-		Part parteImagem = request.getPart("imagem");
-
-		String nomeArquivo = null;
-		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
-			if (content.trim().startsWith("filename")) {
-				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
-			}
-		}
-
-		String extensao = null;
-		int pontoIndex = nomeArquivo.lastIndexOf('.');
-		if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
-			extensao = nomeArquivo.substring(pontoIndex + 1);
-		}
-
-		byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
-
-		String urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		
+		String urlFoto = null;
 
 		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, dataCadastro, instituicao, ctps,
 				urlFoto);
