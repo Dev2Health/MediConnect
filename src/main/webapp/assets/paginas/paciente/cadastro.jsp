@@ -105,12 +105,12 @@
                         <label for="confirmar-senha" class="texto">Confirmar Senha</label>
                         <input class="texto-enfase" type="password" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" placeholder="*********" maxlength="100" required>
                     </div>
+                    <div class="input-elemento">
+                        <p class="icone-imagem" id="btn-password" onclick="showPassword()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
+                    </div>
                     <div class="input-item">
                         <label for="imagem" class="texto">Foto de Perfil</label>
                         <input type="file" name="imagem" accept="image/*">
-                    </div>
-                    <div class="input-elemento">
-                        <p class="icone-imagem" id="btn-password" onclick="showPassword()"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                     </div>
                 </div>
                 <div class="formulario-rodape">
