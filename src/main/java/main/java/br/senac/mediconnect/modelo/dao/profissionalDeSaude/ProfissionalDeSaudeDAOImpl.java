@@ -147,10 +147,10 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 	}
 	
 	@Override
-	public ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer idInstituicao) {
+	public List<ProfissionalDeSaude> recuperarProfissionalPorIdInstituicao(Integer idInstituicao) {
 		
 		Session sessao = null;
-		ProfissionalDeSaude profissionalDeSaude = null;
+		List<ProfissionalDeSaude> profissionaisDeSaude = null;
 		
 		try {
 			
@@ -166,7 +166,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 			
 			criteria.where(construtor.equal(raizProfissionalDeSaude.get(ProfissionalDeSaude_.instituicao).get(Instituicao_.ID), idInstituicao));
 					 
-			profissionalDeSaude = sessao.createQuery(criteria).getSingleResult();
+			profissionaisDeSaude = sessao.createQuery(criteria).getResultList();
 			
 			sessao.getTransaction().commit();
 			
@@ -185,7 +185,7 @@ public class ProfissionalDeSaudeDAOImpl implements ProfissionalDeSaudeDAO {
 			}
 		}
 		
-		return profissionalDeSaude;
+		return profissionaisDeSaude;
 	}	
 	
 	@Override
