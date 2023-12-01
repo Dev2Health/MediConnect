@@ -70,11 +70,10 @@
             <div class="formulario-direita">
                 <div id="posicao-foto">
                     <div class="perfil-foto">
-                        <p class="texto-pequeno texto-azul">Adicionar Foto</p>
                         <div class="input-item">
-                        <label for="imagem" class="texto">Foto de Perfil</label>
-                        <input type="file" name="imagem" accept="image/*">
-                    </div>
+                        <label for="input-imagem"><p class="icone-grande"><%@include file="/assets/imagens/icone-camera.svg"%></p></label>
+                        <input type="file" id="input-imagem"name="imagem" accept="image/*" style="display: none">
+                    	</div>
                     </div>
                 </div>
                 <div class="formulario-input">

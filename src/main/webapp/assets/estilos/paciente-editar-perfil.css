@@ -191,3 +191,12 @@ input[type=checkbox]::before {
     background-color: var(--fundo-claro);
     border: 3px solid var(--roxo);
 }
+#posicao-foto .perfil-foto .input-item {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#posicao-foto .perfil-foto .input-item .icone-grande {
+	width: 80px;
+	filter: var(--filtro-azul);
+}
