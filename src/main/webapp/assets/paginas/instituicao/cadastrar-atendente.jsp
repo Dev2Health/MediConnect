@@ -13,7 +13,7 @@
 <body>
    <%@include file="../../componentes/cabecalhos/voltar.jsp"%> 
     <main>
-        <form class="template-grid" action="inserir-atendente" method="post">
+        <form class="template-grid" action="inserir-atendente" method="post" enctype="multipart/form-data">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
@@ -71,7 +71,10 @@
                 <div id="posicao-foto">
                     <div class="perfil-foto">
                         <p class="texto-pequeno texto-azul">Adicionar Foto</p>
-                        <%-- Temos que dar a opção de upload de foto aqui dentro, provavelmente --%>
+                        <div class="input-item">
+                        <label for="imagem" class="texto">Foto de Perfil</label>
+                        <input type="file" name="imagem" accept="image/*">
+                    </div>
                     </div>
                 </div>
                 <div class="formulario-input">

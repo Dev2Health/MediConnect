@@ -16,7 +16,7 @@
         <div class="template-grid">
             <h1 class="titulo">Informe os dados da instituição</h1>
         </div>
-        <form action="inserir-instituicao" method="post" id="conteudo-formulario" class="template-grid">
+        <form action="inserir-instituicao" method="post" id="conteudo-formulario" class="template-grid" enctype="multipart/form-data">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
@@ -84,6 +84,10 @@
                     </div>
                     <div class="input-elemento">
                         <p class="icone-imagem"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
+                    </div>
+                    <div class="input-item">
+                        <label for="imagem" class="texto">Foto de Perfil</label>
+                        <input type="file" name="imagem" accept="image/*">
                     </div>
                 </div>
                 <div class="formulario-rodape">

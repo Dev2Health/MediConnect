@@ -50,23 +50,23 @@ public class Atendente extends Pessoa implements Serializable {
 	public Atendente() {}
 
 	public Atendente(Integer id, String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps, byte[] fotoPerfil) {
-		super(id, email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
+			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps, String urlFoto) {
+		super(id, email, senha, ehAtivo, nome, sobrenome, cpf, urlFoto);
 		setDataCadastro(dataCadastro);
 		setInstituicao(instituicao);
 		setCtps(ctps);
 	}
 	
 	public Atendente( String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps, byte[] fotoPerfil) {
-		super(email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
+			int cadastro, LocalDate dataCadastro, Instituicao instituicao, String ctps, String urlFoto) {
+		super(email, senha, ehAtivo, nome, sobrenome, cpf, urlFoto);
 		setDataCadastro(dataCadastro);
 		setInstituicao(instituicao);
 		setCtps(ctps);
 	}
 	public Atendente( String email, String senha, boolean ehAtivo, String nome, String sobrenome, String cpf,
-			LocalDate dataCadastro, Instituicao instituicao, String ctps, byte[] fotoPerfil) {
-		super(email, senha, ehAtivo, nome, sobrenome, cpf, fotoPerfil);
+			LocalDate dataCadastro, Instituicao instituicao, String ctps, String urlFoto) {
+		super(email, senha, ehAtivo, nome, sobrenome, cpf, urlFoto);
 		setDataCadastro(dataCadastro);
 		setInstituicao(instituicao);
 		setCtps(ctps);
