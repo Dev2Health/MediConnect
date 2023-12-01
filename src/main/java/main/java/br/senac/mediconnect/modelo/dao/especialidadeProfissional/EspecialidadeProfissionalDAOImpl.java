@@ -118,7 +118,7 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 		Session sessao = null;
 		List<EspecialidadeProfissional> especialidadesProfissionais = null;
 		
-		try {
+		try {	
 			
 			sessao = fac.ConectFac().openSession();
 			sessao.beginTransaction();
@@ -126,16 +126,12 @@ public class EspecialidadeProfissionalDAOImpl implements EspecialidadeProfission
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
 			CriteriaQuery<EspecialidadeProfissional> criteria = construtor.createQuery(EspecialidadeProfissional.class);
-	        Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
-
-	        Join<EspecialidadeProfissional, EspecialidadeInstituicao> joinEspecialidadeInstituicao = raizEspecialidadeProfissional.join("especialidade_instituicao", JoinType.INNER);
-
+			Root<EspecialidadeProfissional> raizEspecialidadeProfissional = criteria.from(EspecialidadeProfissional.class);
+			
 	        criteria.select(raizEspecialidadeProfissional);
-	        criteria.where(
-	            construtor.and(
-	                construtor.equal(joinEspecialidadeInstituicao.get("usuario_id_usuario"), idInstituicao)
-	            )
-	        );
+	        
+	        criteria.where(construtor.equal(raizEspecialidadeProfissional.get(EspecialidadeProfissional_.ID), idInstituicao));
+	    
 			especialidadesProfissionais = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
