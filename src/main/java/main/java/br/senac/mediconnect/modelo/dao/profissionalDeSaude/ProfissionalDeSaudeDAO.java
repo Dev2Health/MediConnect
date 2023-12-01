@@ -10,7 +10,7 @@ public interface ProfissionalDeSaudeDAO {
 	void deletarProfissionalDeSaude(ProfissionalDeSaude ProfissionalDeSaude);
 	void atualizarProfissionalDeSaude(ProfissionalDeSaude ProfissionalDeSaude);
 	List<ProfissionalDeSaude> recuperarProfissionaisDeSaude();
-	ProfissionalDeSaude recuperarProfissionalPorIdInstituicao(Integer idInstituicao);
+	List<ProfissionalDeSaude> recuperarProfissionalPorIdInstituicao(Integer idInstituicao);
 	List<ProfissionalDeSaude> recuperarProfissionaisDeSaudePorEspecialidade(EspecialidadeProfissional especialidade);
 	ProfissionalDeSaude recuperarProfissionalPorId(Integer idProfissional);
 
