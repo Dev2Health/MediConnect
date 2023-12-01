@@ -16,8 +16,7 @@
 				<nav class="barra-lateral">
 					<div class="barra-superior">
 						<div class="perfil-imagem">
-							<img>
-							<%-- Imagem em base 64--%>
+							<img src="<c:out value='${urlFoto}'/>" alt="Foto de Perfil">
 						</div>
 					</div>
 					<div class="barra-centro">
@@ -65,8 +64,7 @@
 				<nav class="barra-lateral">
 					<div class="barra-superior">
 						<div class="perfil-imagem">
-							<img>
-							<%-- Imagem em base 64--%>
+							<img src="<c:out value='${urlFoto}'/>" alt="Foto de Perfil">
 						</div>
 					</div>
 					<div class="barra-centro">
@@ -114,7 +112,7 @@
 				<nav class="barra-lateral">
 					<div class="barra-superior">
 						<div class="perfil-imagem">
-							<img> <%-- Imagem em base 64--%>
+							<img src="<c:out value='${urlFoto}'/>" alt="Foto de Perfil">
 						</div>
 					</div>
 					<div class="barra-centro">
