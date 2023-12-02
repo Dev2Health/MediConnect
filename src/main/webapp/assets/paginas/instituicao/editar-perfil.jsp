@@ -15,7 +15,7 @@ include file="../../estilos/padroes.css"%></style><style><%@include file="../../
 <body>
 	<%@include file="../../componentes/cabecalhos/editar-perfil.jsp"%>
 	<main>
-		<form action="atualizar-instituicao" method="post">
+		<form action="atualizar-instituicao" method="post" enctype="multipart/form-data">
 			<section id="informacoes">
 				<div class="template-grid">
 					<div id="retorno-pesquisa">
@@ -148,7 +148,7 @@ include file="../../estilos/padroes.css"%></style><style><%@include file="../../
 				<div class="template-grid">
 					<div id="retorno-pesquisa">
 						<p class="texto">Alterar dados sensíveis</p>
-						<button class="botao-quadrado-p texto-enfase texto-claro" disabled>
+						<button class="botao-quadrado-p texto-enfase texto-claro">
 							Habilitar Edição<img src="./assets/imagens/icone-editar.svg">
 						</button>
 					</div>
@@ -173,7 +173,7 @@ include file="../../estilos/padroes.css"%></style><style><%@include file="../../
 								</div>
 								<input class="texto-enfase" type="email" id="i.email"
 									name="email" placeholder="novo.email@gmail.com" maxlength="100"
-									required>
+									>
 							</div>
 						</div>
 						<div class="email-validar">
@@ -197,7 +197,7 @@ include file="../../estilos/padroes.css"%></style><style><%@include file="../../
 								<label for="senha" class="texto">Nova Senha</label>
 								<div class="input-senha">
 									<input class="texto-enfase" type="password" id="i.senha"
-										name="senha" placeholder="********" maxlength="100" required>
+										name="senha" placeholder="********" maxlength="100">
 									<img src="./assets/imagens/icone-olho-fechado.svg"
 										id="botao-senha">
 								</div>
@@ -207,7 +207,7 @@ include file="../../estilos/padroes.css"%></style><style><%@include file="../../
 								<div class="input-senha">
 									<input class="texto-enfase" type="password" id="novasenha"
 										name="novasenha" placeholder="********" maxlength="100"
-										required> <img
+										> <img
 										src="./assets/imagens/icone-olho-fechado.svg"
 										id="botao-novasenha">
 								</div>
