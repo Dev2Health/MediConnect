@@ -297,9 +297,6 @@ public class Servlet extends HttpServlet {
 			case "/especialidades-instituicao":
 				mostrarTelaEspecialidadesInstituicao(request, response);
 				break;
-			case "/profissionais-instituicao":
-				mostrarTelaProfissionaisInstituicao(request, response);
-				break;
 
 			case "/cadastrar-especialidade":
 				mostrarTelaCadastrarEspecialidade(request, response);
@@ -1347,25 +1344,16 @@ public class Servlet extends HttpServlet {
 
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
 		request.setAttribute("especialidades", especialidades);
+		
+		for (EspecialidadeProfissional especialidade : especialidades) {
+			List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaudePorEspecialidade(especialidade);
+			request.setAttribute("profissionais", profissionais);
+		}
+		
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);
 
-	}
-	private void mostrarTelaProfissionaisInstituicao(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		HttpSession sessao = request.getSession();
-		
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		Integer id = usuario.getId();
-		
-		List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionalPorIdInstituicao(id);
-		request.setAttribute("profissionais", profissionais);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/profissionais.jsp");
-		dispatcher.forward(request, response);
-		
 	}
 
 	private void mostrarTelaEditarEspecialidade(HttpServletRequest request, HttpServletResponse response)
@@ -1471,7 +1459,7 @@ public class Servlet extends HttpServlet {
 		instituicao.adicionarProfissionalDeSaude(profissional);
 		instituicaoDAO.atualizarInstituicao(instituicao);
 
-		response.sendRedirect("profissionais-instituicao");
+		response.sendRedirect("especialidades-instituicao");
 
 	}
 

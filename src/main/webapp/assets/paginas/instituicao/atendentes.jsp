@@ -22,11 +22,14 @@
                 </button>
             </div>
         </div>
+        <c:if test = "${empty atendentes}">
+        	<%@include file="../../componentes/retorno-vazio.jsp"%>
+        </c:if>
         <div id="atendente" class="template-grid">
         <c:forEach var="atendente" items="${atendentes}">
 
 			<div class="card-horizontal">
-                <p class="texto-enfase"><c:out value='${atendente.id}' /> <c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
+                <p class="texto-enfase"><c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
                 <div class="info-direita">
                     <div class="info-variavel">
                         <p class="icone-pequeno"><%@include file="/assets/imagens/icone-deletar.svg"%></p>

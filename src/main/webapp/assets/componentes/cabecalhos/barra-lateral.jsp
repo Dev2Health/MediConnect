@@ -61,10 +61,6 @@
 							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-especialidade.svg"%></p>
 						</div>
 						<div class="centro-icones">
-							<a href="./profissionais-instituicao" class="texto texto-escuro">Profissionais</a>
-							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-profissional.svg"%></p>
-						</div>
-						<div class="centro-icones">
 							<a href="./atendentes-instituicao" class="texto texto-escuro">Atendentes</a>
 							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-atendente.svg"%></p>
 						</div>

@@ -6,76 +6,50 @@
     <title>Especialidades | MediConnect</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <style><%@include file="../../estilos/padroes.css"%></style>
+    <style><%@include file="../../estilos/instituicao-especialidades.css"%></style>
 </head>
 <body>
-    <header id="content-header" class="template-grid">
-        <nav class="nav-bar">
-            <img src="../../images/icone-menu.svg" alt="icone-menu">
-            <img src="../../images/logo.svg" alt="logo-mediconnect">
-        </nav>
-    </header>
+    <%@include file="../../componentes/cabecalhos/logado.jsp"%>
     <main>
-        <div id="pesquisa-retornar" class="template-grid">
+    	<div id="pesquisa-retornar" class="template-grid">
             <div id="retornar-especialidade">
-                <p class="text">Especialidades atendidas pela instituição</p>
-                <form action="cadastrar-especialidade" method="post">
-                <button type="submit" class="botao-quadrado-p texto-enfase">Adicionar <img src="../../images/icone-adicionar.svg"></button>
-                </form>
+                <p class="subtitulo texto-azul">Especialidades da Instituição</p>
+                <button class="botao-quadrado-p texto-enfase"> 
+                	<a href="./cadastrar-especialidade" class="texto-claro">Cadastrar</a>
+                	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-adicionar.svg"%></p>
+                </button>
             </div>
         </div>
-        <div id="especialidade" class="template-grid">
-
-            <c:forEach var="especialidade" items="${especialidades}">
-            <div class="card-especialidade">
-                <p class="texto-enfase"><c:out value='${especialidade.id}' /> <c:out value="${especialidade.nome}"/></p>
-                <div class="card-info">
-                    <div class="info-profissional">
-                        <img src="../../images/icone-profissional.svg" alt="icone-profissional">
-                        <p class="text">Mostrar profissionais</p>
-                    <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
-                	</div>
-        	    </div>
-	        </div>
+        <c:if test = "${empty especialidades}">
+        	<%@include file="../../componentes/retorno-vazio.jsp"%>
+        </c:if>
+        <div id="especialidades" class="template-grid">
+        <div class="agrupamento-especialidades">
+			<c:forEach var="especialidade" items="${especialidades}">
+            
+	            <div class="container-especialidade">
+		            <div class="especialidade-superior">
+		            	<h2 class="texto texto-claro"><c:out value="${especialidade.nome}"/></h2>
+		            	<div class="icones-especialidade">
+		            		<a href="./cadastrar-profissional"><p class="icone-grande"><%@include file="/assets/imagens/icone-adicionar.svg"%></p></a>
+		            		<p class="icone-grande"><%@include file="/assets/imagens/icone-editar.svg"%></p>
+		            	</div>
+		            </div>
+		            
+		            <div class="especialidade-profissionais">
+		            	<c:forEach var="profissional" items="${profissionais}">
+	            			<p class="texto"><c:out value="${profissional.nome}"/> <c:out value="${profissional.sobrenome}"/></p>
+	            		</c:forEach>
+		            </div>
+		            
+	            </div>
+                        
             </c:forEach>
         </div>
+        </div>        
     </main>
-    <footer>
-        <div class="template-grid" id="footer-links">
-            <div class="footer-mediconnect">
-                <p class="text">MediConnect</p>
-                <a href="../sobre-nos.html" class="text-no-emphasis link-light">Sobre nós</a>
-                <a href="../../../index.html" class="text-no-emphasis link-light">Página inicial</a>
-            </div>
-            <div class="footer-contact">
-                <p class="text">Atendimento</p>
-                <a href="#" class="text-no-emphasis link-light">Contato</a>
-                <a href="#" class="text-no-emphasis link-light">Termos de Uso</a>
-            </div>
-            <div class="footer-social">
-                <p class="text">Redes Sociais</p>
-                <div class="social-whatsapp">
-                    <img src="../../images/logo-whatsapp.svg">
-                    <a href="#" class="text-no-emphasis link-light">WhatsApp</a>
-                </div>
-                <div class="social-github">
-                    <img src="../../images/logo-github.svg">
-                    <a href="#" class="text-no-emphasis link-light">GitHub</a>
-                </div>
-                <div class="social-instagram">
-                    <img src="../../images/logo-instagram.svg">
-                    <a href="#" class="text-no-emphasis link-light">Instagram</a>
-                </div>
-            </div>
-        </div>
-        <div class="template-grid" id="footer-commercial">
-            <hr><br>
-            <div class="commercial-content">
-                <img src="../../images/logo-rodape.svg" alt="logo-mediconnect">
-                <p class="texto-pequeno">2023 &copy Todos os direitos reservados</p>
-            </div>
-        </div>
-    </footer>
+    <%@include file="../../componentes/rodape/rodape.jsp"%>
 </body>
 </html>

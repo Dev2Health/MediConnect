@@ -16,7 +16,7 @@
     <main>
         <section id="sessao-principal" class="template-grid">
             <div class="conteudo-esquerda caixa-textual">
-                <h1 class="titulo-especial"><span class="texto-azul">Medi</span>Connect</h1>
+                <h1 class="titulo-especial texto-roxo"><span class="texto-azul">Medi</span>Connect</h1>
                 <p class="texto">Utilizar nosso sistema traz vários <span class="texto-roxo">benefícios</span>. Além da <span class="texto-roxo">praticidade</span>, auxiliamos você com a <span class="texto-roxo">pontualidade</span> nas suas consultas. <span class="texto-roxo">Venha conferir!</span></p>
             </div>
             <div class="conteudo-direita">
@@ -34,7 +34,7 @@
         </section>
         <section id="sessao-notificacao" class="template-grid">
             <div class="conteudo-esquerda caixa-textual">
-                <h1 class="titulo-especial">Notificações <span class="texto-azul">Personalizadas</span></h1>
+                <h1 class="titulo-especial texto-roxo">Notificações <span class="texto-azul">Personalizadas</span></h1>
                 <p class="texto">Trabalhamos para que sua consulta não seja esquecida. Com base no seu histórico de comparecimento, montamos um plano de notificações exclusivos para você!</p>
             </div>
             <div class="conteudo-direita">
@@ -48,7 +48,7 @@
             <div class="conteudo-direita caixa-textual">
             	<div>
             		<h1 class="titulo-especial">Agendamento</h1>
-                	<h1 class="titulo-especial">Simples e Eficiente</h1>
+                	<h1 class="titulo-especial">Simples e Rápido</h1>
             	</div>
                 <p class="texto">Facilitamos o processo de marcação de consultas com nosso sistema intuitivo, permitindo que pacientes agendem suas consultas de forma rápida e eficiente, eliminando a necessidade de procedimentos burocráticos.</p>
             </div>
