@@ -19,40 +19,31 @@ body {
     align-items: center;
 }
 
-/* Sessão - Principal */
+/* Sessão - Principal e Notificações */
 
 #sessao-principal .titulo-especial {
-    text-transform: uppercase;
-    color: var(--roxo);
+	text-transform: uppercase;
 }
 
-#sessao-principal .conteudo-direita {
+#sessao-principal .conteudo-direita, #sessao-notificacao .conteudo-direita {
     grid-column: 8 / 12;
     display: flex;
     justify-content: flex-end;
 }
 
-/* Sessão - Gamificação */
+/* Sessão - Gamificação e Agendamento */
+
+#sessao-agendamento .conteudo-direita div h1:last-child {
+	width: 50vw;
+	/* Em telas 1920, está quebrando o texto */
+}
 
 #sessao-gamificacao, #sessao-agendamento {
     color: var(--fundo-claro);
     background-color: var(--roxo);
 }
 
-#sessao-gamificacao .conteudo-direita {
-    grid-column: 8 / 12;
+#sessao-gamificacao .conteudo-esquerda, #sessao-agendamento .conteudo-esquerda {
+    grid-column: 2 / 7;
     display: flex;
-    justify-content: flex-end;
-}
-
-/* Sessão - Notificações */
-
-#sessao-notificacao .titulo-especial {
-    color: var(--roxo);
-}
-
-#sessao-notificacao .conteudo-direita {
-    grid-column: 8 / 12;
-    display: flex;
-    justify-content: flex-end;
 }

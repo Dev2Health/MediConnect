@@ -40,6 +40,15 @@ main {
 	background-color: var(--azul);
 }
 
+/* Retorno Vazio */
+
+.retorno-vazio .ilustracao {
+	filter: var(--filtro-azul-claro);
+}
+
+.retorno-vazio {
+	color: var(--azul-claro);
+}
 
 /* Notificações */
 

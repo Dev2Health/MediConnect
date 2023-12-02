@@ -13,6 +13,9 @@
 <body>
     <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
     <main>
+    	<c:if test = "${empty especialidades}">
+        	<%@include file="../../componentes/retorno-vazio.jsp"%>
+       	</c:if>
         <div id="notificacoes" class="template-grid">
             <c:forEach var="notificacao" items="${notificacoes}">
             

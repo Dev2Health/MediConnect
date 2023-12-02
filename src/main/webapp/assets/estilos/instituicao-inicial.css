@@ -24,6 +24,16 @@ body {
     margin: 100px 0;
 }
 
+/* Retorno Vazio */
+
+.retorno-vazio .ilustracao {
+	filter: var(--filtro-azul-claro);
+}
+
+.retorno-vazio {
+	color: var(--azul-claro);
+}
+
 /* Inicio */
 
 #inicio {
@@ -69,6 +79,10 @@ body {
     flex-wrap: wrap;
     gap: 65px;
     margin-top: 100px;
+}
+
+.label-agrupamento .retorno-vazio {
+	margin-top: 0;
 }
 
 .label-especialidade {

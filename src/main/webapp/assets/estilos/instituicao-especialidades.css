@@ -39,9 +39,9 @@ main {
 	background-color: var(--azul);
 }
 
-/* Atendentes - Título */
+/* Especialidade - Título */
 
-#retornar-atendente {
+#retornar-especialidade {
     grid-column: 2 / 12;
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@ main {
     margin-bottom: 25px;
 }
 
-#retornar-atendente button {
+#retornar-especialidade button {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -66,20 +66,47 @@ main {
 	color: var(--azul-claro);
 }
 
-/* Atendente - Conteúdo */
+/* Especialidades - Conteúdo */
 
-#atendente {
+#especialidades {
     margin-bottom: 120px;
 }
 
-.card-horizontal {
-    border-color: var(--azul-claro);
+.agrupamento-especialidades {
+	grid-column: 2 / 12;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
-.info-direita .info-variavel .icone-pequeno:last-child {
-	width: 45px;
+.container-especialidade {
+	width: 33vw;
+	border: 3px solid var(--azul);
+	border-radius: 30px;
+	padding-bottom: 50px;
+	margin-top: 50px;
+	background-color: var(--claro);
 }
 
-.info-direita button {
-    background-color: var(--azul);
+.container-especialidade .especialidade-superior {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px 10px 50px;
+	background-color: var(--azul);
+	border-radius: 25px 25px 0 0;
+}
+
+.container-especialidade .especialidade-superior .icones-especialidade {
+	display: flex;
+	gap: 10px;
+}
+
+.container-especialidade .especialidade-profissionais {
+	padding: 0 50px;
+}
+
+.container-especialidade .especialidade-profissionais .texto {
+	padding: 20px 0;
+	border-bottom: 2px solid var(--azul-claro);
 }
