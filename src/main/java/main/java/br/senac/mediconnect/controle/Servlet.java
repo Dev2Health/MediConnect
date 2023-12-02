@@ -240,7 +240,7 @@ public class Servlet extends HttpServlet {
 			// TELA EDITAR PERFIL PACIENTE
 
 			case "/atualizar-paciente":
-				editarPaciente(request, response);
+				atualizarPaciente(request, response);
 				break;
 
 			case "/consultas-atendente":
@@ -969,7 +969,7 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-	private void editarPaciente(HttpServletRequest request, HttpServletResponse response)
+	private void atualizarPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		HttpSession sessao = request.getSession();
@@ -983,14 +983,35 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
+		Part parteImagem = request.getPart("imagem");
+		String nomeArquivo = null;
+		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
+
+		if (nomeArquivo != "") {
+			String extensao = null;
+			int pontoIndex = nomeArquivo.lastIndexOf('.');
+			if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+				extensao = nomeArquivo.substring(pontoIndex + 1);
+			}
+
+			byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+
+			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		}
 
 		paciente.setNome(nome);
 		paciente.setSobrenome(sobrenome);
 		paciente.setEmail(email);
 		paciente.setTelefone(telefone);
 		paciente.setSenha(senha);
+		paciente.setFotoPerfil(urlFoto);
 
 		pacienteDAO.atualizarPaciente(paciente);
+		request.setAttribute("urlFoto", urlFoto);
 		response.sendRedirect("perfil");
 	}
 
@@ -1195,10 +1216,29 @@ public class Servlet extends HttpServlet {
 		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
 		String email = request.getParameter("email");
+		Part parteImagem = request.getPart("imagem");
+		String nomeArquivo = null;
+		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
 
+		if (nomeArquivo != "") {
+			String extensao = null;
+			int pontoIndex = nomeArquivo.lastIndexOf('.');
+			if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+				extensao = nomeArquivo.substring(pontoIndex + 1);
+			}
+
+			byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+
+			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		}
 		atendente.setEmail(email);
-
+		atendente.setFotoPerfil(urlFoto);
 		atendenteDAO.atualizarAtendente(atendente);
+		request.setAttribute("urlFoto", urlFoto);
 		response.sendRedirect("perfil");
 
 	}

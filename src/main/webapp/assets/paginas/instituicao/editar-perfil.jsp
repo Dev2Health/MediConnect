@@ -8,9 +8,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/x-icon" href="./assets/imagens/favicon.ico">
-<style>
-<%@
-include file="../../estilos/padroes.css"%></style><style><%@include file="../../estilos/instituicao-editar-perfil.css"%></style>
+<style><%@include file="../../estilos/padroes.css"%></style>
+<style><%@include file="../../estilos/instituicao-editar-perfil.css"%></style>
 </head>
 <body>
 	<%@include file="../../componentes/cabecalhos/editar-perfil.jsp"%>
