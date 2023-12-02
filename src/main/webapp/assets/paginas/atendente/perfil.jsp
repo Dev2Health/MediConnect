@@ -19,7 +19,7 @@
                     <img src="./assets/imagens/exemplo-foto-atendente.png" alt="icone-camera">
                 </div>
                 <div class="perfil-editar">
-                    <button class="botao-quadrado-m texto-enfase"><a href="./atualizar-atendente">Editar Perfil</a><img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
+                    <button class="botao-quadrado-m texto-enfase"><a href="./editar-perfil">Editar Perfil</a><img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
                 </div>
             </div>
             <div id="informacoes-atendente" class="template-grid">

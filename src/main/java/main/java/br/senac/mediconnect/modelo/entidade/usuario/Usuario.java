@@ -91,6 +91,10 @@ public abstract class Usuario implements Serializable {
 		setEhAtivo(ehAtivo);
 		setFotoPerfil(urlFoto);
 	}
+	public Usuario (String urlFoto) {
+		super();
+		setFotoPerfil(urlFoto);
+	}
 	
 	// MÉTODOS DE ACESSO
 	
@@ -147,7 +151,7 @@ public abstract class Usuario implements Serializable {
 //		return urlFoto;
 //	}
 
-	public String urlFoto() {
+	public String getUrlFoto() {
 		return urlFoto;
 	}
 }

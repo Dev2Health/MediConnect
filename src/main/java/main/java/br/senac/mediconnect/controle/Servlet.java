@@ -79,6 +79,7 @@ public class Servlet extends HttpServlet {
 	private PacienteSeloDAO pacienteSeloDAO;
 	private NotificacaoDAO notificacaoDAO;
 	private EspecialidadeInstituicaoDAO especialidadeInstituicaoDAO;
+	private String urlFoto = null;
 
 	public void init() {
 
@@ -102,7 +103,6 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-
 		doGet(request, response);
 	}
 
@@ -111,7 +111,7 @@ public class Servlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		HttpSession sessao = request.getSession();
-
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
 			String tipoUsuario = "1";
 			request.setAttribute("tipoUsuario", tipoUsuario);
@@ -126,14 +126,17 @@ public class Servlet extends HttpServlet {
 			String tipoUsuario = "3";
 			request.setAttribute("tipoUsuario", tipoUsuario);
 		}
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
 		if (usuario != null) {
-			request.getSession().setAttribute("urlFoto", usuario.urlFoto());
+			request.getSession().setAttribute("urlFoto", urlFoto);
 		}
 		String action = request.getServletPath();
 
 		try {
 
+			if (usuario != null) {
+				request.getSession().setAttribute("urlFoto", urlFoto);
+			}
 			switch (action) {
 
 			// TELA INICIAL DESLOGADO
@@ -237,7 +240,7 @@ public class Servlet extends HttpServlet {
 			// TELA EDITAR PERFIL PACIENTE
 
 			case "/atualizar-paciente":
-				editarPaciente(request, response);
+				atualizarPaciente(request, response);
 				break;
 
 			case "/consultas-atendente":
@@ -690,11 +693,11 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		Integer id = usuario.getId();
 
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
-			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-
-			Integer id = usuario.getId();
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 
 			request.setAttribute("paciente", paciente);
@@ -716,10 +719,6 @@ public class Servlet extends HttpServlet {
 		}
 
 		else if (sessao.getAttribute("usuario") instanceof Instituicao) {
-			Usuario usuario = (Instituicao) sessao.getAttribute("usuario");
-
-			Integer id = usuario.getId();
-
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
@@ -734,8 +733,6 @@ public class Servlet extends HttpServlet {
 		}
 
 		else if (sessao.getAttribute("usuario") instanceof Atendente) {
-			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-			Integer id = usuario.getId();
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
 			request.setAttribute("atendente", atendente);
@@ -809,8 +806,8 @@ public class Servlet extends HttpServlet {
 		boolean ehAtivo = true;
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		
-		String urlFoto = null;
+
+		urlFoto = null;
 
 		instituicao = new Instituicao(cnpj, razaoSocial, nomeFantasia, email, senha, ehAtivo, urlFoto);
 
@@ -887,11 +884,10 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession sessao = request.getSession();
-
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
 
-			Usuario usuario = (Paciente) sessao.getAttribute("usuario");
-			Integer id = usuario.getId();
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 
 			request.setAttribute("paciente", paciente);
@@ -902,9 +898,6 @@ public class Servlet extends HttpServlet {
 
 		if (sessao.getAttribute("usuario") instanceof Instituicao) {
 
-			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-			Integer id = usuario.getId();
-
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
@@ -914,9 +907,6 @@ public class Servlet extends HttpServlet {
 		}
 
 		if (sessao.getAttribute("usuario") instanceof Atendente) {
-
-			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-			Integer id = usuario.getId();
 
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
@@ -957,7 +947,7 @@ public class Servlet extends HttpServlet {
 			Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
 			request.setAttribute("instituicao", instituicao);
 			request.setAttribute("endereco", endereco);
-			
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/editar-perfil.jsp");
 			dispatcher.forward(request, response);
 		}
@@ -976,7 +966,7 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-	private void editarPaciente(HttpServletRequest request, HttpServletResponse response)
+	private void atualizarPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		HttpSession sessao = request.getSession();
@@ -990,14 +980,35 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
 		String senha = request.getParameter("senha");
+		Part parteImagem = request.getPart("imagem");
+		String nomeArquivo = null;
+		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
+
+		if (nomeArquivo != "") {
+			String extensao = null;
+			int pontoIndex = nomeArquivo.lastIndexOf('.');
+			if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+				extensao = nomeArquivo.substring(pontoIndex + 1);
+			}
+
+			byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+
+			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		}
 
 		paciente.setNome(nome);
 		paciente.setSobrenome(sobrenome);
 		paciente.setEmail(email);
 		paciente.setTelefone(telefone);
 		paciente.setSenha(senha);
+		paciente.setFotoPerfil(urlFoto);
 
 		pacienteDAO.atualizarPaciente(paciente);
+		request.setAttribute("urlFoto", urlFoto);
 		response.sendRedirect("perfil");
 	}
 
@@ -1202,10 +1213,29 @@ public class Servlet extends HttpServlet {
 		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
 		String email = request.getParameter("email");
+		Part parteImagem = request.getPart("imagem");
+		String nomeArquivo = null;
+		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
 
+		if (nomeArquivo != "") {
+			String extensao = null;
+			int pontoIndex = nomeArquivo.lastIndexOf('.');
+			if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+				extensao = nomeArquivo.substring(pontoIndex + 1);
+			}
+
+			byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+
+			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		}
 		atendente.setEmail(email);
-
+		atendente.setFotoPerfil(urlFoto);
 		atendenteDAO.atualizarAtendente(atendente);
+		request.setAttribute("urlFoto", urlFoto);
 		response.sendRedirect("perfil");
 
 	}
@@ -1241,25 +1271,42 @@ public class Servlet extends HttpServlet {
 	private void atualizarInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
-
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 		// recuperar a entidade e setar informa��es novas nela ou atualizar com new
 		// Entidade?
 
 		Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
 
-		String razaoSocial = request.getParameter("razaoSocial");
-		String nomeFantasia = request.getParameter("nomeFantasia");
+		String razaoSocial = request.getParameter("razao");
+		String nomeFantasia = request.getParameter("fantasia");
 		String cep = request.getParameter("cep");
 		String estado = request.getParameter("estado");
 		String cidade = request.getParameter("cidade");
 		String bairro = request.getParameter("bairro");
 		String logradouro = request.getParameter("logradouro");
 		int numero = Integer.parseInt(request.getParameter("numero"));
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
+		Part parteImagem = request.getPart("imagem");
+		String nomeArquivo = null;
+		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
 
+		if (nomeArquivo != "") {
+			String extensao = null;
+			int pontoIndex = nomeArquivo.lastIndexOf('.');
+			if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+				extensao = nomeArquivo.substring(pontoIndex + 1);
+			}
+
+			byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+
+			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		}
 		endereco.setCep(cep);
 		endereco.setEstado(estado);
 		endereco.setCidade(cidade);
@@ -1269,10 +1316,13 @@ public class Servlet extends HttpServlet {
 
 		enderecoDAO.atualizarEndereco(endereco);
 		// atualizar endereco antes de inserir na instituicao sendo editada??
-
-		instituicaoDAO.atualizarInstituicao(new Instituicao(endereco, razaoSocial, nomeFantasia, email, senha));
-		response.sendRedirect("perfil");
-		// nomenclatura do jsp dos perfils ta certo?
+		instituicao.setFotoPerfil(urlFoto);
+		instituicao.setNomeFantasia(nomeFantasia);
+		instituicao.setRazaoSocial(razaoSocial);
+		instituicaoDAO.atualizarInstituicao(instituicao);
+		request.setAttribute("urlFoto", urlFoto);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
+		dispatcher.forward(request, response);
 
 	}
 
@@ -1280,11 +1330,11 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession sessao = request.getSession();
-		Usuario usuario = (Instituicao) sessao.getAttribute("usuario");
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
 
 		List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
-		
+
 		request.setAttribute("atendentes", atendentes);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/atendentes.jsp");
@@ -1321,8 +1371,24 @@ public class Servlet extends HttpServlet {
 		String senha = request.getParameter("senha");
 		LocalDate dataCadastro = LocalDate.parse(request.getParameter("data"));
 		boolean ehAtivo = true;
-		
-		String urlFoto = null;
+		Part parteImagem = request.getPart("imagem");
+
+		String nomeArquivo = null;
+		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
+
+		String extensao = null;
+		int pontoIndex = nomeArquivo.lastIndexOf('.');
+		if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+			extensao = nomeArquivo.substring(pontoIndex + 1);
+		}
+
+		byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+
+		String urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
 
 		atendente = new Atendente(email, senha, ehAtivo, nome, sobrenome, cpf, dataCadastro, instituicao, ctps,
 				urlFoto);
@@ -1354,7 +1420,7 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");
 		dispatcher.forward(request, response);
 
-	}
+  }
 
 	private void mostrarTelaEditarEspecialidade(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -1419,8 +1485,7 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		Integer id = usuario.getId();
-		List<EspecialidadeProfissional> especialidades = especialidadeDAO
-				.recuperarEspecialidadesProfissionais();
+		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
 		request.setAttribute("especialidades", especialidades);
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("assets/paginas/instituicao/cadastrar-profissional.jsp");
@@ -1598,7 +1663,6 @@ public class Servlet extends HttpServlet {
 
 	private void confirmarLogin(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
 		String usuarioInvalido = null;
 		String emailUsuario = request.getParameter("email");
 		String senhaUsuario = request.getParameter("senha");
@@ -1610,6 +1674,8 @@ public class Servlet extends HttpServlet {
 			HttpSession sessao = request.getSession();
 			Usuario usuario = usuarioDAO.recuperarUsuarioPorEmail(emailUsuario);
 			sessao.setAttribute("usuario", usuario);
+			urlFoto = usuario.getUrlFoto();
+			request.getSession().setAttribute("urlFoto", urlFoto);
 			response.sendRedirect("home");
 
 		} else {

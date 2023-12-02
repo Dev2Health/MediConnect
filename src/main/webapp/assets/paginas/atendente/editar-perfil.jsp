@@ -12,9 +12,9 @@
     <style><%@include file="../../estilos/atendente-editar-perfil.css"%></style>
 </head>
 <body>
-    <%@include file="../../componentes/cabecalhos/editar-perfil.jsp"%>
+    <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
     <main>
-        <form action="atualizar" method="post">
+        <form action="atualizar" method="post" enctype="multipart/form-data">
             <section class="template-grid">
                 <div id="retorno-pesquisa">
                     <p class="texto">Dados pessoais</p>
@@ -50,6 +50,15 @@
                     </div>
                 </div>
                 <div class="formulario-direita">
+                		<div id="posicao-foto">
+							<div class="perfil-foto">
+								<div class="input-item">
+									<img src="<c:out value='${urlFoto}'/>">
+									<label for="input-imagem"><p class="icone-grande"><%@include file="/assets/imagens/icone-camera.svg"%></p></label>
+									<input type="file" id="input-imagem" name="imagem" accept="image/*" style="display: none">
+								</div>
+							</div>
+						</div>
                     <div class="formulario-input">
                         <div class="input-icone">
                             <img src="./assets/imagens/icone-paciente.svg" alt="icone-paciente">
@@ -89,7 +98,7 @@
                                 <div class="formulario-icone">
                                     <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
                                 </div>
-                                <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100" required>
+                                <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100">
                             </div>
                         </div>
                         <div class="email-validar">
@@ -110,14 +119,14 @@
                             <div id="senha-atual">
                                 <label for="senha" class="texto">Nova Senha</label>
                                 <div class="input-senha">
-                                    <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100" required>
+                                    <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100">
                                     <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha">
                                 </div>
                             </div>
                             <div id="senha-nova">
                                 <label for="novasenha" class="texto">Confirmar Senha</label>
                                 <div class="input-senha">
-                                    <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100" required>
+                                    <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100">
                                     <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
                                 </div>
                             </div>

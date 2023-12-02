@@ -17,8 +17,7 @@
         <section id="perfil">
             <div class="perfil-apresentacao">
                 <div class="perfil-foto">
-                    <img src="">
-                    <!-- Foto inserida pelo paciente -->
+                    <img src="<c:out value='${urlFoto}'/>">
                 </div>
                 <div class="perfil-editar">
                     <button class="botao-quadrado-m texto-enfase"> <a href="./editar-perfil">Editar Perfil </a> <img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>

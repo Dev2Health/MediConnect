@@ -65,3 +65,12 @@ main {
     border-radius: 50%;
     background-color: var(--claro);
 }
+#posicao-foto .perfil-foto .input-item {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#posicao-foto .perfil-foto .input-item .icone-grande {
+	width: 80px;
+	filter: var(--filtro-azul);
+}

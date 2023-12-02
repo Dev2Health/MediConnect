@@ -5,5 +5,4 @@
             <img src="./assets/imagens/icone-voltar.svg" alt="icone-voltar">
             <a href="../../../index.jsp" class="texto texto-escuro">Voltar</a>
         </nav>
-        <img class="perfil-foto" src="../../imagens/perfil-instituicao.png" alt="foto-de-perfil">
     </header>
