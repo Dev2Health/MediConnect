@@ -3,6 +3,12 @@ body {
     background-color: var(--fundo-instituicao);
 }
 
+/* Cabeçalho */
+
+.perfil-foto label {
+	border-color: var(--azul);
+}
+
 /* Título */
 
 #retorno-pesquisa button {
