@@ -19,6 +19,10 @@ body {
     align-items: center;
 }
 
+#sessao-principal {
+	height: calc(100vh - 140px);
+}
+
 /* Sessão - Principal e Notificações */
 
 #sessao-principal .titulo-especial {

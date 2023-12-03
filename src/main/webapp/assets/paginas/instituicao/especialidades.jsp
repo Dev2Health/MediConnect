@@ -15,7 +15,7 @@
     <main>
     	<div id="pesquisa-retornar" class="template-grid">
             <div id="retornar-especialidade">
-                <p class="subtitulo texto-azul">Especialidades da Instituição</p>
+                <p class="titulo texto-azul">Especialidades da Instituição</p>
                 <button class="botao-quadrado-p texto-enfase"> 
                 	<a href="./cadastrar-especialidade" class="texto-claro">Cadastrar</a>
                 	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-adicionar.svg"%></p>

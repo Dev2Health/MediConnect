@@ -70,6 +70,15 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+#posicao-foto .perfil-foto .input-item label {
+	border: none;
+}
+
+#posicao-foto .perfil-foto .input-item label .icone-grande {
+	margin-right: 10px;
+}
+
 #posicao-foto .perfil-foto .input-item .icone-grande {
 	width: 80px;
 	filter: var(--filtro-azul);

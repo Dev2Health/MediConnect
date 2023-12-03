@@ -3,29 +3,19 @@ body {
     background-color: var(--fundo-instituicao);
 }
 
-/* Menu */
+/* Side-Bar */
 
-#cabecalho {
-    align-items: center;
-    height: 140px;
+.barra-superior .perfil-imagem {
+	border-color: var(--azul);
 }
 
-.barra-navegacao {
-    grid-column: 2 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 80px;
-}
-
-.barra-navegacao img {
-    width: 50px;
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-instituicao);
 }
 
 /* Definições Gerais */
 
 .ver-tudo button {
-    color: var(--fundo-instituicao);
     background-color: var(--azul-escuro);
 }
 
@@ -33,45 +23,28 @@ body {
     background-color: var(--azul);
 }
 
-/* Perfil - Início */
+/* Retorno Vazio */
 
-#perfil {
-    grid-column: 2 / 12;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    gap: 85px;
+.retorno-vazio .ilustracao {
+	filter: var(--filtro-azul-claro);
 }
+
+.retorno-vazio {
+	color: var(--azul-claro);
+}
+
+/* Perfil - Início */
 
 .perfil-apresentacao .perfil-foto {
     border-color: var(--azul);
 }
 
-.perfil-apresentacao .perfil-editar button {
+.perfil-editar button {
     background-color: var(--azul-escuro);
 }
 
-.perfil-apresentacao .perfil-editar button:hover {
+.perfil-editar button:hover {
     background-color: var(--azul);
-}
-
-.perfil-informacao {
-    grid-column: 2 / 12;
-    display: flex;
-    color: var(--claro);
-    background-color: var(--azul);
-    border-radius: 40px;
-}
-
-.perfil-informacao .perfil-imagem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 12.5vw;
-}
-
-.perfil-informacao .perfil-imagem img {
-    width: 50px;
 }
 
 /* Cards Especialidades */
@@ -80,17 +53,20 @@ body {
     margin-top: 120px;
 }
 
-.card-horizontal {
-    background-color: var(--claro);
-    border: 3px solid var(--azul);
+#especialidades .sessao-subtitulo {
+	margin-bottom: 50px;
 }
 
-.info-direita .info-variavel img {
+.card-horizontal {
+    background-color: var(--claro);
+    border-color: var(--azul);
+}
+
+.info-direita .info-variavel .icone-grande {
     filter: var(--filtro-azul-escuro);
 }
 
 .info-direita button {
-    color: var(--fundo-instituicao);
     background-color: var(--azul);
 }
 

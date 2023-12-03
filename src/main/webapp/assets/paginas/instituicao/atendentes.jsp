@@ -15,7 +15,7 @@
     <main>
         <div id="pesquisa-retornar" class="template-grid">
             <div id="retornar-atendente">
-                <p class="subtitulo texto-azul">Atendentes da instituição</p>
+                <p class="titulo texto-azul">Atendentes da instituição</p>
                 <button class="botao-quadrado-p texto-enfase"> 
                 	<a href="./cadastrar-atendente" class="texto-claro"> Adicionar </a>
                 	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-adicionar.svg"%></p>

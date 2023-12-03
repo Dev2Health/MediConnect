@@ -12,153 +12,102 @@
 </head>
 <body>
     <%@include file="../../componentes/cabecalhos/logado.jsp"%>
-<main>
-        <section id="perfil">
-            <div class="perfil-apresentacao">
-                <div class="perfil-foto">
-                    <img src="<c:out value='${urlFoto}'/>">
-                </div>
-                <div class="perfil-editar">
-                    <button class="botao-quadrado-m texto-enfase"><a href="./editar-perfil">Editar Perfil</a><img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
-                </div>
-            </div>
-            <div class="template-grid">
-                <div class="perfil-informacao">
-                    <div class="perfil-imagem">
-                        <img class="icone-claro" src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
-                    </div>
-                    <div class="perfil-detalhes">
-                        <h2 class="subtitulo">Intendência Distrital do Grande Garcia</h2>
-                        <p class="texto">endereço.email@gmal.com</p>
-                    </div>
-                </div>
-            </div>
+	<main>
+        <section id="inicial" class="template-grid">
+	        <div id="perfil">
+	        	<div class="perfil-imagem">
+	        		<div class="perfil-apresentacao">
+		                <div class="perfil-foto">
+		                    <img src="<c:out value='${urlFoto}'/>">
+		                </div>
+	            	</div>
+	                <div class="perfil-editar">
+	                    <button class="botao-perfil texto-enfase">
+		                    <a href="./editar-perfil"><p class="icone-pequeno"><%@include file="/assets/imagens/icone-editar.svg"%></p></a>
+	                    </button>
+	                </div>
+	        	</div>
+	        	<div class="perfil-informacoes">
+	        		<h2 class="subtitulo texto-azul"><c:out value="${instituicao.nomeFantasia}"/></h2>
+					<p class="texto texto-azul"><c:out value="${instituicao.email}"/></p>
+	        	</div>
+	        </div>
         </section>
+        
+        <%-- PRECISA COLOCAR NO SERVLET PARA MOSTRAR AS ESPECIALIDADES E OS PACIENTES NESSA PÁGINA--%>
+        
         <section id="especialidades">
             <div class="sessao-subtitulo">
                 <h2 class="subtitulo">Especialidades Atendidas</h2>
             </div>
+            <c:if test = "${empty especialidades}">
+    	    	<%@include file="../../componentes/retorno-vazio.jsp"%>
+	        </c:if>
             <div id="especialidade" class="template-grid">
-                <div class="card-horizontal">
-                    <p class="texto-enfase">Clínico Geral</p>
-                    <div class="info-direita">
-                        <div class="info-variavel">
-                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
-                            <p class="texto">4</p>
-                        </div>
-                        <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
-                    </div>
-                </div>
-                <div class="card-horizontal">
-                    <p class="texto-enfase">Oncologia</p>
-                    <div class="info-direita">
-                        <div class="info-variavel">
-                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
-                            <p class="texto">2</p>
-                        </div>
-                        <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
-                    </div>
-                </div>
-                <div class="card-horizontal">
-                    <p class="texto-enfase">Odontologia</p>
-                    <div class="info-direita">
-                        <div class="info-variavel">
-                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
-                            <p class="texto">3</p>
-                        </div>
-                        <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
-                    </div>
-                </div>
+	            <c:forEach var="especialidade" items="${especialidades}">
+	                <div class="card-horizontal">
+	                    <p class="texto-enfase"><c:out value="${especialidade.nome}"/></p>
+	                    <div class="info-direita">
+	                        <div class="info-variavel">
+	                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-profissional.svg"%></p>
+	                            <p class="texto">1</p>
+	                            <%-- Mostrar a quantidade de profissionais --%>
+	                        </div>
+	                        <button class="botao-quadrado-p texto-enfase texto-claro">Ver detalhes</button>
+	                    </div>
+	                </div>
+	            </c:forEach>
             </div>
             <div class="ver-tudo">
-                <button class="botao-quadrado-p texto-enfase"><a href="./especialidades.jsp">Ver todas </a><img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button class="botao-quadrado-p texto-enfase">
+                	<a href="./especialidades-instituicao" class="texto-claro">Ver todas</a>
+                	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-seta.svg"%></p>
+                </button>
             </div>
         </section>
         <section id="atendentes">
             <div class="sessao-subtitulo">
                 <h2 class="subtitulo">Atendentes Cadastrados</h2>
             </div>
+			<c:if test = "${empty especialidades}">
+   	    		<%@include file="../../componentes/retorno-vazio.jsp"%>
+        	</c:if>
             <div id="atendente" class="template-grid"> 
                 <div class="cards-agrupamento">
-                    <div class="card-entidade">
-                        <div class="card-superior">
-                            <div class="entidade-imagem">
-                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div class="entidade-informacao">
-                                <p class="texto">Gleice Silva Pinheiro</p>
-                                <p class="texto-sem-enfase">Nº Cadastro 456456</p>
-                            </div>
-                        </div>
-                        <div class="card-meio">
-                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
-                            <p class="texto">Informações Gerais</p>
-                        </div>
-                        <div class="card-inferior">
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">Data de cadastro</p>
-                                <p class="texto-sem-enfase">18/04/2000</p>
-                            </div>
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">CTPS</p>
-                                <p class="texto-sem-enfase">123.456.789-10</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-entidade">
-                        <div class="card-superior">
-                            <div class="entidade-imagem">
-                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div class="entidade-informacao">
-                                <p class="texto">Gleice Silva Pinheiro</p>
-                                <p class="texto-sem-enfase">Nº Cadastro 456456</p>
-                            </div>
-                        </div>
-                        <div class="card-meio">
-                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
-                            <p class="texto">Informações Gerais</p>
-                        </div>
-                        <div class="card-inferior">
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">Data de cadastro</p>
-                                <p class="texto-sem-enfase">18/04/2000</p>
-                            </div>
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">CTPS</p>
-                                <p class="texto-sem-enfase">123.456.789-10</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-entidade">
-                        <div class="card-superior">
-                            <div class="entidade-imagem">
-                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div class="entidade-informacao">
-                                <p class="texto">Gleice Silva Pinheiro</p>
-                                <p class="texto-sem-enfase">Nº Cadastro 456456</p>
-                            </div>
-                        </div>
-                        <div class="card-meio">
-                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
-                            <p class="texto">Informações Gerais</p>
-                        </div>
-                        <div class="card-inferior">
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">Data de cadastro</p>
-                                <p class="texto-sem-enfase">18/04/2000</p>
-                            </div>
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">CTPS</p>
-                                <p class="texto-sem-enfase">123.456.789-10</p>
-                            </div>
-                        </div>
-                    </div>
+                	<c:forEach var="atendente" items="${atendentes}">
+	                	<div class="card-entidade">
+	                        <div class="card-superior">
+	                            <div class="entidade-imagem">
+	                                <%-- <img src="<c:out value='${urlFoto}'/>"> --%>
+	                            </div>
+	                            <div class="entidade-informacao">
+	                                <p class="texto"><c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
+	                                <p class="texto-sem-enfase">Nº Cadastro <c:out value="${atendente.id}"/></p>
+	                            </div>
+	                        </div>
+	                        <div class="card-meio">
+	                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-informacoes.svg"%></p>
+	                            <p class="texto">Informações Gerais</p>
+	                        </div>
+	                        <div class="card-inferior">
+	                            <div class="inferior-informacao">
+	                                <p class="texto-sem-enfase">Data de cadastro</p>
+	                                <p class="texto-sem-enfase"><c:out value="${atendente.dataCadastro}"/></p>
+	                            </div>
+	                            <div class="inferior-informacao">
+	                                <p class="texto-sem-enfase">CTPS</p>
+	                                <p class="texto-sem-enfase"><c:out value="${atendente.ctps}"/></p>
+	                            </div>
+	                        </div>
+	                    </div>
+                    </c:forEach>
                 </div>
             </div>
             <div class="ver-tudo">
-                <button class="botao-quadrado-p texto-enfase"><a href="./atendentes-instituicao"> Ver todas <img src="./assets/imagens/icone-seta.svg" alt="icone-seta"> </a></button>
+                <button class="botao-quadrado-p texto-enfase">
+                	<a href="./atendentes-instituicao" class="texto-claro">Ver todas</a>
+                	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-seta.svg"%></p>
+                </button>
             </div>
         </section>
     </main>
