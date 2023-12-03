@@ -1208,8 +1208,9 @@ public class Servlet extends HttpServlet {
 	private void atualizarAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
-
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
 		String email = request.getParameter("email");
@@ -1320,10 +1321,7 @@ public class Servlet extends HttpServlet {
 		instituicao.setNomeFantasia(nomeFantasia);
 		instituicao.setRazaoSocial(razaoSocial);
 		instituicaoDAO.atualizarInstituicao(instituicao);
-		request.setAttribute("urlFoto", urlFoto);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
-		dispatcher.forward(request, response);
-
+		response.sendRedirect("perfil");
 	}
 
 	private void mostrarTelaAtendentesInstituicao(HttpServletRequest request, HttpServletResponse response)

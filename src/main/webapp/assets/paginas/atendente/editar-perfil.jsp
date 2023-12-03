@@ -14,7 +14,7 @@
 <body>
     <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
     <main>
-        <form action="atualizar" method="post" enctype="multipart/form-data">
+        <form action="atualizar-atendente" method="post" enctype="multipart/form-data">
             <section class="template-grid">
                 <div id="retorno-pesquisa">
                     <p class="texto">Dados pessoais</p>
