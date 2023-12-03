@@ -1,0 +1,57 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    color: var(--escuro);
+    background-color: var(--fundo-instituicao);
+}
+
+main {
+    align-items: center;
+    margin: 50px 0 25px 0;
+}
+
+/* Conteúdo Principal */
+
+.titulo {
+    grid-column: 2 / 10;
+    color: var(--azul);
+    margin-bottom: 40px;
+}
+
+/* Formulário */
+
+.formulario-input {
+    border-color: var(--azul);
+}
+
+.formulario-input .input-icone {
+    filter: var(--filtro-azul);
+}
+
+.input-item input {
+    color: var(--azul);
+}
+
+::placeholder {
+    color: var(--azul-claro);
+}
+
+.formulario-rodape {
+    display: flex;
+    justify-content: flex-end;
+    width: 37vw;
+    gap: 50px;
+}
+
+.formulario-rodape .botao-circular-p:first-child {
+    background-color: var(--azul);
+}
+
+.formulario-rodape .botao-circular-p:last-child {
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--azul);
+}
+
+.formulario-input .input-elemento .icone-senha {
+	filter: var(--filtro-azul);
+}

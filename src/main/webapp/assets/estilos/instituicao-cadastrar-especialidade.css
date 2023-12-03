@@ -1,0 +1,72 @@
+body {
+    width: 100vw;
+    color: var(--escuro);
+    background-color: var(--fundo-instituicao);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Especialidade */
+
+h1 {
+	grid-column: 2 / 12;
+	margin-bottom: 50px;
+}
+
+/* Formulário */
+
+.formulario-input {
+    border-color: var(--azul);
+}
+
+.formulario-input .input-icone {
+    filter: var(--filtro-azul);
+}
+
+.input-item input {
+    color: var(--azul);
+}
+
+::placeholder {
+    color: var(--azul-claro);
+}
+
+/* Checkbox */
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 85vw;
+    margin-top: 50px;
+}
+
+input[type=checkbox] {
+    border-color: var(--azul);
+}
+
+input[type=checkbox]::before {
+    background-color: var(--azul);
+}
+
+.checkbox a {
+    font-size: 1em;
+}
+
+.botoes {
+    grid-column: 2 / 12;
+    display: flex;
+    gap: 4.15vw;
+    margin-bottom: 85px;
+}
+
+.botoes .botao-circular-m:first-child {
+    background-color: var(--azul);
+}
+
+.botoes .botao-circular-m:last-child {
+    background-color: var(--fundo-claro);
+    border: 3px solid var(--azul);
+}

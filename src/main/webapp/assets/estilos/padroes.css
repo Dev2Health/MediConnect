@@ -1,0 +1,745 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Noto+Sans+Symbols:wght@300;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border-style: none;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores */
+    --fundo-claro: #F8F3FB;
+    --fundo-instituicao: #F3FBFB;
+    --roxo: #6C64C4;
+    --roxo-claro: #B5B1E1;
+    --roxo-escuro: #48428E;
+    --azul: #74A0D4;
+    --azul-claro: #B9CFE9;
+    --azul-escuro: #3D5E87;
+    --claro: #FBF8F3;
+    --escuro: #232323;
+    --escuro-sombra: #23232340;
+    --verde: #5AC48C;
+    --vermelho: #C45A5A;
+    /* Fontes */
+    --fonte-geral: 'Noto Sans Symbols', sans-serif;
+    --fonte-especial: 'Fredoka', sans-serif;
+    /* Filtros */
+    --filtro-azul: invert(61%) sepia(65%) saturate(270%) hue-rotate(175deg) brightness(90%) contrast(90%);
+    --filtro-azul-escuro: invert(10%) sepia(100%) saturate(350%) hue-rotate(180deg) brightness(55%) contrast(80%);
+    --filtro-azul-claro: invert(35%) sepia(45%) saturate(285%) hue-rotate(180deg) brightness(110%) contrast(120%);
+    /* Precisa melhorar um pouco esse último filtro */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Textos - alterar o tamanho e o letter-spacing de forma com que fique "responsivo" */
+
+.texto {
+    font-family: var(--fonte-geral);
+    font-weight: 600;
+    font-size: 2em;
+    letter-spacing: 1.5px;
+}
+
+.texto-pequeno {
+    font-family: var(--fonte-geral);
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 1.5px;
+}
+
+.texto-sem-enfase {
+    font-family: var(--fonte-geral);
+    font-weight: 300;
+    font-size: 1.6em;
+    letter-spacing: 1.5px;
+}
+
+.texto-enfase {
+    font-family: var(--fonte-geral);
+    font-weight: 700;
+    font-size: 1.6em;
+    letter-spacing: 1px;
+}
+
+.titulo {
+    font-family: var(--fonte-geral);
+    font-weight: 700;
+    font-size: 3.45em;
+    letter-spacing: 2.75px;
+}
+
+.subtitulo {
+    font-family: var(--fonte-geral);
+    font-weight: 600;
+    font-size: 2.85em;
+    letter-spacing: 4.5px; 
+}
+
+.titulo-especial {
+    font-family: var(--fonte-especial);
+    font-weight: bold;
+    font-size: 5.5em;
+    letter-spacing: 4.75px;
+}
+
+.subtitulo-especial {
+    font-family: var(--fonte-especial);
+    font-weight: bold;
+    font-size: 4em;
+    letter-spacing: 4.75px;
+}
+
+/* Posição do subtítulo nos perfis */
+
+.sessao-subtitulo {
+    display: flex;
+    justify-content: center;
+}
+
+/* Links */
+
+.texto-claro {
+    color: var(--fundo-claro);
+}
+
+.texto-escuro {
+    color: var(--escuro);
+}
+
+.texto-roxo {
+    color: var(--roxo);
+}
+
+.texto-azul {
+    color: var(--azul);
+}
+
+/* Botões */
+
+[class*="botao-circular"] {
+    height: 85px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.botao-circular-p {
+    width: 300px;
+}
+
+.botao-circular-m {
+    width: 375px;
+}
+
+.botao-circular-g {
+    width: 465px;
+}
+
+[class*="botao-quadrado"] {
+    height: 65px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.botao-quadrado-p {
+    width: 300px;
+}
+
+.botao-quadrado-m {
+    width: 375px;
+}
+
+.botao-quadrado-g {
+    width: 395px;
+}
+
+.botao-quadrado-longo {
+    width: 465px;
+}
+
+/* Imagens */
+
+.ilustracao, .icone-pequeno, .icone-grande, .logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ilustracao {
+    width: 33.33vw;
+}
+
+.icone-pequeno {
+	width: 35px;
+}
+
+.icone-grande {
+	width: 50px;
+}
+
+.logo {
+	width: 140px;
+}
+
+.icone-claro {
+    filter: brightness(100);
+}
+
+/* Grid - Posicionamento */
+
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    width: 100vw;
+}
+
+.conteudo-esquerda { 
+    grid-column: 2 / 7;
+}
+
+.conteudo-direita { 
+    grid-column: 7 / 12;
+}
+
+#retorno-pesquisa {
+    grid-column: 2 / 12;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 65px;
+    margin-bottom: 65px;
+}
+
+/* Formulários */
+
+.formulario-esquerda, .formulario-direita {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 45px;
+}
+
+.formulario-esquerda {
+    grid-column: 2 / 7;
+    align-items: flex-start;
+}
+
+.formulario-direita {
+    grid-column: 7 / 12;
+    align-items: flex-end;
+}
+
+.formulario-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 37.485vw;
+    border: 3px solid;
+    border-radius: 15px;
+}
+
+.input-icone, .input-elemento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+}
+
+.input-icone .input-imagem {
+    width: 2.77vw;
+}
+
+.input-elemento .input-imagem {
+    width: 2.55vw;
+    cursor: pointer;
+}
+
+.input-item {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 21vw;
+}
+
+.input-item input {
+    background: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Checkbox */
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font: inherit;
+    color: inherit;
+    width: 3.15em;
+    height: 3.15em;
+    border: 0.25em solid;
+    border-radius: 0.65em;
+    display: grid;
+    place-content: center;
+}
+  
+input[type=checkbox]::before {
+    content: "";
+    width: 1.5em;
+    height: 1.5em;
+    -webkit-clip-path: polygon(24% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+            clip-path: polygon(24% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    background-color: CanvasText;
+}
+  
+input[type=checkbox]:checked::before {
+    transform: scale(1);
+}
+
+/* Perfil */
+
+#inicial {
+	margin-top: 100px;
+}
+
+#perfil {
+	grid-column: 2 / 12;
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
+.perfil-imagem {
+	display: flex;
+	align-items: flex-end;
+}
+
+.perfil-imagem .perfil-editar {
+	z-index: 1;
+	margin-left: -50px;
+}
+
+.perfil-apresentacao .perfil-foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border: 3px solid;
+    border-radius: 50%;
+    background-color: var(--claro);
+}
+
+.perfil-apresentacao .perfil-foto img {
+    width: 100%;
+    height: 100%; 
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.botao-perfil {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 65px;
+	height: 65px;
+	border-radius: 15px;
+}
+
+.ver-tudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.ver-tudo button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    transition: 300ms background-color ease;
+    /* quando em :hover, o fundo do botão será claro - especificar isso nas telas */
+}
+
+/* Retorno Vazio */
+
+.retorno-vazio {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	margin-top: 100px;
+}
+
+/* Editar Perfil - Foto */
+
+.perfil-foto label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border: 3px solid;
+    border-radius: 50%;
+    background-color: var(--claro);
+}
+
+.perfil-foto label img {
+	width: 100%;
+    height: 100%; 
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.perfil-foto label .icone-grande {
+	z-index: 10;
+	margin-right: -120px;
+	cursor: pointer;
+}
+
+/* Cards - Configurações Gerais */
+
+.cards-agrupamento {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+
+/* Cards - Atendentes & Pacientes Cadastrados */
+
+
+.card-entidade {
+    border: 3px solid;
+    border-radius: 40px;
+    width: 25vw;
+    height: 525px;
+    background-color: var(--claro);
+    margin-top: 150px;
+}
+
+.card-superior {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.card-superior .entidade-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 180px;
+    border: 3px solid;
+    border-radius: 50%;
+    background-color: var(--claro);
+
+    position: absolute;
+    top: -100px;
+    left: auto;
+}
+
+.card-superior .entidade-imagem img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.card-superior .entidade-informacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0 20px 0;
+}
+
+.card-meio {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.card-inferior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 15px;
+}
+
+.card-inferior .inferior-informacao {
+    width: 235px;
+}
+
+/* Cards - Consultas, Atendentes e Especialidades */
+
+.card-horizontal {
+    grid-column: 2 / 12;
+    height: 130px;
+    margin: 25px 0;
+    padding: 15px 4.16vw 15px 8.33vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--claro);
+    border: 3px solid;
+    border-radius: 40px;
+}
+
+.card-horizontal .entidade-nome {
+    width: 16.33vw;
+}
+
+.card-horizontal .info-direita {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.info-direita .info-variavel {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+}
+
+/* Cabeçalho - Geral */
+
+#cabecalho {
+    align-items: center;
+    height: 140px;
+}
+
+.barra-navegacao .icones-logado .logo {
+	cursor: pointer;
+}
+
+.barra-navegacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.barra-navegacao .icones-logado {
+	display: flex;
+	gap: 40px;
+}
+
+.barra-navegacao .navegacao-links {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+}
+
+.navegacao-links .botao-circular-m {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+    background-color: var(--roxo);
+}
+
+#botao-escuro {
+	background-color: var(--escuro);
+}
+
+.navegacao-voltar {
+	display: flex;
+	gap: 30px;
+}
+
+/* Side-Bar */
+
+.barra-lateral {
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	position: absolute;
+	top: 140px;
+	left: 0;
+	height: calc(100vh - 140px);
+	width: 33vw;
+	background-color: var(--claro);
+	z-index: 100;
+}
+
+.barra-superior {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0;
+}
+
+.barra-superior .perfil-imagem {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    border: 3px solid;
+    border-radius: 50%;
+    background-color: var(--claro);
+}
+
+.barra-superior .perfil-imagem img {
+	width: 100%;
+    height: 100%; 
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.barra-superior .icone-pequeno {
+	cursor: pointer;
+}
+
+.barra-centro {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 0 4.33vw;
+}
+
+.barra-centro .centro-icones {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.barra-centro .centro-icones .icone-pequeno, .barra-rodape .icone-mediconnect {
+	filter: brightness(0);
+}
+
+.barra-inferior, .barra-rodape {
+	background-color: var(--claro);
+}
+
+.barra-inferior {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding-top: 20px;
+}
+
+.barra-inferior .botao-circular-p {
+	background-color: var(--escuro);
+}
+
+.barra-rodape {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	padding: 15px 0;
+}
+
+.barra-rodape .icone-mediconnect {
+	display: flex;
+	width: 150px;
+}
+
+.barra-rodape .rodape-linha hr {
+	width: 14.5vw;
+	border: 1px solid var(--escuro);
+}
+
+/* Barra de Filtro */
+
+.navegacao-filtro {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+}
+
+.filtro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid;
+    border-radius: 15px;
+    width: 30vw;
+    height: 65px;
+}
+
+.filtro-icone {
+	display: flex;
+	align-items: center;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.filtro .input-item input {
+    padding-left: 1.4vw;
+}
+
+.navegacao-filtro button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Rodapé */
+
+footer {
+    width: 100vw;
+    height: 455px;
+    padding-top: 55px;
+    color: var(--fundo-claro);
+    background-color: var(--escuro);
+}
+
+[class*="rodape-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.rodape-mediconnect {
+    grid-column: 3 / 5;
+}
+
+.rodape-contato {
+    grid-column: 6 / 8;
+}
+
+.rodape-social {
+    grid-column: 9 / 11;
+}
+
+.rodape-social [class*="social-"] {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+#rodape-comercial {
+    grid-column: 2 / 12;
+    margin-top: 60px;
+}
+
+#rodape-comercial hr {
+    grid-column: 2 / 12;
+    border-bottom: 1px solid var(--fundo-claro);
+}
+
+.comercial-conteudo {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+}

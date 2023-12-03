@@ -1,0 +1,125 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Sessões */
+
+[id*="sessao-"] {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Sessão - Organizacional */   
+
+#propositos-titulo {
+    grid-column: 2 / 12;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#propositos-titulo .titulo-especial {
+    text-transform: uppercase;
+    color: var(--roxo);
+}
+
+#container-propositos {
+    grid-column: 2 / 12;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: center;
+    color: var(--roxo-claro);
+    margin-bottom: 50px;
+}
+
+#container-propositos [class*="container-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 350px;
+    padding: 10px;
+    border-radius: 40px;
+    background-color: var(--roxo-escuro);
+}
+
+#container-propositos [class*="container-"] .icone-grande {
+    filter: invert(39%) sepia(46%) saturate(588%) hue-rotate(205deg) brightness(100%) contrast(90%);
+}
+
+#container-propositos [class*="container-"]:hover {
+    color: var(--fundo-claro);
+    background-color: var(--roxo);
+    transition: 150ms ease;
+    filter: none;
+}
+
+/* Sessão - Integrantes */
+
+/* Esquerda */
+
+#sessao-membros .conteudo-esquerda {
+    grid-column: 2 / 7;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#card-membro .card-conteudo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 35vw;
+    height: 400px;
+    gap: 25px;
+    padding: 50px 25px 0 25px;
+    border-radius: 40px 40px 0 0;
+    color: var(--fundo-claro);
+    background-color: var(--roxo-escuro);
+}
+
+#card-membro .card-imagem {
+    height: 200px;
+    width: 200px;
+    border: 5px solid var(--roxo);
+    border-radius: 50%;
+    background-color: var(--fundo-claro);
+    position: absolute;
+    top: -100px;
+    left: auto;
+}
+
+.card-imagem .foto-integrante {
+    width: 100%;
+    border-radius: 50%;
+}
+
+#card-membro .card-social {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 150px;
+    border-radius: 0 0 40px 40px;
+    background-color: var(--roxo);
+}
+
+/* direita */
+
+#sessao-membros .conteudo-direita {
+    grid-column: 7 / 12;
+    display: flex;
+    justify-content: center;
+}
+
+.caixa-textual {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}

@@ -1,0 +1,94 @@
+body {
+    width: 100vw;
+    color: var(--escuro);
+    background-color: var(--fundo-instituicao);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Side-Bar */
+
+.barra-superior .perfil-imagem {
+	border-color: var(--azul);
+}
+
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-instituicao);
+}
+
+/* Cabeçalho - Filtro */
+
+.filtro {
+	border-color: var(--azul);
+}
+
+.filtro-icone {
+	background-color: var(--azul); 
+}
+
+.input-item input {
+	color: var(--azul);
+}
+
+.input-item input::placeholder {
+    color: var(--azul-claro);
+}
+
+.navegacao-filtro button {
+	background-color: var(--azul);
+}
+
+/* Retorno Vazio */
+
+.retorno-vazio .ilustracao {
+	filter: var(--filtro-azul-claro);
+}
+
+.retorno-vazio {
+	color: var(--azul-claro);
+}
+
+/* Notificações */
+
+#notificacoes {
+    margin: 50px 0;
+}
+
+.card-notificacao {
+    grid-column: 2 / 12;
+    margin-top: 50px;
+    border: 3px solid var(--azul);
+    border-radius: 40px;
+    background-color: var(--claro);
+}
+
+.notificacao-superior {
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 8.33vw;
+}
+
+.informacoes-consulta {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.informacoes-consulta [class*="informacao-"] {
+    display: flex;
+    gap: 45px;
+}
+
+.informacao-data .icone-grande {
+    filter: var(--filtro-azul-escuro);
+}
+
+.informacao-horario .icone-grande {
+    filter: var(--filtro-azul);
+}
+
+.notificacao-inferior {
+    margin: 0 8.33vw 25px 8.33vw;
+}

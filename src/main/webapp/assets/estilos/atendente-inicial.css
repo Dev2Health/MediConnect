@@ -1,0 +1,87 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Side-Bar */
+
+.barra-superior .perfil-imagem {
+	border-color: var(--roxo);
+}
+
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-claro);
+}
+
+/* Configurações Gerais */
+
+.titulo-sessao h2 {
+    grid-column: 2 / 12;
+    color: var(--roxo-escuro);
+}
+
+/* Retorno Vazio */
+
+.retorno-vazio {
+	color: var(--roxo-claro);
+}
+
+/* Inicio */
+
+#inicio {
+	margin-top: 50px;
+	align-items: center;
+}
+
+.conteudo-direita {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.conteudo-direita h1 {
+    color: var(--roxo-escuro);
+}
+
+.conteudo-direita .botao-circular-g {
+    background-color: var(--roxo);
+}
+
+/* Pacientes */
+
+#pacientes {
+	margin: 100px 0;
+}
+
+.titulo-sessao h1 {
+    grid-column: 2 / 12;
+}
+
+.card-entidade {
+    border-color: var(--roxo);
+}
+
+.card-superior .entidade-imagem {
+    border-color: var(--roxo);
+}
+
+.card-inferior span {
+    font-size: 1em;
+}
+
+.inferior-status {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 35px;
+}
+
+.inferior-status .status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 185px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: var(--azul);
+}

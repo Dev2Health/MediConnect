@@ -1,0 +1,85 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-instituicao);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Side-Bar */
+
+.barra-superior .perfil-imagem {
+	border-color: var(--azul);
+}
+
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-instituicao);
+}
+
+/* Cabeçalho - Filtro */
+
+.filtro {
+	border-color: var(--azul);
+}
+
+.filtro-icone {
+	background-color: var(--azul); 
+}
+
+.input-item input {
+	color: var(--azul);
+}
+
+.input-item input::placeholder {
+    color: var(--azul-claro);
+}
+
+.navegacao-filtro button {
+	background-color: var(--azul);
+}
+
+/* Atendentes - Título */
+
+#retornar-atendente {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 25px;
+}
+
+#retornar-atendente button {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--azul-escuro);
+}
+
+/* Retorno Vazio */
+
+.retorno-vazio .ilustracao {
+	filter: var(--filtro-azul-claro);
+}
+
+.retorno-vazio {
+	color: var(--azul-claro);
+}
+
+/* Atendente - Conteúdo */
+
+#atendente {
+    margin-bottom: 120px;
+}
+
+.card-horizontal {
+    border-color: var(--azul-claro);
+}
+
+.info-direita .info-variavel .icone-pequeno:last-child {
+	width: 45px;
+}
+
+.info-direita button {
+    background-color: var(--azul);
+}

@@ -1,0 +1,73 @@
+body {
+    width: 100vw;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Side-Bar */
+
+.barra-superior .perfil-imagem {
+	border-color: var(--roxo);
+}
+
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-claro);
+}
+
+/* Cabeçalho - Filtro */
+
+.filtro {
+	border-color: var(--roxo);
+}
+
+.filtro-icone {
+	background-color: var(--roxo); 
+}
+
+.input-item input {
+	color: var(--roxo);
+}
+
+.input-item input::placeholder {
+    color: var(--roxo-claro);
+}
+
+.navegacao-filtro button {
+	background-color: var(--roxo);
+}
+
+/* Retorno Vazio */
+
+.retorno-vazio {
+	color: var(--roxo-claro);
+}
+
+
+/* Conteúdo */
+
+section h2 {
+    grid-column: 2 / 12;
+}
+
+section {
+    margin-bottom: 100px;
+}
+
+/* Cards Pacientes */
+
+.card-entidade {
+    border-color: var(--roxo);
+}
+
+.card-superior .entidade-imagem {
+    border-color: var(--roxo);
+}
+
+.card-meio {
+    color: var(--fundo-claro);
+    background-color: var(--roxo);  
+}

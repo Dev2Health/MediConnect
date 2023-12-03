@@ -1,0 +1,82 @@
+body {
+    width: 100vw;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    margin-top: 50px;
+}
+
+/* Side-Bar */
+
+.barra-superior .perfil-imagem {
+	border-color: var(--roxo);
+}
+
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-claro);
+}
+
+/* Cabeçalho - Filtro */
+
+.filtro {
+	border-color: var(--roxo);
+}
+
+.filtro-icone {
+	background-color: var(--roxo); 
+}
+
+.input-item input {
+	color: var(--roxo);
+}
+
+.input-item input::placeholder {
+    color: var(--roxo-claro);
+}
+
+.navegacao-filtro button {
+	background-color: var(--roxo);
+}
+
+/* Retorno Vazio */
+
+.retorno-vazio {
+	color: var(--roxo-claro);
+}
+
+/* Notificações */
+
+#notificacoes {
+    margin: 50px 0;
+}
+
+.card-notificacao {
+    grid-column: 2 / 12;
+    margin-top: 50px;
+    border: 3px solid var(--roxo);
+    border-radius: 40px;
+    background-color: var(--claro);
+}
+
+.notificacao-superior {
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 8.33vw;
+}
+
+.informacoes-consulta {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.informacoes-consulta [class*="informacao-"] {
+    display: flex;
+    gap: 45px;
+}
+
+.notificacao-inferior {
+    margin: 0 8.33vw 25px 8.33vw;
+}

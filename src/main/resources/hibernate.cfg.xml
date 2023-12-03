@@ -14,26 +14,27 @@
 		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 		
 		
-		<mapping class="main.java.mediconennect.modelo.entidade.atendente.Atendente" />
-		<mapping class="main.java.mediconennect.modelo.entidade.conquista.Conquista"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.consulta.Consulta"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.endereco.Endereco"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.instituicao.Instituicao"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.notificacao.Notificacao"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.paciente.Paciente"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.pessoa.Pessoa"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.selo.Selo"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.usuario.Usuario"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.pacienteConquista.PacienteConquista"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.pacienteConquista.PacienteConquistaId"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.pacienteSelo.PacienteSelo"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.pacienteSelo.PacienteSeloId"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicao"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicaoId"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.notificacaoConsulta.NotificacaoConsulta"/>
-		<mapping class="main.java.mediconennect.modelo.entidade.notificacaoConsulta.NotificacaoConsultaId"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.atendente.Atendente" />
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.conquista.Conquista"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.consulta.Consulta"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.endereco.Endereco"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.notificacao.Notificacao"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.paciente.Paciente"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.pessoa.Pessoa"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.profissionalDeSaude.ProfissionalDeSaude"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.selo.Selo"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.usuario.Usuario"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.pacienteConquista.PacienteConquista"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.pacienteConquista.PacienteConquistaId"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.pacienteSelo.PacienteSelo"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.pacienteSelo.PacienteSeloId"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicao"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicaoId"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.notificacaoConsulta.NotificacaoConsulta"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.notificacaoConsulta.NotificacaoConsultaId"/>
+		<mapping class="main.java.br.senac.mediconnect.modelo.entidade.foto.Foto"/>
 		
 		
 		

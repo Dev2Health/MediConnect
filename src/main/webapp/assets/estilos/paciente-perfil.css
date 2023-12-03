@@ -1,0 +1,209 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Definições Gerais */
+
+.ver-tudo button {
+    color: var(--fundo-instituicao);
+    background-color: var(--roxo-escuro);
+}
+
+.ver-tudo button:hover {
+    background-color: var(--roxo);
+}
+
+/* Perfil - Início */
+
+#perfil {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 85px;
+}
+
+.perfil-apresentacao .perfil-foto {
+    border-color: var(--roxo);
+}
+
+.perfil-apresentacao .perfil-editar button {
+    background-color: var(--roxo-escuro);
+}
+
+.perfil-apresentacao .perfil-editar button:hover {
+    background-color: var(--roxo);
+}
+
+.perfil-informacao {
+    grid-column: 2 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--claro);
+    background-color: var(--roxo);
+    border-radius: 40px;
+    height: 140px;
+}
+
+.perfil-dados {
+    display: flex;
+    align-items: center;
+}
+
+.perfil-dados .perfil-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.5vw;
+}
+
+.perfil-dados .perfil-imagem img {
+    width: 50px;
+}
+
+/* Perfil - Selos */
+
+.perfil-selos {
+    display: flex;
+    align-items: center;
+    gap: 65px;
+    margin-right: 8.33vw;
+}
+
+.perfil-selos [id*="selo-"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    background-color: var(--claro);
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.perfil-selos [id*="selo-"] .selo-superior {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.perfil-selos [id*="selo-"] .selo-superior span {
+    height: 20px;
+    width: 20px;
+    background-color: var(--verde);
+    border-radius: 50%;
+}
+
+/* Conquistas */
+
+#container-conquistas {
+    grid-column: 2 / 12;
+    margin: 80px 0;
+}
+
+.conquistas-superior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--roxo);
+    border-radius: 40px 40px 0 0;
+    padding: 20px 0 45px 0;
+}
+
+.conquistas-superior .titulo-conquistas {
+    display: flex;
+    gap: 40px;
+}
+
+#barra-conquistas input {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 50rem;
+}
+
+#barra-conquistas input::-moz-range-track, input::-webkit-slider-runnable-track {
+    background: var(--claro);
+    height: 2rem;
+    border-radius: 15px;
+}
+
+input::-moz-range-thumb, input::-webkit-slider-thumb {
+    /* Vou inferir que esteja correto, mas precisa ser testado em outro Browser além do Firefox */
+    background-color: var(--verde);
+    border: 0.25rem solid var(--claro);
+    border-radius: 1rem;
+    height: 1.5rem;
+    width: 10rem;
+}
+
+.conquistas-inferior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 65px;
+    height: 300px;
+    background-color: var(--claro);
+    border: 3px solid var(--roxo);
+    border-radius: 0 0 40px 40px;
+}
+
+.conquista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    width: 12.5vw;
+    border-radius: 25px;
+}
+
+/* Para futura estilização de cada conquista separada */
+.conquista:nth-child(1) {
+    background-color: var(--azul);
+}
+.conquista:nth-child(2) {
+    background-color: var(--roxo);
+}
+.conquista:nth-child(3) {
+    background-color: var(--roxo);
+}
+
+.conquista img {
+    height: 85px;
+}
+
+#conquista-botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 125px;
+    width: 12.5vw;
+    border: 3px solid var(--roxo);
+    border-radius: 25px;
+}
+
+/* Consultas */
+
+#consultas .sessao-subtitulo {
+    color: var(--roxo-escuro);
+    margin-bottom: 55px;
+}
+
+.card-horizontal {
+    border-color: var(--roxo);
+}
+
+.info-direita button {
+    color: var(--claro);
+    background-color: var(--roxo);
+}
+
+.info-variavel [class*="info-"] {
+    display: flex;
+    gap: 25px;
+}

@@ -1,0 +1,53 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Definições Gerais */
+
+.caixa-textual {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+/* Sessões */
+
+[id*="sessao-"] {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+}
+
+#sessao-principal {
+	height: calc(100vh - 140px);
+}
+
+/* Sessão - Principal e Notificações */
+
+#sessao-principal .titulo-especial {
+	text-transform: uppercase;
+}
+
+#sessao-principal .conteudo-direita, #sessao-notificacao .conteudo-direita {
+    grid-column: 8 / 12;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Sessão - Gamificação e Agendamento */
+
+#sessao-agendamento .conteudo-direita div h1:last-child {
+	width: 50vw;
+	/* Em telas 1920, está quebrando o texto */
+}
+
+#sessao-gamificacao, #sessao-agendamento {
+    color: var(--fundo-claro);
+    background-color: var(--roxo);
+}
+
+#sessao-gamificacao .conteudo-esquerda, #sessao-agendamento .conteudo-esquerda {
+    grid-column: 2 / 7;
+    display: flex;
+}

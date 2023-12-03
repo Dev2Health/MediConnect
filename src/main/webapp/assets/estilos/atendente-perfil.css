@@ -1,0 +1,107 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+/* Side-Bar */
+
+.barra-superior .perfil-imagem {
+	border-color: var(--roxo);
+}
+
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-claro);
+}
+
+/* Definições Gerais */
+
+.ver-tudo button {
+    background-color: var(--roxo-escuro);
+}
+
+.ver-tudo button:hover {
+    background-color: var(--roxo);
+}
+
+/* Retorno Vazio */
+
+.retorno-vazio {
+	color: var(--roxo-claro);
+}
+
+/* Perfil - Início */
+
+.perfil-apresentacao .perfil-foto {
+    border-color: var(--roxo);
+}
+
+.perfil-editar button {
+    background-color: var(--roxo-escuro);
+}
+
+.perfil-editar button:hover {
+    background-color: var(--roxo);
+}
+
+/* Dados Institucionais */
+
+#container-informacoes {
+	display: flex;
+	grid-column: 2 / 12;
+	height: 170px;
+	margin: 50px 0;
+	background-color: var(--roxo);
+	border-radius: 40px;
+}
+
+.icone-instituicao {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 16vw;
+}
+
+.dados-instituicao {
+	color: var(--claro);
+	width: 100%;
+	padding-right: 16vw;
+}
+
+.dados-instituicao .instituicao-endereco {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Consultas */
+
+#consultas .sessao-subtitulo {
+    margin-bottom: 55px;
+}
+
+.card-horizontal {
+    border-color: var(--roxo);
+}
+
+.info-direita button {
+    background-color: var(--roxo);
+}
+
+.info-variavel [class*="info-"] {
+    display: flex;
+    gap: 25px;
+}
+
+/* Cards Pacientes */
+
+.card-entidade {
+    border-color: var(--roxo);
+}
+
+.card-superior .entidade-imagem {
+    border-color: var(--roxo);
+}
+
+.card-meio {
+    color: var(--fundo-claro);
+    background-color: var(--roxo);  
+}

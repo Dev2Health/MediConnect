@@ -1,0 +1,86 @@
+body {
+    color: var(--escuro);
+    background-color: var(--fundo-instituicao);
+}
+
+/* Side-Bar */
+
+.barra-superior .perfil-imagem {
+	border-color: var(--azul);
+}
+
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-instituicao);
+}
+
+/* Definições Gerais */
+
+.ver-tudo button {
+    background-color: var(--azul-escuro);
+}
+
+.ver-tudo button:hover {
+    background-color: var(--azul);
+}
+
+/* Retorno Vazio */
+
+.retorno-vazio .ilustracao {
+	filter: var(--filtro-azul-claro);
+}
+
+.retorno-vazio {
+	color: var(--azul-claro);
+}
+
+/* Perfil - Início */
+
+.perfil-apresentacao .perfil-foto {
+    border-color: var(--azul);
+}
+
+.perfil-editar button {
+    background-color: var(--azul-escuro);
+}
+
+.perfil-editar button:hover {
+    background-color: var(--azul);
+}
+
+/* Cards Especialidades */
+
+#especialidades {
+    margin-top: 120px;
+}
+
+#especialidades .sessao-subtitulo {
+	margin-bottom: 50px;
+}
+
+.card-horizontal {
+    background-color: var(--claro);
+    border-color: var(--azul);
+}
+
+.info-direita .info-variavel .icone-grande {
+    filter: var(--filtro-azul-escuro);
+}
+
+.info-direita button {
+    background-color: var(--azul);
+}
+
+/* Cards Atendentes */
+
+.card-entidade {
+    border-color: var(--azul);
+}
+
+.card-superior .entidade-imagem {
+    border-color: var(--azul);
+}
+
+.card-meio {
+    color: var(--fundo-instituicao);
+    background-color: var(--azul);
+}

@@ -1,0 +1,157 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    color: var(--escuro);
+    background-color: var(--fundo-claro);
+}
+
+main {
+    align-items: center;
+    margin: 50px 0;
+}
+
+
+/* Definições Gerais */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.validar-conteudo {
+    display: flex;
+    gap: 25px;
+}
+
+.validar-conteudo .icone-pequeno {
+    width: 25px;
+}
+
+#email-validar, #senha-validacao {
+    display: flex;
+    margin: 25px 0;
+}
+
+[class*="input-"] input:focus {
+    outline: none;
+}
+
+[class*="input-"] input::placeholder {
+    color: var(--roxo-claro);
+}
+
+/* Confirmar E-mail */
+
+#confirmar-email [class*="email-"] {
+    grid-column: 2 / 12;
+}
+
+.email-superior {
+    display: flex;
+    align-items: center;
+    padding-left: 8.33vw;
+    height: 100px;
+    gap: 45px;
+    color: var(--fundo-claro);
+    background-color: var(--roxo);
+    border-radius: 40px 40px 0 0;
+}
+
+.email-conteudo {
+    padding: 0 8.33vw 0 8.33vw;
+    border: 3px solid var(--roxo);
+    border-radius: 0 0 40px 40px;
+}
+
+.email-conteudo .input-email {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.email-conteudo #formulario-email {
+    display: flex;
+    align-items: center;
+    width: 35vw;
+    height: 55px;
+    border: 3px solid var(--roxo);
+    border-radius: 15px;
+}
+
+.email-conteudo #formulario-icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.15vw;
+    height: 100%;
+    background-color: var(--roxo);
+    border-radius: 10px 0 0 10px;
+}
+
+#formulario-email input {
+    width: 22vw;
+    margin-left: 4.15vw;
+    color: var(--roxo);
+    background: none;
+}
+
+/* Alterar Senha */
+
+.senha-conteudo {
+    grid-column: 2 / 12;
+    padding: 0 8.33vw 0 8.33vw;
+    border: 3px solid var(--roxo);
+    border-radius: 40px;
+}
+
+.senha-conteudo .input-senhas {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.input-senhas [id*="senha-"] {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.input-senhas [id*="senha-"] .input-senha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw;
+    width: 15vw;
+    height: 55px;
+    border: 3px solid var(--roxo);
+    border-radius: 15px;
+}
+
+.input-senhas [id*="senha-"] input {
+    width: 8.5vw;
+    color: var(--roxo);
+    background: none;
+}
+
+#senha-validacao {
+    gap: 8.33vw;
+}
+
+/* Botões */
+
+.botoes {
+    grid-column: 2 / 12;
+    display: flex;
+    gap: 50px;
+}
+
+.botoes button:first-child {
+    background-color: var(--roxo);
+}
+
+.botoes button:last-child {
+    border: 3px solid var(--roxo);
+    background-color: var(--claro);
+}
