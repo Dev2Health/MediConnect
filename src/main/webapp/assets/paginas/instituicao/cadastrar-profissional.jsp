@@ -16,7 +16,7 @@
 		<div class="template-grid">
 			<h1 class="titulo texto-azul">Cadastrar Profissional</h1>
 		</div>
-		<form class="template-grid" action="inserir-profissional" method="post" enctype="multipart/form-data">
+		<form class="template-grid" action="inserir-profissional" method="post" enctype="multipart/form-data" autocomplete="off">
 			<div class="formulario-esquerda">
 				<div class="formulario-input">
 					<div class="input-icone">
@@ -24,7 +24,7 @@
 					</div>
 					<div class="input-item">
 						<label for="nome" class="texto">Nome</label>
-						<input class="texto-enfase" type="text" name="nome" id="i.nome" placeholder="Nome" maxlength="60" required>
+						<input class="texto-enfase" type="text" name="nome" id="i.nome" placeholder="Nome" maxlength="65" required>
 					</div>
 				</div>
 				<div class="formulario-input">
@@ -61,7 +61,7 @@
 					<div class="input-item">
 						<label for="sobrenome" class="texto">Sobrenome</label> <input
 							class="texto-enfase" type="text" name="sobrenome"
-							id="i.sobrenome" placeholder="Sobrenome" maxlength="60" required>
+							id="i.sobrenome" placeholder="Sobrenome" maxlength="65" required>
 					</div>
 				</div>
 			</div>

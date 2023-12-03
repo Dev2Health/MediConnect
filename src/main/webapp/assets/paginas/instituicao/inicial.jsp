@@ -82,7 +82,7 @@
 	                        <div class="label-profissionais">
 	                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
 	                            <div class="quantidade">
-	                                <p class="texto-enfase">8</p>
+	                                <p class="texto-enfase">1</p>
 	                                <%-- Tem que retornar a quantidade de profissionais da especialidade --%>
 	                            </div>
 	                        </div>

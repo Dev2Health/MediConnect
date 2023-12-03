@@ -17,7 +17,7 @@
             <h1 class="titulo">Informe os dados da instituição</h1>
         </div>
 
-        <form action="inserir-endereco" method="post" id="conteudo-formulario" class="template-grid">
+        <form action="inserir-endereco" method="post" id="conteudo-formulario" class="template-grid" autocomplete="off">
         <input type="hidden" name="id" value="<c:out value='${instituicao.id}'/>" />
             <div class="formulario-esquerda">
                 <div class="formulario-input">

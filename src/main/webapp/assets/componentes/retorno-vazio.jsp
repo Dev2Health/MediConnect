@@ -7,6 +7,6 @@
 	</div>
 	<div class="vazio-direita">
 		<h1 class="titulo-especial">Nada encontrado</h1>
-		<h2 class="subtitulo">Não foram encontradas informações</h2>
+		<h2 class="subtitulo">As informações não foram encontradas</h2>
 	</div>
 </div>

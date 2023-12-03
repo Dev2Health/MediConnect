@@ -18,7 +18,7 @@
             <h1 class="titulo">Informe seus dados</h1>
         </div>
       
-        <form action="inserir-paciente"  method="post" autocomplete="on" id="conteudo-formulario" class="template-grid" enctype="multipart/form-data">
+        <form action="inserir-paciente"  method="post" id="conteudo-formulario" class="template-grid" enctype="multipart/form-data" autocomplete="off">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">

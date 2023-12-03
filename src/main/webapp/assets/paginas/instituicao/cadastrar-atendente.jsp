@@ -13,7 +13,7 @@
 <body>
    <%@include file="../../componentes/cabecalhos/voltar.jsp"%> 
     <main>
-        <form class="template-grid" action="inserir-atendente" method="post" enctype="multipart/form-data">
+        <form class="template-grid" action="inserir-atendente" method="post" enctype="multipart/form-data" autocomplete="off">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">

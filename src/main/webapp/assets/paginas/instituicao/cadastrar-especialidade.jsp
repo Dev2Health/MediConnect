@@ -14,7 +14,7 @@
 	<%@include file="../../componentes/cabecalhos/voltar.jsp"%>
 	<main>
         <div class="template-grid">
-            <h1 class="subtitulo texto-azul">Cadastrar Especialidade</h1>
+            <h1 class="titulo texto-azul">Cadastrar Especialidade</h1>
         </div>
         <form action="inserir-especialidade" method="post" autocomplete="off">
 	        <div class="template-grid">

@@ -27,7 +27,7 @@ body {
     color: var(--azul-claro);
 }
 
-.input-icone img {
+.input-icone .icone-grande {
     filter: var(--filtro-azul-escuro);
 }
 
@@ -37,7 +37,12 @@ body {
     gap: 25px;
 }
 
-.validar-conteudo img {
+.validar-conteudo a {
+	display: flex;
+	gap: 25px;
+}
+
+.validar-conteudo .icone-pequeno {
     width: 25px;
 }
 
@@ -64,15 +69,11 @@ body {
     border-radius: 40px 40px 0 0;
 }
 
-.email-superior img {
-    width: 35px;
-}
-
 .email-conteudo {
     padding: 0 8.33vw 0 8.33vw;
     border: 3px solid var(--azul-claro);
     border-radius: 0 0 40px 40px;
-    background-color: var(--claro);    
+    background-color: var(--claro);
 }
 
 .email-conteudo .input-email {
@@ -98,10 +99,6 @@ body {
     height: 100%;
     background-color: var(--azul);
     border-radius: 10px 0 0 10px;
-}
-
-.formulario-icone img {
-    width: 35px;
 }
 
 .formulario-email input {
@@ -155,8 +152,7 @@ body {
     background: none;
 }
 
-.input-senhas [id*="senha-"] img {
-    width: 35px;
+.input-senhas [id*="senha-"] .icone-pequeno {
     filter: var(--filtro-azul);
 }
 
@@ -195,39 +191,4 @@ input[type=checkbox]::before {
 .botoes .botao-circular-m:last-child {
     background-color: var(--fundo-claro);
     border: 3px solid var(--azul);
-}
-
-/* Foto */
-
-#posicao-foto {
-    width: 37.485vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 265px;
-}
-
-.perfil-foto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 200px;
-    border: 3px solid var(--azul);
-    border-radius: 50%;
-    background-color: var(--claro);
-}
-#posicao-foto .perfil-foto .input-item {
-	display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#posicao-foto .perfil-foto .input-item img {
-	width: 100%;
-	border-radius: 50%;
-	z-index: -1;
-}
-#posicao-foto .perfil-foto .input-item .icone-grande {
-	width: 80px;
-	filter: var(--filtro-azul);
 }

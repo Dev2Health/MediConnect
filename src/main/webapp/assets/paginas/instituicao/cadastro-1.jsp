@@ -16,7 +16,7 @@
         <div class="template-grid">
             <h1 class="titulo">Informe os dados da instituição</h1>
         </div>
-        <form action="inserir-instituicao" method="post" id="conteudo-formulario" class="template-grid" enctype="multipart/form-data">
+        <form action="inserir-instituicao" method="post" id="conteudo-formulario" class="template-grid" enctype="multipart/form-data" autocomplete="off">
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">

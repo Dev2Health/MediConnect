@@ -19,7 +19,7 @@
         </div>
         <div class="conteudo-direita">
             <h1 class="titulo-especial">Olá! É bom ter você de volta!</h1>
-            <form action="confirmar-login" autocomplete="on" id="formulario">
+            <form action="confirmar-login" id="formulario" autocomplete="off">
                 <div class="formulario-input">
                     <div class="input-icone">
                     	<p class="input-imagem"><%@include file="/assets/imagens/icone-email.svg"%></p>
