@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,8 +22,11 @@
                     <button class="botao-quadrado-p texto-enfase">Todas</button>
                 </div>
             </div>
-            <div id="consulta">
-                <c:forEach var="consulta" items="${consultas}" class="template-grid">
+            <c:if test = "${empty notificacoes}">
+        		<%@include file="../../componentes/retorno-vazio.jsp"%>
+       		</c:if>
+            <div id="consulta" class="template-grid">
+                <c:forEach var="consulta" items="${consultas}">
 
                     <div class="card-horizontal">
                         <p class="texto-enfase">Título da consulta</p>
@@ -45,6 +49,6 @@
             </div>
         </section>
     </main>
-<%@include file="../../componentes/rodape/rodape.jsp"%>
+	<%@include file="../../componentes/rodape/rodape.jsp"%>
 </body>
 </html>

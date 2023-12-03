@@ -13,8 +13,6 @@
 </head>
 <body>
 
-   <%@include file="../../componentes/cabecalhos/editar-perfil.jsp"%>
-
     <main>
         <form action="atualizar-paciente" method="post"  enctype="multipart/form-data">
             <section id="visualizaveis">

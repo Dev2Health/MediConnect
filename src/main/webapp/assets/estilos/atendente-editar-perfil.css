@@ -1,31 +1,22 @@
 body {
     color: var(--escuro);
-    background-color: var(--fundo-instituicao);
+    background-color: var(--fundo-claro);
 }
 
-/* Menu */
+/* Cabeçalho */
 
-#cabecalho {
-    align-items: center;
-    height: 140px;
+.perfil-foto label {
+	border-color: var(--roxo);
 }
 
-.barra-navegacao {
-    grid-column: 2 / 4;
+/* Título */
+
+#retorno-pesquisa button {
     display: flex;
     align-items: center;
-    gap: 30px;
-}
-
-.barra-navegacao img {
-    width: 55px;
-}
-
-.perfil-foto  {
-    grid-column: 11 / 12;
-    width: 120px;
-    border: 3px solid var(--roxo);
-    border-radius: 50%;
+    justify-content: center;
+    gap: 25px;
+    background-color: var(--roxo-escuro);
 }
 
 /* Dados Formulário */
@@ -42,17 +33,18 @@ body {
     color: var(--roxo-claro);
 }
 
-.input-icone img {
-    filter: var(--filtro-roxo-escuro);
-}
-
 .validar-conteudo {
     display: flex;
     align-items: center;
     gap: 25px;
 }
 
-.validar-conteudo img {
+.validar-conteudo a {
+	display: flex;
+	gap: 25px;
+}
+
+.validar-conteudo .icone-pequeno {
     width: 25px;
 }
 
@@ -60,16 +52,6 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 25px 0;
-}
-
-/* Título */
-
-#retorno-pesquisa button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    background-color: var(--roxo-escuro);
 }
 
 /* Confirmar E-mail */
@@ -87,10 +69,6 @@ body {
     color: var(--fundo-claro);
     background-color: var(--roxo-escuro);
     border-radius: 40px 40px 0 0;
-}
-
-.email-superior img {
-    width: 35px;
 }
 
 .email-conteudo {
@@ -123,10 +101,6 @@ body {
     height: 100%;
     background-color: var(--roxo);
     border-radius: 10px 0 0 10px;
-}
-
-.formulario-icone img {
-    width: 35px;
 }
 
 .formulario-email input {
@@ -178,11 +152,6 @@ body {
     width: 8.5vw;
     color: var(--roxo);
     background: none;
-}
-
-.input-senhas [id*="senha-"] img {
-    width: 35px;
-    filter: var(--filtro-roxo);
 }
 
 /* Checkbox */
