@@ -36,10 +36,10 @@
                     <div class="card-consulta">
                         <div class="dados-superior">
                             <div>
-                                <p class="texto texto-roxo"> <c:out value="${consulta.especialidade}"/> </p>
-                                <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.endereco}"/> </p>
+                                <p class="texto texto-roxo"> <c:out value="${especialidade.nome}"/> </p>
+                                <p class="texto-pequeno texto-roxo"> <c:out value="${endereco.logradouro}"/>, <c:out value="${endereco.numero}"/></p>
                             </div>
-                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.profissional}"/> </p>
+                            <p class="texto-pequeno texto-roxo"> <c:out value="${profissional.nome}"/> <c:out value="${profissional.nome}"/></p>
                         </div>
                         <div class="dados-inferior">
                             <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.data}"/> </p>
@@ -60,14 +60,15 @@
             <div id="instituicao" class="template-grid">
                 <div class="cards-agrupamento">
 
+                    <c:forEach var="essaInstituicao" items="${instituicoes}">
                     <div class="card-instituicao">
                         <div class="card-foto">
                             <img src="">
                             <!-- Pegar a imagem de perfil da instituição -->
                         </div>
-                        <h2 class="subtitulo-especial texto-claro">Instituição Fritz Müller</h2>
+                        <h2 class="subtitulo-especial texto-claro"><c:out value="${essaInstituicao.nomeFantasia}"/></h2>
                     </div>
-
+					</c:forEach>
                 </div>
             </div>
         </section>

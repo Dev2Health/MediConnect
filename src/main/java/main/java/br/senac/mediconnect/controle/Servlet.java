@@ -710,13 +710,29 @@ public class Servlet extends HttpServlet {
 
 			List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
 			request.setAttribute("consultas", consultas);
+			for (Consulta consulta : consultas) {
+				Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
+				EspecialidadeProfissional especialidade = especialidadeDAO
+						.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
+				request.setAttribute("especialidade", especialidade);
+
+				Integer idProfissional = consulta.getProfissionalDeSaude().getId();
+				ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
+				request.setAttribute("profissional", profissional);
+
+				Integer idInstituicao = consulta.getInstituicao().getId();
+				Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+				request.setAttribute("instituicao", instituicao);
+				Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
+				request.setAttribute("endereco", endereco);
+			}
 
 //			Date dataConsulta = java.sql.Date.valueOf(paciente.getDataNasciento());
 //			request.setAttribute("dataConsulta", dataConsulta);
 //			List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistasPacientePorId(id);
 			List<Conquista> conquistas = conquistaDAO.recuperarListaDeConquistas(); // fazer filtrado depois
 			request.setAttribute("conquistas", conquistas);
-			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
+			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicao();
 			request.setAttribute("instituicoes", instituicoes);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/inicial.jsp");
