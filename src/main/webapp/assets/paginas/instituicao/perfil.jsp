@@ -69,7 +69,7 @@
             <div class="sessao-subtitulo">
                 <h2 class="subtitulo">Atendentes Cadastrados</h2>
             </div>
-			<c:if test = "${empty especialidades}">
+			<c:if test = "${empty atendentes}">
    	    		<%@include file="../../componentes/retorno-vazio.jsp"%>
         	</c:if>
             <div id="atendente" class="template-grid"> 
@@ -78,7 +78,7 @@
 	                	<div class="card-entidade">
 	                        <div class="card-superior">
 	                            <div class="entidade-imagem">
-	                                <%-- <img src="<c:out value='${urlFoto}'/>"> --%>
+	                                <img src="<c:out value='${atendente.urlFoto}'/>">
 	                            </div>
 	                            <div class="entidade-informacao">
 	                                <p class="texto"><c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>

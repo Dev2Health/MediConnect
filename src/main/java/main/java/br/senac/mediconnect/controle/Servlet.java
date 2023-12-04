@@ -728,9 +728,17 @@ public class Servlet extends HttpServlet {
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
-
+			
 			List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 			request.setAttribute("atendentes", atendentes);
+			List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
+			request.setAttribute("especialidades", especialidades);
+			for (EspecialidadeProfissional especialidade : especialidades) {
+				List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaudePorEspecialidade(especialidade);
+				request.setAttribute("profissionais", profissionais);
+				String numeroProfissionais = String.valueOf(profissionais.size());
+				request.setAttribute("numeroProfissionais", numeroProfissionais);
+			}
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
@@ -907,7 +915,18 @@ public class Servlet extends HttpServlet {
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
-
+			List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
+			request.setAttribute("atendentes", atendentes);
+			List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
+			request.setAttribute("especialidades", especialidades);
+			
+			for (EspecialidadeProfissional especialidade : especialidades) {
+				List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaudePorEspecialidade(especialidade);
+				request.setAttribute("profissionais", profissionais);
+				String numeroProfissionais = String.valueOf(profissionais.size());
+				request.setAttribute("numeroProfissionais", numeroProfissionais);
+			}
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
 			dispatcher.forward(request, response);
 		}
@@ -1243,12 +1262,15 @@ public class Servlet extends HttpServlet {
 	private void editarAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		HttpSession sessao = request.getSession();
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-		Integer id = usuario.getId();
+		Integer id = Integer.parseInt(request.getParameter("id"));
 		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 		
+		String ctps = request.getParameter("ctps");
 		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		String cpf = request.getParameter("cpf");
 		Part parteImagem = request.getPart("imagem");
 		String nomeArquivo = null;
 		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
@@ -1269,6 +1291,11 @@ public class Servlet extends HttpServlet {
 			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
 		}
 		atendente.setEmail(email);
+		atendente.setCtps(ctps);
+		atendente.setSenha(senha);
+		atendente.setNome(nome);
+		atendente.setSobrenome(sobrenome);
+		atendente.setCpf(cpf);
 		atendente.setFotoPerfil(urlFoto);
 		atendenteDAO.atualizarAtendente(atendente);
 		request.setAttribute("urlFoto", urlFoto);

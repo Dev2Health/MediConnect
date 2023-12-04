@@ -38,7 +38,7 @@
 	                    <div class="card-entidade">
 	                        <div class="card-superior">
 	                            <div class="entidade-imagem">
-	                                <%-- <img src="<c:out value='${urlFoto}'/>"> --%>
+	                                <img src="<c:out value='${atendente.urlFoto}'/>">
 	                            </div>
 	                            <div class="entidade-informacao">
 	                                <p class="texto"><c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
@@ -82,7 +82,7 @@
 	                        <div class="label-profissionais">
 	                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
 	                            <div class="quantidade">
-	                                <p class="texto-enfase">1</p>
+	                                <p class="texto-enfase"><c:out value="${numeroProfissionais}"/></p>
 	                                <%-- Tem que retornar a quantidade de profissionais da especialidade --%>
 	                            </div>
 	                        </div>
