@@ -276,6 +276,12 @@ public class Servlet extends HttpServlet {
 			case "/atualizar-atendente":
 				atualizarAtendente(request, response);
 				break;
+				
+			// TELA EDITAR PERFIL ATENDENTE
+				
+			case "/instituicao-atualizar-atendente":
+				editarAtendente(request, response);
+				break;
 
 			// TELA EDITAR PERFIL INSTITUICAO
 
@@ -1239,6 +1245,41 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("urlFoto", urlFoto);
 		response.sendRedirect("perfil");
 
+	}
+	private void editarAtendente(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
+		
+		String email = request.getParameter("email");
+		Part parteImagem = request.getPart("imagem");
+		String nomeArquivo = null;
+		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
+		
+		if (nomeArquivo != "") {
+			String extensao = null;
+			int pontoIndex = nomeArquivo.lastIndexOf('.');
+			if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+				extensao = nomeArquivo.substring(pontoIndex + 1);
+			}
+			
+			byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+			
+			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		}
+		atendente.setEmail(email);
+		atendente.setFotoPerfil(urlFoto);
+		atendenteDAO.atualizarAtendente(atendente);
+		request.setAttribute("urlFoto", urlFoto);
+		response.sendRedirect("perfil");
+		
 	}
 
 	private void mostrarTelaVerConsultas(HttpServletRequest request, HttpServletResponse response)
