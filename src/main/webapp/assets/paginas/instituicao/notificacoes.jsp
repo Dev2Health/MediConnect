@@ -13,7 +13,7 @@
 <body>
     <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
     <main>
-    	<c:if test = "${empty especialidades}">
+    	<c:if test = "${empty notificacoes}">
         	<%@include file="../../componentes/retorno-vazio.jsp"%>
        	</c:if>
         <div id="notificacoes" class="template-grid">

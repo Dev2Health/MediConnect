@@ -11,39 +11,46 @@
     <style><%@include file="../../estilos/atendente-pacientes.css"%></style>
 </head>
 <body>
-    <%@include file="../../componentes/cabecalhos/pesquisa-pacientes.jsp"%>
+    <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
     <main>
         <section>
             <div class="template-grid">
                 <h2 class="subtitulo">Pacientes com consulta hoje</h2>
             </div>
+            <c:if test = "${empty pacientes}">
+            	<%@include file="../../componentes/retorno-vazio.jsp"%>
+            </c:if>
             <div class="pacientes template-grid">
                 <div class="cards-agrupamento">
-                    <div class="card-entidade">
-                        <div class="card-superior">
-                            <div class="entidade-imagem">
-                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div class="entidade-informacao">
-                                <p class="texto">Mario de Oliveira</p>
-                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
-                            </div>
-                        </div>
-                        <div class="card-meio">
-                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
-                            <p class="texto">Informações Gerais</p>
-                        </div>
-                        <div class="card-inferior">
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">Data de nascimento</p>
-                                <p class="texto-sem-enfase">09/09/1984</p>
-                            </div>
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">CPF</p>
-                                <p class="texto-sem-enfase">123.456.789-10</p>
-                            </div>
-                        </div>
-                    </div>
+	                <c:forEach var="paciente" items="${pacientes}">
+	                
+	                    <div class="card-entidade">
+	                        <div class="card-superior">
+	                            <div class="entidade-imagem">
+	                            	<img>
+	                                <%-- foto do paciente --%>
+	                            </div>
+	                            <div class="entidade-informacao">
+	                                <p class="texto"><c:out value="${paciente.nome}"/></p>
+	                                <p class="texto-sem-enfase">Contato: (47) 9 9167-8729</p>
+	                            </div>
+	                        </div>
+	                        <div class="card-meio">
+	                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-informacoes.svg"%></p>
+	                            <p class="texto">Informações Gerais</p>
+	                        </div>
+	                        <div class="card-inferior">
+	                            <div class="inferior-informacao">
+	                                <p class="texto-sem-enfase">Data de nascimento</p>
+	                                <p class="texto-sem-enfase"><c:out value="${paciente.dataNascimento}"/></p>
+	                            </div>
+	                            <div class="inferior-informacao">
+	                                <p class="texto-sem-enfase">CPF</p>
+	                                <p class="texto-sem-enfase"><c:out value="${paciente.cpf}"/></p>
+	                            </div>
+	                        </div>
+	                    </div>
+	               	</c:forEach>
                 </div>
             </div>
         </section>
@@ -51,83 +58,42 @@
             <div class="template-grid">
                 <h2 class="subtitulo">Pacientes com consultas agendadas</h2>
             </div>
+            <c:if test = "${empty pacientes}">
+            	<%@include file="../../componentes/retorno-vazio.jsp"%>
+            </c:if>
             <div class="pacientes template-grid">
                 <div class="cards-agrupamento">
-                    <div class="card-entidade">
-                        <div class="card-superior">
-                            <div class="entidade-imagem">
-                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div class="entidade-informacao">
-                                <p class="texto">Mario de Oliveira</p>
-                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
-                            </div>
-                        </div>
-                        <div class="card-meio">
-                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
-                            <p class="texto">Informações Gerais</p>
-                        </div>
-                        <div class="card-inferior">
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">Data de nascimento</p>
-                                <p class="texto-sem-enfase">09/09/1984</p>
-                            </div>
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">CPF</p>
-                                <p class="texto-sem-enfase">123.456.789-10</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-entidade">
-                        <div class="card-superior">
-                            <div class="entidade-imagem">
-                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div class="entidade-informacao">
-                                <p class="texto">Mario de Oliveira</p>
-                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
-                            </div>
-                        </div>
-                        <div class="card-meio">
-                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
-                            <p class="texto">Informações Gerais</p>
-                        </div>
-                        <div class="card-inferior">
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">Data de nascimento</p>
-                                <p class="texto-sem-enfase">09/09/1984</p>
-                            </div>
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">CPF</p>
-                                <p class="texto-sem-enfase">123.456.789-10</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-entidade">
-                        <div class="card-superior">
-                            <div class="entidade-imagem">
-                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
-                            </div>
-                            <div class="entidade-informacao">
-                                <p class="texto">Mario de Oliveira</p>
-                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
-                            </div>
-                        </div>
-                        <div class="card-meio">
-                            <img src="./assets/imagens/icone-informacoes.svg" alt="icone-informações">
-                            <p class="texto">Informações Gerais</p>
-                        </div>
-                        <div class="card-inferior">
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">Data de nascimento</p>
-                                <p class="texto-sem-enfase">09/09/1984</p>
-                            </div>
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">CPF</p>
-                                <p class="texto-sem-enfase">123.456.789-10</p>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <c:forEach var="paciente" items="${pacientes}">
+	                
+	                    <div class="card-entidade">
+	                        <div class="card-superior">
+	                            <div class="entidade-imagem">
+	                            	<img>
+	                                <%-- foto do paciente --%>
+	                            </div>
+	                            <div class="entidade-informacao">
+	                                <p class="texto"><c:out value="${paciente.nome}"/></p>
+	                                <p class="texto-sem-enfase">Contato: (47) 9 9167-8729</p>
+	                            </div>
+	                        </div>
+	                        <div class="card-meio">
+	                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-informacoes.svg"%></p>
+	                            <p class="texto">Informações Gerais</p>
+	                        </div>
+	                        <div class="card-inferior">
+	                            <div class="inferior-informacao">
+	                                <p class="texto-sem-enfase">Data de nascimento</p>
+	                                <p class="texto-sem-enfase"><c:out value="${paciente.dataNascimento}"/></p>
+	                            </div>
+	                            <div class="inferior-informacao">
+	                                <p class="texto-sem-enfase">CPF</p>
+	                                <p class="texto-sem-enfase"><c:out value="${paciente.cpf}"/></p>
+	                            </div>
+	                        </div>
+	                    </div>
+	               	</c:forEach>
+                    
                 </div>
             </div>
         </section>

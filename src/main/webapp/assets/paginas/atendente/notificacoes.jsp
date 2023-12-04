@@ -13,60 +13,34 @@
 <body>
     <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
     <main>
+    	<c:if test = "${empty notificacoes}">
+        	<%@include file="../../componentes/retorno-vazio.jsp"%>
+       	</c:if>
         <div id="notificacoes" class="template-grid">
-            <c:forEach var="notificacao" items="${notificacoes}" >
-                <div class="card-notificacao">
-                    <div class="notificacao-superior">
-                        <h2 class="subtitulo">Notificação</h2>
-                        <!-- Adicionar o título da notificação com o JSP -->
-                        <div class="informacoes-consulta">
-                            <div class="informacao-data">
-                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
-                                <p class="texto">
-                                    <c:out value="${notificacao.data}" />
-                                </p>
-                            </div>
-                            <div class="informacao-horario">
-                                <img src="./assets/imagens/icone-horario.svg" alt="icone-horario">
-                                <p class="texto"> 
-                                    <c:out value="${notificacao.horario}"/>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="notificacao-inferior">
-                        <p class="texto-sem-enfase">
-                            <c:out value="${notificacao.descricao}"/>
-                        </p>
-                    </div>
-                </div>
+            <c:forEach var="notificacao" items="${notificacoes}">
+            
                 <div class="card-notificacao">
                     <div class="notificacao-superior">
                         <h2 class="subtitulo">Notificação</h2>
                         <div class="informacoes-consulta">
                             <div class="informacao-data">
-                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
-                                <p class="texto">
-                                    <c:out value="${notificacao.data}" />
-                                </p>
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
+                                <p class="texto"><c:out value="${notificacao.data}"/></p>
                             </div>
                             <div class="informacao-horario">
-                                <img src="./assets/imagens/icone-horario.svg" alt="icone-horario">
-                                <p class="texto"> 
-                                    <c:out value="${notificacao.horario}"/>
-                                </p>
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-horario.svg"%></p>
+                                <p class="texto"><c:out value="${notificacao.horario}"/></p>
                             </div>
                         </div>
                     </div>
                     <div class="notificacao-inferior">
-                        <p class="texto-sem-enfase">
-                            <c:out value="${notificacao.descricao}"/>
-                        </p>
+                        <p class="texto-sem-enfase"><c:out value="${notificacao.descricao}"/></p>
                     </div>
                 </div>
+                
             </c:forEach>
         </div>
     </main>
-<%@include file="../../componentes/rodape/rodape.jsp"%>
+	<%@include file="../../componentes/rodape/rodape.jsp"%>
 </body>
 </html>

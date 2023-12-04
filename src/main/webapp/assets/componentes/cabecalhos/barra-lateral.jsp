@@ -100,6 +100,10 @@
 							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-consulta.svg"%></p>
 						</div>
 						<div class="centro-icones">
+							<a href="./pacientes-atendente" class="texto texto-escuro">Pacientes</a>
+							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-paciente.svg"%></p>
+						</div>
+						<div class="centro-icones">
 							<a href="./notificacoes-paciente" class="texto texto-escuro">Notificações</a>
 							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-notificacao.svg"%></p> 
 						</div>

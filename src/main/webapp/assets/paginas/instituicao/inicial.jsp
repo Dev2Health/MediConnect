@@ -27,7 +27,7 @@
         </section>
         <section id="atendentes">
             <div class="template-grid titulo-sessao">
-                <h2 class="titulo-especial">Atendentes Recentes</h2>
+                <h2 class="titulo-especial">Atendentes da Instituição</h2>
             </div>
             <div id="atendente" class="template-grid">
                 <div class="cards-agrupamento">
@@ -35,31 +35,31 @@
                 		<%@include file="../../componentes/retorno-vazio.jsp"%>
                 	</c:if>
                     <c:forEach var="atendente" items="${atendentes}">
-                    <div class="card-entidade">
-                        <div class="card-superior">
-                            <div class="entidade-imagem">
-                                <%-- <img src="<c:out value='${urlFoto}'/>"> --%>
-                            </div>
-                            <div class="entidade-informacao">
-                                <p class="texto"><c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
-                                <p class="texto-sem-enfase">Nº Cadastro <c:out value="${atendente.id}"/></p>
-                            </div>
-                        </div>
-                        <div class="card-meio">
-                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-informacoes.svg"%></p>
-                            <p class="texto">Informações Gerais</p>
-                        </div>
-                        <div class="card-inferior">
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">Data de cadastro</p>
-                                <p class="texto-sem-enfase"><c:out value="${atendente.dataCadastro}"/></p>
-                            </div>
-                            <div class="inferior-informacao">
-                                <p class="texto-sem-enfase">CTPS</p>
-                                <p class="texto-sem-enfase"><c:out value="${atendente.ctps}"/></p>
-                            </div>
-                        </div>
-                    </div>
+	                    <div class="card-entidade">
+	                        <div class="card-superior">
+	                            <div class="entidade-imagem">
+	                                <%-- <img src="<c:out value='${urlFoto}'/>"> --%>
+	                            </div>
+	                            <div class="entidade-informacao">
+	                                <p class="texto"><c:out value="${atendente.nome}"/> <c:out value="${atendente.sobrenome}"/></p>
+	                                <p class="texto-sem-enfase">Nº Cadastro <c:out value="${atendente.id}"/></p>
+	                            </div>
+	                        </div>
+	                        <div class="card-meio">
+	                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-informacoes.svg"%></p>
+	                            <p class="texto">Informações Gerais</p>
+	                        </div>
+	                        <div class="card-inferior">
+	                            <div class="inferior-informacao">
+	                                <p class="texto-sem-enfase">Data de cadastro</p>
+	                                <p class="texto-sem-enfase"><c:out value="${atendente.dataCadastro}"/></p>
+	                            </div>
+	                            <div class="inferior-informacao">
+	                                <p class="texto-sem-enfase">CTPS</p>
+	                                <p class="texto-sem-enfase"><c:out value="${atendente.ctps}"/></p>
+	                            </div>
+	                        </div>
+	                    </div>
                     </c:forEach>
                 </div>
             </div>
