@@ -276,6 +276,12 @@ public class Servlet extends HttpServlet {
 			case "/atualizar-atendente":
 				atualizarAtendente(request, response);
 				break;
+				
+			// TELA EDITAR PERFIL ATENDENTE
+				
+			case "/instituicao-atualizar-atendente":
+				editarAtendente(request, response);
+				break;
 
 			// TELA EDITAR PERFIL INSTITUICAO
 
@@ -704,13 +710,29 @@ public class Servlet extends HttpServlet {
 
 			List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
 			request.setAttribute("consultas", consultas);
+			for (Consulta consulta : consultas) {
+				Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
+				EspecialidadeProfissional especialidade = especialidadeDAO
+						.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
+				request.setAttribute("especialidade", especialidade);
+
+				Integer idProfissional = consulta.getProfissionalDeSaude().getId();
+				ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
+				request.setAttribute("profissional", profissional);
+
+				Integer idInstituicao = consulta.getInstituicao().getId();
+				Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
+				request.setAttribute("instituicao", instituicao);
+				Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
+				request.setAttribute("endereco", endereco);
+			}
 
 //			Date dataConsulta = java.sql.Date.valueOf(paciente.getDataNasciento());
 //			request.setAttribute("dataConsulta", dataConsulta);
 //			List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistasPacientePorId(id);
 			List<Conquista> conquistas = conquistaDAO.recuperarListaDeConquistas(); // fazer filtrado depois
 			request.setAttribute("conquistas", conquistas);
-			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicoesRecentesPorIdPaciente(id);
+			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicao();
 			request.setAttribute("instituicoes", instituicoes);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/inicial.jsp");
@@ -722,9 +744,17 @@ public class Servlet extends HttpServlet {
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
-
+			
 			List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 			request.setAttribute("atendentes", atendentes);
+			List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
+			request.setAttribute("especialidades", especialidades);
+			for (EspecialidadeProfissional especialidade : especialidades) {
+				List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaudePorEspecialidade(especialidade);
+				request.setAttribute("profissionais", profissionais);
+				String numeroProfissionais = String.valueOf(profissionais.size());
+				request.setAttribute("numeroProfissionais", numeroProfissionais);
+			}
 
 			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
@@ -901,7 +931,18 @@ public class Servlet extends HttpServlet {
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
 
 			request.setAttribute("instituicao", instituicao);
-
+			List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
+			request.setAttribute("atendentes", atendentes);
+			List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
+			request.setAttribute("especialidades", especialidades);
+			
+			for (EspecialidadeProfissional especialidade : especialidades) {
+				List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaudePorEspecialidade(especialidade);
+				request.setAttribute("profissionais", profissionais);
+				String numeroProfissionais = String.valueOf(profissionais.size());
+				request.setAttribute("numeroProfissionais", numeroProfissionais);
+			}
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/perfil.jsp");
 			dispatcher.forward(request, response);
 		}
@@ -1233,6 +1274,49 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("urlFoto", urlFoto);
 		response.sendRedirect("perfil");
 
+	}
+	private void editarAtendente(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
+		
+		String ctps = request.getParameter("ctps");
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		String cpf = request.getParameter("cpf");
+		Part parteImagem = request.getPart("imagem");
+		String nomeArquivo = null;
+		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) {
+				nomeArquivo = content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
+		
+		if (nomeArquivo != "") {
+			String extensao = null;
+			int pontoIndex = nomeArquivo.lastIndexOf('.');
+			if (pontoIndex > 0 && pontoIndex < nomeArquivo.length() - 1) {
+				extensao = nomeArquivo.substring(pontoIndex + 1);
+			}
+			
+			byte[] bytesImagem = ConversorImagem.obterBytesImagem(parteImagem);
+			
+			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
+		}
+		atendente.setEmail(email);
+		atendente.setCtps(ctps);
+		atendente.setSenha(senha);
+		atendente.setNome(nome);
+		atendente.setSobrenome(sobrenome);
+		atendente.setCpf(cpf);
+		atendente.setFotoPerfil(urlFoto);
+		atendenteDAO.atualizarAtendente(atendente);
+		request.setAttribute("urlFoto", urlFoto);
+		response.sendRedirect("perfil");
+		
 	}
 
 	private void mostrarTelaVerConsultas(HttpServletRequest request, HttpServletResponse response)
