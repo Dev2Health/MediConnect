@@ -12,7 +12,7 @@
     <style><%@include file="../../estilos/paciente-editar-perfil.css"%></style>
 </head>
 <body>
-
+   <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
     <main>
         <form action="atualizar-paciente" method="post"  enctype="multipart/form-data">
             <section id="visualizaveis">

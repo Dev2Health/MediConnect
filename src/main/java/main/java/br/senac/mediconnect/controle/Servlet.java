@@ -983,9 +983,7 @@ public class Servlet extends HttpServlet {
 
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
-		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
-		String senha = request.getParameter("senha");
 		Part parteImagem = request.getPart("imagem");
 		String nomeArquivo = null;
 		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
@@ -1008,9 +1006,7 @@ public class Servlet extends HttpServlet {
 
 		paciente.setNome(nome);
 		paciente.setSobrenome(sobrenome);
-		paciente.setEmail(email);
 		paciente.setTelefone(telefone);
-		paciente.setSenha(senha);
 		paciente.setFotoPerfil(urlFoto);
 
 		pacienteDAO.atualizarPaciente(paciente);
@@ -1219,7 +1215,6 @@ public class Servlet extends HttpServlet {
 		Integer id = usuario.getId();
 		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
-		String email = request.getParameter("email");
 		Part parteImagem = request.getPart("imagem");
 		String nomeArquivo = null;
 		for (String content : parteImagem.getHeader("content-disposition").split(";")) {
@@ -1239,7 +1234,6 @@ public class Servlet extends HttpServlet {
 
 			urlFoto = ConversorImagem.urlFoto(bytesImagem, extensao);
 		}
-		atendente.setEmail(email);
 		atendente.setFotoPerfil(urlFoto);
 		atendenteDAO.atualizarAtendente(atendente);
 		request.setAttribute("urlFoto", urlFoto);
