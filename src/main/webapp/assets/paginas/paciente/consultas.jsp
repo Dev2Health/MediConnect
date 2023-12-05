@@ -62,14 +62,14 @@
                                 <div class="info-data">
                                     <img src="../../imagens/icone-calendario.svg" alt="icone-calendario">
                                     <fmt:parseDate value="${consulta.data}" type="date"
-					                    pattern="yyyy-MM-dd" var="parsedDate" />
-					                    <fmt:formatDate value="${parsedDate}" type="date"
-                    					pattern="dd/MM/yyyy" var="data" />
-                                        <p class="texto" type="date"><c:out value="${data}" /></p>
+                                    pattern="yyyy-MM-dd" var="parsedDate" />
+                                    <fmt:formatDate value="${parsedDate}" type="date"
+                                    pattern="dd/MM/yyyy" var="data" />
+                                    <p class="texto" type="date"><c:out value="${data}" /></p>
                                 </div>
                                 <div class="info-horario">
-                                    <img src="../../imagens/icone-horario.svg" alt="icone-calendario">
-                                    <p class="texto"><c:out value='${consulta.horario}'/></p>
+                                    <img src="../../imagens/icone-horario.svg" alt="icone-horario">
+                                    <p class="texto" type="time"><c:out value="${consulta.horario}" /></p>
                                 </div>
                             </div>
 			                <button onclick="abrirModal(${consulta.id})" class="btn-square-sm text-emphasis link-light">Ver detalhes <img src="../../images/icone-adicionar.svg"></button>

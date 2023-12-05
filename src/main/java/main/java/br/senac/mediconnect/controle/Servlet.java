@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,7 +50,6 @@ import main.java.br.senac.mediconnect.modelo.entidade.consulta.Consulta;
 import main.java.br.senac.mediconnect.modelo.entidade.endereco.Endereco;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeInstituicao.EspecialidadeInstituicao;
 import main.java.br.senac.mediconnect.modelo.entidade.especialidadeProfissional.EspecialidadeProfissional;
-import main.java.br.senac.mediconnect.modelo.entidade.foto.Foto;
 import main.java.br.senac.mediconnect.modelo.entidade.instituicao.Instituicao;
 import main.java.br.senac.mediconnect.modelo.entidade.notificacao.Notificacao;
 import main.java.br.senac.mediconnect.modelo.entidade.paciente.Paciente;
@@ -103,6 +103,7 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		TimeZone.setDefault(TimeZone.getTimeZone("America/Sao_Paulo"));
 		doGet(request, response);
 	}
 
@@ -110,6 +111,7 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		TimeZone.setDefault(TimeZone.getTimeZone("America/Sao_Paulo"));
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
@@ -672,7 +674,7 @@ public class Servlet extends HttpServlet {
 		Notificacao notificacao = notificacaoDAO.recuperarNotificacaoPorId(id);
 		;
 
-		notificacao.setEhAtivo(false);
+//		notificacao.setEhAtivo(false);
 
 		notificacaoDAO.atualizarNotificacao(notificacao);
 

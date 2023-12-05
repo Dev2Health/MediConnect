@@ -15,16 +15,16 @@
     <main>
         <section>
             <h2 class="title">Conquistas completas</h2>
-
-            <c:forEach var="conquistaCompleta" items="${conquistasCompletas}">
+6
+            <c:forEach var="conquistaCompleta" items="${conquistas}">
                 <div><!--agrupamento-->
                     <input type="hidden" value="<c:out value='${conquistaCompleta.id}'/>" />
                     <div><!--caixa-->
                         <div><!--icone-->
-                            <img src="../../imagens/icone-<c:out value='${conquistaCompleta.titulo}' />.svg" alt="icone-<c:out value='${conquistaCompleta.titulo}' />">
+                            <img src="../../imagens/icone-<c:out value='${conquistaCompleta.nome}' />.svg" alt="icone-<c:out value='${conquistaCompleta.nome}' />">
                     </div>
                     <div><!--texto-->
-                        <h2 class="subtitle"><c:out value='${conquistaCompleta.titulo}' /></h2>
+                        <h2 class="subtitle"><c:out value='${conquistaCompleta.nome}' /></h2>
                         <p class="text-no-emphasis"><c:out value='${conquistaCompleta.descricao}' /></p>
                     </div>
                     <div><!--nível-->
@@ -44,15 +44,15 @@
         <section>
             <h2 class="title">Conquistas em andamento</h2>
 
-            <c:forEach var="conquistaAndamento" items="${conquistasAndamento}">
+            <c:forEach var="conquistaAndamento" items="${conquistas}">
                 <div><!--agrupamento-->
                     <input type="hidden" value="<c:out value='${conquistaAndamento.id}'/>" />
                     <div><!--caixa-->
                         <div><!--icone-->
-                            <img src="../../imagens/icone-<c:out value='${conquistaAndamento.titulo}' />.svg" alt="icone-<c:out value='${conquistaAndamento.titulo}' />">
+                            <img src="../../imagens/icone-<c:out value='${conquistaAndamento.nome}' />.svg" alt="icone-<c:out value='${conquistaAndamento.nome}' />">
                     </div>
                     <div><!--texto-->
-                        <h2 class="subtitle"><c:out value='${conquistaAndamento.titulo}' /></h2>
+                        <h2 class="subtitle"><c:out value='${conquistaAndamento.nome}' /></h2>
                         <p class="text-no-emphasis"><c:out value='${conquistaAndamento.descricao}' /></p>
                     </div>
                     <div><!--nível-->

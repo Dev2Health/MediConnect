@@ -33,9 +33,6 @@ public class Notificacao implements Serializable{
 	@Column(name = "titulo_notificacao", length = 45, nullable = false, unique = false)
 	private String titulo;
 	
-	@Column(name = "eh_ativo_usuario", nullable = false)
-	private boolean ehAtivo;
-	
 	@Column(name = "descricao_notificacao", length = 200, nullable = false, unique = false)
 	private String descricao;
 	
@@ -88,15 +85,6 @@ public class Notificacao implements Serializable{
 		this.titulo = titulo;
 	}
 	
-	// ehAtivo
-	public boolean isEhAtivo() {
-		return ehAtivo;
-	}
-
-	public void setEhAtivo(boolean ehAtivo) {
-		this.ehAtivo = ehAtivo;
-	}
-
 	// Descrição
 	public String getDescricao() {
 		return descricao;
