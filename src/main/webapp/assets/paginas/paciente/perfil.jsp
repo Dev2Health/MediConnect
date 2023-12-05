@@ -14,71 +14,64 @@
 <body>
     <%@include file="../../componentes/cabecalhos/logado.jsp"%>
     <main>
-        <section id="perfil">
-            <div class="perfil-apresentacao">
-                <div class="perfil-foto">
-                    <img src="<c:out value='${urlFoto}'/>">
-                </div>
-                <div class="perfil-editar">
-                    <button class="botao-quadrado-m texto-enfase"> <a href="./editar-perfil">Editar Perfil </a> <img src="./assets/imagens/icone-editar.svg" alt="icone-editar"></button>
-                </div>
-            </div>
-            <div class="template-grid">
-                <div class="perfil-informacao">
-                    <div class="perfil-dados">
-                        <div class="perfil-imagem">
-                            <img class="icone-claro" src="./assets/imagens/icone-paciente.svg" alt="icone-paciente">
-                        </div>
-                        <div class="perfil-detalhes">
-                            <h2 class="subtitulo"> <c:out value="${paciente.nome}"/> <c:out value="${paciente.sobrenome}"/> </h2>
-                            <p class="texto"> <c:out value="${paciente.email}"/> </p>
-                        </div>
-                    </div>
-                    <div class="perfil-selos">
+    
+    	<section id="inicial" class="template-grid">
+	        <div id="perfil">
+	        	<div class="perfil-imagem">
+	        		<div class="perfil-apresentacao">
+		                <div class="perfil-foto">
+		                    <img src="<c:out value='${urlFoto}'/>">
+		                </div>
+	            	</div>
+	                <div class="perfil-editar">
+	                    <button class="botao-perfil texto-enfase">
+		                    <a href="./editar-perfil"><p class="icone-pequeno"><%@include file="/assets/imagens/icone-editar.svg"%></p></a>
+	                    </button>
+	                </div>
+	        	</div>
+	        	<div class="perfil-informacoes">
+	        		<div>
+		        		<h2 class="subtitulo"> <c:out value="${paciente.nome}"/> <c:out value="${paciente.sobrenome}"/></h2>
+						<p class="texto"> <c:out value="${paciente.email}"/> </p>
+					</div>
+					<div class="perfil-selos">
                         <div id="selo-assiduo">
                             <div class="selo-superior">
-                                <img src="./assets/imagens/icone-selo-assiduo.svg">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-selo-assiduo.svg"%></p>
                                 <span></span>
                             </div>
                             <p class="texto-pequeno texto-roxo">Assíduo</p>
                         </div>
                         <div id="selo-pontual">
                             <div class="selo-superior">
-                                <img src="./assets/imagens/icone-selo-pontual.svg">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-selo-pontual.svg"%></p>
                                 <span></span>
                             </div>
                             <p class="texto-pequeno texto-roxo">Pontual</p>
                         </div>
                     </div>
-                </div>
-            </div>
+	        	</div>
+	        </div>
         </section>
         <section id="conquistas" class="template-grid">
             <div id="container-conquistas">
-                <div class="conquistas-superior"> <!-- Fundo roxo, flex-column, align-center -->
+                <div class="conquistas-superior">
                     <div class="titulo-conquistas">
-                        <img src="./assets/imagens/icone-conquista.svg">
-                        <h2 class="subtitulo texto-claro">Conquistas</h2>
+                        <h2 class="subtitulo texto-roxo">Conquistas</h2>
                     </div>
                     <div id="barra-conquistas">
                         <input type="range" min="0" max="10" disabled>
-                        <!-- Informações necessárias:
-                            max = quantidade de conquistas totais
-                            value = conquistas completadas 
-                            
-                            Para mostrar o progresso, talvez seja necessário Javascript para alterar o width do -moz-range.
-                        -->
                     </div>
                 </div>
                 <div class="conquistas-inferior">
                     <div class="conquista">
-                        <img src="./assets/imagens/icone-profissional-favorito.svg">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-profissional-favorito.svg"%></p>
                     </div>
                     <div class="conquista">
-                        <img src="./assets/imagens/icone-nosso-presente.svg">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-nosso-presente.svg"%></p>
                     </div>
                     <div class="conquista">
-                        <img src="./assets/imagens/icone-explorador.svg">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-explorador.svg"%></p>
                     </div>
                     <div id="conquista-botao">
                         <a href="./conquistas-paciente" class="texto texto-roxo">Ver Todas</a>
@@ -90,43 +83,47 @@
             <div class="sessao-subtitulo">
                 <h2 class="subtitulo">Consultas Próximas</h2>
             </div>
-            <div id="consulta" class="template-grid">
-                <div class="card-horizontal">
-                    <p class="texto-enfase">Título da consulta</p>
-                    <div class="info-direita">
-                        <div class="info-variavel">
-                            <div class="info-data">
-                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
-                                <p class="texto">12/02/2024</p>
-                            </div>
-                            <div class="info-horario">
-                                <img src="./assets/imagens/icone-horario.svg" alt="icone-calendario">
-                                <p class="texto">13h59</p>
-                            </div>
-                        </div>
-                        <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
-                    </div>
-                </div>
+			<c:if test = "${empty consultas}">
+        		<%@include file="../../componentes/retorno-vazio.jsp"%>
+       		</c:if>
+            <c:forEach var="consulta" items="${consultas}">
+            	<div id="consulta-${consulta.id}" class="template-grid">
 
-                <div class="card-horizontal">
-                    <p class="texto-enfase">Título da consulta</p>
-                    <div class="info-direita">
-                        <div class="info-variavel">
-                            <div class="info-data">
-                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
-                                <p class="texto">12/02/2024</p>
+                    <div class="card-horizontal">
+                        <p class="texto-enfase">Consulta - <c:out value="${consulta.id}" /></p>
+                        <div class="info-direita">
+                            <div class="info-variavel">
+                                <div class="info-data">
+                                    <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
+                                    <fmt:parseDate value="${consulta.data}" type="date" pattern="yyyy-MM-dd" var="parsedDate" />
+					               	<fmt:formatDate value="${parsedDate}" type="date" pattern="dd/MM/yyyy" var="data" />
+									<p class="texto" type="date"><c:out value="${data}" /></p>
+                                </div>
+                                <div class="info-horario">
+                                    <p class="icone-grande"><%@include file="/assets/imagens/icone-horario.svg"%></p>
+                                    <p class="texto"><c:out value='${consulta.horario}'/></p>
+                                </div>
                             </div>
-                            <div class="info-horario">
-                                <img src="./assets/imagens/icone-horario.svg" alt="icone-calendario">
-                                <p class="texto">13h59</p>
-                            </div>
+			                <button onclick="abrirModal(${consulta.id})" class="botao-quadrado-p texto-enfase texto-claro">Ver detalhes</button>
                         </div>
-                        <button class="botao-quadrado-p texto-enfase">Ver detalhes</button>
+
                     </div>
-                </div>
-            </div>
+           		</div>
+           		
+            </c:forEach>
+            <c:forEach var="consulta" items="${consultas}">
+	            <div id="modal-${consulta.id}" class="modal">
+		            <div id="modal-conteudo-${consulta.id}" class="modal-conteudo">
+		                <%@include file="../../componentes/modais/consulta.jsp"%>
+		            </div>
+	            </div>
+            </c:forEach>
+
             <div class="ver-tudo">
-                <button class="botao-quadrado-p texto-enfase"> <a href="./consultas">Ver todas </a><img src="./assets/imagens/icone-seta.svg" alt="icone-seta"></button>
+                <button class="botao-quadrado-p texto-enfase">
+                	<a href="./consultas" class="texto-claro">Ver todas</a>
+                	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-seta.svg"%></p>
+                </button>
             </div>
         </section>
     </main>

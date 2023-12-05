@@ -3,10 +3,19 @@ body {
     background-color: var(--fundo-claro);
 }
 
+/* Side-Bar */
+
+.barra-superior .perfil-imagem {
+	border-color: var(--roxo);
+}
+
+.barra-lateral, .barra-inferior, .barra-rodape {
+	background-color: var(--fundo-claro);
+}
+
 /* Definições Gerais */
 
 .ver-tudo button {
-    color: var(--fundo-instituicao);
     background-color: var(--roxo-escuro);
 }
 
@@ -14,53 +23,30 @@ body {
     background-color: var(--roxo);
 }
 
-/* Perfil - Início */
+/* Retorno Vazio */
 
-#perfil {
-    grid-column: 2 / 12;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    gap: 85px;
+.retorno-vazio {
+	color: var(--roxo-claro);
 }
+
+/* Perfil - Início */
 
 .perfil-apresentacao .perfil-foto {
     border-color: var(--roxo);
 }
 
-.perfil-apresentacao .perfil-editar button {
+.perfil-editar button {
     background-color: var(--roxo-escuro);
 }
 
-.perfil-apresentacao .perfil-editar button:hover {
+.perfil-editar button:hover {
     background-color: var(--roxo);
 }
 
-.perfil-informacao {
-    grid-column: 2 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--claro);
-    background-color: var(--roxo);
-    border-radius: 40px;
-    height: 140px;
-}
-
-.perfil-dados {
-    display: flex;
-    align-items: center;
-}
-
-.perfil-dados .perfil-imagem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 12.5vw;
-}
-
-.perfil-dados .perfil-imagem img {
-    width: 50px;
+.perfil-informacoes {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 
 /* Perfil - Selos */
@@ -69,18 +55,18 @@ body {
     display: flex;
     align-items: center;
     gap: 65px;
-    margin-right: 8.33vw;
 }
 
 .perfil-selos [id*="selo-"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100px;
-    width: 100px;
+    height: 110px;
+    width: 110px;
     background-color: var(--claro);
+    border: 3px solid var(--roxo);
     border-radius: 15px;
-    padding: 5px;
+    padding: 5px 0;
 }
 
 .perfil-selos [id*="selo-"] .selo-superior {
@@ -89,11 +75,16 @@ body {
     align-items: flex-start;
 }
 
+.perfil-selos [id*="selo-"] .selo-superior .icone-grande {
+	width: 80px;
+}
+
 .perfil-selos [id*="selo-"] .selo-superior span {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     background-color: var(--verde);
     border-radius: 50%;
+    margin-left: -10px;
 }
 
 /* Conquistas */
@@ -101,6 +92,9 @@ body {
 #container-conquistas {
     grid-column: 2 / 12;
     margin: 80px 0;
+    border: 3px solid var(--roxo);
+    border-radius: 40px;
+    background-color: var(--claro);
 }
 
 .conquistas-superior {
@@ -108,14 +102,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    background-color: var(--roxo);
-    border-radius: 40px 40px 0 0;
-    padding: 20px 0 45px 0;
-}
-
-.conquistas-superior .titulo-conquistas {
-    display: flex;
-    gap: 40px;
+    padding: 20px 0;
 }
 
 #barra-conquistas input {
@@ -127,18 +114,14 @@ body {
 }
 
 #barra-conquistas input::-moz-range-track, input::-webkit-slider-runnable-track {
-    background: var(--claro);
+    background: var(--roxo);
     height: 2rem;
     border-radius: 15px;
 }
 
 input::-moz-range-thumb, input::-webkit-slider-thumb {
-    /* Vou inferir que esteja correto, mas precisa ser testado em outro Browser além do Firefox */
-    background-color: var(--verde);
-    border: 0.25rem solid var(--claro);
-    border-radius: 1rem;
-    height: 1.5rem;
-    width: 10rem;
+    background: none;
+    border: none;
 }
 
 .conquistas-inferior {
@@ -147,9 +130,6 @@ input::-moz-range-thumb, input::-webkit-slider-thumb {
     justify-content: center;
     gap: 65px;
     height: 300px;
-    background-color: var(--claro);
-    border: 3px solid var(--roxo);
-    border-radius: 0 0 40px 40px;
 }
 
 .conquista {
@@ -159,21 +139,11 @@ input::-moz-range-thumb, input::-webkit-slider-thumb {
     padding: 20px 0;
     width: 12.5vw;
     border-radius: 25px;
-}
-
-/* Para futura estilização de cada conquista separada */
-.conquista:nth-child(1) {
-    background-color: var(--azul);
-}
-.conquista:nth-child(2) {
-    background-color: var(--roxo);
-}
-.conquista:nth-child(3) {
     background-color: var(--roxo);
 }
 
-.conquista img {
-    height: 85px;
+.conquista .icone-grande {
+    width: 75px;
 }
 
 #conquista-botao {
@@ -189,9 +159,8 @@ input::-moz-range-thumb, input::-webkit-slider-thumb {
 
 /* Consultas */
 
-#consultas .sessao-subtitulo {
-    color: var(--roxo-escuro);
-    margin-bottom: 55px;
+#consultas {
+    margin: 50px 0;
 }
 
 .card-horizontal {

@@ -22,7 +22,7 @@
             <div class="formulario-esquerda">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-horario.svg" alt="icone-horario">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-horario.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="horario" class="texto">Horário</label>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-especialidade.svg" alt="icone-especialidade">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-especialidade.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="especialidade" class="texto">Especialidade</label>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-profissional.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="profissional" class="texto">Profissional</label>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     <p class="texto-sem-enfase">Li e estou de acordo com o <a href="#" class="texto-enfase texto-roxo">Termo de Uso e Política de Privacidade</a></p>
                 </div>
                 <div class="botoes">
@@ -69,7 +69,7 @@
             <div class="formulario-direita">
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="data" class="texto">Data</label>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <img src="./assets/imagens/icone-instituicao.svg" alt="icone-instituicao">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-instituicao.svg"%></p>
                     </div>
                     <div class="input-item">
                         <label for="instituicao" class="texto">Instituição</label>

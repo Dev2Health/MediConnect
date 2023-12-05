@@ -25,6 +25,14 @@ body {
     margin: 100px 0;
 }
 
+/* Retorno Vazio */
+
+.retorno-vazio {
+	color: var(--roxo-claro);
+	margin-top: 20px;
+}
+
+
 /* Início */
 
 #inicio {
@@ -104,6 +112,8 @@ body {
 }
 
 .card-instituicao .card-foto img {
-    height: 100%;
+    width: 100%;
+    height: 100%; 
     border-radius: 50%;
+    object-fit: cover;
 }

@@ -49,7 +49,7 @@
 	                    <p class="texto-enfase"><c:out value="${especialidade.nome}"/></p>
 	                    <div class="info-direita">
 	                        <div class="info-variavel">
-	                            <p class="icone-pequeno"><%@include file="/assets/imagens/icone-profissional.svg"%></p>
+	                            <p class="icone-grande"><%@include file="/assets/imagens/icone-profissional.svg"%></p>
 	                            <p class="texto">1</p>
 	                            <%-- Mostrar a quantidade de profissionais --%>
 	                        </div>

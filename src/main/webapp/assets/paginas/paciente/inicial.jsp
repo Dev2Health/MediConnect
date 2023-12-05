@@ -29,25 +29,28 @@
             <div class="template-grid titulo-sessao">
                 <h2 class="titulo-especial">Consultas <span class="texto-roxo">Pendentes</span></h2>
             </div>
+            <c:if test = "${empty consultas}">
+           		<%@include file="../../componentes/retorno-vazio.jsp"%>
+            </c:if>
             <div id="consulta" class="template-grid">
                 <div class="cards-agrupamento">
-                <c:forEach var="consulta" items="${consultas}">
+                	<c:forEach var="consulta" items="${consultas}">
                 
-                    <div class="card-consulta">
-                        <div class="dados-superior">
-                            <div>
-                                <p class="texto texto-roxo"> <c:out value="${especialidade.nome}"/> </p>
-                                <p class="texto-pequeno texto-roxo"> <c:out value="${endereco.logradouro}"/>, <c:out value="${endereco.numero}"/></p>
-                            </div>
-                            <p class="texto-pequeno texto-roxo"> <c:out value="${profissional.nome}"/> <c:out value="${profissional.nome}"/></p>
-                        </div>
-                        <div class="dados-inferior">
-                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.data}"/> </p>
-                            <div class="status-consulta">
-                                <p class="texto-pequeno texto-claro"><c:out value="${consulta.status}"/></p>
-                            </div>
-                        </div>
-                    </div>
+	                    <div class="card-consulta">
+	                        <div class="dados-superior">
+	                            <div>
+	                                <p class="texto texto-roxo"> <c:out value="${especialidade.nome}"/> </p>
+	                                <p class="texto-pequeno texto-roxo"> <c:out value="${endereco.logradouro}"/>, <c:out value="${endereco.numero}"/></p>
+	                            </div>
+	                            <p class="texto-pequeno texto-roxo"> <c:out value="${profissional.nome}"/> <c:out value="${profissional.nome}"/></p>
+	                        </div>
+	                        <div class="dados-inferior">
+	                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.data}"/> </p>
+	                            <div class="status-consulta">
+	                                <p class="texto-pequeno texto-claro"><c:out value="${consulta.status}"/></p>
+	                            </div>
+	                        </div>
+	                    </div>
                     
 					</c:forEach>
                 </div>
@@ -57,17 +60,20 @@
             <div class="template-grid titulo-sessao">
                 <h2 class="titulo-especial">Instituições <span class="texto-roxo">Visitadas</span></h2>
             </div>
+            <c:if test = "${empty instituicoes}">
+           		<%@include file="../../componentes/retorno-vazio.jsp"%>
+            </c:if>
             <div id="instituicao" class="template-grid">
                 <div class="cards-agrupamento">
-
                     <c:forEach var="essaInstituicao" items="${instituicoes}">
-                    <div class="card-instituicao">
-                        <div class="card-foto">
-                            <img src="">
-                            <!-- Pegar a imagem de perfil da instituição -->
-                        </div>
-                        <h2 class="subtitulo-especial texto-claro"><c:out value="${essaInstituicao.nomeFantasia}"/></h2>
-                    </div>
+                    
+	                    <div class="card-instituicao">
+	                        <%-- <div class="card-foto">
+	                            <img src="<c:out value='${urlFoto}'/>">
+	                        </div> --%>
+	                        <h2 class="subtitulo-especial texto-claro"><c:out value="${essaInstituicao.nomeFantasia}"/></h2>
+	                    </div>
+	                    
 					</c:forEach>
                 </div>
             </div>
