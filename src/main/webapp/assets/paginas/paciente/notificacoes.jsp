@@ -40,30 +40,6 @@
                         </p>
                     </div>
                 </div>
-                <div class="card-notificacao">
-                    <div class="notificacao-superior">
-                        <h2 class="subtitulo">Notificação</h2>
-                        <div class="informacoes-consulta">
-                            <div class="informacao-data">
-                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
-                                <p class="texto">
-                                    <c:out value="${notificacao.data}" />
-                                </p>
-                            </div>
-                            <div class="informacao-horario">
-                                <img src="./assets/imagens/icone-horario.svg" alt="icone-horario">
-                                <p class="texto"> 
-                                    <c:out value="${notificacao.horario}"/>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="notificacao-inferior">
-                        <p class="texto-sem-enfase">
-                            <c:out value="${notificacao.descricao}"/>
-                        </p>
-                    </div>
-                </div>
             </c:forEach>
         </div>
     </main>

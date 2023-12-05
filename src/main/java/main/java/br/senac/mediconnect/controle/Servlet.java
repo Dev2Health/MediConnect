@@ -1577,7 +1577,39 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
+	private void mostrarTelaCadastrarConquista(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/cadastrar-notificacao.jsp");
+		dispatcher.forward(request, response);
+		
+	}
 
+	private void inserirConquista(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorIdComProfissionais(id);
+		
+		ProfissionalDeSaude profissional = null;
+		
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+		Integer idEspecialidade = Integer.parseInt(request.getParameter("especialidade"));
+		EspecialidadeProfissional especialidade = especialidadeDAO
+				.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
+		profissional = new ProfissionalDeSaude(nome, sobrenome, especialidade, instituicao);
+		
+		profissionalDAO.inserirProfissionalDeSaude(profissional);
+		
+		instituicao.adicionarProfissionalDeSaude(profissional);
+		instituicaoDAO.atualizarInstituicao(instituicao);
+		
+		response.sendRedirect("especialidades-instituicao");
+		
+	}
 	private void inserirProfissional(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
@@ -1647,7 +1679,11 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaNotificacoesDaInstituicao(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		List<Notificacao> notificacoes = notificacaoDAO.recuperarNotificacao();
+		request.setAttribute("notificacoes", notificacoes);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/notificacoes.jsp");
 		dispatcher.forward(request, response);
 
@@ -1655,8 +1691,24 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaNotificacoesDoAtendente(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		List<Notificacao> notificacoes = notificacaoDAO.recuperarNotificacao();
+		request.setAttribute("notificacoes", notificacoes);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/notificacoes.jsp");
+		dispatcher.forward(request, response);
+
+	}
+	
+	private void mostrarTelaNotificacoesDoPaciente(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		List<Notificacao> notificacoes = notificacaoDAO.recuperarNotificacao();
+		request.setAttribute("notificacoes", notificacoes);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/notificacoes.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -1665,7 +1717,11 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarTelaCadastroDoPaciente(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+		List<Notificacao> notificacoes = notificacaoDAO.recuperarNotificacao();
+		request.setAttribute("notificacoes", notificacoes);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/cadastro.jsp");
 		dispatcher.forward(request, response);
 
@@ -1706,16 +1762,6 @@ public class Servlet extends HttpServlet {
 		Integer idInstituicao = consulta.getInstituicao().getId();
 		Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
 		request.setAttribute("instituicao", instituicao);
-
-	}
-
-	private void mostrarTelaNotificacoesDoPaciente(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-
-		List<Notificacao> notificacoes = notificacaoDAO.recuperarNotificacao();
-		request.setAttribute("notificacoes", notificacoes);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/notificacoes.jsp");
-		dispatcher.forward(request, response);
 
 	}
 

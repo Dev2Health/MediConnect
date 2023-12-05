@@ -29,7 +29,7 @@
                     </div>
                     <div><!--nível-->
                         <div>
-                            <p class="text-emphasis"><c:out value='${paciente-conquistaCompleta.nível}' /></p>
+                            <p class="text-emphasis"><c:out value='${conquistaCompleta.nivel}' /></p>
                         </div>
                         <div>
                             <p class="text-emphasis">--/--</p>
@@ -57,7 +57,7 @@
                     </div>
                     <div><!--nível-->
                         <div>
-                            <p class="text-emphasis"><c:out value='${paciente-conquistaAndamento.nível}' /></p>
+                            <p class="text-emphasis"><c:out value='${conquistaCompleta.nivel}' /></p>
                         </div>
                         <div>
                             <p class="text-emphasis">--/--</p>
