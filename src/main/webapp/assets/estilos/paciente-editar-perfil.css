@@ -3,6 +3,13 @@ body {
     background-color: var(--fundo-claro);
 }
 
+/* Cabeçalho */
+
+.perfil-foto label {
+	border-color: var(--roxo);
+}
+
+
 /* Títulos Sessões */
 
 #retorno-pesquisa button {
@@ -33,7 +40,12 @@ body {
     gap: 25px;
 }
 
-.validar-conteudo img {
+.validar-conteudo a {
+	display: flex;
+	gap: 25px;
+}
+
+.validar-conteudo .icone-pequeno {
     width: 25px;
 }
 
@@ -41,6 +53,12 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 25px 0;
+}
+
+/* Não editáveis*/
+
+#dados-visualizaveis [class*="formulario-"] .input-item input {
+	color: var(--roxo-claro);
 }
 
 /* Confirmar E-mail */
@@ -60,13 +78,9 @@ body {
     border-radius: 40px 40px 0 0;
 }
 
-.email-superior img {
-    width: 35px;
-}
-
 .email-conteudo {
     padding: 0 8.33vw 0 8.33vw;
-    border: 3px solid var(--roxo-claro);
+    border: 3px solid var(--roxo);
     border-radius: 0 0 40px 40px;
     background-color: var(--claro);    
 }
@@ -96,10 +110,6 @@ body {
     border-radius: 10px 0 0 10px;
 }
 
-.formulario-icone img {
-    width: 35px;
-}
-
 .formulario-email input {
     width: 22vw;
     margin-left: 4.15vw;
@@ -117,7 +127,7 @@ body {
 .senha-conteudo {
     grid-column: 2 / 12;
     padding: 0 8.33vw 0 8.33vw;
-    border: 3px solid var(--roxo-claro);
+    border: 3px solid var(--roxo);
     border-radius: 40px;
     background-color: var(--claro);
 }
@@ -151,10 +161,6 @@ body {
     background: none;
 }
 
-.input-senhas [id*="senha-"] img {
-    width: 35px;
-}
-
 /* Checkbox */
 
 .checkbox {
@@ -169,7 +175,7 @@ input[type=checkbox] {
 }
 
 input[type=checkbox]::before {
-    background-color: var(--roxo);
+    background-color: var(--roxo-escuro);
 }
 
 .checkbox a {

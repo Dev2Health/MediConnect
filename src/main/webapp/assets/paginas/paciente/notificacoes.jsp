@@ -13,21 +13,26 @@
 <body>
     <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
     <main>
+    	<%--
+    	<c:if test = "${empty notificacoes}">
+        	<%@include file="../../componentes/retorno-vazio.jsp"%>
+       	</c:if>
+       	 --%>
         <div class="template-grid" id="notificacoes">
             <c:forEach var="notificacao" items="${notificacoes}">
+            
                 <div class="card-notificacao">
                     <div class="notificacao-superior">
                         <h2 class="subtitulo">Notificação</h2>
-                        <!-- Adicionar o título da notificação com o JSP -->
                         <div class="informacoes-consulta">
-                            <div class="informacao-data">
-                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
+                            <div class="informacao-data">'
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
                                 <p class="texto">
                                     <c:out value="${notificacao.data}" />
                                 </p>
                             </div>
                             <div class="informacao-horario">
-                                <img src="./assets/imagens/icone-horario.svg" alt="icone-horario">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-horario.svg"%></p>
                                 <p class="texto"> 
                                     <c:out value="${notificacao.horario}"/>
                                 </p>

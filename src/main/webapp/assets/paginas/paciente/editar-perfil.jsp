@@ -12,9 +12,25 @@
     <style><%@include file="../../estilos/paciente-editar-perfil.css"%></style>
 </head>
 <body>
-   <%@include file="../../componentes/cabecalhos/voltar.jsp"%>
-    <main>
-        <form action="atualizar-paciente" method="post"  enctype="multipart/form-data">
+   <form action="atualizar-paciente" method="post" enctype="multipart/form-data">
+		<header class="template-grid" id="cabecalho">
+			<div class="barra-navegacao">
+		        <nav class="navegacao-voltar">
+		        	<p class="icone-grande"><%@include file="/assets/imagens/icone-voltar.svg"%></p>
+		            <a href="javascript:history.back()" class="texto texto-escuro">Voltar</a>
+		        </nav>
+		        <div class="perfil-foto">
+						<label for="input-imagem">
+					      	<c:if test = "${empty urlFoto}">
+								<p class="icone-grande"><%@include file="/assets/imagens/icone-camera.svg"%></p>
+							</c:if>
+			      			<img src="<c:out value='${urlFoto}'/>">
+						</label>
+					<input type="file" id="input-imagem" name="imagem" accept="image/*" style="display: none">
+		        </div>
+			</div>
+		</header>
+    	<main>
             <section id="visualizaveis">
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
@@ -25,7 +41,7 @@
                     <div class="formulario-esquerda">
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="./assets/imagens/icone-cpf.svg" alt="icone-cpf">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-cpf.svg"%></p>
                             </div>
                             <div class="input-item">
                                 <label for="cpf" class="texto">CPF</label>
@@ -36,7 +52,7 @@
                     <div class="formulario-direita">
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="./assets/imagens/icone-calendario.svg" alt="icone-calendario">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
                             </div>
                             <div class="input-item">
                                 <label for="nascimento" class="texto">Data de Nascimento</label>
@@ -52,50 +68,41 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados pessoais</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro">Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<p class="icone-pequeno"><%@include file="/assets/imagens/icone-editar.svg"%></p></button>
                     </div>
                 </div>
                 <div id="dados-editaveis" class="template-grid">
                     <div class="formulario-esquerda">
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="./assets/imagens/icone-paciente.svg" alt="icone-paciente">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-paciente.svg"%></p>
                             </div>
                             <div class="input-item">
                                 <label for="nome" class="texto">Nome</label>
-                                <input class="texto-enfase" type="text" id="i.nome" name="nome" value="<c:out value='${paciente.nome}'/>" maxlength="65" disabled>
+                                <input class="texto-enfase" type="text" id="i.nome" name="nome" value="<c:out value='${paciente.nome}'/>" maxlength="65">
                             </div>
                         </div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="./assets/imagens/icone-telefone.svg" alt="icone-telefone">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-telefone.svg"%></p>
                             </div>
                             <div class="input-item">
                                 <label for="telefone" class="texto">Telefone</label>
-                                <input class="texto-enfase" type="tel" id="i.telefone" name="telefone" value="<c:out value='${paciente.telefone}'/>" oninput="mascaraTelefone()" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" disabled>
+                                <input class="texto-enfase" type="tel" id="i.telefone" name="telefone" value="<c:out value='${paciente.telefone}'/>" oninput="mascaraTelefone()" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})">
                             </div>
                             <div class="input-elemento">
-                                <img src="./assets/imagens/icone-nao-verificado.svg">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>
                             </div>
                         </div>
                     </div>
                     <div class="formulario-direita">
-                    	<div id="posicao-foto">
-							<div class="perfil-foto">
-								<div class="input-item">
-									<img src="<c:out value='${urlFoto}'/>">
-									<label for="input-imagem"><p class="icone-grande"><%@include file="/assets/imagens/icone-camera.svg"%></p></label>
-									<input type="file" id="input-imagem" name="imagem" accept="image/*" style="display: none">
-								</div>
-							</div>
-						</div>
                         <div class="formulario-input">
                             <div class="input-icone">
-                                <img src="./assets/imagens/icone-paciente.svg" alt="icone-paciente">
+                                <p class="icone-grande"><%@include file="/assets/imagens/icone-paciente.svg"%></p>
                             </div>
                             <div class="input-item">
                                 <label for="sobrenome" class="texto">Sobrenome</label>
-                                <input class="texto-enfase" type="text" id="i.sobrenome" name="sobrenome" value="<c:out value='${paciente.sobrenome}'/>" maxlength="65" disabled>
+                                <input class="texto-enfase" type="text" id="i.sobrenome" name="sobrenome" value="<c:out value='${paciente.sobrenome}'/>" maxlength="65">
                             </div>
                         </div>
                     </div>
@@ -105,32 +112,32 @@
                 <div class="template-grid">
                     <div id="retorno-pesquisa">
                         <p class="texto">Alterar dados sensíveis</p>
-                        <button class="botao-quadrado-p texto-enfase texto-claro">Habilitar Edição<img src="./assets/imagens/icone-editar.svg"></button>
+                        <button class="botao-quadrado-p texto-enfase texto-claro" disabled>Habilitar Edição<p class="icone-pequeno"><%@include file="/assets/imagens/icone-editar.svg"%></p></button>
                     </div>
                 </div>
                 <div id="confirmar-email" class="template-grid">
                     <div class="email-superior">
-                        <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
-                        <p class="texto">E-mail Atual: value="<c:out value='${instituicao.email}'/>"</p> <!-- Pegar o email atual da instituição com o jsp -->
+                        <p class="icone-grande icone-claro"><%@include file="/assets/imagens/icone-email.svg"%></p>
+                        <p class="texto">E-mail Atual: <c:out value='${paciente.email}'/>"</p> <!-- Pegar o email atual da instituição com o jsp -->
                     </div>
                     <div class="email-conteudo">
                         <div class="input-email">
                             <label for="email" class="texto">Alterar E-mail</label>
                             <div class="formulario-email">
                                 <div class="formulario-icone">
-                                    <img class="icone-claro" src="./assets/imagens/icone-email.svg" alt="icone-email">
+                                    <p class="icone-pequeno icone-claro"><%@include file="/assets/imagens/icone-email.svg"%></p>
                                 </div>
                                 <input class="texto-enfase" type="email" id="i.email" name="email" placeholder="novo.email@gmail.com" maxlength="100">
                             </div>
                         </div>
                         <div class="email-validar">
                             <div class="validar-conteudo">
-                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
+                                <p class="icone-pequeno"><%@include file="/assets/imagens/icone-atencao.svg"%></p>
                                 <p class="texto-sem-enfase">Enviar o token de verificação para este e-mail</p>
                             </div>
                             <div class="validar-conteudo">
                                 <a class="texto-enfase">Enviar confirmação</a>
-                                <img src="./assets/imagens/icone-redirecionar.svg">
+                                <p class="icone-pequeno"><%@include file="/assets/imagens/icone-redirecionar.svg"%></p>
                             </div>
                         </div>
                     </div>
@@ -142,31 +149,31 @@
                                 <label for="senha" class="texto">Nova Senha</label>
                                 <div class="input-senha">
                                     <input class="texto-enfase" type="password" id="i.senha" name="senha" placeholder="********" maxlength="100">
-                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-senha">
+                                    <p class="icone-pequeno"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                                 </div>
                             </div>
                             <div id="senha-nova">
                                 <label for="novasenha" class="texto">Confirmar Senha</label>
                                 <div class="input-senha">
                                     <input class="texto-enfase" type="password" id="novasenha" name="novasenha" placeholder="********" maxlength="100">
-                                    <img src="./assets/imagens/icone-olho-fechado.svg" id="botao-novasenha">
+                                    <p class="icone-pequeno"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
                                 </div>
                             </div>
                         </div>
                         <div class="senha-validacao">
                             <div class="validar-conteudo">
-                                <img src="./assets/imagens/icone-atencao.svg" alt="icone-atencao">
+                                <p class="icone-pequeno"><%@include file="/assets/imagens/icone-atencao.svg"%></p>
                                 <p class="texto-sem-enfase">Enviar confirmação para o e-mail cadastrado</p>
                             </div>
                             <div class="validar-conteudo">
                                 <a href="#" class="texto-enfase texto-escuro">Enviar confirmação</a>
-                                <img src="./assets/imagens/icone-redirecionar.svg" alt="icone-redirecionar">
+                                <p class="icone-pequeno"><%@include file="/assets/imagens/icone-redirecionar.svg"%></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" required>
                     <p class="texto-sem-enfase">Li e estou de acordo com o <a href="#" class="texto-enfase texto-roxo">Termo de Uso e Política de Privacidade</a></p>
                 </div>
                 <div class="template-grid">
@@ -176,7 +183,7 @@
                     </div>
                 </div>
             </section>
-        </form>
-    </main>
+    	</main>
+    </form>
 </body>
 </html>

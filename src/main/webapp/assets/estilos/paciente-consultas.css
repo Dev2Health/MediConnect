@@ -40,38 +40,33 @@ main {
 	background-color: var(--roxo);
 }
 
-/* Retorno */
+/* Retorno Vazio */
 
-#botoes-opcoes {
-    grid-column: 2 / 12;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
+.retorno-vazio {
+	color: var(--roxo-claro);
 }
 
-#botoes-opcoes #agendar {
+
+/* Consultas - Título */
+
+#retornar-consultas {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 25px;
+}
+
+#retornar-consultas button {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: var(--roxo-escuro);
-}
-
-.botoes-selecao {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.botoes-selecao button {
-    color: var(--roxo);
-    background-color: var(--fundo-claro);
-    border: 3px solid var(--roxo);
     transition: background-color 200ms ease;
 }
 
-.botoes-selecao button:focus {
-    color: var(--fundo-claro);
-    background-color: var(--roxo);
+#retornar-consultas button:hover {
+	background-color: var(--roxo);
 }
 
 /* Consultas */

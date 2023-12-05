@@ -952,8 +952,13 @@ public class Servlet extends HttpServlet {
 		if (sessao.getAttribute("usuario") instanceof Atendente) {
 
 			Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
-
+			
+			Integer idInstituicao = atendente.getInstituicao().getId();
+			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao); 
+			Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(idInstituicao);
 			request.setAttribute("atendente", atendente);
+			request.setAttribute("instituicao", instituicao);
+			request.setAttribute("endereco", endereco);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
 			dispatcher.forward(request, response);
