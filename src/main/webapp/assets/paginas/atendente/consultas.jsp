@@ -22,7 +22,7 @@
                     <button class="botao-quadrado-p texto-enfase">Todas</button>
                 </div>
             </div>
-            <c:if test = "${empty notificacoes}">
+            <c:if test = "${empty consultas}">
         		<%@include file="../../componentes/retorno-vazio.jsp"%>
        		</c:if>
             <div id="consulta" class="template-grid">

@@ -20,7 +20,7 @@
     --azul-escuro: #3D5E87;
     --claro: #FBF8F3;
     --escuro: #232323;
-    --escuro-sombra: #23232340;
+    --escuro-sombra: #23232390;
     --verde: #5AC48C;
     --vermelho: #C45A5A;
     /* Fontes */
@@ -511,6 +511,63 @@ input[type=checkbox]:checked::before {
     align-items: center;
     text-align: center;
     gap: 40px;
+}
+
+/* Modais */
+
+.modal {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--escuro-sombra);
+}
+
+.modal-conteudo {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	height: 450px;
+	margin: 0 16.66vw;
+	background-color: var(--claro);
+	border-radius: 40px;
+}
+
+.modal-superior {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--roxo);
+	border-radius: 40px 40px 0 0;
+	width: 100%;
+	padding: 10px 50px;
+}
+
+.modal-superior .superior-icones {
+	display: flex;
+	gap: 30px;
+}
+
+#close-btn {
+	cursor: pointer;
+}
+
+.modal-informacoes .consulta-descricao {
+	padding: 20px 50px;
+	height: 165px;
+}
+
+.modal-informacoes .consulta-dados {
+	padding: 20px 50px;
+}
+
+.modal-informacoes .consulta-dados [class*="consulta-"] {
+	display: flex;
+	gap: 20px;
 }
 
 /* Cabeçalho - Geral */

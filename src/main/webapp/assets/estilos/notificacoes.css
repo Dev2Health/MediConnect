@@ -80,3 +80,7 @@ main {
 .notificacao-inferior {
     margin: 0 8.33vw 25px 8.33vw;
 }
+
+.notificacao-inferior .texto-enfase {
+	font-size: 1em;
+}

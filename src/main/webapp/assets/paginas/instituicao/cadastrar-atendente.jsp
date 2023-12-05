@@ -78,16 +78,6 @@
                 </div>
                 <div class="formulario-input">
                     <div class="input-icone">
-                        <p class="icone-grande"><%@include file="/assets/imagens/icone-numeros.svg"%></p>
-                    </div>
-                    <div class="input-item">
-                        <label for="cadastro" class="texto">Número de Cadastro</label>
-                        <input class="texto-enfase" type="number" name="cadastro" id="i.cadastro" placeholder="XXXXXX">
-                        <!-- Precisará advir do banco e ser mostrado com 'readonly' -->
-                    </div>
-                </div>
-                <div class="formulario-input">
-                    <div class="input-icone">
                         <p class="icone-grande"><%@include file="/assets/imagens/icone-email.svg"%></p>
                     </div>
                     <div class="input-item">
@@ -104,7 +94,19 @@
                     </div>
                     <div class="input-item">
                         <label for="email" class="texto">Senha</label>
-                        <input class="texto-enfase" type="password" name="senha" id="a.senha" placeholder="Senha" maxlength="100" required></input>
+                        <input class="texto-enfase" type="password" name="senha" id="a.senha" placeholder="********" maxlength="100" required></input>
+                    </div>
+                    <div class="input-elemento">
+                        <p class="icone-pequeno"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
+                    </div>
+                </div>
+				<div class="formulario-input">
+                    <div class="input-icone">
+                        <p class="icone-grande"><%@include file="/assets/imagens/icone-senha.svg"%></p>
+                    </div>
+                    <div class="input-item">
+                        <label for="email" class="texto">Confirmar Senha</label>
+                        <input class="texto-enfase" type="password" id="i.confirmar-senha" name="confirmar-senha" oninput="mascaraSenha()" maxlength="100" placeholder="********">
                     </div>
                     <div class="input-elemento">
                         <p class="icone-pequeno"><%@include file="/assets/imagens/icone-olho-fechado.svg"%></p>
