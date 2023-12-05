@@ -716,17 +716,17 @@ public class Servlet extends HttpServlet {
 				Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
 				EspecialidadeProfissional especialidade = especialidadeDAO
 						.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
-				request.setAttribute("especialidade", especialidade);
+				request.setAttribute("especialidade" + consulta.getId(), especialidade);
 
 				Integer idProfissional = consulta.getProfissionalDeSaude().getId();
 				ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
-				request.setAttribute("profissional", profissional);
+				request.setAttribute("profissional"  + consulta.getId(), profissional);
 
 				Integer idInstituicao = consulta.getInstituicao().getId();
 				Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
-				request.setAttribute("instituicao", instituicao);
+				request.setAttribute("instituicao"  + consulta.getId(), instituicao);
 				Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
-				request.setAttribute("endereco", endereco);
+				request.setAttribute("endereco"  + consulta.getId(), endereco);
 			}
 
 //			Date dataConsulta = java.sql.Date.valueOf(paciente.getDataNasciento());

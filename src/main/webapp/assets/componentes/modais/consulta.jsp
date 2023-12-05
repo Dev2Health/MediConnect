@@ -21,7 +21,7 @@
 			</div>
 			<div class="consulta-endereco">
 				<p class="icone-pequeno"><%@include file="/assets/imagens/icone-instituicao.svg"%></p>
-				<p class="texto-enfase texto-roxo"><c:out value="${instituicao.nomeFantasia}"/></p>
+				<p class="texto-enfase texto-roxo"><c:out value="${consulta.instituicao.nomeFantasia}"/></p>
 			</div>
 			<div class="consulta-profissional">
 				<p class="icone-pequeno"><%@include file="/assets/imagens/icone-profissional.svg"%></p>

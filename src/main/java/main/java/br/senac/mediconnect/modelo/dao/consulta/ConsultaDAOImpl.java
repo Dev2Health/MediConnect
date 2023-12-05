@@ -7,6 +7,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
@@ -1148,8 +1149,13 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
 			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
 
-			criteria.select(raizConsulta);
+			raizConsulta.fetch(Consulta_.especialidade_profissional, JoinType.LEFT);
+			raizConsulta.fetch(Consulta_.profissional_de_saude, JoinType.LEFT);
 
+			// Left join to fetch Instituicao and its associated Endereco
+			raizConsulta.fetch(Consulta_.instituicao).fetch(Instituicao_.endereco, JoinType.LEFT);
+
+			criteria.select(raizConsulta);
 			criteria.where(construtor.equal(raizConsulta.get(Consulta_.paciente).get(Paciente_.ID), id));
 
 			consultas = sessao.createQuery(criteria).getResultList();
