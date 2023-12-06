@@ -138,8 +138,14 @@ public class ConsultaDAOImpl implements ConsultaDAO {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
 			CriteriaQuery<Consulta> criteria = construtor.createQuery(Consulta.class);
-			Root<Consulta> raizAtendente = criteria.from(Consulta.class);
-			criteria.select(raizAtendente);
+			Root<Consulta> raizConsulta = criteria.from(Consulta.class);
+			raizConsulta.fetch(Consulta_.especialidade_profissional, JoinType.LEFT);
+			raizConsulta.fetch(Consulta_.profissional_de_saude, JoinType.LEFT);
+
+			// Left join to fetch Instituicao and its associated Endereco
+			raizConsulta.fetch(Consulta_.instituicao).fetch(Instituicao_.endereco, JoinType.LEFT);
+
+			criteria.select(raizConsulta);
 			consultas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();

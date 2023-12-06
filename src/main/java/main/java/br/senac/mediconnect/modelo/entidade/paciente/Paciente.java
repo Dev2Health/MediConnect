@@ -91,7 +91,7 @@ public class Paciente extends Pessoa implements Serializable {
 		
 	
 	// Data de Nascimento
-	public LocalDate getDataNasciento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 

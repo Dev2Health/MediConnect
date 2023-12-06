@@ -1,3 +1,5 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,7 +17,6 @@
     <main>
         <section>
             <h2 class="title">Conquistas completas</h2>
-6
             <c:forEach var="conquistaCompleta" items="${conquistas}">
                 <div><!--agrupamento-->
                     <input type="hidden" value="<c:out value='${conquistaCompleta.id}'/>" />
@@ -29,7 +30,7 @@
                     </div>
                     <div><!--nível-->
                         <div>
-                            <p class="text-emphasis"><c:out value='${conquistaCompleta.nivel}' /></p>
+                            <p class="text-emphasis">Nível 1</p>
                         </div>
                         <div>
                             <p class="text-emphasis">--/--</p>
@@ -57,7 +58,7 @@
                     </div>
                     <div><!--nível-->
                         <div>
-                            <p class="text-emphasis"><c:out value='${conquistaCompleta.nivel}' /></p>
+                            <p class="text-emphasis">Nível 1</p>
                         </div>
                         <div>
                             <p class="text-emphasis">--/--</p>

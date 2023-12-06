@@ -13,11 +13,9 @@
 <body>
     <%@include file="../../componentes/cabecalhos/filtro.jsp"%>
     <main>
-    	<%--
     	<c:if test = "${empty notificacoes}">
         	<%@include file="../../componentes/retorno-vazio.jsp"%>
        	</c:if>
-       	 --%>
         <div class="template-grid" id="notificacoes">
             <c:forEach var="notificacao" items="${notificacoes}">
             
@@ -25,7 +23,7 @@
                     <div class="notificacao-superior">
                         <h2 class="subtitulo">Notificação</h2>
                         <div class="informacoes-consulta">
-                            <div class="informacao-data">'
+                            <div class="informacao-data">
                                 <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
                                 <p class="texto">
                                     <c:out value="${notificacao.data}" />

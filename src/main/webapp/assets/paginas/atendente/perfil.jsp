@@ -95,12 +95,11 @@
 	                    <div class="card-entidade">
 	                        <div class="card-superior">
 	                            <div class="entidade-imagem">
-	                                <img>
-	                                <%-- Adicionar a foto de perfil do paciente --%>
+	                                <img src="<c:out value='${paciente.urlFoto}'/>">
 	                            </div>
 	                            <div class="entidade-informacao">
-	                                <p class="texto">Mario de Oliveira</p>
-	                                <p class="texto-sem-enfase">Contato: (47) 9 9721 2859</p>
+	                                <p class="texto"><c:out value='${paciente.nome}'/> <c:out value='${paciente.sobrenome}'/></p>
+	                                <p class="texto-sem-enfase">Contato: <c:out value='${paciente.telefone}'/></p>
 	                            </div>
 	                        </div>
 	                        <div class="card-meio">
@@ -110,11 +109,13 @@
 	                        <div class="card-inferior">
 	                            <div class="inferior-informacao">
 	                                <p class="texto-sem-enfase">Data de nascimento</p>
-	                                <p class="texto-sem-enfase">09/09/1984</p>
+	                                <fmt:parseDate value="${paciente.dataNascimento}" type="date" pattern="yyyy-MM-dd" var="parsedDate" />
+                                <fmt:formatDate value="${parsedDate}" type="date" pattern="dd/MM/yyyy" var="data" />
+                                <p class="texto-sem-enfase" type="datetime" id="i.nascimento" name="nascimento" value="${data}" disabled>
 	                            </div>
 	                            <div class="inferior-informacao">
 	                                <p class="texto-sem-enfase">CPF</p>
-	                                <p class="texto-sem-enfase">123.456.789-10</p>
+	                                <p class="texto-sem-enfase"><c:out value="${paciente.cpf}"/></p>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -124,7 +125,7 @@
             </div>
             <div class="ver-tudo">
                 <button class="botao-quadrado-p texto-enfase">
-                	<a href="./pacientes-atendente" class="texto-claro">Ver todas</a>
+                	<a href="./pacientes-atendente" class="texto-claro">Ver todos</a>
                 	<p class="icone-pequeno"><%@include file="/assets/imagens/icone-seta.svg"%></p>
                 </button>
             </div>

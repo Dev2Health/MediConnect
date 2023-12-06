@@ -731,6 +731,7 @@ public class Servlet extends HttpServlet {
 			List<Atendente> atendentes = atendenteDAO.recuperarListaDeAtendentesViaInstituicao(id);
 			request.setAttribute("atendentes", atendentes);
 			List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
+			
 			request.setAttribute("especialidades", especialidades);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/inicial.jsp");
@@ -743,8 +744,13 @@ public class Servlet extends HttpServlet {
 			request.setAttribute("atendente", atendente);
 
 			List<Paciente> pacientes = pacienteDAO.recuperarPacientes();
-			List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
+			List<Consulta> consultas = consultaDAO.recuperarListaDeConsultas();
 			request.setAttribute("pacientes", pacientes);
+			Consulta ultimaConsulta = null;
+			for (Consulta consulta : consultas) {
+				ultimaConsulta = consulta;
+			}
+			request.setAttribute("consulta", ultimaConsulta);
 			request.setAttribute("consultas", consultas);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/inicial.jsp");
@@ -894,8 +900,10 @@ public class Servlet extends HttpServlet {
 		if (sessao.getAttribute("usuario") instanceof Paciente) {
 
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
-
 			request.setAttribute("paciente", paciente);
+			
+			List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
+			request.setAttribute("consultas", consultas);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/perfil.jsp");
 			dispatcher.forward(request, response);
@@ -932,6 +940,14 @@ public class Servlet extends HttpServlet {
 			request.setAttribute("atendente", atendente);
 			request.setAttribute("instituicao", instituicao);
 			request.setAttribute("endereco", endereco);
+			
+			List<Paciente> pacientes = pacienteDAO.recuperarPacientes();
+
+			request.setAttribute("pacientes", pacientes);
+			
+			List<Consulta> consultas = consultaDAO.recuperarListaDeConsultas();
+			request.setAttribute("consultas", consultas);
+			
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/perfil.jsp");
 			dispatcher.forward(request, response);
@@ -950,7 +966,7 @@ public class Servlet extends HttpServlet {
 			Integer id = usuario.getId();
 			Paciente paciente = pacienteDAO.recuperarPacientePorId(id);
 
-			LocalDate dataNascimento = paciente.getDataNasciento();
+			LocalDate dataNascimento = paciente.getDataNascimento();
 			request.setAttribute("paciente", paciente);
 			request.setAttribute("dataNascimento", dataNascimento);
 
@@ -1287,8 +1303,15 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaVerConsultas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Verificar o nome da rota quando tiver o arquivo JSP pronto
+		HttpSession sessao = request.getSession();
 
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
+
+		List<Consulta> consultas = consultaDAO.recuperarListaDeConsultas();
+
+		request.setAttribute("consultas", consultas);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/atendente/consultas.jsp");
 		dispatcher.forward(request, response);
 
@@ -1297,11 +1320,13 @@ public class Servlet extends HttpServlet {
 	private void mostrarTelaVerPacientesCadastrados(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Integer id = usuario.getId();
 
 		Atendente atendente = atendenteDAO.recuperarAtendentePorId(id);
 
-		List<Paciente> pacientes = pacienteDAO.recuperarPacientesCadastradosViaInstituicaoPorIdAtendente(atendente);
+		List<Paciente> pacientes = pacienteDAO.recuperarPacientes();
 
 		request.setAttribute("pacientes", pacientes);
 
@@ -1652,7 +1677,6 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("notificacoes", notificacoes);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/notificacoes.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 	private void mostrarTelaNotificacoesDoAtendente(HttpServletRequest request, HttpServletResponse response)
