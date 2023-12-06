@@ -17,7 +17,13 @@
     <main>
         <section>
             <h2 class="title">Conquistas completas</h2>
-            <c:forEach var="conquistaCompleta" items="${conquistas}">
+            <c:if test = "${empty conquistasCompletas}">
+            <p>Você não fez uma conquista ainda.</p>
+      		</c:if>
+      		<c:if test = "${conquistasCompletas = null}">
+            <p>Você não fez uma conquista ainda.</p>
+      		</c:if>
+            <c:forEach var="conquistaCompleta" items="${conquistasCompletas}">
                 <div><!--agrupamento-->
                     <input type="hidden" value="<c:out value='${conquistaCompleta.id}'/>" />
                     <div><!--caixa-->
@@ -30,7 +36,7 @@
                     </div>
                     <div><!--nível-->
                         <div>
-                            <p class="text-emphasis">Nível 1</p>
+                            <p class="texto-sem-enfase">Nível 1</p>
                         </div>
                         <div>
                             <p class="text-emphasis">--/--</p>

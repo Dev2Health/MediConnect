@@ -21,7 +21,7 @@
             
                 <div class="card-notificacao">
                     <div class="notificacao-superior">
-                        <h2 class="subtitulo">Notificação</h2>
+                        <h2 class="subtitulo"><c:out value="${notificacao.titulo}" /></h2>
                         <div class="informacoes-consulta">
                             <div class="informacao-data">
                                 <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
