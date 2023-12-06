@@ -17,15 +17,15 @@
 		<div class="consulta-dados">
 			<div class="consulta-especialidade">
 				<p class="icone-pequeno"><%@include file="/assets/imagens/icone-especialidade.svg"%></p>
-				<p class="texto-enfase texto-roxo"><c:out value="${especialidade.nome}" /></p>
+				<p class="texto-enfase texto-roxo"><c:out value="${consulta.especialidadeProfissional.nome}" /></p>
 			</div>
 			<div class="consulta-endereco">
 				<p class="icone-pequeno"><%@include file="/assets/imagens/icone-instituicao.svg"%></p>
-				<p class="texto-enfase texto-roxo"><c:out value="${instituicao.nomeFantasia}"/></p>
+				<p class="texto-enfase texto-roxo"><c:out value="${consulta.instituicao.nomeFantasia}"/></p>
 			</div>
 			<div class="consulta-profissional">
 				<p class="icone-pequeno"><%@include file="/assets/imagens/icone-profissional.svg"%></p>
-				<p class="texto-enfase texto-roxo"><c:out value="${profissional.nome}"/> <c:out value="${profissional.sobrenome}"/></p>
+				<p class="texto-enfase texto-roxo"><c:out value="${consulta.profissionalDeSaude.nome}"/> <c:out value="${consulta.profissionalDeSaude.sobrenome}"/></p>
 			</div>
 		</div>
 	</div>

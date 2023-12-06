@@ -20,10 +20,12 @@
 		        </nav>
 		        <div class="perfil-foto">
 						<label for="input-imagem">
-					      	<c:if test = "${empty urlFoto}">
-								<p class="icone-grande"><%@include file="/assets/imagens/icone-camera.svg"%></p>
-							</c:if>
+							<c:if test = "${!empty urlFoto}">
 			      			<img src="<c:out value='${urlFoto}'/>">
+							</c:if>
+					      	<c:if test = "${empty urlFoto}">
+							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-camera.svg"%></p>
+							</c:if>
 						</label>
 					<input type="file" id="input-imagem" name="imagem" accept="image/*" style="display: none">
 		        </div>

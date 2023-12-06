@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,8 +28,7 @@
 	                    <div class="card-entidade">
 	                        <div class="card-superior">
 	                            <div class="entidade-imagem">
-	                            	<img>
-	                                <%-- foto do paciente --%>
+	                                <img src="<c:out value='${paciente.urlFoto}'/>">
 	                            </div>
 	                            <div class="entidade-informacao">
 	                                <p class="texto"><c:out value="${paciente.nome}"/></p>
@@ -42,7 +42,9 @@
 	                        <div class="card-inferior">
 	                            <div class="inferior-informacao">
 	                                <p class="texto-sem-enfase">Data de nascimento</p>
-	                                <p class="texto-sem-enfase"><c:out value="${paciente.dataNascimento}"/></p>
+	                                <fmt:parseDate value="${paciente.dataNascimento}" type="date" pattern="yyyy-MM-dd" var="parsedDate" />
+                                <fmt:formatDate value="${parsedDate}" type="date" pattern="dd/MM/yyyy" var="data" />
+                                <input class="texto-sem-enfase" type="datetime" id="i.nascimento" name="nascimento" value="${data}" disabled>
 	                            </div>
 	                            <div class="inferior-informacao">
 	                                <p class="texto-sem-enfase">CPF</p>
@@ -69,8 +71,7 @@
 	                    <div class="card-entidade">
 	                        <div class="card-superior">
 	                            <div class="entidade-imagem">
-	                            	<img>
-	                                <%-- foto do paciente --%>
+	                                <img src="<c:out value='${paciente.urlFoto}'/>">
 	                            </div>
 	                            <div class="entidade-informacao">
 	                                <p class="texto"><c:out value="${paciente.nome}"/></p>
@@ -84,7 +85,9 @@
 	                        <div class="card-inferior">
 	                            <div class="inferior-informacao">
 	                                <p class="texto-sem-enfase">Data de nascimento</p>
-	                                <p class="texto-sem-enfase"><c:out value="${paciente.dataNascimento}"/></p>
+	                                <fmt:parseDate value="${paciente.dataNascimento}" type="date" pattern="yyyy-MM-dd" var="parsedDate" />
+                                <fmt:formatDate value="${parsedDate}" type="date" pattern="dd/MM/yyyy" var="data" />
+                                <input class="texto-sem-enfase" type="datetime" id="i.nascimento" name="nascimento" value="${data}" disabled>
 	                            </div>
 	                            <div class="inferior-informacao">
 	                                <p class="texto-sem-enfase">CPF</p>

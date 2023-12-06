@@ -39,7 +39,7 @@
 	                    <div class="card-entidade">
 	                        <div class="card-superior">
 	                            <div class="entidade-imagem">
-	                                <img src="./assets/imagens/perfil-exemplo.jpg" alt="foto-de-perfil">
+	                                <img src="<c:out value='${paciente.urlFoto}'/>">
 	                            </div>
 	                            <div class="entidade-informacao">
 	                                <p class="texto"><c:out value="${paciente.nome}"/> <c:out value="${paciente.sobrenome}"/></p>

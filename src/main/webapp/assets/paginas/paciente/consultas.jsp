@@ -35,14 +35,16 @@
                         <div class="info-direita">
                             <div class="info-variavel">
                                 <div class="info-data">
-                                    <p class="icone-grande"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
-                                    <fmt:parseDate value="${consulta.data}" type="date" pattern="yyyy-MM-dd" var="parsedDate" />
-					               	<fmt:formatDate value="${parsedDate}" type="date" pattern="dd/MM/yyyy" var="data" />
-									<p class="texto" type="date"><c:out value="${data}" /></p>
+                                    <p class="icone-pequeno"><%@include file="/assets/imagens/icone-calendario.svg"%></p>
+                                    <fmt:parseDate value="${consulta.data}" type="date"
+                                    pattern="yyyy-MM-dd" var="parsedDate" />
+                                    <fmt:formatDate value="${parsedDate}" type="date"
+                                    pattern="dd/MM/yyyy" var="data" />
+                                    <p class="texto" type="date"><c:out value="${data}" /></p>
                                 </div>
                                 <div class="info-horario">
-                                    <p class="icone-grande"><%@include file="/assets/imagens/icone-horario.svg"%></p>
-                                    <p class="texto"><c:out value='${consulta.horario}'/></p>
+                                    <p class="icone-pequeno"><%@include file="/assets/imagens/icone-horario.svg"%></p>
+                                    <p class="texto" type="time"><c:out value="${consulta.horario}" /></p>
                                 </div>
                             </div>
 			                <button onclick="abrirModal(${consulta.id})" class="botao-quadrado-p texto-enfase texto-claro">Ver detalhes</button>

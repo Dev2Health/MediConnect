@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -50,7 +51,7 @@
 	                    <div class="info-direita">
 	                        <div class="info-variavel">
 	                            <p class="icone-grande"><%@include file="/assets/imagens/icone-profissional.svg"%></p>
-	                            <p class="texto">1</p>
+	                            <p class="texto"><c:out value="${fn:length(especialidade.profissionalDeSaude)}"/></p>
 	                            <%-- Mostrar a quantidade de profissionais --%>
 	                        </div>
 	                        <button class="botao-quadrado-p texto-enfase texto-claro">Ver detalhes</button>

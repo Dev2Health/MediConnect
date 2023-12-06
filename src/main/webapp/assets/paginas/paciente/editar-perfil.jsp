@@ -21,10 +21,12 @@
 		        </nav>
 		        <div class="perfil-foto">
 						<label for="input-imagem">
-					      	<c:if test = "${empty urlFoto}">
-								<p class="icone-grande"><%@include file="/assets/imagens/icone-camera.svg"%></p>
-							</c:if>
+							<c:if test = "${!empty urlFoto}">
 			      			<img src="<c:out value='${urlFoto}'/>">
+							</c:if>
+					      	<c:if test = "${empty urlFoto}">
+							<p class="icone-pequeno"><%@include file="/assets/imagens/icone-camera.svg"%></p>
+							</c:if>
 						</label>
 					<input type="file" id="input-imagem" name="imagem" accept="image/*" style="display: none">
 		        </div>
@@ -88,7 +90,7 @@
                             </div>
                             <div class="input-item">
                                 <label for="telefone" class="texto">Telefone</label>
-                                <input class="texto-enfase" type="tel" id="i.telefone" name="telefone" value="<c:out value='${paciente.telefone}'/>" oninput="mascaraTelefone()" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})">
+                                <input class="texto-enfase" type="tel" id="i.telefone" name="telefone" value="<c:out value='${paciente.telefone}'/>" oninput="mascaraTelefone()" maxlength="16" pattern="(\([0-9]{2}\))\s([9]{1})\s([0-9]{4})-([0-9]{4})">
                             </div>
                             <div class="input-elemento">
                                 <p class="icone-grande"><%@include file="/assets/imagens/icone-nao-verificado.svg"%></p>

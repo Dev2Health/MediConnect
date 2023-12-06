@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -39,13 +40,17 @@
 	                    <div class="card-consulta">
 	                        <div class="dados-superior">
 	                            <div>
-	                                <p class="texto texto-roxo"> <c:out value="${especialidade.nome}"/> </p>
-	                                <p class="texto-pequeno texto-roxo"> <c:out value="${endereco.logradouro}"/>, <c:out value="${endereco.numero}"/></p>
+	                                <p class="texto texto-roxo"> <c:out value="${consulta.especialidadeProfissional.nome}"/> </p>
+	                                <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.instituicao.endereco.logradouro}"/>, <c:out value="${consulta.instituicao.endereco.numero}"/></p>
 	                            </div>
-	                            <p class="texto-pequeno texto-roxo"> <c:out value="${profissional.nome}"/> <c:out value="${profissional.nome}"/></p>
+	                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.profissionalDeSaude.nome}"/> <c:out value="${consulta.profissionalDeSaude.sobrenome}"/></p>
 	                        </div>
 	                        <div class="dados-inferior">
-	                            <p class="texto-pequeno texto-roxo"> <c:out value="${consulta.data}"/> </p>
+	                            <fmt:parseDate value="${consulta.data}" type="date"
+                                    pattern="yyyy-MM-dd" var="parsedDate" />
+                                    <fmt:formatDate value="${parsedDate}" type="date"
+                                    pattern="dd/MM/yyyy" var="data" />
+                                    <p class="texto" type="date"><c:out value="${data}" /></p>
 	                            <div class="status-consulta">
 	                                <p class="texto-pequeno texto-claro"><c:out value="${consulta.status}"/></p>
 	                            </div>
