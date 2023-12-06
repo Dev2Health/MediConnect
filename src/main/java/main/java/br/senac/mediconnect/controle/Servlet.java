@@ -712,26 +712,6 @@ public class Servlet extends HttpServlet {
 
 			List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
 			request.setAttribute("consultas", consultas);
-			for (Consulta consulta : consultas) {
-				Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
-				EspecialidadeProfissional especialidade = especialidadeDAO
-						.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
-				request.setAttribute("especialidade" + consulta.getId(), especialidade);
-
-				Integer idProfissional = consulta.getProfissionalDeSaude().getId();
-				ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
-				request.setAttribute("profissional"  + consulta.getId(), profissional);
-
-				Integer idInstituicao = consulta.getInstituicao().getId();
-				Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
-				request.setAttribute("instituicao"  + consulta.getId(), instituicao);
-				Endereco endereco = enderecoDAO.recuperarEnderecoPorInstituicao(instituicao);
-				request.setAttribute("endereco"  + consulta.getId(), endereco);
-			}
-
-//			Date dataConsulta = java.sql.Date.valueOf(paciente.getDataNasciento());
-//			request.setAttribute("dataConsulta", dataConsulta);
-//			List<Conquista> conquistas = pacienteConquistaDAO.recuperarConquistasPacientePorId(id);
 			List<Conquista> conquistas = conquistaDAO.recuperarListaDeConquistas(); // fazer filtrado depois
 			request.setAttribute("conquistas", conquistas);
 			List<Instituicao> instituicoes = instituicaoDAO.recuperarInstituicao();
@@ -744,6 +724,7 @@ public class Servlet extends HttpServlet {
 
 		else if (sessao.getAttribute("usuario") instanceof Instituicao) {
 			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(id);
+			Integer idInstituicao = instituicao.getId();
 
 			request.setAttribute("instituicao", instituicao);
 			
@@ -751,14 +732,6 @@ public class Servlet extends HttpServlet {
 			request.setAttribute("atendentes", atendentes);
 			List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
 			request.setAttribute("especialidades", especialidades);
-			for (EspecialidadeProfissional especialidade : especialidades) {
-				List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaudePorEspecialidade(especialidade);
-				request.setAttribute("profissionais", profissionais);
-				String numeroProfissionais = String.valueOf(profissionais.size());
-				request.setAttribute("numeroProfissionais", numeroProfissionais);
-			}
-
-			// Cada info da tela inicial logada da institui��o � uma query diferente?
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/inicial.jsp");
 			dispatcher.forward(request, response);
@@ -1085,21 +1058,6 @@ public class Servlet extends HttpServlet {
 		List<Consulta> consultas = consultaDAO.recuperarConsultasViaPacientePorId(id);
 
 		request.setAttribute("consultas", consultas);
-
-		for (Consulta consulta : consultas) {
-			Integer idEspecialidade = consulta.getEspecialidadeProfissional().getId();
-			EspecialidadeProfissional especialidade = especialidadeDAO
-					.recuperarEspecialidadeDaInstituicaoPorId(idEspecialidade);
-			request.setAttribute("especialidade", especialidade);
-
-			Integer idProfissional = consulta.getProfissionalDeSaude().getId();
-			ProfissionalDeSaude profissional = profissionalDAO.recuperarProfissionalPorId(idProfissional);
-			request.setAttribute("profissional", profissional);
-
-			Integer idInstituicao = consulta.getInstituicao().getId();
-			Instituicao instituicao = instituicaoDAO.recuperarInstituicaoPorId(idInstituicao);
-			request.setAttribute("instituicao", instituicao);
-		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/paciente/consultas.jsp");
 		dispatcher.forward(request, response);
@@ -1493,11 +1451,12 @@ public class Servlet extends HttpServlet {
 
 		List<EspecialidadeProfissional> especialidades = especialidadeDAO.recuperarEspecialidadesProfissionais();
 		request.setAttribute("especialidades", especialidades);
-		
-		for (EspecialidadeProfissional especialidade : especialidades) {
-			List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaudePorEspecialidade(especialidade);
-			request.setAttribute("profissionais", profissionais);
-		}
+//		
+//		for (EspecialidadeProfissional especialidade : especialidades) {
+//			especialidade.getProfissionalDeSaude();
+//			List<ProfissionalDeSaude> profissionais = profissionalDAO.recuperarProfissionaisDeSaudePorEspecialidade(especialidade);
+//			request.setAttribute("profissionais", profissionais);
+//		}
 		
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("assets/paginas/instituicao/especialidades.jsp");

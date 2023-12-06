@@ -39,7 +39,7 @@
 		            </div>
 		            
 		            <div class="especialidade-profissionais">
-		            	<c:forEach var="profissional" items="${profissionais}">
+		            	<c:forEach var="profissional" items="${especialidade.profissionalDeSaude}">
 	            			<p class="texto"><c:out value="${profissional.nome}"/> <c:out value="${profissional.sobrenome}"/></p>
 	            		</c:forEach>
 		            </div>

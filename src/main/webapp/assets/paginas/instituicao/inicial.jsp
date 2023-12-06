@@ -1,5 +1,6 @@
 <%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -82,7 +83,7 @@
 	                        <div class="label-profissionais">
 	                            <img src="./assets/imagens/icone-profissional.svg" alt="icone-profissional">
 	                            <div class="quantidade">
-	                                <p class="texto-enfase"><c:out value="${numeroProfissionais}"/></p>
+	                                <p class="texto-enfase"><c:out value="${fn:length(especialidade.profissionalDeSaude)}"/></p>
 	                                <%-- Tem que retornar a quantidade de profissionais da especialidade --%>
 	                            </div>
 	                        </div>
